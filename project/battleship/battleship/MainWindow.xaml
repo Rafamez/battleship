@@ -1,0 +1,361 @@
+﻿<Window x:Name="mainWindow" x:Class="battleship.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:battleship"
+        mc:Ignorable="d"
+        Title="Battleship" 
+        Height="416.8" Width="911.6" MinHeight="300" MinWidth="600" SizeChanged="Window_SizeChanged">
+    <StackPanel Height="auto" Width="auto" Margin="0,0,-0.4,-3.8" Background="White">
+
+        <ToolBar x:Name="menu" Background="White">
+            <Menu>
+                <MenuItem x:Name="Languages" Header="Language">
+                    <MenuItem x:Name="FrenchLanguage"  Header="French" Click="French" />
+                    <MenuItem x:Name="EnglishLanguage" Header="English" Click="English"/>
+                </MenuItem>
+                <MenuItem x:Name="Cheats" Header="Cheats">
+                    <MenuItem x:Name="On" Header="On" Icon="" Checked="CheatsOn" IsCheckable="True"/>
+                    <MenuItem x:Name="Off" Header="Off" Icon=""  Checked="CheatsOff" IsCheckable="True"/>
+                </MenuItem>
+            </Menu>
+        </ToolBar>
+        
+        
+        <Label x:Name="Title" Content="Battleship: The Game" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontFamily="BatmanForeverAlternate"/>
+
+
+        <Border BorderBrush="Black" BorderThickness="2" Height="39" Margin="0,0,-0.8,0">
+            <WrapPanel>
+                <Label x:Name="scoreLabel" Content="Score" Width="60" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10 10 10 10" FontFamily="BatmanForeverAlternate"/>
+                <TextBlock x:Name="_Score" Text="0" Width="80" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 10 5 10" Padding="4" FontFamily="BatmanForeverAlternate"/>
+
+                <Label x:Name="TimeLabel" Content="Time" Width="auto" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10 10 10 10" FontFamily="BatmanForeverAlternate"/>
+                <TextBlock x:Name="_Time" Text="0" Width="43" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 10 5 10" Padding="3" FontFamily="BatmanForeverAlternate"/>
+
+                <Label x:Name="Difficulty" Content="Difficulty" Width="auto" Height="22" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10 10 10 10" FontFamily="BatmanForeverAlternate"/>
+                <Button x:Name="Easy" Content="Easy" FontFamily="BatmanForeverAlternate"  Width="65" Click="Easy_Click"/>
+                <Button x:Name="Medium" Content="Medium" FontFamily="BatmanForeverAlternate" Width="65" Click="Medium_Click"/>
+                <Button x:Name="Hard" Content="Hard" FontFamily="BatmanForeverAlternate" Width="65" Click="Hard_Click"/>
+
+            </WrapPanel>
+        </Border>
+        <Grid x:Name="GameGrid">
+            <DockPanel LastChildFill="False">
+                <Grid x:Name="PlayerGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30 10 350 0" DockPanel.Dock="Left">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="placeholder01" Content="PlaceHolder" Grid.Row="1" Grid.Column="1"/>
+                    <Button x:Name="placeholder02" Content="PlaceHolder" Grid.Row="1" Grid.Column="2"/>
+                    <Button x:Name="placeholder03" Content="PlaceHolder" Grid.Row="1" Grid.Column="3"/>
+                    <Button x:Name="placeholder04" Content="PlaceHolder" Grid.Row="1" Grid.Column="4"/>
+                    <Button x:Name="placeholder05" Content="PlaceHolder" Grid.Row="1" Grid.Column="5"/>
+                    <Button x:Name="placeholder06" Content="PlaceHolder" Grid.Row="1" Grid.Column="6"/>
+                    <Button x:Name="placeholder07" Content="PlaceHolder" Grid.Row="1" Grid.Column="7"/>
+                    <Button x:Name="placeholder08" Content="PlaceHolder" Grid.Row="1" Grid.Column="8"/>
+                    <Button x:Name="placeholder09" Content="PlaceHolder" Grid.Row="1" Grid.Column="9"/>
+                    <Button x:Name="placeholder010" Content="PlaceHolder" Grid.Row="1" Grid.Column="10"/>
+                    <Button x:Name="placeholder011" Content="PlaceHolder" Grid.Row="1" Grid.Column="1"/>
+
+
+                    <Button x:Name="placeholder1" Content="PlaceHolder" Grid.Row="2" Grid.Column="1"/>
+                    <Button x:Name="placeholder2" Content="PlaceHolder" Grid.Row="2" Grid.Column="2"/>
+                    <Button x:Name="placeholder3" Content="PlaceHolder" Grid.Row="2" Grid.Column="3"/>
+                    <Button x:Name="placeholder4" Content="PlaceHolder" Grid.Row="2" Grid.Column="4"/>
+                    <Button x:Name="placeholder5" Content="PlaceHolder" Grid.Row="2" Grid.Column="5"/>
+                    <Button x:Name="placeholder6" Content="PlaceHolder" Grid.Row="2" Grid.Column="6"/>
+                    <Button x:Name="placeholder7" Content="PlaceHolder" Grid.Row="2" Grid.Column="7"/>
+                    <Button x:Name="placeholder8" Content="PlaceHolder" Grid.Row="2" Grid.Column="8"/>
+                    <Button x:Name="placeholder9" Content="PlaceHolder" Grid.Row="2" Grid.Column="9"/>
+                    <Button x:Name="placeholder10" Content="PlaceHolder" Grid.Row="2" Grid.Column="10"/>
+
+                    <Button x:Name="placeholder001" Content="PlaceHolder" Grid.Row="3" Grid.Column="1"/>
+                    <Button x:Name="placeholder002" Content="PlaceHolder" Grid.Row="3" Grid.Column="2"/>
+                    <Button x:Name="placeholder003" Content="PlaceHolder" Grid.Row="3" Grid.Column="3"/>
+                    <Button x:Name="placeholder004" Content="PlaceHolder" Grid.Row="3" Grid.Column="4"/>
+                    <Button x:Name="placeholder005" Content="PlaceHolder" Grid.Row="3" Grid.Column="5"/>
+                    <Button x:Name="placeholder006" Content="PlaceHolder" Grid.Row="3" Grid.Column="6"/>
+                    <Button x:Name="placeholder007" Content="PlaceHolder" Grid.Row="3" Grid.Column="7"/>
+                    <Button x:Name="placeholder008" Content="PlaceHolder" Grid.Row="3" Grid.Column="8"/>
+                    <Button x:Name="placeholder009" Content="PlaceHolder" Grid.Row="3" Grid.Column="9"/>
+                    <Button x:Name="placeholder0010" Content="PlaceHolder" Grid.Row="3" Grid.Column="10"/>
+
+                    <Button x:Name="placeholder0001" Content="PlaceHolder" Grid.Row="4" Grid.Column="1"/>
+                    <Button x:Name="placeholder0002" Content="PlaceHolder" Grid.Row="4" Grid.Column="2"/>
+                    <Button x:Name="placeholder0003" Content="PlaceHolder" Grid.Row="4" Grid.Column="3"/>
+                    <Button x:Name="placeholder0004" Content="PlaceHolder" Grid.Row="4" Grid.Column="4"/>
+                    <Button x:Name="placeholder0005" Content="PlaceHolder" Grid.Row="4" Grid.Column="5"/>
+                    <Button x:Name="placeholder0006" Content="PlaceHolder" Grid.Row="4" Grid.Column="6"/>
+                    <Button x:Name="placeholder0007" Content="PlaceHolder" Grid.Row="4" Grid.Column="7"/>
+                    <Button x:Name="placeholder0008" Content="PlaceHolder" Grid.Row="4" Grid.Column="8"/>
+                    <Button x:Name="placeholder0009" Content="PlaceHolder" Grid.Row="4" Grid.Column="9"/>
+                    <Button x:Name="placeholder00010" Content="PlaceHolder" Grid.Row="4" Grid.Column="10"/>
+
+                    <Button x:Name="placeholder00001" Content="PlaceHolder" Grid.Row="5" Grid.Column="1"/>
+                    <Button x:Name="placeholder00002" Content="PlaceHolder" Grid.Row="5" Grid.Column="2"/>
+                    <Button x:Name="placeholder00003" Content="PlaceHolder" Grid.Row="5" Grid.Column="3"/>
+                    <Button x:Name="placeholder00004" Content="PlaceHolder" Grid.Row="5" Grid.Column="4"/>
+                    <Button x:Name="placeholder00005" Content="PlaceHolder" Grid.Row="5" Grid.Column="5"/>
+                    <Button x:Name="placeholder00006" Content="PlaceHolder" Grid.Row="5" Grid.Column="6"/>
+                    <Button x:Name="placeholder00007" Content="PlaceHolder" Grid.Row="5" Grid.Column="7"/>
+                    <Button x:Name="placeholder00008" Content="PlaceHolder" Grid.Row="5" Grid.Column="8"/>
+                    <Button x:Name="placeholder00009" Content="PlaceHolder" Grid.Row="5" Grid.Column="9"/>
+                    <Button x:Name="placeholder000010" Content="PlaceHolder" Grid.Row="5" Grid.Column="10"/>
+
+                    <Button x:Name="placeholder000001" Content="PlaceHolder" Grid.Row="6" Grid.Column="1"/>
+                    <Button x:Name="placeholder000002" Content="PlaceHolder" Grid.Row="6" Grid.Column="2"/>
+                    <Button x:Name="placeholder000003" Content="PlaceHolder" Grid.Row="6" Grid.Column="3"/>
+                    <Button x:Name="placeholder000004" Content="PlaceHolder" Grid.Row="6" Grid.Column="4"/>
+                    <Button x:Name="placeholder000005" Content="PlaceHolder" Grid.Row="6" Grid.Column="5"/>
+                    <Button x:Name="placeholder000006" Content="PlaceHolder" Grid.Row="6" Grid.Column="6"/>
+                    <Button x:Name="placeholder000007" Content="PlaceHolder" Grid.Row="6" Grid.Column="7"/>
+                    <Button x:Name="placeholder000008" Content="PlaceHolder" Grid.Row="6" Grid.Column="8"/>
+                    <Button x:Name="placeholder000009" Content="PlaceHolder" Grid.Row="6" Grid.Column="9"/>
+                    <Button x:Name="placeholder0000010" Content="PlaceHolder" Grid.Row="6" Grid.Column="10"/>
+
+                    <Button x:Name="placeholder0000001" Content="PlaceHolder" Grid.Row="7" Grid.Column="1"/>
+                    <Button x:Name="placeholder0000002" Content="PlaceHolder" Grid.Row="7" Grid.Column="2"/>
+                    <Button x:Name="placeholder0000003" Content="PlaceHolder" Grid.Row="7" Grid.Column="3"/>
+                    <Button x:Name="placeholder0000004" Content="PlaceHolder" Grid.Row="7" Grid.Column="4"/>
+                    <Button x:Name="placeholder0000005" Content="PlaceHolder" Grid.Row="7" Grid.Column="5"/>
+                    <Button x:Name="placeholder0000006" Content="PlaceHolder" Grid.Row="7" Grid.Column="6"/>
+                    <Button x:Name="placeholder0000007" Content="PlaceHolder" Grid.Row="7" Grid.Column="7"/>
+                    <Button x:Name="placeholder0000008" Content="PlaceHolder" Grid.Row="7" Grid.Column="8"/>
+                    <Button x:Name="placeholder0000009" Content="PlaceHolder" Grid.Row="7" Grid.Column="9"/>
+                    <Button x:Name="placeholder00000010" Content="PlaceHolder" Grid.Row="7" Grid.Column="10"/>
+
+                    <Button x:Name="placeholder00000001" Content="PlaceHolder" Grid.Row="8" Grid.Column="1"/>
+                    <Button x:Name="placeholder00000002" Content="PlaceHolder" Grid.Row="8" Grid.Column="2"/>
+                    <Button x:Name="placeholder00000003" Content="PlaceHolder" Grid.Row="8" Grid.Column="3"/>
+                    <Button x:Name="placeholder00000004" Content="PlaceHolder" Grid.Row="8" Grid.Column="4"/>
+                    <Button x:Name="placeholder00000005" Content="PlaceHolder" Grid.Row="8" Grid.Column="5"/>
+                    <Button x:Name="placeholder00000006" Content="PlaceHolder" Grid.Row="8" Grid.Column="6"/>
+                    <Button x:Name="placeholder00000007" Content="PlaceHolder" Grid.Row="8" Grid.Column="7"/>
+                    <Button x:Name="placeholder00000008" Content="PlaceHolder" Grid.Row="8" Grid.Column="8"/>
+                    <Button x:Name="placeholder00000009" Content="PlaceHolder" Grid.Row="8" Grid.Column="9"/>
+                    <Button x:Name="placeholder000000010" Content="PlaceHolder" Grid.Row="8" Grid.Column="10"/>
+
+                    <Button x:Name="placeholder000000001" Content="PlaceHolder" Grid.Row="9" Grid.Column="1"/>
+                    <Button x:Name="placeholder000000002" Content="PlaceHolder" Grid.Row="9" Grid.Column="2"/>
+                    <Button x:Name="placeholder000000003" Content="PlaceHolder" Grid.Row="9" Grid.Column="3"/>
+                    <Button x:Name="placeholder000000004" Content="PlaceHolder" Grid.Row="9" Grid.Column="4"/>
+                    <Button x:Name="placeholder000000005" Content="PlaceHolder" Grid.Row="9" Grid.Column="5"/>
+                    <Button x:Name="placeholder000000006" Content="PlaceHolder" Grid.Row="9" Grid.Column="6"/>
+                    <Button x:Name="placeholder000000007" Content="PlaceHolder" Grid.Row="9" Grid.Column="7"/>
+                    <Button x:Name="placeholder000000008" Content="PlaceHolder" Grid.Row="9" Grid.Column="8"/>
+                    <Button x:Name="placeholder000000009" Content="PlaceHolder" Grid.Row="9" Grid.Column="9"/>
+                    <Button x:Name="placeholder0000000010" Content="PlaceHolder" Grid.Row="9" Grid.Column="10"/>
+
+                    <Button x:Name="placeholder0000000001" Content="PlaceHolder" Grid.Row="10" Grid.Column="1"/>
+                    <Button x:Name="placeholder0000000002" Content="PlaceHolder" Grid.Row="10" Grid.Column="2"/>
+                    <Button x:Name="placeholder0000000003" Content="PlaceHolder" Grid.Row="10" Grid.Column="3"/>
+                    <Button x:Name="placeholder0000000004" Content="PlaceHolder" Grid.Row="10" Grid.Column="4"/>
+                    <Button x:Name="placeholder0000000005" Content="PlaceHolder" Grid.Row="10" Grid.Column="5"/>
+                    <Button x:Name="placeholder0000000006" Content="PlaceHolder" Grid.Row="10" Grid.Column="6"/>
+                    <Button x:Name="placeholder0000000007" Content="PlaceHolder" Grid.Row="10" Grid.Column="7"/>
+                    <Button x:Name="placeholder0000000008" Content="PlaceHolder" Grid.Row="10" Grid.Column="8"/>
+                    <Button x:Name="placeholder0000000009" Content="PlaceHolder" Grid.Row="10" Grid.Column="9"/>
+                    <Button x:Name="placeholder00000000010" Content="PlaceHolder" Grid.Row="10" Grid.Column="10"/>
+
+                    <Button x:Name="placeholder00000000001" Content="PlaceHolder" Grid.Row="0" Grid.Column="1"/>
+                    <Button x:Name="placeholder00000000002" Content="PlaceHolder" Grid.Row="0" Grid.Column="2"/>
+                    <Button x:Name="placeholder00000000003" Content="PlaceHolder" Grid.Row="0" Grid.Column="3"/>
+                    <Button x:Name="placeholder00000000004" Content="PlaceHolder" Grid.Row="0" Grid.Column="4"/>
+                    <Button x:Name="placeholder00000000005" Content="PlaceHolder" Grid.Row="0" Grid.Column="5"/>
+                    <Button x:Name="placeholder00000000006" Content="PlaceHolder" Grid.Row="0" Grid.Column="6"/>
+                    <Button x:Name="placeholder00000000007" Content="PlaceHolder" Grid.Row="0" Grid.Column="7"/>
+                    <Button x:Name="placeholder00000000008" Content="PlaceHolder" Grid.Row="0" Grid.Column="8"/>
+                    <Button x:Name="placeholder00000000009" Content="PlaceHolder" Grid.Row="0" Grid.Column="9"/>
+                    <Button x:Name="placeholder000000000010" Content="PlaceHolder" Grid.Row="0" Grid.Column="10"/>
+                </Grid>
+            </DockPanel>
+            <Label x:Name="Turn" Content="YOUR TURN" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100 10" FontFamily="BatmanForeverAlternate" FontSize="20"/>
+            <DockPanel>
+                <Grid x:Name="AIGrid" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="350 10 35 0" DockPanel.Dock="Right">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Button x:Name="placeholderA1" Content="PlaceHolder" Grid.Row="1" Grid.Column="1"/>
+                    <Button x:Name="placeholderA2" Content="PlaceHolder" Grid.Row="1" Grid.Column="2"/>
+                    <Button x:Name="placeholderA3" Content="PlaceHolder" Grid.Row="1" Grid.Column="3"/>
+                    <Button x:Name="placeholderA4" Content="PlaceHolder" Grid.Row="1" Grid.Column="4"/>
+                    <Button x:Name="placeholderA5" Content="PlaceHolder" Grid.Row="1" Grid.Column="5"/>
+                    <Button x:Name="placeholderA6" Content="PlaceHolder" Grid.Row="1" Grid.Column="6"/>
+                    <Button x:Name="placeholderA7" Content="PlaceHolder" Grid.Row="1" Grid.Column="7"/>
+                    <Button x:Name="placeholderA8" Content="PlaceHolder" Grid.Row="1" Grid.Column="8"/>
+                    <Button x:Name="placeholderA9" Content="PlaceHolder" Grid.Row="1" Grid.Column="9"/>
+                    <Button x:Name="placeholderA10" Content="PlaceHolder" Grid.Row="1" Grid.Column="10"/>
+                    <Button x:Name="placeholderA11" Content="PlaceHolder" Grid.Row="1" Grid.Column="1"/>
+
+
+                    <Button x:Name="placeholderAA1" Content="PlaceHolder" Grid.Row="2" Grid.Column="1"/>
+                    <Button x:Name="placeholderAA2" Content="PlaceHolder" Grid.Row="2" Grid.Column="2"/>
+                    <Button x:Name="placeholderAA3" Content="PlaceHolder" Grid.Row="2" Grid.Column="3"/>
+                    <Button x:Name="placeholderAA4" Content="PlaceHolder" Grid.Row="2" Grid.Column="4"/>
+                    <Button x:Name="placeholderAA5" Content="PlaceHolder" Grid.Row="2" Grid.Column="5"/>
+                    <Button x:Name="placeholderAA6" Content="PlaceHolder" Grid.Row="2" Grid.Column="6"/>
+                    <Button x:Name="placeholderAA7" Content="PlaceHolder" Grid.Row="2" Grid.Column="7"/>
+                    <Button x:Name="placeholderAA8" Content="PlaceHolder" Grid.Row="2" Grid.Column="8"/>
+                    <Button x:Name="placeholderAA9" Content="PlaceHolder" Grid.Row="2" Grid.Column="9"/>
+                    <Button x:Name="placeholderAA10" Content="PlaceHolder" Grid.Row="2" Grid.Column="10"/>
+
+                    <Button x:Name="placeholderAAA001" Content="PlaceHolder" Grid.Row="3" Grid.Column="1"/>
+                    <Button x:Name="placeholderAAA002" Content="PlaceHolder" Grid.Row="3" Grid.Column="2"/>
+                    <Button x:Name="placeholderAAA003" Content="PlaceHolder" Grid.Row="3" Grid.Column="3"/>
+                    <Button x:Name="placeholderAAA004" Content="PlaceHolder" Grid.Row="3" Grid.Column="4"/>
+                    <Button x:Name="placeholderAAA005" Content="PlaceHolder" Grid.Row="3" Grid.Column="5"/>
+                    <Button x:Name="placeholderAAA006" Content="PlaceHolder" Grid.Row="3" Grid.Column="6"/>
+                    <Button x:Name="placeholderAAA007" Content="PlaceHolder" Grid.Row="3" Grid.Column="7"/>
+                    <Button x:Name="placeholderAAA008" Content="PlaceHolder" Grid.Row="3" Grid.Column="8"/>
+                    <Button x:Name="placeholderAAA009" Content="PlaceHolder" Grid.Row="3" Grid.Column="9"/>
+                    <Button x:Name="placeholderAAA0010" Content="PlaceHolder" Grid.Row="3" Grid.Column="10"/>
+
+                    <Button x:Name="placeholderAAAA0001" Content="PlaceHolder" Grid.Row="4" Grid.Column="1"/>
+                    <Button x:Name="placeholderAAAA0002" Content="PlaceHolder" Grid.Row="4" Grid.Column="2"/>
+                    <Button x:Name="placeholderAAAA0003" Content="PlaceHolder" Grid.Row="4" Grid.Column="3"/>
+                    <Button x:Name="placeholderAAAA0004" Content="PlaceHolder" Grid.Row="4" Grid.Column="4"/>
+                    <Button x:Name="placeholderAAAA0005" Content="PlaceHolder" Grid.Row="4" Grid.Column="5"/>
+                    <Button x:Name="placeholderAAAA0006" Content="PlaceHolder" Grid.Row="4" Grid.Column="6"/>
+                    <Button x:Name="placeholderAAAA0007" Content="PlaceHolder" Grid.Row="4" Grid.Column="7"/>
+                    <Button x:Name="placeholderAAAA0008" Content="PlaceHolder" Grid.Row="4" Grid.Column="8"/>
+                    <Button x:Name="placeholderAAAA0009" Content="PlaceHolder" Grid.Row="4" Grid.Column="9"/>
+                    <Button x:Name="placeholderAAAA00010" Content="PlaceHolder" Grid.Row="4" Grid.Column="10"/>
+
+                    <Button x:Name="placeholderAAAAA00001" Content="PlaceHolder" Grid.Row="5" Grid.Column="1"/>
+                    <Button x:Name="placeholderAAAAA00002" Content="PlaceHolder" Grid.Row="5" Grid.Column="2"/>
+                    <Button x:Name="placeholderAAAAA00003" Content="PlaceHolder" Grid.Row="5" Grid.Column="3"/>
+                    <Button x:Name="placeholderAAAAA00004" Content="PlaceHolder" Grid.Row="5" Grid.Column="4"/>
+                    <Button x:Name="placeholderAAAAA00005" Content="PlaceHolder" Grid.Row="5" Grid.Column="5"/>
+                    <Button x:Name="placeholderAAAAA00006" Content="PlaceHolder" Grid.Row="5" Grid.Column="6"/>
+                    <Button x:Name="placeholderAAAAA00007" Content="PlaceHolder" Grid.Row="5" Grid.Column="7"/>
+                    <Button x:Name="placeholderAAAAA00008" Content="PlaceHolder" Grid.Row="5" Grid.Column="8"/>
+                    <Button x:Name="placeholderAAAAA00009" Content="PlaceHolder" Grid.Row="5" Grid.Column="9"/>
+                    <Button x:Name="placeholderAAAAA000010" Content="PlaceHolder" Grid.Row="5" Grid.Column="10"/>
+
+                    <Button x:Name="placeholderAAAAAA000001" Content="PlaceHolder" Grid.Row="6" Grid.Column="1"/>
+                    <Button x:Name="placeholderAAAAAA000002" Content="PlaceHolder" Grid.Row="6" Grid.Column="2"/>
+                    <Button x:Name="placeholderAAAAAA000003" Content="PlaceHolder" Grid.Row="6" Grid.Column="3"/>
+                    <Button x:Name="placeholderAAAAAA000004" Content="PlaceHolder" Grid.Row="6" Grid.Column="4"/>
+                    <Button x:Name="placeholderAAAAAA000005" Content="PlaceHolder" Grid.Row="6" Grid.Column="5"/>
+                    <Button x:Name="placeholderAAAAAA000006" Content="PlaceHolder" Grid.Row="6" Grid.Column="6"/>
+                    <Button x:Name="placeholderAAAAAA000007" Content="PlaceHolder" Grid.Row="6" Grid.Column="7"/>
+                    <Button x:Name="placeholderAAAAAA000008" Content="PlaceHolder" Grid.Row="6" Grid.Column="8"/>
+                    <Button x:Name="placeholderAAAAAA000009" Content="PlaceHolder" Grid.Row="6" Grid.Column="9"/>
+                    <Button x:Name="placeholderAAAAAA0000010" Content="PlaceHolder" Grid.Row="6" Grid.Column="10"/>
+
+                    <Button x:Name="placeholderAAAAAAA0000001" Content="PlaceHolder" Grid.Row="7" Grid.Column="1"/>
+                    <Button x:Name="placeholderAAAAAAA0000002" Content="PlaceHolder" Grid.Row="7" Grid.Column="2"/>
+                    <Button x:Name="placeholderAAAAAAA0000003" Content="PlaceHolder" Grid.Row="7" Grid.Column="3"/>
+                    <Button x:Name="placeholderAAAAAAA0000004" Content="PlaceHolder" Grid.Row="7" Grid.Column="4"/>
+                    <Button x:Name="placeholderAAAAAAA0000005" Content="PlaceHolder" Grid.Row="7" Grid.Column="5"/>
+                    <Button x:Name="placeholderAAAAAAA0000006" Content="PlaceHolder" Grid.Row="7" Grid.Column="6"/>
+                    <Button x:Name="placeholderAAAAAAA0000007" Content="PlaceHolder" Grid.Row="7" Grid.Column="7"/>
+                    <Button x:Name="placeholderAAAAAAA0000008" Content="PlaceHolder" Grid.Row="7" Grid.Column="8"/>
+                    <Button x:Name="placeholderAAAAAAA0000009" Content="PlaceHolder" Grid.Row="7" Grid.Column="9"/>
+                    <Button x:Name="placeholderAAAAAAA00000010" Content="PlaceHolder" Grid.Row="7" Grid.Column="10"/>
+
+                    <Button x:Name="placeholderAAAAAAAA00000001" Content="PlaceHolder" Grid.Row="8" Grid.Column="1"/>
+                    <Button x:Name="placeholderAAAAAAAA00000002" Content="PlaceHolder" Grid.Row="8" Grid.Column="2"/>
+                    <Button x:Name="placeholderAAAAAAAA00000003" Content="PlaceHolder" Grid.Row="8" Grid.Column="3"/>
+                    <Button x:Name="placeholderAAAAAAAA00000004" Content="PlaceHolder" Grid.Row="8" Grid.Column="4"/>
+                    <Button x:Name="placeholderAAAAAAAA00000005" Content="PlaceHolder" Grid.Row="8" Grid.Column="5"/>
+                    <Button x:Name="placeholderAAAAAAAA00000006" Content="PlaceHolder" Grid.Row="8" Grid.Column="6"/>
+                    <Button x:Name="placeholderAAAAAAAA00000007" Content="PlaceHolder" Grid.Row="8" Grid.Column="7"/>
+                    <Button x:Name="placeholderAAAAAAAA00000008" Content="PlaceHolder" Grid.Row="8" Grid.Column="8"/>
+                    <Button x:Name="placeholderAAAAAAAA00000009" Content="PlaceHolder" Grid.Row="8" Grid.Column="9"/>
+                    <Button x:Name="placeholderAAAAAAAA000000010" Content="PlaceHolder" Grid.Row="8" Grid.Column="10"/>
+
+                    <Button x:Name="placeholderAAAAAAAAA000000001" Content="PlaceHolder" Grid.Row="9" Grid.Column="1"/>
+                    <Button x:Name="placeholderAAAAAAAAA000000002" Content="PlaceHolder" Grid.Row="9" Grid.Column="2"/>
+                    <Button x:Name="placeholderAAAAAAAAA000000003" Content="PlaceHolder" Grid.Row="9" Grid.Column="3"/>
+                    <Button x:Name="placeholderAAAAAAAAA000000004" Content="PlaceHolder" Grid.Row="9" Grid.Column="4"/>
+                    <Button x:Name="placeholderAAAAAAAAA000000005" Content="PlaceHolder" Grid.Row="9" Grid.Column="5"/>
+                    <Button x:Name="placeholderAAAAAAAAA000000006" Content="PlaceHolder" Grid.Row="9" Grid.Column="6"/>
+                    <Button x:Name="placeholderAAAAAAAAA000000007" Content="PlaceHolder" Grid.Row="9" Grid.Column="7"/>
+                    <Button x:Name="placeholderAAAAAAAAA000000008" Content="PlaceHolder" Grid.Row="9" Grid.Column="8"/>
+                    <Button x:Name="placeholderAAAAAAAAA000000009" Content="PlaceHolder" Grid.Row="9" Grid.Column="9"/>
+                    <Button x:Name="placeholderAAAAAAAAA0000000010" Content="PlaceHolder" Grid.Row="9" Grid.Column="10"/>
+
+                    <Button x:Name="placeholderAAAAAAAAAA0000000001" Content="PlaceHolder" Grid.Row="10" Grid.Column="1"/>
+                    <Button x:Name="placeholderAAAAAAAAAA0000000002" Content="PlaceHolder" Grid.Row="10" Grid.Column="2"/>
+                    <Button x:Name="placeholderAAAAAAAAAA0000000003" Content="PlaceHolder" Grid.Row="10" Grid.Column="3"/>
+                    <Button x:Name="placeholderAAAAAAAAAA0000000004" Content="PlaceHolder" Grid.Row="10" Grid.Column="4"/>
+                    <Button x:Name="placeholderAAAAAAAAAA0000000005" Content="PlaceHolder" Grid.Row="10" Grid.Column="5"/>
+                    <Button x:Name="placeholderAAAAAAAAAA0000000006" Content="PlaceHolder" Grid.Row="10" Grid.Column="6"/>
+                    <Button x:Name="placeholderAAAAAAAAAA0000000007" Content="PlaceHolder" Grid.Row="10" Grid.Column="7"/>
+                    <Button x:Name="placeholderAAAAAAAAAA0000000008" Content="PlaceHolder" Grid.Row="10" Grid.Column="8"/>
+                    <Button x:Name="placeholderAAAAAAAAAA0000000009" Content="PlaceHolder" Grid.Row="10" Grid.Column="9"/>
+                    <Button x:Name="placeholderAAAAAAAAAA00000000010" Content="PlaceHolder" Grid.Row="10" Grid.Column="10"/>
+
+                    <Button x:Name="placeholderAAAAAAAAAAA0000000001" Content="PlaceHolder" Grid.Row="0" Grid.Column="1"/>
+                    <Button x:Name="placeholderAAAAAAAAAAA0000000002" Content="PlaceHolder" Grid.Row="0" Grid.Column="2"/>
+                    <Button x:Name="placeholderAAAAAAAAAAA0000000003" Content="PlaceHolder" Grid.Row="0" Grid.Column="3"/>
+                    <Button x:Name="placeholderAAAAAAAAAAA0000000004" Content="PlaceHolder" Grid.Row="0" Grid.Column="4"/>
+                    <Button x:Name="placeholderAAAAAAAAAAA0000000005" Content="PlaceHolder" Grid.Row="0" Grid.Column="5"/>
+                    <Button x:Name="placeholderAAAAAAAAAAA0000000006" Content="PlaceHolder" Grid.Row="0" Grid.Column="6"/>
+                    <Button x:Name="placeholderAAAAAAAAAAA0000000007" Content="PlaceHolder" Grid.Row="0" Grid.Column="7"/>
+                    <Button x:Name="placeholderAAAAAAAAAAA0000000008" Content="PlaceHolder" Grid.Row="0" Grid.Column="8"/>
+                    <Button x:Name="placeholderAAAAAAAAAAA0000000009" Content="PlaceHolder" Grid.Row="0" Grid.Column="9"/>
+                    <Button x:Name="placeholderAAAAAAAAAAA00000000010" Content="PlaceHolder" Grid.Row="0" Grid.Column="10"/>
+
+                </Grid>
+            </DockPanel>
+        </Grid>
+
+        <Grid x:Name="optionsGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Start" Content="_Start" Width="150" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 30 0 0" IsDefault="True" Click="Start_Click" FontFamily="BatmanForeverAlternate" Grid.Column="0"/>
+            <Button x:Name="Leaderboard" Content="_Leaderboard" Width="150" Height="20" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 30 0 0" Click="Leaderboard_Click" FontFamily="BatmanForeverAlternate" Grid.Column="1"/>
+            <Button x:Name="Stop" Content="Sto_p" Width="150" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 30 20 0" IsCancel="True" Click="Stop_Click" FontFamily="BatmanForeverAlternate" Grid.Column="2"/>
+        </Grid>
+    </StackPanel>
+</Window>
