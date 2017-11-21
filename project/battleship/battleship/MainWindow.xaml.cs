@@ -21,11 +21,14 @@ namespace battleship
     /// </summary>
     public partial class MainWindow : Window
     {
+
         double size = 0;
         int difficulty = 0;
         System.Timers.Timer T = new System.Timers.Timer();
         //the time passed
         int GameTime = 0;
+
+
 
         public MainWindow()
         {
@@ -46,8 +49,8 @@ namespace battleship
             }
             else
             {
-                PlayerGrid.Margin = new Thickness(PlayerGrid.Margin.Left, PlayerGrid.Margin.Top, PlayerGrid.ActualWidth / 2 + 450, PlayerGrid.Margin.Bottom);
-                AIGrid.Margin = new Thickness(AIGrid.ActualWidth / 2 + 450, AIGrid.Margin.Top, AIGrid.Margin.Right, AIGrid.Margin.Bottom);
+                PlayerGrid.Margin = new Thickness(PlayerGrid.Margin.Left, PlayerGrid.Margin.Top, PlayerGrid.ActualWidth / 2 + 400, PlayerGrid.Margin.Bottom);
+                AIGrid.Margin = new Thickness(AIGrid.ActualWidth / 2 + 400, AIGrid.Margin.Top, AIGrid.Margin.Right, AIGrid.Margin.Bottom);
             }
         }
 
@@ -62,7 +65,7 @@ namespace battleship
                 _Time.Text = GameTime.ToString();
                 if (GameTime > 0)
                 {
-                    Easy.IsEnabled=false;
+                    Easy.IsEnabled = false;
                     Medium.IsEnabled = false;
                     Hard.IsEnabled = false;
                 }
@@ -114,8 +117,8 @@ namespace battleship
         {
             if (On.IsChecked)
                 Off.IsChecked = false;
-             On.Icon = "X";
-             Off.Icon = "";
+            On.Icon = "X";
+            Off.Icon = "";
 
 
         }
@@ -125,7 +128,30 @@ namespace battleship
             if (Off.IsChecked)
                 On.IsChecked = false;
             On.Icon = "";
-           Off.Icon = "X";
+            Off.Icon = "X";
         }
+
+        private void USA(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void JPN(object sender, RoutedEventArgs e)
+        {
+
+
+        }
+
+        private void RUS(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void GER(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
     }
 }
