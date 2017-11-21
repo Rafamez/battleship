@@ -44,7 +44,6 @@ namespace battleship
 
         public gameWindow()
         {
-            size = mainWindow.ActualWidth;
             //Call method to change value of GameTime when event is met
             T.Elapsed += new ElapsedEventHandler(OnTimedEvent);
             //set the interval to 1000
@@ -160,13 +159,13 @@ namespace battleship
 
         }
 
-        private void showCredits()
+        private void showCredits(Player player1)
         {
             if (player1.getPoints > 0)
             {
                 Credits.Visibility = Visibility.Visible;
                 CreditsValue.Visibility = Visibility.Visible;
-                CreditsValue.Text = Player1.getPoints.toString();
+                CreditsValue.Text = player1.getPoints.ToString();
             }
         }
     }
@@ -206,7 +205,7 @@ namespace battleship
 
         public void shoot(int x, int y)
         {
-            if (AIGrid.RowDefinitions.ElementAt(x))
+            if (AIGrid.RowDefinitions.)
             {
 
             }
@@ -222,6 +221,7 @@ namespace battleship
     {
         private int[] shipLength = new int[] { 2, 3, 3, 4, 5 };
         private String[] shipName = new String[] { "Patrol Boat (2)", "Submarine (3)", "Destroyer (3)", "Battleship (4)", "Aircraft Carrier (5)" };
+
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
