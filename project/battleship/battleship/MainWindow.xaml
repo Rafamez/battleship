@@ -6,8 +6,10 @@
         xmlns:local="clr-namespace:battleship"
         mc:Ignorable="d"
         Title="Battleship" 
-        Height="416.8" Width="911.6" MinHeight="300" MinWidth="600" SizeChanged="Window_SizeChanged">
+        Height="433.792" Width="928.592" MinHeight="300" MinWidth="600" ResizeMode="NoResize">
     <StackPanel Height="auto" Width="auto" Margin="0,0,-0.4,-3.8" Background="White">
+
+
 
         <ToolBar x:Name="menu" Background="White">
             <Menu>
@@ -19,22 +21,44 @@
                     <MenuItem x:Name="On" Header="On" Icon="" Checked="CheatsOn" IsCheckable="True"/>
                     <MenuItem x:Name="Off" Header="Off" Icon=""  Checked="CheatsOff" IsCheckable="True"/>
                 </MenuItem>
+                <MenuItem x:Name="Skins" Header="Skin">
+                    <MenuItem x:Name="UnitedStates" Header="USA"   Click="USA">
+                        <MenuItem.Icon>
+                            <Image Source="Images\USA.png" Width="20" Height="20" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="Japan" Header="JPN" Click="JPN">
+                        <MenuItem.Icon>
+                            <Image Source="Images\Japan.png" Width="20" Height="20" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="Russia" Header="RUS" Click="RUS">
+                        <MenuItem.Icon>
+                            <Image Source="Images\Russia.jpg" Width="20" Height="20" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="Germany" Header="GER" Click="GER">
+                        <MenuItem.Icon>
+                            <Image Source="Images\Germany.jpg" Width="20" Height="20" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+
             </Menu>
         </ToolBar>
-        
-        
+
+
         <Label x:Name="Title" Content="Battleship: The Game" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontFamily="BatmanForeverAlternate"/>
 
 
         <Border BorderBrush="Black" BorderThickness="2" Height="39" Margin="0,0,-0.8,0">
-            <WrapPanel>
+            <WrapPanel Margin="0,0,0,-2">
                 <Label x:Name="scoreLabel" Content="Score" Width="60" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10 10 10 10" FontFamily="BatmanForeverAlternate"/>
                 <TextBlock x:Name="_Score" Text="0" Width="80" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 10 5 10" Padding="4" FontFamily="BatmanForeverAlternate"/>
 
-                <Label x:Name="TimeLabel" Content="Time" Width="auto" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10 10 10 10" FontFamily="BatmanForeverAlternate"/>
+                <Label x:Name="TimeLabel" Content="Time" Width="38.805" Height="21" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10 10 10 10" FontFamily="BatmanForeverAlternate"/>
                 <TextBlock x:Name="_Time" Text="0" Width="43" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 10 5 10" Padding="3" FontFamily="BatmanForeverAlternate"/>
-
-                <Label x:Name="Difficulty" Content="Difficulty" Width="auto" Height="22" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10 10 10 10" FontFamily="BatmanForeverAlternate"/>
+                <Label x:Name="Difficulty" Content="Difficulty" Width="58.852" Height="24.999" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10 10 10 10" FontFamily="BatmanForeverAlternate"/>
                 <Button x:Name="Easy" Content="Easy" FontFamily="BatmanForeverAlternate"  Width="65" Click="Easy_Click"/>
                 <Button x:Name="Medium" Content="Medium" FontFamily="BatmanForeverAlternate" Width="65" Click="Medium_Click"/>
                 <Button x:Name="Hard" Content="Hard" FontFamily="BatmanForeverAlternate" Width="65" Click="Hard_Click"/>
@@ -42,8 +66,12 @@
             </WrapPanel>
         </Border>
         <Grid x:Name="GameGrid">
-            <DockPanel LastChildFill="False">
-                <Grid x:Name="PlayerGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30 10 350 0" DockPanel.Dock="Left">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="611*"/>
+                <ColumnDefinition Width="293*"/>
+            </Grid.ColumnDefinitions>
+            <DockPanel LastChildFill="False" Grid.ColumnSpan="2" Margin="10,0,155.92,0">
+                <Grid x:Name="PlayerGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30 10 350 0" DockPanel.Dock="Left" Width="350">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -192,9 +220,9 @@
                     <Button x:Name="placeholder000000000010" Content="PlaceHolder" Grid.Row="0" Grid.Column="10"/>
                 </Grid>
             </DockPanel>
-            <Label x:Name="Turn" Content="YOUR TURN" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100 10" FontFamily="BatmanForeverAlternate" FontSize="20"/>
-            <DockPanel>
-                <Grid x:Name="AIGrid" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="350 10 35 0" DockPanel.Dock="Right">
+            <Label x:Name="Turn" Content="YOUR TURN" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="392.771,97.8,99.476,97.8" FontFamily="BatmanForeverAlternate" FontSize="20"/>
+            <DockPanel Grid.ColumnSpan="2" Margin="165.92,0,-15.992,38.981">
+                <Grid x:Name="AIGrid" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="30 10 60 0" DockPanel.Dock="Right" Width="350">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -357,5 +385,6 @@
             <Button x:Name="Leaderboard" Content="_Leaderboard" Width="150" Height="20" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 30 0 0" Click="Leaderboard_Click" FontFamily="BatmanForeverAlternate" Grid.Column="1"/>
             <Button x:Name="Stop" Content="Sto_p" Width="150" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 30 20 0" IsCancel="True" Click="Stop_Click" FontFamily="BatmanForeverAlternate" Grid.Column="2"/>
         </Grid>
+
     </StackPanel>
 </Window>

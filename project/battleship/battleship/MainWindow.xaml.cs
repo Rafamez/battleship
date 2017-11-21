@@ -40,7 +40,7 @@ namespace battleship
             T.Interval = 1000;
         }
 
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+      /*  private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             if ((PlayerGrid.Margin.Right + AIGrid.Margin.Left < PlayerGrid.ActualWidth + AIGrid.ActualWidth) && (size - mainWindow.ActualWidth > 0))
             {
@@ -53,7 +53,7 @@ namespace battleship
                 AIGrid.Margin = new Thickness(AIGrid.ActualWidth / 2 + 400, AIGrid.Margin.Top, AIGrid.Margin.Right, AIGrid.Margin.Bottom);
             }
         }
-
+    */
         //when the elapsedEventArgs e is met (1000 milliseconds elapsed)
         private void OnTimedEvent(object source, ElapsedEventArgs e)
         {
@@ -117,8 +117,6 @@ namespace battleship
         {
             if (On.IsChecked)
                 Off.IsChecked = false;
-            On.Icon = "X";
-            Off.Icon = "";
 
 
         }
@@ -127,8 +125,6 @@ namespace battleship
         {
             if (Off.IsChecked)
                 On.IsChecked = false;
-            On.Icon = "";
-            Off.Icon = "X";
         }
 
         private void USA(object sender, RoutedEventArgs e)
