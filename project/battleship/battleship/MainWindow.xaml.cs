@@ -172,7 +172,7 @@ namespace battleship
     }
 
 
-    public class Player : MainWindow, ISerializable
+    public class Player : gameWindow, ISerializable
     {
 
         private String username;
@@ -218,10 +218,15 @@ namespace battleship
         }
     }
 
-    public class Ship
+    public class Ship : gameWindow, ISerializable
     {
         private int[] shipLength = new int[] { 2, 3, 3, 4, 5 };
         private String[] shipName = new String[] { "Patrol Boat (2)", "Submarine (3)", "Destroyer (3)", "Battleship (4)", "Aircraft Carrier (5)" };
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            throw new NotImplementedException();
+        }
 
         public void setShip()
         {
