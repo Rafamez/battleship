@@ -27,3 +27,5 @@ H:\Sem3\C#\battleship\project\battleship\battleship\obj\Debug\battleship.csproj.
 H:\Sem3\C#\battleship\project\battleship\battleship\obj\Debug\battleship.csproj.CoreCompileInputs.cache
 H:\Sem3\C#\battleship\project\battleship\battleship\obj\Debug\battleship.exe
 H:\Sem3\C#\battleship\project\battleship\battleship\obj\Debug\battleship.pdb
+E:\school\semester3\battleship\project\battleship\battleship\obj\Debug\gameWindow.g.cs
+E:\school\semester3\battleship\project\battleship\battleship\obj\Debug\gameWindow.baml
