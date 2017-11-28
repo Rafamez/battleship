@@ -62,6 +62,9 @@
     <Compile Include="mainGameWindow.xaml.cs">
       <DependentUpon>mainGameWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ship.cs" />
     <Compile Include="AI.cs" />
     <Compile Include="App.xaml.cs">
@@ -139,6 +142,10 @@
     <Page Include="mainGameWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="startWindow.xaml">
       <SubType>Designer</SubType>

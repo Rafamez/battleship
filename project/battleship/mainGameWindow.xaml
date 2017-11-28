@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:battleship"
         mc:Ignorable="d"
         Title="Battleship" 
-        Height="502.759" Width="1181.471" MinHeight="300" MinWidth="600" ResizeMode="NoResize">
+        Height="520.759" Width="1181.471" MinHeight="300" MinWidth="600" ResizeMode="NoResize">
     <StackPanel Height="auto" Width="auto" Margin="0,0,-0.4,-3.8" Background="#FF8D8D8D">
 
 
@@ -396,7 +396,7 @@
             </Grid.ColumnDefinitions>
             <Button x:Name="Start" Content="_Start" Width="150" HorizontalAlignment="Left" Margin="20,30,0,-0.4" IsDefault="True" Click="Start_Click" Grid.Column="0" Height="20" VerticalAlignment="Top"/>
             <Button x:Name="Leaderboard" Content="_Leaderboard" Width="150" Height="20" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 30 0 0" Click="Leaderboard_Click" Grid.Column="1"/>
-            <Button x:Name="Stop" Content="Sto_p" Width="150" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 30 20 0" IsCancel="True" Click="Stop_Click" Grid.Column="2"/>
+            <Button x:Name="Stop" Content="Sto_p" Width="150" HorizontalAlignment="Right" Margin="0 30 20 0" IsCancel="True" Click="Stop_Click" Grid.Column="2"/>
         </Grid>
 
     </StackPanel>

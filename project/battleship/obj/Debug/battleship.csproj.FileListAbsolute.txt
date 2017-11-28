@@ -49,3 +49,7 @@ H:\battleship\battleship\project\battleship\obj\Debug\battleship.csproj.Generate
 H:\battleship\battleship\project\battleship\obj\Debug\battleship.csproj.CoreCompileInputs.cache
 H:\battleship\battleship\project\battleship\obj\Debug\battleship.exe
 H:\battleship\battleship\project\battleship\obj\Debug\battleship.pdb
+H:\battleship\battleship\project\battleship\obj\Debug\Leaderboard.g.cs
+H:\battleship\battleship\project\battleship\obj\Debug\Leaderboard.baml
+H:\battleship\battleship\project\battleship\obj\Debug\MainWindow.g.cs
+H:\battleship\battleship\project\battleship\obj\Debug\MainWindow.baml

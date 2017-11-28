@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
@@ -43,7 +45,8 @@ namespace battleship
 		public int friendlyDamage = 0;
 		//time when each round will end
 		public int expireTime = 20;
-		//creating human
+        //creating human
+        private String[] saved = new String[250];
 		public Player human;
 
         Leaderboard leaderboard = new Leaderboard();
@@ -130,8 +133,48 @@ namespace battleship
 		//method for the when the user stops the game (automatically saves + stops timer)
 		private void Stop_Click(object sender, RoutedEventArgs e)
 		{
-			T.Enabled = false;
-		}
+            T.Enabled = false;
+            if (File.Exists(@"../../DataFile.txt"))
+            {
+                File.Delete(@"../../DataFile.txt");
+            }
+            saved[0] = _Score.Text + '*';
+            saved[1] = _Time.Text + '*';
+            saved[2] = difficulty.ToString() + '*';
+            // saved[3] = Name.Text +'*';
+            // saved[4] = Credit.Text +'*';
+            //saved[5] = empire.text +'*';
+            //saved[6]= language.text +'*';
+            //saved[7]= cheats.text +'*';
+
+            //SAVE THE ELEMENTS FOR THE GRID 
+            /*   for (int i = 0; i < GameGrid.Text.Length; i++)
+               {
+                   saved[i + 4] = secret[i];
+
+               }
+               for (int j = 0; j < reveal.Length; j++)
+               {
+                   saved[j + 20] = Convert.ToString(reveal[j]);
+
+               }*/
+            FileStream fs = new FileStream("../../DataFile.txt", FileMode.Create, FileAccess.ReadWrite);
+            // Construct a BinaryFormatter and use it to serialize the data to the stream.
+            BinaryFormatter formatter = new BinaryFormatter();
+            try
+            {
+                formatter.Serialize(fs, saved);
+            }
+            catch (SerializationException em)
+            {
+                Console.WriteLine("Failed to serialize. Reason: " + em.Message);
+
+            }
+            finally
+            {
+                fs.Close();
+            }
+        }
 		//method which shows the leaderboard
 		private void Leaderboard_Click(object sender, RoutedEventArgs e)
 		{
