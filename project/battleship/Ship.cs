@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace battleship
 {
 	//class for the ships
-	public class Ship : Player, ISerializable
+	public class Ship : mainGameWindow, ISerializable
 	{
 		//list for the length of each ship
 		private int[] shipLength = new int[] { 2, 3, 3, 4, 5 };

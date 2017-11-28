@@ -21,7 +21,7 @@ namespace battleship
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
 	/// 
-	public partial class gameWindow : Window
+	public partial class	mainGameWindow : Window
 	{
 		//value to represent the X axis
 		public int gridX = 10;
@@ -46,7 +46,7 @@ namespace battleship
 		//creating human
 		public Player human;
 
-		public gameWindow()
+		public mainGameWindow()
 		{
 			InitializeComponent();
 			//Call method to change value of GameTime when event is met

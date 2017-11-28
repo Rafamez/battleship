@@ -56,18 +56,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="mainGameWindow.xaml.cs">
+      <DependentUpon>mainGameWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ship.cs" />
-    <Page Include="gameWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="AI.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="gameWindow.xaml.cs">
-      <DependentUpon>gameWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -129,6 +124,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\cross.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="mainGameWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
