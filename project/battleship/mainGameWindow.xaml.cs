@@ -45,6 +45,14 @@ namespace battleship
 		public int expireTime = 20;
 		//creating human
 		public Player human;
+        //boolean to see if its horizental or not
+        public List<Boolean> horizental;
+
+        public List<Boolean> isHorizental
+        {
+            get { return horizental; }
+            set {; }
+        }
 
 		public mainGameWindow()
 		{
@@ -180,16 +188,7 @@ namespace battleship
 		{
 
 		}
-		//method which shows your credit only if you have some (accumulated over multiple games, related to username)
-		private void showCredits(Human player1)
-		{
-			if (player1.getPoints > 0)
-			{
-				Credits.Visibility = Visibility.Visible;
-				CreditsValue.Visibility = Visibility.Visible;
-				CreditsValue.Text = player1.getPoints.ToString();
-			}
-		}
+
 		//test method to see what happens when a label has focus (may be used to initate "clicks")
 		private void TextBlock0_GotFocus(object sender, RoutedEventArgs e)
 		{
@@ -214,7 +213,42 @@ namespace battleship
 			}
 		}
 
-	}
+        private void PBButton_Click(object sender, RoutedEventArgs e)
+        {
+            horizental[0] = !horizental[0];
+            if (!horizental[0])
+            PatrolBoat.Source= (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\patrolV.png");
+            if (horizental[0])
+                PatrolBoat.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\patrolH.png");
+        }
+
+        private void SButton_Click(object sender, RoutedEventArgs e)
+        {
+            horizental[1] = !horizental[1];
+            if (!horizental[1])
+                PatrolBoat.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\submarineV.png");
+            if (horizental[1])
+                PatrolBoat.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\submarineH.png");
+        }
+
+        private void BButton_Click(object sender, RoutedEventArgs e)
+        {
+            horizental[2] = !horizental[2];
+            if (!horizental[2])
+                PatrolBoat.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\battleshipV.png");
+            if (horizental[2])
+                PatrolBoat.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\battleshipH.png");
+        }
+
+        private void ACButton_Click(object sender, RoutedEventArgs e)
+        {
+            horizental[3] = !horizental[3];
+            if (!horizental[0])
+                PatrolBoat.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\airshipcarrierV.png");
+            if (horizental[0])
+                PatrolBoat.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\airshipcarrierH.png");
+        }
+    }
 }
 
   
