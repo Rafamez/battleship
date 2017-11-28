@@ -48,6 +48,7 @@ namespace battleship
 
 		public mainGameWindow()
 		{
+            
 			InitializeComponent();
 			//Call method to change value of GameTime when event is met
 			T.Elapsed += new ElapsedEventHandler(OnTimedEvent);
@@ -180,8 +181,9 @@ namespace battleship
 		{
 
 		}
-		//method which shows your credit only if you have some (accumulated over multiple games, related to username)
-		private void showCredits(Human player1)
+        //method which shows your credit only if you have some (accumulated over multiple games, related to username)
+        /*
+        private void showCredits(Human player1)
 		{
 			if (player1.getPoints > 0)
 			{
@@ -196,6 +198,7 @@ namespace battleship
 			MessageBox.Show("hi");
 		}
 
+    */
 
 		//method which sees if the game is about to end or not
 		public void end()
