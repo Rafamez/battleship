@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-H:\Sem3\C#\battleship\project\battleship\obj\Debug\
+H:\battleship\battleship\project\battleship\obj\Debug\
 battleship
 none
 false
 DEBUG;TRACE
-H:\Sem3\C#\battleship\project\battleship\App.xaml
-11339679847
+H:\battleship\battleship\project\battleship\App.xaml
+4669610000
 
-9-1574730560
+121388641703
 14-1001767708
-mainGameWindow.xaml;
+Leaderboard.xaml;mainGameWindow.xaml;MainWindow.xaml;startWindow.xaml;
 
 False
 

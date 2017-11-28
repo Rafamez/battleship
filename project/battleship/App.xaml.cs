@@ -9,9 +9,11 @@ using System.Windows;
 namespace battleship
 {
     /// <summary>
-    /// Interaction logic for App.xaml
+    /// Interaction logic for StartWindow.xaml
     /// </summary>
+
     public partial class App : Application
     {
+
     }
 }
