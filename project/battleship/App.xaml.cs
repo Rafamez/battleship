@@ -18,9 +18,11 @@ namespace battleship
         {
             startWindow start = new startWindow();
             mainGameWindow app = new mainGameWindow();
+            Leaderboard leaderboard = new Leaderboard();
 
             start.Visibility = Visibility.Visible;
             app.Visibility = Visibility.Hidden;
+            leaderboard.Visibility = Visibility.Hidden;
         }
     }
 }

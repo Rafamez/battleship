@@ -46,6 +46,7 @@ namespace battleship
 		//creating human
 		public Player human;
 
+        Leaderboard leaderboard = new Leaderboard();
 		public mainGameWindow()
 		{
             
@@ -134,7 +135,7 @@ namespace battleship
 		//method which shows the leaderboard
 		private void Leaderboard_Click(object sender, RoutedEventArgs e)
 		{
-
+            leaderboard.Visibility = Visibility.Visible;
 		}
 		//method which changes the game language to french
 		private void French(object sender, RoutedEventArgs e)
