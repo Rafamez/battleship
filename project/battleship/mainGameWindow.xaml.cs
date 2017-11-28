@@ -60,6 +60,9 @@ namespace battleship
 			//small text used to justify whos turn it is
 			Turn.Content = "YOUR \r\nTURN";
 		}
+
+
+
 		//This method was used when window was resized, doesnt work, is outdated
 		/*  private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
           {
@@ -75,6 +78,9 @@ namespace battleship
               }
           }
       */
+
+
+
 		//when the elapsedEventArgs e is met (1000 milliseconds elapsed)
 		private void OnTimedEvent(object source, ElapsedEventArgs e)
 		{
