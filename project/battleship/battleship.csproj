@@ -101,15 +101,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Russia.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Germany.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\background.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="background.png" />
   </ItemGroup>
   <ItemGroup>
@@ -119,25 +110,25 @@
     <Resource Include="Images\cross.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\japan\Japan.jpg" />
+    <Resource Include="Images\japan\Japan.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\russia\Russia.jpg" />
+    <Resource Include="Images\russia\Russia.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\germany\Germany.jpg" />
+    <Resource Include="Images\germany\Germany.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\USA.jpg" />
+    <Resource Include="Images\usa\USA.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\background.jpg" />
+    <Resource Include="Images\background.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\background2.jpg" />
+    <Resource Include="Images\background2.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\X.jpg" />
+    <Resource Include="Images\X.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -59,11 +59,18 @@ namespace battleship
 						playerTurn = !playerTurn;
 						//switch user depending on who played the turn
 						if (playerTurn)
+                            if(english)
 							Turn.Content = "YOUR \r\nTURN";
-						else
+                        else
+                                Turn.Content = "VOTRE \r\nTOURS";
+                        else
+                                if (english)
 							Turn.Content = "AI \r\nTURN";
-						//add an image of a cross on the location hit and put the opacity to 100
-						hitZone[spot].Background = new ImageBrush(new BitmapImage(new Uri(@"Images/cross.png", UriKind.Relative)));
+                        else
+                            Turn.Content = "TOURS \r\nDU ROBOT";
+
+                        //add an image of a cross on the location hit and put the opacity to 100
+                        hitZone[spot].Background = new ImageBrush(new BitmapImage(new Uri(@"Images/cross.png", UriKind.Relative)));
 						hitZone[spot].Background.Opacity = 100;
 						//increment end value by 1
 						endValue++;

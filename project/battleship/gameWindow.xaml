@@ -22,22 +22,22 @@
                     <MenuItem x:Name="Off" Header="Off" Icon=""  Checked="CheatsOff" IsCheckable="True"/>
                 </MenuItem>
                 <MenuItem x:Name="Skins" Header="Skin" RenderTransformOrigin="0.414,0.957">
-                    <MenuItem x:Name="UnitedStates" Header="USA"   Click="USA">
+                    <MenuItem x:Name="UnitedStates" Header="USA"   Click="USA" IsCheckable="True">
                         <MenuItem.Icon>
                             <Image Source="Images\usa\USA.jpg" Width="20" Height="20" />
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem x:Name="Japan" Header="JPN" Click="JPN">
+                    <MenuItem x:Name="Japan" Header="JPN" Click="JPN" IsCheckable="True">
                         <MenuItem.Icon>
                             <Image Source="Images\japan\Japan.jpg" Width="20" Height="20" />
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem x:Name="Russia" Header="RUS" Click="RUS">
+                    <MenuItem x:Name="Russia" Header="RUS" Click="RUS" IsCheckable="True">
                         <MenuItem.Icon>
                             <Image Source="Images\russia\Russia.jpg" Width="20" Height="20" />
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem x:Name="Germany" Header="GER" Click="GER">
+                    <MenuItem x:Name="Germany" Header="GER" Click="GER" IsCheckable="True">
                         <MenuItem.Icon>
                             <Image Source="Images\germany\Germany.jpg" Width="20" Height="20" />
                         </MenuItem.Icon>
@@ -84,7 +84,7 @@
             </Grid.ColumnDefinitions>
             <Grid x:Name="HumanGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30 10 0 0" Width="300" Grid.Column="0">
                 <Grid.Background>
-                    <ImageBrush ImageSource="background.jpg" TileMode="Tile" Stretch="UniformToFill"/>
+                    <ImageBrush ImageSource="Images/background.jpg" TileMode="Tile" Stretch="UniformToFill"/>
                 </Grid.Background>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="30"/>
@@ -234,7 +234,7 @@
             <Label x:Name="Turn" Content="" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,100,0,0" FontSize="20"  Grid.Column="1"/>
             <Grid x:Name="AIGrid" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 10 0 0" Width="300" Grid.Column="2">
                 <Grid.Background>
-                    <ImageBrush ImageSource="background2.jpg" TileMode="Tile" Stretch="UniformToFill"/>
+                    <ImageBrush ImageSource="Images\background2.jpg" TileMode="Tile" Stretch="UniformToFill"/>
                 </Grid.Background>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="30"/>
