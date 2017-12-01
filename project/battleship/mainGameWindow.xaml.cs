@@ -278,12 +278,6 @@ namespace battleship
         }
 
 
-        //test method to see what happens when a label has focus (may be used to initate "clicks")
-        private void TextBlock0_GotFocus(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("hi");
-        }
-
 
         //method which sees if the game is about to end or not
         public void end()
@@ -347,8 +341,13 @@ namespace battleship
                 PatrolBoat.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\airshipcarrierH.png");
         }
 
+		private void callChoseShip(object sender, RoutedEventArgs e)
+		{
+			
+		}
 
-    }
+
+	}
 }
 
 

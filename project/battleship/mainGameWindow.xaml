@@ -240,25 +240,25 @@
                         <ColumnDefinition Width="50"/>
                         <ColumnDefinition Width="100"/>
                     </Grid.ColumnDefinitions>
-                    <Image x:Name="PatrolBoat" Grid.Row="0" Grid.Column="1" Source="Images\patrolH.png" Visibility="Hidden" />
+                    <Image x:Name="PatrolBoat" Grid.Row="0" Grid.Column="1" Source="Images\patrolH.png" Visibility="Hidden" GotFocus="callChoseShip" />
                     <Button x:Name="PBButton" Grid.Row="0" Grid.Column="0" Visibility="Hidden" Click="PBButton_Click">
                         <Button.Background>
                             <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
                         </Button.Background>
                     </Button>
-                    <Image x:Name="Submarine" Grid.Row="0" Grid.Column="1" Source="Images\submarineH.png" Visibility="Hidden"/>
+                    <Image x:Name="Submarine" Grid.Row="0" Grid.Column="1" Source="Images\submarineH.png" Visibility="Hidden" GotFocus="callChoseShip"/>
                     <Button x:Name="SButton" Grid.Row="0" Grid.Column="0" Visibility="Hidden" Click="SButton_Click">
                         <Button.Background>
                             <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
                         </Button.Background>
                     </Button>
-                    <Image x:Name="Battleship" Grid.Row="0" Grid.Column="1" Source="Images\battleshipH.png" Visibility="Hidden"/>
+                    <Image x:Name="Battleship" Grid.Row="0" Grid.Column="1" Source="Images\battleshipH.png" Visibility="Hidden" GotFocus="callChoseShip"/>
                     <Button x:Name="BButton" Grid.Row="0" Grid.Column="0" Visibility="Hidden" Click="BButton_Click">
                         <Button.Background>
                             <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
                         </Button.Background>
                     </Button>
-                    <Image x:Name="AircraftCarrier" Grid.Row="0" Grid.Column="1" Source="Images\aircraftcarrierH.png" Visibility="Hidden"/>
+                    <Image x:Name="AircraftCarrier" Grid.Row="0" Grid.Column="1" Source="Images\aircraftcarrierH.png" Visibility="Hidden" GotFocus="callChoseShip"/>
                     <Button x:Name="ACButton" Grid.Row="0" Grid.Column="0" Visibility="Hidden" Click="ACButton_Click">
                         <Button.Background>
                             <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
