@@ -23,3 +23,9 @@ H:\Sem3\C#\battleship\project\battleship\obj\Debug\gameWindow.g.cs
 H:\Sem3\C#\battleship\project\battleship\obj\Debug\App.g.cs
 H:\Sem3\C#\battleship\project\battleship\obj\Debug\battleship_MarkupCompile.cache
 H:\Sem3\C#\battleship\project\battleship\obj\Debug\battleship_MarkupCompile.lref
+E:\school\semester3\battleship\project\battleship\bin\Debug\battleship.exe.config
+E:\school\semester3\battleship\project\battleship\obj\Debug\battleship.csprojResolveAssemblyReference.cache
+E:\school\semester3\battleship\project\battleship\obj\Debug\gameWindow.g.cs
+E:\school\semester3\battleship\project\battleship\obj\Debug\App.g.cs
+E:\school\semester3\battleship\project\battleship\obj\Debug\battleship_MarkupCompile.cache
+E:\school\semester3\battleship\project\battleship\obj\Debug\battleship_MarkupCompile.lref

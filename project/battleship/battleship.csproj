@@ -101,13 +101,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Japan.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Russia.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\USA.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Germany.jpg" />
@@ -122,13 +116,28 @@
     <Resource Include="background2.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\background2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\X.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\cross.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\japan\Japan.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\russia\Russia.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\germany\Germany.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\USA.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\background2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\X.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
