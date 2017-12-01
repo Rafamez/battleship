@@ -107,11 +107,17 @@ namespace battleship
 
 
         //method used to adding images in a list which will be used to put the ships on the grid
-        public void boatFace(int x)
+        public void boatFace(int x, int y)
         {
+			Image image=null;
             if (!horizental[x])
             {
-                //GameGrid.RowDefinitions.ElementAt(x); NEED FINISH
+				try
+				{
+					image = (Image)GameGrid.FindName("AITextBlock" + (x * y).ToString());
+				}
+				catch(Exception){}
+				image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\patrolV.png");
 				horizental[x] = !horizental[x];
             }
             else
