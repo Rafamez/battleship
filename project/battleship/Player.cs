@@ -19,7 +19,7 @@ using System.Windows.Shapes;
 
 namespace battleship
 {
-	public class Player : gameWindow
+	public class Player : mainGameWindow
 	{
 		//list to see which location the ai shot, the human shot, which textblock has been hit, whose turn is it
 		//parameter for the turn

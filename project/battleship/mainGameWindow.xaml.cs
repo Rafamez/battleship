@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
@@ -22,7 +23,7 @@ namespace battleship
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     /// 
-    public partial class gameWindow : Window
+    public partial class mainGameWindow : Window
     {
         //value to represent the X axis
         public int gridX = 10;
@@ -46,15 +47,25 @@ namespace battleship
         public int expireTime = 20;
         //creating human
         public Player human;
-        public string skin="usa";
+        public string skin = "usa";
+        //creating human
+        private String[] saved = new String[250];
 
-       public Boolean english = true;
+        public Boolean english = true;
+
+        public List<Boolean> horizental;
+
+        public List<Boolean> isHorizental
+        {
+            get { return horizental; }
+            set {; }
+        }
 
 
-        public gameWindow()
+        public mainGameWindow()
         {
             InitializeComponent();
-            UnitedStates.IsChecked=true;
+            UnitedStates.IsChecked = true;
             //Call method to change value of GameTime when event is met
             T.Elapsed += new ElapsedEventHandler(OnTimedEvent);
             //set the interval to 1000
@@ -66,21 +77,7 @@ namespace battleship
             //small text used to justify whos turn it is
             Turn.Content = "YOUR \r\nTURN";
         }
-        //This method was used when window was resized, doesnt work, is outdated
-        /*  private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
-          {
-              if ((PlayerGrid.Margin.Right + AIGrid.Margin.Left < PlayerGrid.ActualWidth + AIGrid.ActualWidth) && (size - mainWindow.ActualWidth > 0))
-              {
-                  PlayerGrid.Margin = new Thickness(PlayerGrid.Margin.Left, PlayerGrid.Margin.Top, size - mainWindow.ActualWidth, PlayerGrid.Margin.Bottom);
-                  AIGrid.Margin = new Thickness(size - mainWindow.ActualWidth, AIGrid.Margin.Top, AIGrid.Margin.Right, AIGrid.Margin.Bottom);
-              }
-              else
-              {
-                  PlayerGrid.Margin = new Thickness(PlayerGrid.Margin.Left, PlayerGrid.Margin.Top, PlayerGrid.ActualWidth / 2 + 400, PlayerGrid.Margin.Bottom);
-                  AIGrid.Margin = new Thickness(AIGrid.ActualWidth / 2 + 400, AIGrid.Margin.Top, AIGrid.Margin.Right, AIGrid.Margin.Bottom);
-              }
-          }
-      */
+
         //when the elapsedEventArgs e is met (1000 milliseconds elapsed)
         private void OnTimedEvent(object source, ElapsedEventArgs e)
         {
@@ -129,6 +126,46 @@ namespace battleship
         private void Stop_Click(object sender, RoutedEventArgs e)
         {
             T.Enabled = false;
+            if (File.Exists(@"../../DataFile.txt"))
+            {
+                File.Delete(@"../../DataFile.txt");
+            }
+            saved[0] = _Score.Text + '*';
+            saved[1] = _Time.Text + '*';
+            saved[2] = difficulty.ToString() + '*';
+            // saved[3] = Name.Text +'*';
+            // saved[4] = Credit.Text +'*';
+            //saved[5] = empire.text +'*';
+            //saved[6]= language.text +'*';
+            //saved[7]= cheats.text +'*';
+
+            //SAVE THE ELEMENTS FOR THE GRID 
+            /*   for (int i = 0; i < GameGrid.Text.Length; i++)
+               {
+                   saved[i + 4] = secret[i];
+
+               }
+               for (int j = 0; j < reveal.Length; j++)
+               {
+                   saved[j + 20] = Convert.ToString(reveal[j]);
+
+               }*/
+            FileStream fs = new FileStream("../../DataFile.txt", FileMode.Create, FileAccess.ReadWrite);
+            // Construct a BinaryFormatter and use it to serialize the data to the stream.
+            BinaryFormatter formatter = new BinaryFormatter();
+            try
+            {
+                formatter.Serialize(fs, saved);
+            }
+            catch (SerializationException em)
+            {
+                Console.WriteLine("Failed to serialize. Reason: " + em.Message);
+
+            }
+            finally
+            {
+                fs.Close();
+            }
         }
         //method which shows the leaderboard
         private void Leaderboard_Click(object sender, RoutedEventArgs e)
@@ -161,7 +198,7 @@ namespace battleship
         private void English(object sender, RoutedEventArgs e)
         {
             english = true;
-            
+
             Title.Content = "BattleShip: The Game";
             TimeLabel.Content = "Time";
             Difficulty.Content = "Difficulty";
@@ -185,7 +222,7 @@ namespace battleship
         {
             if (On.IsChecked)
                 Off.IsChecked = false;
-            
+
 
         }
         //method which disables those cheats
@@ -209,9 +246,9 @@ namespace battleship
         private void JPN(object sender, RoutedEventArgs e)
         {
             skin = "japan";
-            Germany.IsChecked =false;
-            Russia.IsChecked =false;
-            UnitedStates.IsChecked =false;
+            Germany.IsChecked = false;
+            Russia.IsChecked = false;
+            UnitedStates.IsChecked = false;
             Japan.IsChecked = true;
 
 
@@ -239,16 +276,8 @@ namespace battleship
 
 
         }
-        //method which shows your credit only if you have some (accumulated over multiple games, related to username)
-        private void showCredits(Human player1)
-        {
-            if (player1.getPoints > 0)
-            {
-                Credits.Visibility = Visibility.Visible;
-                CreditsValue.Visibility = Visibility.Visible;
-                CreditsValue.Text = player1.getPoints.ToString();
-            }
-        }
+
+
         //test method to see what happens when a label has focus (may be used to initate "clicks")
         private void TextBlock0_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -262,8 +291,8 @@ namespace battleship
             //if you win
             if (endValue == 17)
             {
-                if(english)
-                MessageBox.Show("You finished the game in " + GameTime + " seconds, congratulations!");
+                if (english)
+                    MessageBox.Show("You finished the game in " + GameTime + " seconds, congratulations!");
                 else
                     MessageBox.Show("Vous avez fini le jeu en " + GameTime + " secondes, bravo!");
                 System.Windows.Application.Current.Shutdown();
@@ -271,18 +300,56 @@ namespace battleship
             //if you lose
             if (friendlyDamage == 17)
             {
-                if(english)
-                MessageBox.Show("You lost the game in " + GameTime + " seconds, git gud!");
+                if (english)
+                    MessageBox.Show("You lost the game in " + GameTime + " seconds, git gud!");
                 else
                     MessageBox.Show("Vous avez perdu le jeu en " + GameTime + " secondes, vous êtes mauvais!");
                 System.Windows.Application.Current.Shutdown();
+
             }
         }
 
-       
-    }
 
+
+        private void PBButton_Click(object sender, RoutedEventArgs e)
+        {
+            horizental[0] = !horizental[0];
+            if (!horizental[0])
+                PatrolBoat.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\patrolV.png");
+            if (horizental[0])
+                PatrolBoat.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\patrolH.png");
+        }
+
+        private void SButton_Click(object sender, RoutedEventArgs e)
+        {
+            horizental[1] = !horizental[1];
+            if (!horizental[1])
+                PatrolBoat.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\submarineV.png");
+            if (horizental[1])
+                PatrolBoat.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\submarineH.png");
+        }
+
+        private void BButton_Click(object sender, RoutedEventArgs e)
+        {
+            horizental[2] = !horizental[2];
+            if (!horizental[2])
+                PatrolBoat.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\battleshipV.png");
+            if (horizental[2])
+                PatrolBoat.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\battleshipH.png");
+        }
+
+        private void ACButton_Click(object sender, RoutedEventArgs e)
+        {
+            horizental[3] = !horizental[3];
+            if (!horizental[0])
+                PatrolBoat.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\airshipcarrierV.png");
+            if (horizental[0])
+                PatrolBoat.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\airshipcarrierH.png");
+        }
+
+
+    }
 }
 
-  
+
 

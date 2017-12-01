@@ -1,4 +1,4 @@
-﻿<Window x:Name="gameWindow" x:Class="battleship.gameWindow"
+﻿<Window x:Name="gameWindow" x:Class="battleship.mainGameWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:battleship"
         mc:Ignorable="d"
         Title="Battleship" 
-        Height="502.759" Width="1181.471" MinHeight="300" MinWidth="600" ResizeMode="NoResize">
+        Height="502.759" Width="1181.471" MinHeight="300" MinWidth="600" ResizeMode="CanMinimize" WindowState="Normal" >
     <StackPanel Height="auto" Width="auto" Margin="0,0,-0.4,-3.8" Background="#FF8D8D8D">
 
 
@@ -77,9 +77,9 @@
         </Border>
         <Grid x:Name="GameGrid">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="4*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
             <Grid x:Name="HumanGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30 10 0 0" Width="300" Grid.Column="0">
@@ -228,10 +228,47 @@
                 <TextBlock x:Name="TextBlock97" Text="" Grid.Row="9" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                 <TextBlock x:Name="TextBlock98" Text="" Grid.Row="9" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                 <TextBlock x:Name="TextBlock99" Text="" Grid.Row="9" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-
-
             </Grid>
-            <Label x:Name="Turn" Content="" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,100,0,0" FontSize="20"  Grid.Column="1"/>
+
+
+            <WrapPanel Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 50 0 0">
+                <Grid x:Name="shipsLocations">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="PatrolBoat" Grid.Row="0" Grid.Column="1" Source="Images\patrolH.png" Visibility="Hidden" />
+                    <Button x:Name="PBButton" Grid.Row="0" Grid.Column="0" Visibility="Hidden" Click="PBButton_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
+                        </Button.Background>
+                    </Button>
+                    <Image x:Name="Submarine" Grid.Row="0" Grid.Column="1" Source="Images\submarineH.png" Visibility="Hidden"/>
+                    <Button x:Name="SButton" Grid.Row="0" Grid.Column="0" Visibility="Hidden" Click="SButton_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
+                        </Button.Background>
+                    </Button>
+                    <Image x:Name="Battleship" Grid.Row="0" Grid.Column="1" Source="Images\battleshipH.png" Visibility="Hidden"/>
+                    <Button x:Name="BButton" Grid.Row="0" Grid.Column="0" Visibility="Hidden" Click="BButton_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
+                        </Button.Background>
+                    </Button>
+                    <Image x:Name="AircraftCarrier" Grid.Row="0" Grid.Column="1" Source="Images\aircraftcarrierH.png" Visibility="Hidden"/>
+                    <Button x:Name="ACButton" Grid.Row="0" Grid.Column="0" Visibility="Hidden" Click="ACButton_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
+                        </Button.Background>
+                    </Button>
+                </Grid>
+            </WrapPanel>
+            <Label x:Name="Turn" Content="" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,100,0,0" FontSize="20"  Grid.Column="1"/>
+
+
             <Grid x:Name="AIGrid" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 10 0 0" Width="300" Grid.Column="2">
                 <Grid.Background>
                     <ImageBrush ImageSource="Images\background2.jpg" TileMode="Tile" Stretch="UniformToFill"/>
@@ -381,23 +418,24 @@
                 <TextBlock x:Name="AITextBlock98" Text="" Grid.Row="9" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                 <TextBlock x:Name="AITextBlock99" Text="" Grid.Row="9" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 
-
-
             </Grid>
-            <TextBlock x:Name="actions" Text="" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="72" Grid.Column="3" Margin="0,73.214,21.988,63.219"/>
+
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="3">
+        <TextBlock x:Name="actions" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20"  Margin="20, 40, 20, 0" />
+            </ScrollViewer>
         </Grid>
 
 
         <Grid x:Name="optionsGrid">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Button x:Name="Start" Content="_Start" Width="150" HorizontalAlignment="Left" Margin="20,30,0,-0.4" IsDefault="True" Click="Start_Click" Grid.Column="0" Height="20" VerticalAlignment="Top"/>
-            <Button x:Name="Leaderboard" Content="_Leaderboard" Width="150" Height="20" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 30 0 0" Click="Leaderboard_Click" Grid.Column="1"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="Start" Content="_Start" Width="150" HorizontalAlignment="Left" Margin="20,30,0,-0.4" IsDefault="True" Click="Start_Click" Grid.Column="0" Height="20" VerticalAlignment="Top"/>
+                    <Button x:Name="Leaderboard" Content="_Leaderboard" Width="150" Height="20" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 30 0 0" Click="Leaderboard_Click" Grid.Column="1"/>
             <Button x:Name="Stop" Content="Sto_p" Width="150" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 30 20 0" IsCancel="True" Click="Stop_Click" Grid.Column="2"/>
         </Grid>
-
     </StackPanel>
 </Window>

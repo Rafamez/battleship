@@ -56,19 +56,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Leaderboard.xaml.cs">
+      <DependentUpon>Leaderboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="mainGameWindow.xaml.cs">
+      <DependentUpon>mainGameWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ship.cs" />
-    <Page Include="gameWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="AI.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="gameWindow.xaml.cs">
-      <DependentUpon>gameWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
+    <Compile Include="startWindow.xaml.cs">
+      <DependentUpon>startWindow.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +133,37 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\X.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Leaderboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="mainGameWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="startWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\aircraftcarrierH.png" />
+    <Resource Include="Images\aircraftcarrierV.png" />
+    <Resource Include="Images\battleshipH.png" />
+    <Resource Include="Images\battleshipV.png" />
+    <Resource Include="Images\patrolH.png" />
+    <Resource Include="Images\patrolV.png" />
+    <Resource Include="Images\submarineH.png" />
+    <Resource Include="Images\submarineV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\return.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

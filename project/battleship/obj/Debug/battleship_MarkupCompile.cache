@@ -4,17 +4,26 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 E:\school\semester3\battleship\project\battleship\obj\Debug\
+=======
+H:\battleship\battleship\project\battleship\obj\Debug\
+>>>>>>> 102e5ba3b109bb42f06f0e445bd2c9ba6bd62d11
 battleship
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 E:\school\semester3\battleship\project\battleship\App.xaml
 1-1262988293
+=======
+H:\battleship\battleship\project\battleship\App.xaml
+4669610000
+>>>>>>> 102e5ba3b109bb42f06f0e445bd2c9ba6bd62d11
 
-91275176169
+121388641703
 14-1001767708
-gameWindow.xaml;
+Leaderboard.xaml;mainGameWindow.xaml;MainWindow.xaml;startWindow.xaml;
 
-True
+False
 
