@@ -110,124 +110,124 @@
                     <RowDefinition Height="30"/>
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
-                <TextBlock x:Name="TextBlock0" Text="" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock1" Text="" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock2" Text="" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock3" Text="" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock4" Text="" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock5" Text="" Grid.Row="0" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock6" Text="" Grid.Row="0" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock7" Text="" Grid.Row="0" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock8" Text="" Grid.Row="0" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock9" Text="" Grid.Row="0" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Image x:Name="Image0" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image1" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image2" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image3" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image4" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image5" Grid.Row="0" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image6" Grid.Row="0" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image7" Grid.Row="0" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image8" Grid.Row="0" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image9" Grid.Row="0" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
 
 
-                <TextBlock x:Name="TextBlock10" Text="" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock11" Text="" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock12" Text="" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock13" Text="" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock14" Text="" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock15" Text="" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock16" Text="" Grid.Row="1" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock17" Text="" Grid.Row="1" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock18" Text="" Grid.Row="1" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock19" Text="" Grid.Row="1" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Image x:Name="Image10" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image11" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image12" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image13" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image14" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image15" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image16" Grid.Row="1" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image17" Grid.Row="1" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image18" Grid.Row="1" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image19" Grid.Row="1" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
 
 
-                <TextBlock x:Name="TextBlock20" Text="" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock21" Text="" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock22" Text="" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock23" Text="" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock24" Text="" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock25" Text="" Grid.Row="2" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock26" Text="" Grid.Row="2" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock27" Text="" Grid.Row="2" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock28" Text="" Grid.Row="2" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock29" Text="" Grid.Row="2" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Image x:Name="Image20" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image21" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image22" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image23" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image24" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image25" Grid.Row="2" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image26" Grid.Row="2" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image27" Grid.Row="2" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image28" Grid.Row="2" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image29" Grid.Row="2" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
 
 
-                <TextBlock x:Name="TextBlock30" Text="" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock31" Text="" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock32" Text="" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock33" Text="" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock34" Text="" Grid.Row="3" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock35" Text="" Grid.Row="3" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock36" Text="" Grid.Row="3" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock37" Text="" Grid.Row="3" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock38" Text="" Grid.Row="3" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock39" Text="" Grid.Row="3" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Image x:Name="Image30" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image31" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image32" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image33" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image34" Grid.Row="3" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image35" Grid.Row="3" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image36" Grid.Row="3" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image37" Grid.Row="3" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image38" Grid.Row="3" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image39" Grid.Row="3" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
 
 
-                <TextBlock x:Name="TextBlock40" Text="" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock41" Text="" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock42" Text="" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock43" Text="" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock44" Text="" Grid.Row="4" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock45" Text="" Grid.Row="4" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock46" Text="" Grid.Row="4" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock47" Text="" Grid.Row="4" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock48" Text="" Grid.Row="4" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock49" Text="" Grid.Row="4" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Image x:Name="Image40" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image41" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image42" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image43" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image44" Grid.Row="4" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image45" Grid.Row="4" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image46" Grid.Row="4" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image47" Grid.Row="4" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image48" Grid.Row="4" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image49" Grid.Row="4" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
 
 
-                <TextBlock x:Name="TextBlock50" Text="" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock51" Text="" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock52" Text="" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock53" Text="" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock54" Text="" Grid.Row="5" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock55" Text="" Grid.Row="5" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock56" Text="" Grid.Row="5" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock57" Text="" Grid.Row="5" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock58" Text="" Grid.Row="5" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock59" Text="" Grid.Row="5" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Image x:Name="Image50" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image51" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image52" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image53" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image54" Grid.Row="5" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image55" Grid.Row="5" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image56" Grid.Row="5" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image57" Grid.Row="5" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image58" Grid.Row="5" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image59" Grid.Row="5" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
 
 
-                <TextBlock x:Name="TextBlock60" Text="" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock61" Text="" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock62" Text="" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock63" Text="" Grid.Row="6" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock64" Text="" Grid.Row="6" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock65" Text="" Grid.Row="6" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock66" Text="" Grid.Row="6" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock67" Text="" Grid.Row="6" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock68" Text="" Grid.Row="6" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock69" Text="" Grid.Row="6" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Image x:Name="Image60" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image61" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image62" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image63" Grid.Row="6" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image64" Grid.Row="6" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image65" Grid.Row="6" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image66" Grid.Row="6" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image67" Grid.Row="6" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image68" Grid.Row="6" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image69" Grid.Row="6" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
 
 
-                <TextBlock x:Name="TextBlock70" Text="" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock71" Text="" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock72" Text="" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock73" Text="" Grid.Row="7" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock74" Text="" Grid.Row="7" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock75" Text="" Grid.Row="7" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock76" Text="" Grid.Row="7" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock77" Text="" Grid.Row="7" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock78" Text="" Grid.Row="7" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock79" Text="" Grid.Row="7" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Image x:Name="Image70" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image71" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image72" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image73" Grid.Row="7" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image74" Grid.Row="7" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image75" Grid.Row="7" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image76" Grid.Row="7" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image77" Grid.Row="7" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image78" Grid.Row="7" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image79" Grid.Row="7" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
 
 
-                <TextBlock x:Name="TextBlock80" Text="" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock81" Text="" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock82" Text="" Grid.Row="8" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock83" Text="" Grid.Row="8" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock84" Text="" Grid.Row="8" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock85" Text="" Grid.Row="8" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock86" Text="" Grid.Row="8" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock87" Text="" Grid.Row="8" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock88" Text="" Grid.Row="8" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock89" Text="" Grid.Row="8" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Image x:Name="Image80" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image81" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image82" Grid.Row="8" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image83" Grid.Row="8" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image84" Grid.Row="8" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image85" Grid.Row="8" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image86" Grid.Row="8" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image87" Grid.Row="8" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image88" Grid.Row="8" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
+                <Image x:Name="Image89" Grid.Row="8" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="layShip" />
 
 
-                <TextBlock x:Name="TextBlock90" Text="" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock91" Text="" Grid.Row="9" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock92" Text="" Grid.Row="9" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock93" Text="" Grid.Row="9" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock94" Text="" Grid.Row="9" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock95" Text="" Grid.Row="9" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock96" Text="" Grid.Row="9" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock97" Text="" Grid.Row="9" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock98" Text="" Grid.Row="9" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="TextBlock99" Text="" Grid.Row="9" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Image x:Name="Image90" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  GotFocus="layShip" />
+                <Image x:Name="Image91" Grid.Row="9" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  GotFocus="layShip" />
+                <Image x:Name="Image92" Grid.Row="9" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  GotFocus="layShip" />
+                <Image x:Name="Image93" Grid.Row="9" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  GotFocus="layShip" />
+                <Image x:Name="Image94" Grid.Row="9" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  GotFocus="layShip" />
+                <Image x:Name="Image95" Grid.Row="9" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  GotFocus="layShip" />
+                <Image x:Name="Image96" Grid.Row="9" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  GotFocus="layShip" />
+                <Image x:Name="Image97" Grid.Row="9" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  GotFocus="layShip" />
+                <Image x:Name="Image98" Grid.Row="9" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  GotFocus="layShip" />
+                <Image x:Name="Image99" Grid.Row="9" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  GotFocus="layShip" />
             </Grid>
 
 
@@ -240,25 +240,31 @@
                         <ColumnDefinition Width="50"/>
                         <ColumnDefinition Width="100"/>
                     </Grid.ColumnDefinitions>
-                    <Image x:Name="PatrolBoat" Grid.Row="0" Grid.Column="1" Source="Images\patrolH.png" Visibility="Hidden" GotFocus="callChoseShip" />
-                    <Button x:Name="PBButton" Grid.Row="0" Grid.Column="0" Visibility="Hidden" Click="PBButton_Click">
+                    <Image x:Name="BattleShip" Grid.Row="0" Grid.Column="1" Source="Images\usa\battleshipH.png" Visibility="Hidden" GotFocus="callChoseShip" />
+                    <Button x:Name="BBButton" Grid.Row="0" Grid.Column="0" Visibility="Hidden" Click="BButton_Click">
                         <Button.Background>
                             <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
                         </Button.Background>
                     </Button>
-                    <Image x:Name="Submarine" Grid.Row="0" Grid.Column="1" Source="Images\submarineH.png" Visibility="Hidden" GotFocus="callChoseShip"/>
+                    <Image x:Name="Cruiser" Grid.Row="0" Grid.Column="1" Source="Images\usa\cruiserH.png" Visibility="Hidden" GotFocus="callChoseShip"/>
+                    <Button x:Name="CButton" Grid.Row="0" Grid.Column="0" Visibility="Hidden" Click="CButton_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
+                        </Button.Background>
+                    </Button>
+                    <Image x:Name="Destroyer" Grid.Row="0" Grid.Column="1" Source="Images\usa\destroyerH.png" Visibility="Hidden" GotFocus="callChoseShip"/>
+                    <Button x:Name="DButton" Grid.Row="0" Grid.Column="0" Visibility="Hidden" Click="DButton_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
+                        </Button.Background>
+                    </Button>
+                    <Image x:Name="Submarine" Grid.Row="0" Grid.Column="1" Source="Images\usa\submarineH.png" Visibility="Hidden" GotFocus="callChoseShip"/>
                     <Button x:Name="SButton" Grid.Row="0" Grid.Column="0" Visibility="Hidden" Click="SButton_Click">
                         <Button.Background>
                             <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
                         </Button.Background>
                     </Button>
-                    <Image x:Name="Battleship" Grid.Row="0" Grid.Column="1" Source="Images\battleshipH.png" Visibility="Hidden" GotFocus="callChoseShip"/>
-                    <Button x:Name="BButton" Grid.Row="0" Grid.Column="0" Visibility="Hidden" Click="BButton_Click">
-                        <Button.Background>
-                            <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
-                        </Button.Background>
-                    </Button>
-                    <Image x:Name="AircraftCarrier" Grid.Row="0" Grid.Column="1" Source="Images\aircraftcarrierH.png" Visibility="Hidden" GotFocus="callChoseShip"/>
+                    <Image x:Name="AircraftCarrier" Grid.Row="0" Grid.Column="1" Source="Images\usa\carrierH.png" Visibility="Hidden" GotFocus="callChoseShip"/>
                     <Button x:Name="ACButton" Grid.Row="0" Grid.Column="0" Visibility="Hidden" Click="ACButton_Click">
                         <Button.Background>
                             <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
@@ -299,142 +305,142 @@
                 </Grid.RowDefinitions>
 
 
-                <TextBlock x:Name="AITextBlock0" Text="" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock1" Text="" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock2" Text="" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock3" Text="" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock4" Text="" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock5" Text="" Grid.Row="0" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock6" Text="" Grid.Row="0" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock7" Text="" Grid.Row="0" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock8" Text="" Grid.Row="0" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock9" Text="" Grid.Row="0" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Image x:Name="AIImage0" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage1" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage2" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage3" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage4" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage5" Grid.Row="0" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage6" Grid.Row="0" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage7" Grid.Row="0" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage8" Grid.Row="0" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage9" Grid.Row="0" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
 
 
-                <TextBlock x:Name="AITextBlock10" Text="" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock11" Text="" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock12" Text="" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock13" Text="" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock14" Text="" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock15" Text="" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock16" Text="" Grid.Row="1" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock17" Text="" Grid.Row="1" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock18" Text="" Grid.Row="1" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock19" Text="" Grid.Row="1" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Image x:Name="AIImage10" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage11" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage12" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage13" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage14" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage15" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage16" Grid.Row="1" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage17" Grid.Row="1" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage18" Grid.Row="1" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage19" Grid.Row="1" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
 
 
-                <TextBlock x:Name="AITextBlock20" Text="" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock21" Text="" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock22" Text="" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock23" Text="" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock24" Text="" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock25" Text="" Grid.Row="2" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock26" Text="" Grid.Row="2" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock27" Text="" Grid.Row="2" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock28" Text="" Grid.Row="2" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock29" Text="" Grid.Row="2" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Image x:Name="AIImage20" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage21" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage22" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage23" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage24" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage25" Grid.Row="2" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage26" Grid.Row="2" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage27" Grid.Row="2" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage28" Grid.Row="2" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage29" Grid.Row="2" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
 
 
-                <TextBlock x:Name="AITextBlock30" Text="" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock31" Text="" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock32" Text="" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock33" Text="" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock34" Text="" Grid.Row="3" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock35" Text="" Grid.Row="3" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock36" Text="" Grid.Row="3" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock37" Text="" Grid.Row="3" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock38" Text="" Grid.Row="3" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock39" Text="" Grid.Row="3" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Image x:Name="AIImage30" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage31" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage32" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage33" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage34" Grid.Row="3" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage35" Grid.Row="3" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage36" Grid.Row="3" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage37" Grid.Row="3" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage38" Grid.Row="3" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage39" Grid.Row="3" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
 
 
-                <TextBlock x:Name="AITextBlock40" Text="" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock41" Text="" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock42" Text="" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock43" Text="" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock44" Text="" Grid.Row="4" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock45" Text="" Grid.Row="4" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock46" Text="" Grid.Row="4" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock47" Text="" Grid.Row="4" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock48" Text="" Grid.Row="4" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock49" Text="" Grid.Row="4" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Image x:Name="AIImage40" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage41" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage42" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage43" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage44" Grid.Row="4" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage45" Grid.Row="4" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage46" Grid.Row="4" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage47" Grid.Row="4" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage48" Grid.Row="4" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage49" Grid.Row="4" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
 
 
-                <TextBlock x:Name="AITextBlock50" Text="" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock51" Text="" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock52" Text="" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock53" Text="" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock54" Text="" Grid.Row="5" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock55" Text="" Grid.Row="5" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock56" Text="" Grid.Row="5" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock57" Text="" Grid.Row="5" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock58" Text="" Grid.Row="5" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock59" Text="" Grid.Row="5" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Image x:Name="AIImage50" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage51" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage52" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage53" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage54" Grid.Row="5" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage55" Grid.Row="5" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage56" Grid.Row="5" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage57" Grid.Row="5" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage58" Grid.Row="5" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage59" Grid.Row="5" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
 
 
-                <TextBlock x:Name="AITextBlock60" Text="" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock61" Text="" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock62" Text="" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock63" Text="" Grid.Row="6" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock64" Text="" Grid.Row="6" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock65" Text="" Grid.Row="6" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock66" Text="" Grid.Row="6" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock67" Text="" Grid.Row="6" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock68" Text="" Grid.Row="6" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock69" Text="" Grid.Row="6" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Image x:Name="AIImage60" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage61" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage62" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage63" Grid.Row="6" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage64" Grid.Row="6" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage65" Grid.Row="6" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage66" Grid.Row="6" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage67" Grid.Row="6" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage68" Grid.Row="6" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage69" Grid.Row="6" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
 
 
-                <TextBlock x:Name="AITextBlock70" Text="" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock71" Text="" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock72" Text="" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock73" Text="" Grid.Row="7" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock74" Text="" Grid.Row="7" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock75" Text="" Grid.Row="7" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock76" Text="" Grid.Row="7" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock77" Text="" Grid.Row="7" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock78" Text="" Grid.Row="7" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock79" Text="" Grid.Row="7" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Image x:Name="AIImage70" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage71" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage72" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage73" Grid.Row="7" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage74" Grid.Row="7" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage75" Grid.Row="7" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage76" Grid.Row="7" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage77" Grid.Row="7" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage78" Grid.Row="7" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage79" Grid.Row="7" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
 
 
-                <TextBlock x:Name="AITextBlock80" Text="" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock81" Text="" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock82" Text="" Grid.Row="8" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock83" Text="" Grid.Row="8" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock84" Text="" Grid.Row="8" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock85" Text="" Grid.Row="8" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock86" Text="" Grid.Row="8" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock87" Text="" Grid.Row="8" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock88" Text="" Grid.Row="8" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock89" Text="" Grid.Row="8" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Image x:Name="AIImage80" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage81" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage82" Grid.Row="8" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage83" Grid.Row="8" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage84" Grid.Row="8" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage85" Grid.Row="8" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage86" Grid.Row="8" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage87" Grid.Row="8" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage88" Grid.Row="8" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <Image x:Name="AIImage89" Grid.Row="8" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
 
 
-                <TextBlock x:Name="AITextBlock90" Text="" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock91" Text="" Grid.Row="9" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock92" Text="" Grid.Row="9" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock93" Text="" Grid.Row="9" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock94" Text="" Grid.Row="9" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock95" Text="" Grid.Row="9" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock96" Text="" Grid.Row="9" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock97" Text="" Grid.Row="9" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock98" Text="" Grid.Row="9" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <TextBlock x:Name="AITextBlock99" Text="" Grid.Row="9" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <TextBlock x:Name="AIImage90" Text="" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <TextBlock x:Name="AIImage91" Text="" Grid.Row="9" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <TextBlock x:Name="AIImage92" Text="" Grid.Row="9" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <TextBlock x:Name="AIImage93" Text="" Grid.Row="9" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <TextBlock x:Name="AIImage94" Text="" Grid.Row="9" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <TextBlock x:Name="AIImage95" Text="" Grid.Row="9" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <TextBlock x:Name="AIImage96" Text="" Grid.Row="9" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <TextBlock x:Name="AIImage97" Text="" Grid.Row="9" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <TextBlock x:Name="AIImage98" Text="" Grid.Row="9" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
+                <TextBlock x:Name="AIImage99" Text="" Grid.Row="9" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="Image_GotFocus"/>
 
             </Grid>
 
 
             <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="3">
-        <TextBlock x:Name="actions" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20"  Margin="20, 40, 20, 0" />
+                <TextBlock x:Name="actions" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20"  Margin="20, 40, 20, 0" />
             </ScrollViewer>
         </Grid>
 
 
         <Grid x:Name="optionsGrid">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Button x:Name="Start" Content="_Start" Width="150" HorizontalAlignment="Left" Margin="20,30,0,-0.4" IsDefault="True" Click="Start_Click" Grid.Column="0" Height="20" VerticalAlignment="Top"/>
-                    <Button x:Name="Leaderboard" Content="_Leaderboard" Width="150" Height="20" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 30 0 0" Click="Leaderboard_Click" Grid.Column="1"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Start" Content="_Start" Width="150" HorizontalAlignment="Left" Margin="20,30,0,-0.4" IsDefault="True" Click="Start_Click" Grid.Column="0" Height="20" VerticalAlignment="Top"/>
+            <Button x:Name="Leaderboard" Content="_Leaderboard" Width="150" Height="20" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 30 0 0" Click="Leaderboard_Click" Grid.Column="1"/>
             <Button x:Name="Stop" Content="Sto_p" Width="150" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 30 20 0" IsCancel="True" Click="Stop_Click" Grid.Column="2"/>
         </Grid>
     </StackPanel>

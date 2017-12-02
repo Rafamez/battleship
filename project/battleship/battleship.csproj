@@ -56,6 +56,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Board.cs" />
     <Compile Include="Leaderboard.xaml.cs">
       <DependentUpon>Leaderboard.xaml</DependentUpon>
     </Compile>
@@ -76,7 +77,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Human.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -153,17 +153,19 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\aircraftcarrierH.png" />
-    <Resource Include="Images\aircraftcarrierV.png" />
-    <Resource Include="Images\battleshipH.png" />
-    <Resource Include="Images\battleshipV.png" />
-    <Resource Include="Images\patrolH.png" />
-    <Resource Include="Images\patrolV.png" />
-    <Resource Include="Images\submarineH.png" />
-    <Resource Include="Images\submarineV.png" />
+    <Resource Include="Images\return.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\return.png" />
+    <Resource Include="Images\usa\battleshipH.png" />
+    <Resource Include="Images\usa\battleshipV.png" />
+    <Resource Include="Images\usa\carrierH.png" />
+    <Resource Include="Images\usa\carrierV.png" />
+    <Resource Include="Images\usa\cruiserH.png" />
+    <Resource Include="Images\usa\cruiserV.png" />
+    <Resource Include="Images\usa\destroyerH.png" />
+    <Resource Include="Images\usa\destroyerV.png" />
+    <Resource Include="Images\usa\submarineH.png" />
+    <Resource Include="Images\usa\submarineV.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

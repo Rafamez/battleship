@@ -21,127 +21,261 @@ namespace battleship
 {
 	public class Player : mainGameWindow
 	{
-		//list to see which location the ai shot, the human shot, which textblock has been hit, whose turn is it
-		//parameter for the turn
-		private List<Boolean> AIgotShot;
-		List<TextBlock> hitZone;
-		private List<Boolean> gotShot;
-		public bool playerTurn;
-		public bool turn
-		{
-			get { return turn; }
-			set {; }
-		}
+        public const int GRID_SIZE = 10;
 
-		int spot;
+        static public Random rnd = new Random();
 
-		//shoot method which requires x and y axis 
-		public void shoot(int x, int y)
-		{
-			//set playtime timer to 0 + begin timer
-			PlayTime = 0;
-			PT.Enabled = true;
-			//spot=the location you will have (61st label for example)
-			spot = x * 10 + y;
-			//loop to continue until time expires or the player makes a valid turn
-			while (PlayTime % expireTime != 0)
-			{
-				//if he shoots in a location not yet used
-				if (!gotShot[spot])
-				{
-					//make it used
-					gotShot[spot] = true;
+        public String username;
 
-					//if he hit an object with a background (ship)
-					if (hitZone[spot].Background.Opacity == 0)
-					{
-						//next turn
-						playerTurn = !playerTurn;
-						//switch user depending on who played the turn
-						if (playerTurn)
-                            if(english)
-							Turn.Content = "YOUR \r\nTURN";
-                        else
-                                Turn.Content = "VOTRE \r\nTOURS";
-                        else
-                                if (english)
-							Turn.Content = "AI \r\nTURN";
-                        else
-                            Turn.Content = "TOURS \r\nDU ROBOT";
+        public List<List<Board>> MyGrid { get; set; }
+        public List<List<Board>> EnemyGrid { get; set; }
 
-                        //add an image of a cross on the location hit and put the opacity to 100
-                        hitZone[spot].Background = new ImageBrush(new BitmapImage(new Uri(@"Images/cross.png", UriKind.Relative)));
-						hitZone[spot].Background.Opacity = 100;
-						//increment end value by 1
-						endValue++;
-						//verify if it is the end of the game
-						end();
-						//disable timer
-						PT.Enabled = false;
-						//return
-						return;
-					}
-					//if he did not hit anything
-					else
-					{
-						//add the image of an X on the location he hit, put its opacity to 100
-						hitZone[spot].Background = new ImageBrush(new BitmapImage(new Uri(@"Images/X.png", UriKind.Relative)));
-						hitZone[spot].Background.Opacity = 100;
-						//disable timer
-						PT.Enabled = false;
-						//return
-						return;
-					}
-				}
-				else
-				{
-					//if he did not use a valid space, end timer and return, since turns havent been changed yet, he can still chose another spot to hit until the timer runs out
-					PT.Enabled = false;
-					return;
-				}
-			}
-		}
-		public void shoot()
-		{
-			//create a random variable so the AI choses a random spot to it
-			Random random = new Random();
-			//available rows to chose from (10), chose a random one
-			int x = random.Next(10);
-			//available columns to chose from (10), chose a random one
-			int y = random.Next(10);
-			//if the difficulty is at 1 (lowest)
-			if (difficulty == 1)
-			{
-				//until the AI hits a valid spot (not yet used)
-				while (!AIgotShot[spot])
-				{
-					//make him shoot using the 2 random variables he got
-					shoot(x, y);
-					//if the the spot is not valid, look for another random value
-					if (!AIgotShot[spot])
-					{
-						x = random.Next(10);
-						y = random.Next(10);
-					}
+        private List<Ship> myShips = new List<Ship>();
+        private List<Ship> enemyShips = new List<Ship>();
 
-					//once he gets a valid spot, make it so the spot he hit is offically marked as used
-					AIgotShot[spot] = true;
-					//increase friendly value by 1
-					friendlyDamage++;
-					//verify if its the end of the game
-					end();
-				}
-				//if difficulty is 2
-				if (difficulty == 2)
-				{
+        public Player(String name)
+        {
+            username = name;
+            MyGrid = new List<List<Board>>();
+            EnemyGrid = new List<List<Board>>();
+            for (int i = 0; i != GRID_SIZE; ++i)
+            {
+                MyGrid.Add(new List<Board>());
+                EnemyGrid.Add(new List<Board>());
 
-				}
-				//if difficulty is 3
-				if (difficulty == 3)
-				{
+                for (int j = 0; j != GRID_SIZE; ++j)
+                {
+                    MyGrid[i].Add(new Board(i, j));
+                    EnemyGrid[i].Add(new Board(i, j));
+                }
+            }
 
-				}
-			}
-		}
+            foreach (ShipType type in Enum.GetValues(typeof(ShipType)))
+            {
+                myShips.Add(new Ship(type));
+                enemyShips.Add(new Ship(type));
+            }
+    }
+
+
+        private bool SquareFree(int row, int col)
+        {
+            return (MyGrid[row][col].ShipIndex == -1) ? true : false;
+        }
+
+        private bool PlaceVertical(int shipIndex, int remainingLength, int x, int y)
+        {
+            int startPosRow = x;
+            int startPosCol = y;
+
+            Func<bool> PlacementPossible = () =>
+            {
+                int tmp = remainingLength;
+                for (int row = startPosRow; tmp != 0; ++row)
+                {
+                    if (!SquareFree(row, startPosCol))
+                        return false;
+                    --tmp;
+                }
+                return true;
+            };
+
+            if (PlacementPossible())
+            {
+                for (int row = startPosRow; remainingLength != 0; ++row)
+                {
+                    MyGrid[row][startPosCol].Type = SquareType.Undamaged;
+                    MyGrid[row][startPosCol].ShipIndex = shipIndex;
+                    --remainingLength;
+                }
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool PlaceHorizontal(int shipIndex, int remainingLength, int x, int y)
+        {
+            int startPosRow = x;
+            int startPosCol = y;
+
+            Func<bool> PlacementPossible = () =>
+            {
+                int tmp = remainingLength;
+                for (int col = startPosCol; tmp != 0; ++col)
+                {
+                    if (!SquareFree(startPosRow, col))
+                        return false;
+                    --tmp;
+                }
+                return true;
+            };
+
+            if (PlacementPossible())
+            {
+                for (int col = startPosCol; remainingLength != 0; ++col)
+                {
+                    MyGrid[startPosRow][col].Type = SquareType.Undamaged;
+                    MyGrid[startPosRow][col].ShipIndex = shipIndex;
+                    --remainingLength;
+                }
+                return true;
+            }
+
+            return false;
+        }
+
+
+        private void SinkShip(int i, List<List<Board>> grid)
+        {
+            foreach (var row in grid)
+            {
+                foreach (var square in row)
+                {
+                    if (square.ShipIndex == i)
+                        square.Type = SquareType.Sunk;
+                }
+            }
+        }
+
+        private void MineSunk(int i)
+        {
+            SinkShip(i, MyGrid);
+        }
+
+        public void EnemySunk(int i)
+        {
+            SinkShip(i, EnemyGrid);
+        }
+
+
+        protected void Fire(int row, int col, Player otherPlayer)
+        {
+            int damagedIndex;
+            bool isSunk;
+            SquareType newType = otherPlayer.FiredAt(row, col, out damagedIndex, out isSunk);
+            EnemyGrid[row][col].ShipIndex = damagedIndex;
+
+            if (isSunk)
+                EnemySunk(damagedIndex);
+            else
+                EnemyGrid[row][col].Type = newType;
+        }
+
+        public SquareType FiredAt(int row, int col, out int damagedIndex, out bool isSunk)
+        {
+            isSunk = false;
+            damagedIndex = -1;
+
+            switch (MyGrid[row][col].Type)
+            {
+                case SquareType.Water:
+                    return SquareType.Water;
+                case SquareType.Undamaged:
+                    var square = MyGrid[row][col];
+                    damagedIndex = square.ShipIndex;
+                    if (myShips[damagedIndex].FiredAt())
+                    {
+                        MineSunk(square.ShipIndex);
+                        isSunk = true;
+                    }
+                    else
+                    {
+                        square.Type = SquareType.Damaged;
+                    }
+                    return square.Type;
+                case SquareType.Damaged:
+                    goto default;
+                case SquareType.Unknown:
+                    goto default;
+                case SquareType.Sunk:
+                    goto default;
+                default:
+                    throw new Exception("fail");
+            }
+        }
+
+        public bool Lost()
+        {
+            return myShips.All(ship => ship.IsSunk);
+        }
+
+        public bool Win()
+        {
+            return enemyShips.All(ship => ship.IsSunk);
+        }
+
+        //UI shoot here anthony
+        public void TakeTurnAutomated(Player otherPlayer)
+        {
+            bool takenShot = false;
+            while (!takenShot)
+            {
+                int row = rnd.Next(GRID_SIZE);
+                int col = rnd.Next(GRID_SIZE);
+
+                if (EnemyGrid[row][col].Type == SquareType.Unknown)
+                {
+                    Fire(row, col, otherPlayer);
+                    takenShot = true;
+                }
+            }
+        }
+
+
+    private void PlaceShips(int x, int y)
+        {
+
+            //CALL METHOD HERE WHICH ASKS USER FOR POSITION
+            ///TAKE OFF X AND Y FROM PLACESHIPS AND CALLING METHOD FROM MAINGAMEWINDOW TO GET LOCATION OF IMAGE CLICK
+            bool startAgain = false;
+
+            for (int i = 0; i != myShips.Count && !startAgain; ++i)
+            {
+                bool vertical = horizental[i];
+                bool placed = false;
+
+                int loopCounter = 0;
+                for (; !placed && loopCounter != 10000; ++loopCounter)
+                {
+                    int remainingLength = myShips[i].Length;
+
+                    if (vertical)
+                        placed = PlaceVertical(i, remainingLength, x, y);
+                    else
+                        placed = PlaceHorizontal(i, remainingLength, x, y);
+                }
+
+                if (loopCounter == 10000)
+                    startAgain = true;
+            }
+
+            if (startAgain)
+                PlaceShips(x, y);
+        }
+
+        //method which sees if the game is about to end or not
+        public void end()
+        {
+            //if you win
+            if (Win())
+            {
+                if (english)
+                    MessageBox.Show("You finished the game in " + GameTime + " seconds, congratulations!");
+                else
+                    MessageBox.Show("Vous avez fini le jeu en " + GameTime + " secondes, bravo!");
+                System.Windows.Application.Current.Shutdown();
+            }
+            //if you lose
+            if (Lost())
+            {
+                if (english)
+                    MessageBox.Show("You lost the game in " + GameTime + " seconds, git gud!");
+                else
+                    MessageBox.Show("Vous avez perdu le jeu en " + GameTime + " secondes, vous êtes mauvais!");
+                System.Windows.Application.Current.Shutdown();
+
+            }
+        }
 	}
 }
