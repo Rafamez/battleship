@@ -60,8 +60,11 @@ namespace battleship
         }
 
         public bool yourTurn = true;
-        public int shipsUsed;
+        public int shipsUsed=-1;
         List<Boolean> boatClicked = new List<Boolean> { false, false, false, false, false };
+
+        Player player;
+        Player otherPlayer;
 
 
 
@@ -227,7 +230,7 @@ namespace battleship
                 Off.IsChecked = false;
             for (int i =0; i < AIGrid.RowDefinitions.Count * AIGrid.ColumnDefinitions.Count; i++)
             {
-                if (SquareType.Damaged)
+               List<Ship> ennemyShips = otherPlayer.MyGrid.All(SquareType => SquareType.Undamaged);
             }
 
 
@@ -294,27 +297,27 @@ namespace battleship
         {
             horizental[0] = !horizental[0];
             if (!horizental[2])
-                BattleShip.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\battleshipV.png");
+                BattleShip.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\" + skin + "\\battleshipV.png");
             if (horizental[2])
-                BattleShip.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\battleshipH.png");
+                BattleShip.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\" + skin + "\\battleshipH.png");
         }
 
         private void CButton_Click(object sender, RoutedEventArgs e)
         {
             horizental[1] = !horizental[1];
             if (!horizental[2])
-                Cruiser.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\cruiserV.png");
+                Cruiser.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\" + skin + "\\cruiserV.png");
             if (horizental[2])
-                Cruiser.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\cruisherH.png");
+                Cruiser.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\" + skin + "\\cruisherH.png");
         }
 
         private void DButton_Click(object sender, RoutedEventArgs e)
         {
             horizental[2] = !horizental[2];
             if (!horizental[1])
-                Destroyer.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\destroyerV.png");
+                Destroyer.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\" + skin + "\\destroyerV.png");
             if (horizental[1])
-                Destroyer.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\destroyerH.png");
+                Destroyer.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\" + skin + "\\destroyerH.png");
         }
 
 
@@ -322,9 +325,9 @@ namespace battleship
         {
             horizental[3] = !horizental[3];
             if (!horizental[1])
-                Submarine.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\submarineV.png");
+                Submarine.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\" + skin + "\\submarineV.png");
             if (horizental[1])
-                Submarine.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\submarineH.png");
+                Submarine.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\" + skin + "\\submarineH.png");
         }
 
 
@@ -332,9 +335,9 @@ namespace battleship
         {
             horizental[4] = !horizental[4];
             if (!horizental[0])
-                AircraftCarrier.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\carrierV.png");
+                AircraftCarrier.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\" + skin + "\\carrierV.png");
             if (horizental[0])
-                AircraftCarrier.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\carrierH.png");
+                AircraftCarrier.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\" + skin + "\\carrierH.png");
         }
 
         private void Image_GotFocus(object sender, RoutedEventArgs e)
@@ -345,7 +348,7 @@ namespace battleship
                 xAxis = Grid.GetRow(newimage);
                 yAxis = Grid.GetColumn(newimage);
                 if(yourTurn)
-                player1.fire(xAxis, yAxis, otherPlayer);
+                player.Fire(xAxis, yAxis, otherPlayer);
                 yourTurn = !yourTurn;
 
             }
@@ -355,28 +358,48 @@ namespace battleship
         {
             Image newimage = new Image();
             newimage.Source = ((Image)sender).Source;
-            if (newimage.Source.ToString() == "Images/" + skin + "/battleshipH.png" || newimage.Source.ToString() == "Images/" + skin + "/battleshipV.png")
+            if (newimage.Source.ToString() == "Images\\" + skin + "\\battleshipH.png" || newimage.Source.ToString() == "Images\\" + skin + "\\battleshipV.png")
             {
                 boatClicked[0] = true;
+                boatClicked[1] = false;
+                boatClicked[2] = false;
+                boatClicked[3] = false;
+                boatClicked[4] = false;
                 shipsUsed++;
             }
-            if (newimage.Source.ToString() == "Images/" + skin + "/cruiserH.png" || newimage.Source.ToString() == "Images/" + skin + "/cruiserV.png")
+            if (newimage.Source.ToString() == "Images\\" + skin + "\\cruiserH.png" || newimage.Source.ToString() == "Images\\" + skin + "\\cruiserV.png")
             {
+                boatClicked[0] = false;
                 boatClicked[1] = true;
+                boatClicked[2] = false;
+                boatClicked[3] = false;
+                boatClicked[4] = false;
                 shipsUsed++;
             }
-            if (newimage.Source.ToString() == "Images/" + skin + "/destroyerH.png" || newimage.Source.ToString() == "Images/" + skin + "/destroyerV.png")
+            if (newimage.Source.ToString() == "Images\\" + skin + "\\destroyerH.png" || newimage.Source.ToString() == "Images\\" + skin + "\\destroyerV.png")
             {
+                boatClicked[0] = false;
+                boatClicked[1] = false;
                 boatClicked[2] = true;
+                boatClicked[3] = false;
+                boatClicked[4] = false;
                 shipsUsed++;
             }
-            if (newimage.Source.ToString() == "Images/" + skin + "/submarineH.png" || newimage.Source.ToString() == "Images/" + skin + "/submarinepV.png")
+            if (newimage.Source.ToString() == "Images\\" + skin + "\\submarineH.png" || newimage.Source.ToString() == "Images\\" + skin + "\\submarinepV.png")
             {
+                boatClicked[0] = false;
+                boatClicked[1] = false;
+                boatClicked[2] = false;
                 boatClicked[3] = true;
+                boatClicked[4] = false;
                 shipsUsed++;
             }
-            if (newimage.Source.ToString() == "Images/" + skin + "/carrierH.png" || newimage.Source.ToString() == "Images/" + skin + "/carrierV.png")
+            if (newimage.Source.ToString() == "Images\\" + skin + "\\carrierH.png" || newimage.Source.ToString() == "Images\\" + skin + "\\carrierV.png")
             {
+                boatClicked[0] = false;
+                boatClicked[1] = false;
+                boatClicked[2] = false;
+                boatClicked[3] = false;
                 boatClicked[4] = true;
                 shipsUsed++;
             }
@@ -384,7 +407,20 @@ namespace battleship
 
         private void layShip(object sender, RoutedEventArgs e)
         {
-           
+            if (boatClicked[0])
+                player.PlaceShips();
+            if (boatClicked[1])
+                player.PlaceShips();
+            if (boatClicked[2])
+                player.PlaceShips();
+            if (boatClicked[3])
+                player.PlaceShips();
+            if (boatClicked[4])
+                player.PlaceShips();
+        }
+
+        private void askPlayer()
+        {
         }
     }
 }

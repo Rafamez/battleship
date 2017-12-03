@@ -41,7 +41,7 @@ namespace battleship
             Col = col;
         }
 
-        //RESET A BOARD, SET SHIPINDEX TO -1, SET THE TYPE TO WHATEVER USES SAYS
+        //RESET A BOARD, SET SHIPINDEX TO -1, SET THE TYPE TO WHATEVER USERS SAYS
         public void Reset(SquareType type)
         {
             Type = type;

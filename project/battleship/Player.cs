@@ -34,11 +34,13 @@ namespace battleship
         public List<List<Board>> EnemyGrid { get; set; }
 
         //HUMAN SHIPS
-        private List<Ship> myShips = new List<Ship>();
+        List<Ship> myShips = new List<Ship>();
         //AI SHIPS
-        private List<Ship> enemyShips = new List<Ship>();
+        List<Ship> enemyShips = new List<Ship>();
+
+
         //VALUE TO GET THE LIST USED
-        static int ship=0;
+        private static int ship = -1;
 
         //CREATE PLAYER CLASS
         public Player(String name)
@@ -114,6 +116,7 @@ namespace battleship
                     //SQUARE WAS FREE, -1 TO TEMP
                     --tmp;
                 }
+
                 //RETURN TRUE IF PLACEMENT IS DONE CORRECTLY
                 return true;
             };
@@ -128,6 +131,20 @@ namespace battleship
                     MyGrid[row][startPosCol].Type = SquareType.Undamaged;
                     //GIVE IT A SHIP INDEX
                     MyGrid[row][startPosCol].ShipIndex = shipIndex;
+                    switch (ship)
+                    {
+                        case 0:
+                            MyGrid[row][startPosCol] = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\" + skin + "\\battleship" + remainingLength.ToString() + ".png");
+                            break;
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                    }
                     //REMAINING LENGTH -1
                     --remainingLength;
                 }
@@ -218,7 +235,7 @@ namespace battleship
         }
 
         //METHOD USED TO FIRE
-        protected void Fire(int row, int col, Player otherPlayer)
+        public void Fire(int row, int col, Player otherPlayer)
         {
             //VALUE FOR LOCATION DAMAGED
             int damagedIndex;
@@ -239,7 +256,7 @@ namespace battleship
         }
 
         //IF YOURE GETTING FIRED AT
-        public SquareType FiredAt(int row, int col, out int damagedIndex, out bool isSunk)
+        private SquareType FiredAt(int row, int col, out int damagedIndex, out bool isSunk)
         {
             //VALUE TO SEE IF LOCATION GOT SUNK
             isSunk = false;
@@ -252,7 +269,7 @@ namespace battleship
                 //IF ITS WATER, RETURN WATER
                 case SquareType.Water:
                     return SquareType.Water;
-                    //IF ITS WATER
+                //IF ITS WATER
                 case SquareType.Undamaged:
                     //VALUE TO GET TYPE OF VALUE AT [ROW][SQUARE] OF THE GRID
                     var square = MyGrid[row][col];
@@ -272,13 +289,13 @@ namespace battleship
                         square.Type = SquareType.Damaged;
                     }
                     return square.Type;
-                    //IF ITS DAMAGED, RETURN ERROR
+                //IF ITS DAMAGED, RETURN ERROR
                 case SquareType.Damaged:
                     goto default;
-                    //IF ITS UNKNOWN RETURN ERROR
+                //IF ITS UNKNOWN RETURN ERROR
                 case SquareType.Unknown:
                     goto default;
-                    //IF ITS SUNK RETURN ERROR
+                //IF ITS SUNK RETURN ERROR
                 case SquareType.Sunk:
                     goto default;
                 default:
@@ -316,42 +333,32 @@ namespace battleship
         }
 
         //METHOD USED TO PLACE SHIPS
-        private void PlaceShips()
+        public void PlaceShips()
         {
 
             //CALL METHOD HERE WHICH ASKS USER FOR POSITION
-            ///TAKE OFF X AND Y FROM PLACESHIPS AND CALLING METHOD FROM MAINGAMEWINDOW TO GET LOCATION OF IMAGE CLICK
-            //START AGAIN BOOLEAN IN CASE PLACEMENT IS INCORRECT
-            bool startAgain = false;
+            //TAKE OFF X AND Y FROM PLACESHIPS AND CALLING METHOD FROM MAINGAMEWINDOW TO GET LOCATION OF IMAGE CLICK
 
             //BOOLEAN TO GET THE VALUE HORIZENTAL (IF ITS HORIZENTAL OR VERTICAL)
-                bool vertical = !horizental[ship];
+            bool vertical = !horizental[ship];
             //BOOLEAN TO SEE IF SHIP WAS PLACED
-                bool placed = false;
+            bool placed = false;
 
-            //COUNTER USED TO RESET SHIPS IF ERROR IS FOUND
-                int loopCounter = 0;
             //LOOP TO PLACE SHIPS
-                for (; !placed && loopCounter != 1; ++loopCounter)
-                {
+            for (; !placed;)
+            {
                 //INT FOR LENGTH OF SHIP
-                    int remainingLength = myShips[ship].Length;
+                int remainingLength = myShips[ship].Length;
                 //IF VERTICAL IS TRUE (PLACE SHIP VERTICALLY)
                 //INSERT IMAGES HERE
-                    if (vertical)
+                if (vertical)
                     //PLACE THE SHIP VERTICALLY. BOOLEAN TO SEE IF IT SUCCEEDED OR NOT
-                        placed = PlaceVertical(ship, remainingLength);
-                    else
+                    placed = PlaceVertical(ship, remainingLength);
+                else
                     //PLACE THE SHIP VERTICALLY, BOOLEAN TO SEE IF IT SUCCEEDED
-                    //INSERT IMAGES HERE
-                        placed = PlaceHorizontal(ship, remainingLength);
-                    //IF IT DOESNT WORK, START AGAIN
-                if (loopCounter == 1)
-                    startAgain = true;
+                    placed = PlaceHorizontal(ship, remainingLength);
             }
-            //IF START AGAIN IS TRUE, REDO THIS METHOD
-            if (startAgain)
-                return;
+            ship++;
         }
 
         //method which sees if the game is about to end or not
