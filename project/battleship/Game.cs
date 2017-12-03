@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace battleship
 {
-    class Game
+    //ask for name, create player, create game
+    class Game : mainGameWindow
     {
-        //ask for name, create player, create game
     }
 }

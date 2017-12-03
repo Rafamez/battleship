@@ -25,8 +25,8 @@ namespace battleship
     /// 
     public partial class mainGameWindow : Window
     {
-        public int xAxis = 0;
-        public int yAxis = 0;
+        public int xAxis = -1;
+        public int yAxis = -1;
         // public double size = 0; was used when we resized window, but feature was removed
         public int difficulty = 0;
         //general timer of the game
@@ -344,6 +344,7 @@ namespace battleship
                 Image newimage = (Image) sender;
                 xAxis = Grid.GetRow(newimage);
                 yAxis = Grid.GetColumn(newimage);
+                if(yourTurn)
                 player1.fire(xAxis, yAxis, otherPlayer);
                 yourTurn = !yourTurn;
 
