@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-//USING JAMESJRG CODE FROM https://github.com/jamesjrg/battleship/tree/master/Battleship
+//INSPIRED FROM JAMESJRG CODE FROM https://github.com/jamesjrg/battleship/tree/master/Battleship
 namespace battleship
 {
     //ENUMS REPRESENTING THE VALUE THE SQUARE CAN BE (CAN BE UNKNOWN, WATER, UNDAMAGED, DAMAGED OR SUNK)

@@ -16,7 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-//USING JAMESJRG CODE FROM https://github.com/jamesjrg/battleship/tree/master/Battleship
+//INSPIRED FROM JAMESJRG CODE FROM https://github.com/jamesjrg/battleship/tree/master/Battleship
 namespace battleship
 {
     public class Player : mainGameWindow
@@ -131,19 +131,39 @@ namespace battleship
                     MyGrid[row][startPosCol].Type = SquareType.Undamaged;
                     //GIVE IT A SHIP INDEX
                     MyGrid[row][startPosCol].ShipIndex = shipIndex;
+					Image image = new Image();
                     switch (ship)
                     {
                         case 0:
-                            MyGrid[row][startPosCol] = (ImageSource)new ImageSourceConverter().ConvertFrom("Images\\" + skin + "\\battleship" + remainingLength.ToString() + ".png");
+                            image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images/" + skin + "/vertical/battleship/" + remainingLength.ToString() + ".png");
+							image.Stretch = Stretch.UniformToFill;
+							Grid.SetColumn(image, row);
+							HumanGrid.Children.Add(image);
                             break;
                         case 1:
-                            break;
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images/" + skin + "/vertical/cruiser/" + remainingLength.ToString() + ".png");
+							image.Stretch = Stretch.UniformToFill;
+							Grid.SetColumn(image, row);
+							HumanGrid.Children.Add(image);
+							break;
                         case 2:
-                            break;
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images/" + skin + "/vertical/destroyer/" + remainingLength.ToString() + ".png");
+							image.Stretch = Stretch.UniformToFill;
+							Grid.SetColumn(image, row);
+							HumanGrid.Children.Add(image);
+							break;
                         case 3:
-                            break;
-                        case 4:
-                            break;
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images/" + skin + "/vertical/submarine/" + remainingLength.ToString() + ".png");
+							image.Stretch = Stretch.UniformToFill;
+							Grid.SetColumn(image, row);
+							HumanGrid.Children.Add(image);
+							break;
+						case 4:
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images/" + skin + "/vertical/carrier/" + remainingLength.ToString() + ".png");
+							image.Stretch = Stretch.UniformToFill;
+							Grid.SetColumn(image, row);
+							HumanGrid.Children.Add(image);
+							break;
                     }
                     //REMAINING LENGTH -1
                     --remainingLength;
@@ -190,8 +210,42 @@ namespace battleship
                     MyGrid[startPosRow][col].Type = SquareType.Undamaged;
                     //GIVE IT A SHIP INDEX
                     MyGrid[startPosRow][col].ShipIndex = shipIndex;
-                    // -1 TO LENGTH
-                    --remainingLength;
+					Image image = new Image();
+					switch (ship)
+					{
+						case 0:
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images/" + skin + "vertical/battleship/" + remainingLength.ToString() + ".png");
+							image.Stretch = Stretch.UniformToFill;
+							Grid.SetRow(image, col);
+							HumanGrid.Children.Add(image);
+							break;
+						case 1:
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images/" + skin + "horizental/cruiser/" + remainingLength.ToString() + ".png");
+							image.Stretch = Stretch.UniformToFill;
+							Grid.SetRow(image, col);
+							HumanGrid.Children.Add(image);
+							break;
+						case 2:
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images/" + skin + "horizental/destroyer/" + remainingLength.ToString() + ".png");
+							image.Stretch = Stretch.UniformToFill;
+							Grid.SetRow(image, col);
+							HumanGrid.Children.Add(image);
+							break;
+						case 3:
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images/" + skin + "horizental/submarine/" + remainingLength.ToString() + ".png");
+							image.Stretch = Stretch.UniformToFill;
+							Grid.SetRow(image, col);
+							HumanGrid.Children.Add(image);
+							break;
+						case 4:
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images/" + skin + "horizental/carrier/" + remainingLength.ToString() + ".png");
+							image.Stretch = Stretch.UniformToFill;
+							Grid.SetRow(image, col);
+							HumanGrid.Children.Add(image);
+							break;
+					}
+					// -1 TO LENGTH
+					--remainingLength;
                 }
                 //RETURN TRUE IF THIS WAS ABLE TO BE DONE
                 return true;
@@ -282,12 +336,24 @@ namespace battleship
                         MineSunk(square.ShipIndex);
                         //CHANGE SUNK TO TRUE
                         isSunk = true;
-                    }
+						Image image = new Image();
+						image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images/cross.jpg");
+						image.Stretch = Stretch.UniformToFill;
+						Grid.SetRow(image, row);
+						Grid.SetColumn(image, col);
+						HumanGrid.Children.Add(image);
+					}
                     else
                     {
                         //SET THE TYPE OF THE SQUARE TO DAMAGED
                         square.Type = SquareType.Damaged;
-                    }
+						Image image = new Image();
+						image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images/X.jpg");
+						image.Stretch = Stretch.UniformToFill;
+						Grid.SetRow(image, row);
+						Grid.SetColumn(image, col);
+						HumanGrid.Children.Add(image);
+					}
                     return square.Type;
                 //IF ITS DAMAGED, RETURN ERROR
                 case SquareType.Damaged:
@@ -302,6 +368,8 @@ namespace battleship
                     throw new Exception("fail");
             }
         }
+
+
         //Method to verifiy is you have lost
         public bool Lost()
         {
