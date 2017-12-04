@@ -40,7 +40,7 @@ namespace battleship
                 tailFound = new int[2];
                 tailFound[1] = 100;
                 tailFound[2] = 100;
-                search = new int[4,2];
+                search = new int[4, 2];
             }
             if (difficulty == 3)
             {
@@ -76,7 +76,7 @@ namespace battleship
             //Easy AI shoots randomly
             if (this.getDifficulty == 1)
             {
-                int[] number = shoot(random.Next(0, 10), random.Next(0,10));
+                int[] number = shoot(random.Next(0, 10), random.Next(0, 10));
                 while (number[0] == -2)
                 {
                     number = shoot(random.Next(0, 10), random.Next(0, 10));
@@ -89,7 +89,7 @@ namespace battleship
 
 
             //Medium AI shoots randomly, but will his smarter if it has hit.
-            else if (this.getDifficulty == 2)
+            else
             {
 
                 //If a direction was found for the ship, AI will guess that direction until corrected.
@@ -109,8 +109,8 @@ namespace battleship
                             }
                             else
                             {
-                                number = tailFound - 1;
-                                tailFound = tailFound - 1;
+                                tailFound[0] = tailFound[0] + 1;
+                                number = shoot(tailFound[0], tailFound[1]);
                             }
                             break;
                         case "Right":
@@ -121,8 +121,8 @@ namespace battleship
                             }
                             else
                             {
-                                number = tailFound + 1;
-                                tailFound = tailFound + 1;
+                                tailFound[0] = tailFound[0] - 1;
+                                number = shoot(tailFound[0], tailFound[1]);
                             }
                             break;
                         case "Up":
@@ -133,8 +133,8 @@ namespace battleship
                             }
                             else
                             {
-                                number = tailFound - 10;
-                                tailFound = tailFound + 10;
+                                tailFound[1] = tailFound[1] + 1;
+                                number = shoot(tailFound[0], tailFound[1]);
                             }
                             break;
                         case "Down":
@@ -145,8 +145,8 @@ namespace battleship
                             }
                             else
                             {
-                                number = tailFound + 10;
-                                tailFound = tailFound + 10;
+                                tailFound[1] = tailFound[1] - 1;
+                                number = shoot(tailFound[0], tailFound[1]);
                             }
                             break;
                         default:
@@ -154,41 +154,65 @@ namespace battleship
                     }
 
                     //If the area is invalid or already shot
-                    if (check == 103 || check == 102)
+                    if (number[0] == -3 || number[0] == -2)
                     {
                         reversed = true;
                         switch (direction)
                         {
                             case "Left":
-                                number = tailFound - 1;
-                                tailFound = tailFound - 1;
+                                tailFound[0] = tailFound[0] + 1;
+                                number = shoot(tailFound[0], tailFound[1]);
                                 break;
                             case "Right":
-                                number = tailFound + 1;
-                                tailFound = tailFound + 1;
+                                tailFound[0] = tailFound[0] - 1;
+                                number = shoot(tailFound[0], tailFound[1]);
                                 break;
                             case "Up":
-                                number = tailFound - 10;
-                                tailFound = tailFound - 10;
+                                tailFound[1] = tailFound[1] + 1;
+                                number = shoot(tailFound[0], tailFound[1]);
                                 break;
                             case "Down":
-                                number = tailFound + 10;
-                                tailFound = tailFound + 10;
+                                tailFound[1] = tailFound[1] - 1;
+                                number = shoot(tailFound[0], tailFound[1]);
                                 break;
                             default:
                                 throw new Exception("AI made it to a direction not valid in the code");
                         }
-                        check = shoot(number);
+                        number = shoot(tailFound[0], tailFound[1]);
+                    }
+
+                    //Will add to make sure that it switches when need be (Second line if opposite of current check).
+                    if (even)
+                    {
+                        if (number[1] % 2 == 0)
+                        {
+                            line[number[0]] = line[number[0]] + 1;
+                        }
+                        else
+                        {
+                            secondLine[number[0]] = secondLine[number[0]] + 1;
+                        }
+                    }
+                    else
+                    {
+                        if (!(number[1] % 2 == 0))
+                        {
+                            line[number[0]] = line[number[0]] + 1;
+                        }
+                        else
+                        {
+                            secondLine[number[0]] = secondLine[number[0]] + 1;
+                        }
                     }
 
                     //If area is miss
-                    if (check == 0)
+                    if (number[0] == -1)
                     {
                         reversed = true;
                     }
 
                     //Check if the ship has sunk
-                    else if (check == 101)
+                    else if (number[0] == -4)
                     {
                         //Will reset to start search anew
                         tailFound[0] = 100;
@@ -200,7 +224,7 @@ namespace battleship
                 }
 
                 //If AI has found only a single hit, which is represented by shoot method not returning 0
-                else if (!(tailFound[0] == 100))
+                else if ((!(tailFound[0] == 100)) && (!(tailFound[0] == -1)))
                 {
                     search[0, 0] = tailFound[0] - 1;
                     search[0, 1] = tailFound[1];
@@ -220,6 +244,30 @@ namespace battleship
                         number = shoot(search[check, 0], search[check, 1]);
                     }
 
+                    //Will add to make sure that it switches when need be (Second line if opposite of current check).
+                    if (even)
+                    {
+                        if (number[1] % 2 == 0)
+                        {
+                            line[number[0]] = line[number[0]] + 1;
+                        }
+                        else
+                        {
+                            secondLine[number[0]] = secondLine[number[0]] + 1;
+                        }
+                    }
+                    else
+                    {
+                        if (!(number[1] % 2 == 0))
+                        {
+                            line[number[0]] = line[number[0]] + 1;
+                        }
+                        else
+                        {
+                            secondLine[number[0]] = secondLine[number[0]] + 1;
+                        }
+                    }
+
                     //If -4 is returned, it represents that the ship has sunk.
                     if (number[0] == -4)
                     {
@@ -231,7 +279,7 @@ namespace battleship
                     else if (!(number[0] == -1))
                     {
                         //Checks which direction the boat is most likley going
-                        if ((tailFound[0] == search[check,0]) && (tailFound[1] - 1 == search[check,1]))
+                        if ((tailFound[0] == search[check, 0]) && (tailFound[1] - 1 == search[check, 1]))
                         {
                             direction = "Up";
                         }
@@ -253,10 +301,10 @@ namespace battleship
                     }
                 }
 
-                //AI will shoot randomly until it has found a hit that it has not killed.
-                else
+                //Medium AI will shoot randomly until it has found a hit that it has not killed.
+                if (this.difficulty == 2)
                 {
-                    tailFound = shoot(random.Next(0,10),random.Next(0,10));
+                    tailFound = shoot(random.Next(0, 10), random.Next(0, 10));
 
                     //If return is -2,-2, then area has already been shot
                     while (tailFound[0] == -2)
@@ -264,205 +312,8 @@ namespace battleship
                         tailFound = shoot(random.Next(0, 10), random.Next(0, 10));
                     }
                 }
-            }
-            //End of medium AI
-
-
-
-
-
-            //Hard AI will follow a stragedy when picking randomly
-            else
-            {
-
-                //If a direction was found for the ship, AI will guess that direction until corrected.
-                if (!(direction == ""))
-                {
-                    int number = 0;
-
-                    //Picks shoot area based on direction, and adapt the direction to get ready for the next step
-                    switch (direction)
-                    {
-                        case "Left":
-                            if (reversed == false)
-                            {
-                                number = headFound + 1;
-                                headFound = headFound + 1;
-                            }
-                            else
-                            {
-                                number = tailFound - 1;
-                                tailFound = tailFound - 1;
-                            }
-                            break;
-                        case "Right":
-                            if (reversed == false)
-                            {
-                                number = headFound - 1;
-                                headFound = headFound - 1;
-                            }
-                            else
-                            {
-                                number = tailFound + 1;
-                                tailFound = tailFound + 1;
-                            }
-                            break;
-                        case "Up":
-                            if (reversed == false)
-                            {
-                                number = headFound + 10;
-                                headFound = headFound + 10;
-                            }
-                            else
-                            {
-                                number = tailFound - 10;
-                                tailFound = tailFound + 10;
-                            }
-                            break;
-                        case "Down":
-                            if (reversed == false)
-                            {
-                                number = headFound - 10;
-                                headFound = headFound - 10;
-                            }
-                            else
-                            {
-                                number = tailFound + 10;
-                                tailFound = tailFound + 10;
-                            }
-                            break;
-                        default:
-                            throw new Exception("AI made it to a direction not valid in the code");
-                    }
-                    int check = shoot(number);
-
-                    //If the area is invalid or already shot
-                    if (check == 103 || check == 102)
-                    {
-                        reversed = true;
-                        switch (direction)
-                        {
-                            case "Left":
-                                number = tailFound - 1;
-                                tailFound = tailFound - 1;
-                                break;
-                            case "Right":
-                                number = tailFound + 1;
-                                tailFound = tailFound + 1;
-                                break;
-                            case "Up":
-                                number = tailFound - 10;
-                                tailFound = tailFound - 10;
-                                break;
-                            case "Down":
-                                number = tailFound + 10;
-                                tailFound = tailFound + 10;
-                                break;
-                            default:
-                                throw new Exception("AI made it to a direction not valid in the code");
-                        }
-                        check = shoot(number);
-                    }
-
-                    //Will add to make sure that it switches when need be (Second line if opposite of current check).
-                    if (even)
-                    {
-                        //TO DO LATER
-                    }
-                    else
-                    {
-                        //TO DO LATER
-                    }
-                    //If area is miss
-                    if (check == 0)
-                    {
-                        reversed = true;
-                    }
-
-                    //Check if the ship has sunk
-                    else if (check == 101)
-                    {
-
-                        //Will reset to start search anew
-                        tailFound = 0;
-                        headFound = 0;
-                        search[0] = 0;
-                        search[1] = 0;
-                        search[2] = 0;
-                        search[3] = 0;
-                        direction = "";
-                        reversed = false;
-                    }
-                }
-
-                //If AI has found only a single hit, which is represented by shoot method not returning 0
-                else if (!(tailFound == 0))
-                {
-                    search[0] = tailFound - 1;
-                    search[1] = tailFound + 1;
-                    search[2] = tailFound - 10;
-                    search[3] = tailFound + 10;
-                    int check;
-                    check = random.Next(0, 4);
-                    skill = search[check];
-                    int number;
-                    number = shoot(skill);
-
-                    //If return is 102, then that area has been shot already, or if number is 103, is invalid, and code will restart.
-                    while (number == 102 || number == 103)
-                    {
-                        check = random.Next(0, 4);
-                        skill = search[check];
-                        number = shoot(skill);
-                    }
-
-                    //Will add to make sure that it switches when need be (Second line if opposite of current check).
-                    if (even)
-                    {
-                        //TO DO LATER
-                    }
-                    else
-                    {
-                        //TO DO LATER
-                    }
-
-                    //If 101 is returned, it represents that the ship has sunk.
-                    if (number == 101)
-                    {
-                        tailFound = 0;
-                        search[0] = 0;
-                        search[1] = 0;
-                        search[2] = 0;
-                        search[3] = 0;
-                        direction = "";
-                    }
-
-                    //If the area shot is a hit
-                    else if (!(number == 0))
-                    {
-                        if (tailFound + 10 == search[check])
-                        {
-                            direction = "Up";
-                        }
-                        else if (tailFound - 10 == search[check])
-                        {
-                            direction = "Down";
-                        }
-                        else if (tailFound + 1 == search[check])
-                        {
-                            direction = "Left";
-                        }
-                        else
-                        {
-                            direction = "Right";
-                        }
-                        headFound = search[check];
-                        reversed = false;
-                    }
-                }
                 else
                 {
-
                     //Will check before running if the current line has reached maximum
                     if (line[currentLine] == 5)
                     {
@@ -484,7 +335,7 @@ namespace battleship
                             //If all numbers of even/odd have been checked, then the reverse will have to be checked.                    
                             for (int i = 0; i < line.Length; i++)
                             {
-                                line[i] = 0 + secondLine[i];
+                                line[i] = secondLine[i];
                             }
                             even = !even;
                         }
@@ -508,51 +359,52 @@ namespace battleship
                         }
                     }
 
-                    skill = (currentLine * 10) + random.Next(0, 10);
+                    tailFound = shoot(currentLine, random.Next(0, 10));
 
                     //Will check to make sure random shots are checkered.
                     if (even)
                     {
-                        while (!(skill % 2 == 0))
+                        while (!(tailFound[1] % 2 == 0))
                         {
-                            skill = (currentLine * 10) + random.Next(0, 10);
+                            tailFound = shoot(currentLine, random.Next(0, 10));
                         }
                     }
                     else
                     {
-                        while (skill % 2 == 0)
+                        while (tailFound[1] % 2 == 0)
                         {
-                            skill = (currentLine * 10) + random.Next(0, 10);
+                            tailFound = shoot(currentLine, random.Next(0, 10));
                         }
                     }
-                    int check = shoot(skill);
 
                     //Represents that the area has already been shot
-                    while (check == 102)
+                    while (tailFound[1] == -2)
                     {
                         if (even)
                         {
-                            while (!(skill % 2 == 0))
+                            while (!(tailFound[1] % 2 == 0))
                             {
-                                skill = (currentLine * 10) + random.Next(0, 10);
+                                tailFound = shoot(currentLine, random.Next(0, 10));
                             }
                         }
                         else
                         {
-                            while (skill % 2 == 0)
+                            while (tailFound[1] % 2 == 0)
                             {
-                                skill = (currentLine * 10) + random.Next(0, 10);
+                                tailFound = shoot(currentLine, random.Next(0, 10));
                             }
                         }
-                        check = shoot(skill);
                     }
-                    if (check == 0)
+
+                    if (tailFound[0] == -1)
                     {
                         missCount = missCount + 1;
                     }
                     line[currentLine] = line[currentLine] + 1;
                 }
+
             }
+            //End of medium AI and hard AI            
         }
 
         /**
@@ -563,23 +415,229 @@ namespace battleship
          * return -1,-1 when area is miss. (NOT INSERTED)
          * return -2,-2 when area has already been shot. (NOT INSERTED)
          * return -3,-3 when area is invalid shot area.
-         * return -4,-4 when area is destroyed area. (NOT INSERTED)
+         * return -4,-4 when area is destroyed ship. (NOT INSERTED)
          * */
         public int[] shoot(int x, int y)
         {
-           int[] position = new int[2];
-           if (x > 9 || x < 0 || y > 9 || y < 0)
-           {
+            int[] position = new int[2];
+
+            if (x > 9 || x < 0 || y > 9 || y < 0)
+            {
                 position[1] = -3;
                 position[2] = -3;
-           }
-           return position;
+            }
+
+            //VALUE FOR LOCATION DAMAGED
+            int damagedIndex;
+            //BOOLEAN FOR IF LOCATION HAS A SUNKEN SHIP
+            bool isSunk;
+            //SQUARETYPE TO VERIFY THE TYPE OF THE HITTEN LOCATION, AND IF IT IS SUNK
+            SquareType newType = otherPlayer.FiredAt(row, col, out damagedIndex, out isSunk);
+            //CHANGE THE SHIPINDEX TO DAMAGE INDEX
+            HumanGrid[row][col].ShipIndex = damagedIndex;
+
+            //IF LOCATION ISSUNK IS TRUE (HITTING A SHIP)
+            if (isSunk)
+                EnemySunk(damagedIndex);
+            else
+                //IF ISSUNK IS FALSE (NOT HITTING A SHIP)
+                //CHANGE THE TYPE OF ENENMYGRID AT LOCATION TO MISS
+                EnemyGrid[row][col].Type = newType;
+
+            return position;
+        }
+
+        /**
+		 * This code will return a int representation of how the AI ship should be made
+		 * 1 = Carrier (Size 5)
+		 * 2 = Battleship (Size 4)
+		 * 3 = Cruiser (Size 3)
+		 * 4 = Submarine (Size 3)
+		 * 5 = Destroyer (Size 2)
+		 * @ return an int[10,10] representing the grid
+		 * */
+        public int[,] getShipPlacement()
+        {
+            int[,] grid = new int[10, 10];
+            int[] ship = new int[5];
+            ship[0] = 1;
+            ship[1] = 2;
+            ship[2] = 3;
+            ship[3] = 4;
+            ship[4] = 5;
+            int check;
+            for (int count = 0; count < 5; count++)
+            {
+                check = random.Next(0, 5);
+                int number = ship[check];
+                while (number == 0)
+                {
+                    check = random.Next(0, 5);
+                    number = ship[check];
+                }
+                ship[check] = 0;
+                int size = 0;
+                switch (number)
+                {
+                    case 1:
+                        size = 5;
+                        break;
+                    case 2:
+                        size = 4;
+                        break;
+                    case 3:
+                    case 4:
+                        size = 3;
+                        break;
+                    case 5:
+                        size = 2;
+                        break;
+                }
+                int[,] addShip = new int[size, 2];
+                while (true)
+                {
+                    addShip[0, 0] = random.Next(0, 10);
+                    addShip[0, 1] = random.Next(0, 10);
+                    int direction = random.Next(0, 4);
+                    switch (direction)
+                    {
+                        //Up
+                        case 0:
+                            for (int i = 1; i < size; i++)
+                            {
+                                addShip[i, 0] = addShip[0, 0];
+                                addShip[i, 1] = addShip[i - 1, 1] - 1;
+                            }
+                            break;
+                        //Down
+                        case 1:
+                            for (int i = 1; i < size; i++)
+                            {
+                                addShip[i, 0] = addShip[0, 0];
+                                addShip[i, 1] = addShip[i - 1, 1] + 1;
+                            }
+                            break;
+                        //Left
+                        case 2:
+                            for (int i = 1; i < size; i++)
+                            {
+                                addShip[i, 0] = addShip[i - 1, 0] - 1;
+                                addShip[i, 1] = addShip[0, 1];
+                            }
+                            break;
+                        case 3:
+                            for (int i = 1; i < size; i++)
+                            {
+                                addShip[i, 0] = addShip[i - 1, 0] + 1;
+                                addShip[i, 1] = addShip[0, 1];
+                            }
+                            break;
+                    }
+                    Boolean valid = true;
+                    for (int i = 0; i < ship.Length; i++)
+                    {
+                        if (addShip[i, 0] < 0 || addShip[i, 0] > 9 || addShip[i, 1] < 0 || addShip[i, 1] > 9)
+                        {
+                            valid = false;
+                            break;
+                        }
+                        if (!(grid[addShip[i, 0], addShip[i, 1]] == 0))
+                        {
+                            valid = false;
+                            break;
+                        }
+                    }
+                    if (valid)
+                    {
+                        if (this.difficulty == 3)
+                        {
+                            for (int j = 0; j < ship.Length; j++)
+                            {
+                                if (!((addShip[j, 0] - 1) < 0))
+                                {
+                                    if (!(grid[addShip[j, 0] - 1, addShip[j, 1]] == 0))
+                                    {
+                                        valid = false;
+                                        break;
+                                    }
+                                }
+                                if (!((addShip[j, 0] + 1) > 9))
+                                {
+                                    if (!(grid[addShip[j, 0] + 1, addShip[j, 1]] == 0))
+                                    {
+                                        valid = false;
+                                        break;
+                                    }
+                                }
+                                if (!((addShip[j, 1] - 1) < 0))
+                                {
+                                    if (!(grid[addShip[j, 0], addShip[j, 1] - 1] == 0))
+                                    {
+                                        valid = false;
+                                        break;
+                                    }
+                                }
+                                if (!((addShip[j, 1] + 1) > 9))
+                                {
+                                    if (!(grid[addShip[j, 0], addShip[j, 1] + 1] == 0))
+                                    {
+                                        valid = false;
+                                        break;
+                                    }
+                                }
+                                if ((!((addShip[j, 0] - 1) < 0)) && (!((addShip[j, 1] - 1) < 0)))
+                                {
+                                    if (!(grid[addShip[j, 0] - 1, addShip[j, 1] - 1] == 0))
+                                    {
+                                        valid = false;
+                                        break;
+                                    }
+                                }
+                                if ((!((addShip[j, 0] - 1) < 0)) && (!((addShip[j, 1] + 1) > 9)))
+                                {
+                                    if (!(grid[addShip[j, 0] - 1, addShip[j, 1] + 1] == 0))
+                                    {
+                                        valid = false;
+                                        break;
+                                    }
+                                }
+                                if ((!((addShip[j, 0] + 1) > 9)) && (!((addShip[j, 1] - 1) < 0)))
+                                {
+                                    if (!(grid[addShip[j, 0] + 1, addShip[j, 1] - 1] == 0))
+                                    {
+                                        valid = false;
+                                        break;
+                                    }
+                                }
+                                if ((!((addShip[j, 0] + 1) > 9)) && (!((addShip[j, 1] + 1) > 9)))
+                                {
+                                    if (!(grid[addShip[j, 0] + 1, addShip[j, 1] + 1] == 0))
+                                    {
+                                        valid = false;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if (valid == false)
+                    {
+                        continue;
+                    }
+                    for (int i = 0; i < size; i++)
+                    {
+                        grid[addShip[i, 0], addShip[i, 1]] = number;
+                    }
+                    break;
+                }
+            }
+            return grid;
         }
 
         //used to deserialize data, not ready (keep difficulty)
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             throw new NotImplementedException();
-        }       
+        }
     }
 }
