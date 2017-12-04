@@ -278,7 +278,7 @@ namespace battleship
         }
 
         //METHOD USED TO SINK ALLY SHIP
-        private void MineSunk(int i)
+        public void MineSunk(int i)
         {
             SinkShip(i, MyGrid);
         }
@@ -383,23 +383,51 @@ namespace battleship
             return enemyShips.All(ship => ship.IsSunk);
         }
 
-        //UI shoot here anthony
-        public void TakeTurnAutomated(Player otherPlayer)
+        /**
+		 * This code will affect the human that is getting shot at by the human
+		 * @Parameter an int representing x axis
+		 *			  an int representing y axis
+		 * @Return an int[] representing the position
+		 * */
+        public int[] TakeTurnAutomated(int x, int y)
         {
-            bool takenShot = false;
-            while (!takenShot)
-            {
-                int row = rnd.Next(GRID_SIZE);
-                int col = rnd.Next(GRID_SIZE);
-
-                if (EnemyGrid[row][col].Type == SquareType.Unknown)
-                {
-                    Fire(row, col, otherPlayer);
-                    takenShot = true;
-                }
-            }
+			int[] position = new int[2];
+            int row = rnd.Next(GRID_SIZE);
+            int col = rnd.Next(GRID_SIZE);
+			if (MyGrid[x][y].Type == SquareType.Unknown)
+			{
+				Fire(x, y, this);
+				if (MyGrid[x][y].Type == SquareType.Water)
+				{
+					position[0] = -1;
+					position[1] = -1;
+				}
+				else
+				{
+					if (myShips[MyGrid[x][y].ShipIndex].healthReturn == 0)
+					{
+						position[0] = -4;
+						position[1] = -4;
+					}
+					else
+					{
+						position[0] = x;
+						position[1] = y;
+					}
+				}
+			}
+			else
+			{
+				position[0] = -2;
+				position[1] = -2;
+			}
+			return position;
         }
 
+		public Boolean findShip(ship arg, int x, int y)
+		{
+			return
+		}
         //METHOD USED TO PLACE SHIPS
         public void PlaceShips()
         {

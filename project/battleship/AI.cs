@@ -8,15 +8,9 @@ using System.Threading.Tasks;
 namespace battleship
 {
     //public class for the AI (ennemy)
-    public class AI : Player, ISerializable
+    public class AI : ISerializable
     {
-        //Note that following will have to be added to shoot that returns int of position number. 0 = miss. 101 = ship destroyed. 102 = Already shot. 103 = Invalid.
-        //Might add extentions for different AI levels -Anthony
-        public int getDifficulty
-        {
-            get { return difficulty; }
-            set { value = difficulty; }
-        }
+		int difficulty;
 
         Random random = new Random();
         //Will be used only by the medium difficulty and above
@@ -31,9 +25,11 @@ namespace battleship
         int[] line;
         int currentLine;
         int[] secondLine;
+		Player human;
 
-        public AI(int difficulty)
+        public AI(int difficulty, Player player)
         {
+			this.human = player;
             this.difficulty = difficulty;
             if (difficulty >= 2)
             {
@@ -74,7 +70,7 @@ namespace battleship
         public void AITurn()
         {
             //Easy AI shoots randomly
-            if (this.getDifficulty == 1)
+            if (this.difficulty == 1)
             {
                 int[] number = shoot(random.Next(0, 10), random.Next(0, 10));
                 while (number[0] == -2)
@@ -412,38 +408,25 @@ namespace battleship
          * 
          * @paramater an int representing the column, an int representing the row
          * @return an int[] representing the area if it has been shot.
-         * return -1,-1 when area is miss. (NOT INSERTED)
-         * return -2,-2 when area has already been shot. (NOT INSERTED)
+         * return -1,-1 when area is miss.
+         * return -2,-2 when area has already been shot.
          * return -3,-3 when area is invalid shot area.
-         * return -4,-4 when area is destroyed ship. (NOT INSERTED)
+         * return -4,-4 when area is destroyed ship.
          * */
         public int[] shoot(int x, int y)
         {
             int[] position = new int[2];
 
-            if (x > 9 || x < 0 || y > 9 || y < 0)
-            {
-                position[1] = -3;
-                position[2] = -3;
-            }
-
-            //VALUE FOR LOCATION DAMAGED
-            int damagedIndex;
-            //BOOLEAN FOR IF LOCATION HAS A SUNKEN SHIP
-            bool isSunk;
-            //SQUARETYPE TO VERIFY THE TYPE OF THE HITTEN LOCATION, AND IF IT IS SUNK
-            SquareType newType = otherPlayer.FiredAt(row, col, out damagedIndex, out isSunk);
-            //CHANGE THE SHIPINDEX TO DAMAGE INDEX
-            HumanGrid[row][col].ShipIndex = damagedIndex;
-
-            //IF LOCATION ISSUNK IS TRUE (HITTING A SHIP)
-            if (isSunk)
-                EnemySunk(damagedIndex);
-            else
-                //IF ISSUNK IS FALSE (NOT HITTING A SHIP)
-                //CHANGE THE TYPE OF ENENMYGRID AT LOCATION TO MISS
-                EnemyGrid[row][col].Type = newType;
-
+			//Verifies if it is possible for the place to be shot.
+			if (x > 9 || x < 0 || y > 9 || y < 0)
+			{
+				position[1] = -3;
+				position[2] = -3;
+			}
+			else
+			{
+				position = human.TakeTurnAutomated(x, y);
+			}
             return position;
         }
 

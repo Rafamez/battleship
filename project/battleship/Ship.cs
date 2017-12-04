@@ -25,6 +25,23 @@ namespace battleship
 			{ShipType.Cruiser, 3}
 		};
 
+		public int healthReturn
+		{
+			get { return health; }
+		} 
+        //VALUE FOR TYPE OF THE SHIP
+        private readonly ShipType type;
+        //PARAMETER FOR BOOLEANS, ADDING LENGTH VALUE TO THEIR NAMES
+        private static readonly Dictionary<ShipType, int> shipLengths =
+            new Dictionary<ShipType, int>()
+        {
+            {ShipType.Carrier, 5},
+            {ShipType.Battleship, 2},
+            {ShipType.Destroyer, 3},
+            {ShipType.Submarine, 4},
+            {ShipType.Cruiser, 3}
+        };
+
 		//CONSTRUCTOR TO CREATE SHIP
 		public Ship(ShipType type)
 		{
