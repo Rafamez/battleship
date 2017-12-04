@@ -8,10 +8,14 @@ namespace battleship
     //ENUMS REPRESENTING SHIPS
     enum ShipType { Battleship, Cruiser, Destroyer, Submarine, Carrier };
 
-    class Ship
-    {
-        //VALUE REPRESENTING HEALTH OF SHIPS (LENGTH - DAMAGE TAKEN)
-        private int health;
+	class Ship
+	{
+		//VALUE REPRESENTING HEALTH OF SHIPS (LENGTH - DAMAGE TAKEN)
+		private int health;
+		public int healthReturn
+		{
+			get { return health; }
+		} 
         //VALUE FOR TYPE OF THE SHIP
         private readonly ShipType type;
         //PARAMETER FOR BOOLEANS, ADDING LENGTH VALUE TO THEIR NAMES
