@@ -397,7 +397,7 @@ namespace battleship
         {
             Image newimage = new Image();
             newimage.Source = ((Image)sender).Source;
-            if (newimage.Source.ToString() == "../../Images/" + skin + "/battleshipH.png" || newimage.Source.ToString() == "../../Images/" + skin + "/battleshipV.png")
+            if (newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/battleshipH.png") || newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/battleshipV.png"))
             {
                 boatClicked[0] = true;
                 boatClicked[1] = false;
@@ -406,7 +406,7 @@ namespace battleship
                 boatClicked[4] = false;
                 shipsUsed++;
             }
-            if (newimage.Source.ToString() == "../../Images/" + skin + "/cruiserH.png" || newimage.Source.ToString() == "../../Images/" + skin + "/cruiserV.png")
+            if (newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/cruiserH.png") || newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/cruiserV.png"))
             {
                 boatClicked[0] = false;
                 boatClicked[1] = true;
@@ -415,7 +415,7 @@ namespace battleship
                 boatClicked[4] = false;
                 shipsUsed++;
             }
-            if (newimage.Source.ToString() == "../../Images/" + skin + "/destroyerH.png" || newimage.Source.ToString() == "../../Images/" + skin + "/destroyerV.png")
+            if (newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/destroyerH.png") || newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/destroyerV.png"))
             {
                 boatClicked[0] = false;
                 boatClicked[1] = false;
@@ -424,7 +424,7 @@ namespace battleship
                 boatClicked[4] = false;
                 shipsUsed++;
             }
-            if (newimage.Source.ToString() == "../../Images/" + skin + "/submarineH.png" || newimage.Source.ToString() == "../../Images/" + skin + "/submarinepV.png")
+            if (newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/submarineH.png") || newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/submarineV.png"))
             {
                 boatClicked[0] = false;
                 boatClicked[1] = false;
@@ -433,7 +433,7 @@ namespace battleship
                 boatClicked[4] = false;
                 shipsUsed++;
             }
-            if (newimage.Source.ToString() == "../../Images/" + skin + "/carrierH.png" || newimage.Source.ToString() == "../../Images/" + skin + "/carrierV.png")
+            if (newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/carrierH.png") || newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/carrierV.png"))
             {
                 boatClicked[0] = false;
                 boatClicked[1] = false;
