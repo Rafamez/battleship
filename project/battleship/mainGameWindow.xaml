@@ -71,7 +71,7 @@
                 <Button x:Name="Medium" Content="Medium" Width="65" Click="Medium_Click" Background="#FFDDDDDD"/>
                 <Button x:Name="Hard" Content="Hard" Width="65" Click="Hard_Click" Margin=" 0 0 30 0" Background="#FFDDDDDD"/>
                 <Label x:Name="AttemptsCount" Content="Attempts: " Width="66" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10 10 10 10"/>
-                <TextBlock x:Name="AttemptsValue" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" Text="0"/>
+                <TextBlock x:Name="AttemptValues" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" Text="0"/>
 
             </WrapPanel>
         </Border>

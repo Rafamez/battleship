@@ -474,25 +474,27 @@ namespace battleship
                 //Serializing the highscores 
                 int score = 0;
                 int boatsLeft = 0;
+                int attempts = Convert.ToInt32(AttemptValues.Text);
+                int timeCount = Convert.ToInt32(AttemptValues.Text);
                 for (int i = 0; i < human.myShips.Count; i++)
                 {
-                    if (!(human.myShips[i].gethealth == 0))
+                    if (!(human.myShips[i].healthReturn == 0))
                         boatsLeft++;
                 }
                 if (difficulty == 1)
                 {
-                    score = 2500 - (_Time.Text * (attempts_text / 17) * (2 - (boatsLeft / 5)));
+                    score = 2500 - (timeCount * (attempts / 17) * (2 - (boatsLeft / 5)));
                 }
                 if (difficulty == 2)
                 {
-                    score = 5000 - (_Time.Text * (attempts_text / 17) * (2 - (boatsLeft / 5)));
+                    score = 5000 - (timeCount * (attempts / 17) * (2 - (boatsLeft / 5)));
                 }
                 if (difficulty == 3)
                 {
-                    score = 10000 - (_Time.Text * (attempts_text / 17) * (2 - (boatsLeft / 5)));
+                    score = 10000 - (timeCount * (attempts / 17) * (2 - (boatsLeft / 5)));
                 }
-                saveData = username + "---------------------" + score.ToString() +_Time.Text;
-                FileStream fs = new FileStream("../../highscores.dat", FileMode.Create, FileAccess.ReadWrite);
+                saveData ="Name: "+ username + "                   " + "Score: " + score.ToString() + "                   "  + "Time: " + _Time.Text + "*";
+                FileStream fs = new FileStream("../../highscores.txt", FileMode.Create, FileAccess.ReadWrite);
                 // Construct a BinaryFormatter and use it to serialize the data to the stream.
                 BinaryFormatter formatter = new BinaryFormatter();
                 try
