@@ -28,8 +28,7 @@
             <Image Source="Images/loadButton.png" Margin="-158,-289,-187,-300" HorizontalAlignment="Center" VerticalAlignment="Center" Height="671" Width="660"/>
 
         </Button>
-        <Button x:Name="NewGame1" Content="New Game" HorizontalAlignment="Left" Margin="109,281,0,0" VerticalAlignment="Top" Width="329" Height="113" Click="NewGame_Click" Visibility="Hidden"/>
-        <Button x:Name="LoadGame1" Content="Load Game" HorizontalAlignment="Left" Margin="740,281,0,0" VerticalAlignment="Top" Width="329" Height="113" Click="LoadGame_Click" Visibility="Hidden"/>
+
         <Image x:Name="LogoImage" HorizontalAlignment="Center" Height="600" Margin="146,-198,131,73" VerticalAlignment="Center" Width="898" Source="Images/BattleshipLOGO.png"/>
 
     </Grid>
