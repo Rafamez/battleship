@@ -6,9 +6,9 @@ using System.Text;
 namespace battleship
 {
     //ENUMS REPRESENTING SHIPS
-    enum ShipType { Battleship, Cruiser, Destroyer, Submarine, Carrier };
+    public enum ShipType { Battleship, Cruiser, Destroyer, Submarine, Carrier };
 
-	class Ship
+	public class Ship
 	{
 		//VALUE REPRESENTING HEALTH OF SHIPS (LENGTH - DAMAGE TAKEN)
 		private int health;

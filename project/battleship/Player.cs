@@ -424,9 +424,9 @@ namespace battleship
 			return position;
         }
 
-		public Boolean findShip(ship arg, int x, int y)
+		public Boolean findShip(Ship arg, int x, int y)
 		{
-			return
+            return true;
 		}
         //METHOD USED TO PLACE SHIPS
         public void PlaceShips()
