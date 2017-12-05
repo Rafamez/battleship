@@ -168,6 +168,108 @@
     <Resource Include="Images\usa\submarineH.png" />
     <Resource Include="Images\usa\submarineV.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\vertical\destroyer3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\vertical\submarine1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\vertical\submarine2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\vertical\submarine3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\vertical\submarine4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\vertical\battleship1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\vertical\battleship2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\vertical\carrier1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\vertical\carrier2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\vertical\carrier3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\vertical\carrier4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\vertical\carrier5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\vertical\cruiser1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\vertical\cruiser2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\vertical\cruiser3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\vertical\destroyer1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\vertical\destroyer2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\horizental\destroyer3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\horizental\submarine1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\horizental\submarine2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\horizental\submarine3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\horizental\submarine4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\horizental\battleship1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\horizental\battleship2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\horizental\carrier1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\horizental\carrier2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\horizental\carrier3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\horizental\carrier4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\horizental\carrier5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\horizental\cruiser1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\horizental\cruiser2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\horizental\cruiser3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\horizental\destroyer1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\usa\horizental\destroyer2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

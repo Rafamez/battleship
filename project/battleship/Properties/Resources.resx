@@ -142,4 +142,136 @@
   <data name="X" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\X.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="battleship1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\vertical\battleship1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="battleship11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\horizental\battleship1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="battleship2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\vertical\battleship2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="battleship21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\horizental\battleship2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="battleshipH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\battleshipH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="battleshipV" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\battleshipV.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="carrier1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\vertical\carrier1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="carrier11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\horizental\carrier1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="carrier2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\vertical\carrier2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="carrier21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\horizental\carrier2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="carrier3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\vertical\carrier3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="carrier31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\horizental\carrier3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="carrier4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\vertical\carrier4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="carrier41" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\horizental\carrier4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="carrier5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\vertical\carrier5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="carrier51" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\horizental\carrier5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="carrierH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\carrierH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="carrierV" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\carrierV.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cruiser1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\vertical\cruiser1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cruiser11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\horizental\cruiser1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cruiser2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\vertical\cruiser2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cruiser21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\horizental\cruiser2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cruiser3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\vertical\cruiser3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cruiser31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\horizental\cruiser3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cruiserH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\cruiserH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cruiserV" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\cruiserV.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="destroyer1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\vertical\destroyer1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="destroyer11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\horizental\destroyer1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="destroyer2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\vertical\destroyer2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="destroyer21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\horizental\destroyer2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="destroyer3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\vertical\destroyer3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="destroyer31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\horizental\destroyer3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="destroyerH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\destroyerH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="destroyerV" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\destroyerV.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="submarine1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\vertical\submarine1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="submarine11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\horizental\submarine1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="submarine2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\vertical\submarine2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="submarine21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\horizental\submarine2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="submarine3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\vertical\submarine3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="submarine31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\horizental\submarine3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="submarine4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\vertical\submarine4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="submarine41" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\horizental\submarine4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="submarineH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\submarineH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="submarineV" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\usa\submarineV.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
