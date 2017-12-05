@@ -47,9 +47,10 @@ namespace battleship
         public Player human;
         public string skin = "usa";
 
-        int attempts = 0;
+        public int attempts = 0;
         //creating human
         private String[] saved = new String[250];
+        private Boolean clicked;
 
         public Boolean english = true;
 
@@ -84,7 +85,6 @@ namespace battleship
             //set the interval to 1000
             PT.Interval = 1000;
             //small text used to justify whos turn it is
-            Turn.Content = "YOUR \r\nTURN";
             Easy.Background = Brushes.WhiteSmoke;
             Medium.Background = Brushes.DarkGray;
             Hard.Background = Brushes.DarkGray;
@@ -199,7 +199,10 @@ namespace battleship
         //method which shows the leaderboard
         private void Leaderboard_Click(object sender, RoutedEventArgs e)
         {
+            clicked = !clicked;
+            if (clicked) {
 
+            }
         }
         //method which changes the game language to french
         private void French(object sender, RoutedEventArgs e)
@@ -486,6 +489,7 @@ namespace battleship
                     player.PlaceShips();
                     AircraftCarrier.Visibility = Visibility.Hidden;
                     ACButton.Visibility = Visibility.Hidden;
+                    Turn.Content = "YOUR \r\nTURN";
                 }
             }
         }
