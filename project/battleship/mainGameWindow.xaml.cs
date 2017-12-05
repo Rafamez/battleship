@@ -381,6 +381,8 @@ namespace battleship
 					if (accumulatedHeight >= point.Y)
 						break;
 					xAxis++;
+					if (xAxis == 10)
+						break;
 				}
 
 				// calc col mouse was over
@@ -390,69 +392,60 @@ namespace battleship
 					if (accumulatedWidth >= point.X)
 						break;
 					yAxis++;
+					if (yAxis==10)
+						break;
 				}
 				human.PlaceShips(xAxis, yAxis, horizental);
 				Console.WriteLine("Clicked at {0}, {1}", yAxis, xAxis);
 			}
 		}
 
+		private void boatClickedSet()
+		{
+			for (int i = 0; i < boatClicked.Count; i++) {
+				boatClicked[i] = false;
+			}
+			boatClicked[shipsUsed] = true;
+		}
+
+
 		private void CallChoseShip(object sender, MouseButtonEventArgs e)
 		{
 			if (GameTime != 0)
 			{
-				Image newimage = new Image();
-				newimage.Source = ((Image)sender).Source;
-				if (newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/battleshipH.png") || newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/battleshipV.png"))
+				Image newimage = (Image) sender;
+				
+				if (newimage.Source.ToString() == "pack://application:,,,/battleship;component/Images/usa/battleshipH.png" || newimage.Source.ToString() == "../../Images/usa/battleshipV.png")
 				{
 					if (!boatClicked[0])
 						shipsUsed++;
-					boatClicked[0] = true;
-					boatClicked[1] = false;
-					boatClicked[2] = false;
-					boatClicked[3] = false;
-					boatClicked[4] = false;
+					boatClickedSet();
 
 				}
-				if (newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/cruiserH.png") || newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/cruiserV.png"))
+				if (newimage.Source.ToString() == "pack://application:,,,/battleship;component/Images/usa/cruiserH.png" || newimage.Source.ToString() == "../../Images/usa/cruiserV.png")
 				{
 					if (!boatClicked[1])
 						shipsUsed++;
-					boatClicked[0] = false;
-					boatClicked[1] = true;
-					boatClicked[2] = false;
-					boatClicked[3] = false;
-					boatClicked[4] = false;
+					boatClickedSet();
 
 				}
-				if (newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/destroyerH.png") || newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/destroyerV.png"))
+				if (newimage.Source.ToString() == "pack://application:,,,/battleship;component/Images/usa/destroyerH.png" || newimage.Source.ToString() == "../../Images/usa/destroyerV.png")
 				{
 					if (!boatClicked[2])
 						shipsUsed++;
-					boatClicked[0] = false;
-					boatClicked[1] = false;
-					boatClicked[2] = true;
-					boatClicked[3] = false;
-					boatClicked[4] = false;
+					boatClickedSet();
 				}
-				if (newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/submarineH.png") || newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/submarineV.png"))
+				if (newimage.Source.ToString() == "pack://application:,,,/battleship;component/Images/usa/submarineH.png" || newimage.Source.ToString() == "../../Images/usa/submarineV.png")
 				{
 					if (!boatClicked[3])
 						shipsUsed++;
-					boatClicked[0] = false;
-					boatClicked[1] = false;
-					boatClicked[2] = false;
-					boatClicked[3] = true;
-					boatClicked[4] = false;
+					boatClickedSet();
 				}
-				if (newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/carrierH.png") || newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/carrierV.png"))
+				if (newimage.Source.ToString() == "pack://application:,,,/battleship;component/Images/usa/carrierH.png" || newimage.Source.ToString() == "../../Images/usa/carrierV.png")
 				{
 					if (!boatClicked[4])
 						shipsUsed++;
-					boatClicked[0] = false;
-					boatClicked[1] = false;
-					boatClicked[2] = false;
-					boatClicked[3] = false;
-					boatClicked[4] = true;
+					boatClickedSet();
 				}
 			}
 		}
