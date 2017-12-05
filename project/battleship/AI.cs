@@ -21,7 +21,6 @@ namespace battleship
         public List<List<Board>> MyGrid { get; set; }
 
         Grid grid;
-        String skin;
 
 
         //AI SHIPS
@@ -46,11 +45,10 @@ namespace battleship
         int[] secondLine;
         Player human;
 
-        public AI(int difficulty, Player player, Grid grid, String skin)
+        public AI(int difficulty, Player player, Grid grid)
         {
             this.human = player;
             this.grid = grid;
-            this.skin = skin;
 
             this.difficulty = difficulty;
             if (difficulty >= 2)
@@ -548,9 +546,8 @@ namespace battleship
                     //IF SHIPINDEX IS <-1 (GOT HIT), CHANGE SQUARE TO SUNK
                     if (myShips[damagedIndex].FiredAt())
                     {
-                        //IS SUNK IS TRUE, AND MINESUNK IS THE SHIP INDEX OF THE SQUARE
-                        MineSunk(square.ShipIndex);
                         //CHANGE SUNK TO TRUE
+                        square.Type = SquareType.Sunk;
                         isSunk = true;
                         Image image = new Image();
                         image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images/cross.jpg");
@@ -559,7 +556,11 @@ namespace battleship
                         Grid.SetColumn(image, col);
                         grid.Children.Add(image);
                         if (myShips[damagedIndex].healthReturn == 0)
+                        {
                             MessageBox.Show(myShips[damagedIndex].ToString() + " has been sunk");
+                            //IS SUNK IS TRUE, AND MINESUNK IS THE SHIP INDEX OF THE SQUARE
+                            MineSunk(square.ShipIndex);
+                        }
                     }
                     else
                     {
@@ -672,7 +673,7 @@ namespace battleship
                             break;
                     }
                     Boolean valid = true;
-                    for (int i = 0; i < ship.Length; i++)
+                    for (int i = 0; i < addShip.Length; i++)
                     {
                         if (addShip[i, 0] < 0 || addShip[i, 0] > 9 || addShip[i, 1] < 0 || addShip[i, 1] > 9)
                         {
@@ -689,7 +690,7 @@ namespace battleship
                     {
                         if (this.difficulty == 3)
                         {
-                            for (int j = 0; j < ship.Length; j++)
+                            for (int j = 0; j < addShip.Length; j++)
                             {
                                 if (!((addShip[j, 0] - 1) < 0))
                                 {
@@ -821,34 +822,6 @@ namespace battleship
         {
             throw new NotImplementedException();
         }
-
-        public bool checkVertical(int x, int y, int[,] grid)
-        {
-            if (!((x + 1) > 9))
-            {
-                if (!(grid[x+1,y] == 0))
-                {
-                    return true;
-                }
-                else if (!((x - 1) < 0))
-                {
-                    if (!(grid[x-1,y] == 0))
-                    {
-                        return true;
-                    }
-                }
-            }
-            else
-            {
-                if (!((x - 1) < 0))
-                {
-                    if (!(grid[x - 1, y] == 0))
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
     }
 }
+
