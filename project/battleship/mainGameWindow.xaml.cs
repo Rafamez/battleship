@@ -384,7 +384,7 @@ namespace battleship
                     break;
                 yAxis++;
             }
-            human.PlaceShips();
+            human.PlaceShips(xAxis,yAxis);
             Console.WriteLine("Clicked at {0}, {1}", yAxis, xAxis);
         }
         }
@@ -480,5 +480,72 @@ namespace battleship
             }
 
         }
-    }
+
+
+
+
+		//method which sees if the game is about to end or not
+		public void end()
+		{
+			//if you win
+			if (Win())
+			{
+				if (english)
+					MessageBox.Show("You finished the game in " + GameTime + " seconds, congratulations!");
+				else
+					MessageBox.Show("Vous avez fini le jeu en " + GameTime + " secondes, bravo!");
+
+				//Serializing the highscores 
+				int score = 0;
+				int boatsLeft = 0;
+				for (int i = 0; i < human.myShips.Count; i++)
+				{
+					if (!(human.myShips[i].healthReturn == 0))
+						boatsLeft++;
+				}
+				if (difficulty == 1)
+				{
+					score = 2500 - (GameTime * (attempts / 17) * (2 - (boatsLeft / 5)));
+				}
+				if (difficulty == 2)
+				{
+					score = 5000 - (GameTime * (attempts / 17) * (2 - (boatsLeft / 5)));
+				}
+				if (difficulty == 3)
+				{
+					score = 10000 - (GameTime * (attempts / 17) * (2 - (boatsLeft / 5)));
+				}
+				saveData = username + "---------------------" + score.ToString() + _Time.Text;
+				FileStream fs = new FileStream("../../highscores.dat", FileMode.Create, FileAccess.ReadWrite);
+				// Construct a BinaryFormatter and use it to serialize the data to the stream.
+				BinaryFormatter formatter = new BinaryFormatter();
+				try
+				{
+					formatter.Serialize(fs, saveData);
+				}
+				catch (SerializationException em)
+				{
+					Console.WriteLine("Failed to serialize. Reason: " + em.Message);
+
+				}
+				finally
+				{
+					fs.Close();
+				}
+				System.Windows.Application.Current.Shutdown();
+			}
+			//if you lose
+			if (Lost())
+			{
+				if (english)
+					MessageBox.Show("You lost the game in " + GameTime + " seconds, git gud!");
+				else
+					MessageBox.Show("Vous avez perdu le jeu en " + GameTime + " secondes, vous êtes mauvais!");
+				System.Windows.Application.Current.Shutdown();
+
+			}
+		}
+
+
+	}
 }

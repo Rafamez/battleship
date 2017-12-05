@@ -21,24 +21,23 @@ using System.Windows.Shapes;
 //INSPIRED FROM JAMESJRG CODE FROM https://github.com/jamesjrg/battleship/tree/master/Battleship
 namespace battleship
 {
-    public class Player : mainGameWindow
+    public class Player
     {
         //INT FOR THE SIZE OF THE GRID
         public const int GRID_SIZE = 10;
-        //RANDOM VARIABLE TO PLACE ENNEMY SHIPS
-        static public Random rnd = new Random();
+
         //USERNAME FOR PLAYER
         public String username;
 
         //HUMAN BOARD
         public List<List<Board>> MyGrid { get; set; }
-        //AI BOARD
-        public List<List<Board>> EnemyGrid { get; set; }
+
+		Grid grid;
+		String skin;
+
 
         //HUMAN SHIPS
         List<Ship> myShips = new List<Ship>();
-        //AI SHIPS
-        List<Ship> enemyShips = new List<Ship>();
 
 
         //VALUE TO GET THE LIST USED
@@ -46,31 +45,28 @@ namespace battleship
         private string saveData;
 
         //CREATE PLAYER CLASS
-        public Player(String name)
+        public Player(String name, Grid grid, String skin)
         {
             //SET USERNAME
             username = name;
+			this.grid = grid;
+			this.skin = skin;
             //SET FRIENDLY GRID
             MyGrid = new List<List<Board>>();
-            //SET ENNEMY GRID
-            EnemyGrid = new List<List<Board>>();
             //LOOP TO ADD BOARDS TO THE GRIDS
             for (int i = 0; i != GRID_SIZE; ++i)
             {
                 MyGrid.Add(new List<Board>());
-                EnemyGrid.Add(new List<Board>());
 
                 for (int j = 0; j != GRID_SIZE; ++j)
                 {
                     MyGrid[i].Add(new Board(i, j));
-                    EnemyGrid[i].Add(new Board(i, j));
                 }
             }
             //ADD SHIPS TO THE BOARD'S TYPE
             foreach (ShipType type in Enum.GetValues(typeof(ShipType)))
             {
                 myShips.Add(new Ship(type));
-                enemyShips.Add(new Ship(type));
             }
             //ADD SHIPS TO THE BOARDS WHO HAVE SHIP PROERTIES
             Reset();
@@ -85,13 +81,10 @@ namespace battleship
                 for (int j = 0; j != GRID_SIZE; ++j)
                 {
                     MyGrid[i][j].Reset(SquareType.Water);
-                    EnemyGrid[i][j].Reset(SquareType.Unknown);
                 }
             }
             //CREATE AND SET MY SHIPS AND ENNEMY SHIPS
             myShips.ForEach(s => s.Reincarnate());
-            enemyShips.ForEach(s => s.Reincarnate());
-            PlaceShips();
         }
         //METHOD RETUNRS BOOL TO SEE IF SQUARE IS FREE
         private bool SquareFree(int row, int col)
@@ -99,11 +92,11 @@ namespace battleship
             return (MyGrid[row][col].ShipIndex == -1) ? true : false;
         }
         //METHOD TO PLACE SHIP DOWN, RETURNS BOOLEAN TRUE IF PLACED CORRECTLY
-        private bool PlaceVertical(int shipIndex, int remainingLength)
+        private bool PlaceVertical(int shipIndex, int remainingLength, int x, int y)
         {
             //X AND Y POSITION TO PLACE
-            int startPosRow = xAxis;
-            int startPosCol = yAxis;
+            int startPosRow = x;
+            int startPosCol = y;
 
             //CREATING FUN TO SEE IF ITS POSSIBLE TO PLACE SHIP
             Func<bool> PlacementPossible = () =>
@@ -141,31 +134,31 @@ namespace battleship
                             image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/vertical/battleship/" + remainingLength.ToString() + ".png");
 							image.Stretch = Stretch.UniformToFill;
 							Grid.SetColumn(image, row);
-							HumanGrid.Children.Add(image);
+							grid.Children.Add(image);
                             break;
                         case 1:
 							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/vertical/cruiser/" + remainingLength.ToString() + ".png");
 							image.Stretch = Stretch.UniformToFill;
 							Grid.SetColumn(image, row);
-							HumanGrid.Children.Add(image);
+							grid.Children.Add(image);
 							break;
                         case 2:
 							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/vertical/destroyer/" + remainingLength.ToString() + ".png");
 							image.Stretch = Stretch.UniformToFill;
 							Grid.SetColumn(image, row);
-							HumanGrid.Children.Add(image);
+							grid.Children.Add(image);
 							break;
                         case 3:
 							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/vertical/submarine/" + remainingLength.ToString() + ".png");
 							image.Stretch = Stretch.UniformToFill;
 							Grid.SetColumn(image, row);
-							HumanGrid.Children.Add(image);
+							grid.Children.Add(image);
 							break;
 						case 4:
 							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/vertical/carrier/" + remainingLength.ToString() + ".png");
 							image.Stretch = Stretch.UniformToFill;
 							Grid.SetColumn(image, row);
-							HumanGrid.Children.Add(image);
+							grid.Children.Add(image);
 							break;
                     }
                     //REMAINING LENGTH -1
@@ -179,11 +172,11 @@ namespace battleship
         }
 
         //METHOD TO PLACE BOAT HORIZONTALLY
-        private bool PlaceHorizontal(int shipIndex, int remainingLength)
+        private bool PlaceHorizontal(int shipIndex, int remainingLength, int x, int y)
         {
             //X AND Y TO PLACE
-            int startPosRow = xAxis;
-            int startPosCol = yAxis;
+            int startPosRow = x;
+            int startPosCol = y;
 
             //CREATING FUNCTION TO SEE IF IT IS POSSIBLE
             Func<bool> PlacementPossible = () =>
@@ -220,31 +213,31 @@ namespace battleship
 							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "vertical/battleship/" + remainingLength.ToString() + ".png");
 							image.Stretch = Stretch.UniformToFill;
 							Grid.SetRow(image, col);
-							HumanGrid.Children.Add(image);
+							grid.Children.Add(image);
 							break;
 						case 1:
 							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "horizental/cruiser/" + remainingLength.ToString() + ".png");
 							image.Stretch = Stretch.UniformToFill;
 							Grid.SetRow(image, col);
-							HumanGrid.Children.Add(image);
+							grid.Children.Add(image);
 							break;
 						case 2:
 							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "horizental/destroyer/" + remainingLength.ToString() + ".png");
 							image.Stretch = Stretch.UniformToFill;
 							Grid.SetRow(image, col);
-							HumanGrid.Children.Add(image);
+							grid.Children.Add(image);
 							break;
 						case 3:
 							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "horizental/submarine/" + remainingLength.ToString() + ".png");
 							image.Stretch = Stretch.UniformToFill;
 							Grid.SetRow(image, col);
-							HumanGrid.Children.Add(image);
+							grid.Children.Add(image);
 							break;
 						case 4:
 							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "horizental/carrier/" + remainingLength.ToString() + ".png");
 							image.Stretch = Stretch.UniformToFill;
 							Grid.SetRow(image, col);
-							HumanGrid.Children.Add(image);
+							grid.Children.Add(image);
 							break;
 					}
 					// -1 TO LENGTH
@@ -285,14 +278,9 @@ namespace battleship
         {
             SinkShip(i, MyGrid);
         }
-        //METHOD USED TO SINK ENNEMY SHIP
-        public void EnemySunk(int i)
-        {
-            SinkShip(i, EnemyGrid);
-        }
 
         //METHOD USED TO FIRE
-        public void Fire(int row, int col, Player otherPlayer)
+        public void Fire(int row, int col, AI otherPlayer)
         {
             //VALUE FOR LOCATION DAMAGED
             int damagedIndex;
@@ -301,11 +289,11 @@ namespace battleship
             //SQUARETYPE TO VERIFY THE TYPE OF THE HITTEN LOCATION, AND IF IT IS SUNK
             SquareType newType = otherPlayer.FiredAt(row, col, out damagedIndex, out isSunk);
             //CHANGE THE SHIPINDEX TO DAMAGE INDEX
-            EnemyGrid[row][col].ShipIndex = damagedIndex;
+            otherPlayer.MyGrid[row][col].ShipIndex = damagedIndex;
 
             //IF LOCATION ISSUNK IS TRUE (HITTING A SHIP)
             if (isSunk) { 
-                EnemySunk(damagedIndex);
+                AI.MyGrid(damagedIndex);
                 actions.Text += username + " hit " + enemyShips[damagedIndex].ToString() + " on location (" + row.ToString() + "," + col.ToString() + ")";
             }
             else { 
@@ -348,28 +336,26 @@ namespace battleship
 						image.Stretch = Stretch.UniformToFill;
 						Grid.SetRow(image, row);
 						Grid.SetColumn(image, col);
-						HumanGrid.Children.Add(image);
+						grid.Children.Add(image);
                         if (myShips[damagedIndex].healthReturn == 0)
                             MessageBox.Show(myShips[damagedIndex].ToString() + " has been sunk");
 					}
                     else
                     {
                         //SET THE TYPE OF THE SQUARE TO DAMAGED
-                        square.Type = SquareType.Damaged;
+                        square.Type = SquareType.Miss;
 						Image image = new Image();
 						image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images/X.jpg");
 						image.Stretch = Stretch.UniformToFill;
 						Grid.SetRow(image, row);
 						Grid.SetColumn(image, col);
-						HumanGrid.Children.Add(image);
+						grid.Children.Add(image);
 					}
                     return square.Type;
                 //IF ITS DAMAGED, RETURN ERROR
-                case SquareType.Damaged:
+                case SquareType.Miss:
                     goto default;
                 //IF ITS UNKNOWN RETURN ERROR
-                case SquareType.Unknown:
-                    goto default;
                 //IF ITS SUNK RETURN ERROR
                 case SquareType.Sunk:
                     goto default;
@@ -385,147 +371,38 @@ namespace battleship
             //if all your ships are sunk, end game
             return myShips.All(ship => ship.IsSunk);
         }
-        //METHOD TO VERIFY IF YOU HAVE WON
-        public bool Win()
-        {
-            //IF ALL ENNEMY SHIPS ARE SUNK, END GAME
-            return enemyShips.All(ship => ship.IsSunk);
-        }
-
-        /**
-		 * This code will affect the human that is getting shot at by the human
-		 * @Parameter an int representing x axis
-		 *			  an int representing y axis
-		 * @Return an int[] representing the position
-		 * */
-        public int[] TakeTurnAutomated(int x, int y)
-        {
-			int[] position = new int[2];
-            int row = rnd.Next(GRID_SIZE);
-            int col = rnd.Next(GRID_SIZE);
-			if (MyGrid[x][y].Type == SquareType.Unknown)
-			{
-				Fire(x, y, this);
-				if (MyGrid[x][y].Type == SquareType.Water)
-				{
-					position[0] = -1;
-					position[1] = -1;
-				}
-				else
-				{
-					if (myShips[MyGrid[x][y].ShipIndex].healthReturn == 0)
-					{
-						position[0] = -4;
-						position[1] = -4;
-					}
-					else
-					{
-						position[0] = x;
-						position[1] = y;
-					}
-				}
-			}
-			else
-			{
-				position[0] = -2;
-				position[1] = -2;
-			}
-			return position;
-        }
 
 		public Boolean findShip(Ship arg, int x, int y)
 		{
             return true;
 		}
-        //METHOD USED TO PLACE SHIPS
-        public void PlaceShips()
-        {
+		//METHOD USED TO PLACE SHIPS
+		public void PlaceShips(int x, int y, List<bool> horizental)
+		{
 
-            //CALL METHOD HERE WHICH ASKS USER FOR POSITION
-            //TAKE OFF X AND Y FROM PLACESHIPS AND CALLING METHOD FROM MAINGAMEWINDOW TO GET LOCATION OF IMAGE CLICK
+			//CALL METHOD HERE WHICH ASKS USER FOR POSITION
+			//TAKE OFF X AND Y FROM PLACESHIPS AND CALLING METHOD FROM MAINGAMEWINDOW TO GET LOCATION OF IMAGE CLICK
 
-            //BOOLEAN TO GET THE VALUE HORIZENTAL (IF ITS HORIZENTAL OR VERTICAL)
-            bool vertical = !horizental[ship];
-            //BOOLEAN TO SEE IF SHIP WAS PLACED
-            bool placed = false;
+			//BOOLEAN TO GET THE VALUE HORIZENTAL (IF ITS HORIZENTAL OR VERTICAL)
+			bool vertical = !horizental[ship];
+			//BOOLEAN TO SEE IF SHIP WAS PLACED
+			bool placed = false;
 
-            //LOOP TO PLACE SHIPS
-            for (; !placed;)
-            {
-                //INT FOR LENGTH OF SHIP
-                int remainingLength = myShips[ship].Length;
-                //IF VERTICAL IS TRUE (PLACE SHIP VERTICALLY)
-                //INSERT IMAGES HERE
-                if (vertical)
-                    //PLACE THE SHIP VERTICALLY. BOOLEAN TO SEE IF IT SUCCEEDED OR NOT
-                    placed = PlaceVertical(ship, remainingLength);
-                else
-                    //PLACE THE SHIP VERTICALLY, BOOLEAN TO SEE IF IT SUCCEEDED
-                    placed = PlaceHorizontal(ship, remainingLength);
-            }
-            ship++;
-        }
-
-        //method which sees if the game is about to end or not
-        public void end()
-        {
-            //if you win
-            if (Win())
-            {
-                if (english)
-                    MessageBox.Show("You finished the game in " + GameTime + " seconds, congratulations!");
-                else
-                    MessageBox.Show("Vous avez fini le jeu en " + GameTime + " secondes, bravo!");
-
-                //Serializing the highscores 
-                int score = 0;
-                int boatsLeft = 0;
-                for (int i = 0; i < human.myShips.Count; i++)
-                {
-                    if (!(human.myShips[i].healthReturn == 0))
-                        boatsLeft++;
-                }
-                if (difficulty == 1)
-                {
-                    score = 2500 - (GameTime * (attempts / 17) * (2 - (boatsLeft / 5)));
-                }
-                if (difficulty == 2)
-                {
-                    score = 5000 - (GameTime * (attempts / 17) * (2 - (boatsLeft / 5)));
-                }
-                if (difficulty == 3)
-                {
-                    score = 10000 - (GameTime * (attempts / 17) * (2 - (boatsLeft / 5)));
-                }
-                saveData = username + "---------------------" + score.ToString() +_Time.Text;
-                FileStream fs = new FileStream("../../highscores.dat", FileMode.Create, FileAccess.ReadWrite);
-                // Construct a BinaryFormatter and use it to serialize the data to the stream.
-                BinaryFormatter formatter = new BinaryFormatter();
-                try
-                {
-                    formatter.Serialize(fs, saveData);
-                }
-                catch (SerializationException em)
-                {
-                    Console.WriteLine("Failed to serialize. Reason: " + em.Message);
-
-                }
-                finally
-                {
-                    fs.Close();
-                }
-            System.Windows.Application.Current.Shutdown();
-            }
-            //if you lose
-            if (Lost())
-            {
-                if (english)
-                    MessageBox.Show("You lost the game in " + GameTime + " seconds, git gud!");
-                else
-                    MessageBox.Show("Vous avez perdu le jeu en " + GameTime + " secondes, vous êtes mauvais!");
-                System.Windows.Application.Current.Shutdown();
-
-            }
-        }
+			//LOOP TO PLACE SHIPS
+			for (; !placed;)
+			{
+				//INT FOR LENGTH OF SHIP
+				int remainingLength = myShips[ship].Length;
+				//IF VERTICAL IS TRUE (PLACE SHIP VERTICALLY)
+				//INSERT IMAGES HERE
+				if (vertical)
+					//PLACE THE SHIP VERTICALLY. BOOLEAN TO SEE IF IT SUCCEEDED OR NOT
+					placed = PlaceVertical(ship, remainingLength, x, y);
+				else
+					//PLACE THE SHIP VERTICALLY, BOOLEAN TO SEE IF IT SUCCEEDED
+					placed = PlaceHorizontal(ship, remainingLength, x, y);
+			}
+			ship++;
+		}
     }
 }
