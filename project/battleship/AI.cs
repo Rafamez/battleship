@@ -673,7 +673,7 @@ namespace battleship
                             break;
                     }
                     Boolean valid = true;
-                    for (int i = 0; i < addShip.Length; i++)
+                    for (int i = 0; i < size; i++)
                     {
                         if (addShip[i, 0] < 0 || addShip[i, 0] > 9 || addShip[i, 1] < 0 || addShip[i, 1] > 9)
                         {
@@ -690,7 +690,7 @@ namespace battleship
                     {
                         if (this.difficulty == 3)
                         {
-                            for (int j = 0; j < addShip.Length; j++)
+                            for (int j = 0; j < size; j++)
                             {
                                 if (!((addShip[j, 0] - 1) < 0))
                                 {

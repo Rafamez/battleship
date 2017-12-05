@@ -17,7 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace battleship
-{
+{/*
     /// <summary>
     /// Interaction logic for Leaderboard.xaml
     /// 
@@ -131,7 +131,7 @@ where T : IComparable<T>
             if (i < right) QuickSort(data, i, right);
         }
 =======
-        }*/
+        }
 >>>>>>> 9f952af1047bcd993fe2d33d317fc14134a99f1b
-    }
+    }*/
 }

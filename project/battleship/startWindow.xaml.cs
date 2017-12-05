@@ -35,11 +35,6 @@ namespace battleship
 
 
         }
-
-        private void Video_Loaded(object sender, RoutedEventArgs e)
-     {
-        Video.Play();
-      } 
     
     private void Video_MediaEnded(object sender, RoutedEventArgs e)
     {

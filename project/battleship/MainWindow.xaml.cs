@@ -29,7 +29,7 @@ namespace battleship
         public MainWindow()
         {
             Hide();
-            application.Visibility = Visibility.Visible;
+            login.Visibility = Visibility.Visible;
 
 
 

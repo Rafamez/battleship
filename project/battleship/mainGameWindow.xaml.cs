@@ -45,6 +45,8 @@ namespace battleship
 		public int attempts = 0;
 		//creating human
 		private String[] saved = new String[250];
+		private string saveData;
+
 		private Boolean clicked;
 		//creating human
 		public Player human;
@@ -70,7 +72,7 @@ namespace battleship
 
 
 			human = new Player("Bob", HumanGrid, skin);
-			otherPlayer = new AI(difficulty, human, AIGrid, skin);
+			otherPlayer = new AI(difficulty, human, AIGrid);
 
 
 			UnitedStates.IsChecked = true;
@@ -252,22 +254,27 @@ namespace battleship
 		//method which allows for cheats (for debugg reasons or if you want to augment your self esteem)
 		private void CheatsOn(object sender, RoutedEventArgs e)
 		{
-			if (On.IsChecked)
-				Off.IsChecked = false;
-			var values = Enum.GetValues(typeof(SquareType));
-
-			for (int i = 0; i < AIGrid.RowDefinitions.Count * AIGrid.ColumnDefinitions.Count; i++)
+			if (T.Enabled)
 			{
+				if (On.IsChecked)
+					Off.IsChecked = false;
+				var values = Enum.GetValues(typeof(SquareType));
 
+				for (int i = 0; i < AIGrid.RowDefinitions.Count * AIGrid.ColumnDefinitions.Count; i++)
+				{
+
+				}
 			}
-
 
 		}
 		//method which disables those cheats
 		private void CheatsOff(object sender, RoutedEventArgs e)
 		{
-			if (Off.IsChecked)
-				On.IsChecked = false;
+			//FIX THIS
+			if (On.IsChecked) {
+				for (;;) {
+				}
+			}
 		}
 		//the ship skins is of the USA
 		private void USA(object sender, RoutedEventArgs e)
@@ -461,7 +468,7 @@ namespace battleship
 					actions.Text+= human.Fire(xAxis, yAxis, otherPlayer);
 				yourTurn = !yourTurn;
 				attempts++;
-				AttemptsValue.Text = attempts.ToString();
+				AttemptValues.Text = attempts.ToString();
 				if (yourTurn)
 				{
 					if (english)
@@ -488,53 +495,46 @@ namespace battleship
 		//method which sees if the game is about to end or not
 		public void end()
 		{
-			//if you win
-			if (otherPlayer.Lost())
+			//Serializing the highscores 
+			int score = 0;
+			int boatsLeft = 0;
+			int attempts = Convert.ToInt32(AttemptValues.Text);
+			int timeCount = Convert.ToInt32(AttemptValues.Text);
+			for (int i = 0; i < human.myShips.Count; i++)
 			{
-				if (english)
-					MessageBox.Show("You finished the game in " + GameTime + " seconds, congratulations!");
-				else
-					MessageBox.Show("Vous avez fini le jeu en " + GameTime + " secondes, bravo!");
-
-				//Serializing the highscores 
-				int score = 0;
-				int boatsLeft = 0;
-				for (int i = 0; i < human.myShips.Count; i++)
-				{
-					if (!(human.myShips[i].healthReturn == 0))
-						boatsLeft++;
-				}
-				if (difficulty == 1)
-				{
-					score = 2500 - (GameTime * (attempts / 17) * (2 - (boatsLeft / 5)));
-				}
-				if (difficulty == 2)
-				{
-					score = 5000 - (GameTime * (attempts / 17) * (2 - (boatsLeft / 5)));
-				}
-				if (difficulty == 3)
-				{
-					score = 10000 - (GameTime * (attempts / 17) * (2 - (boatsLeft / 5)));
-				}
-				//saveData = human.username + "---------------------" + score.ToString() + _Time.Text;
-				FileStream fs = new FileStream("../../highscores.dat", FileMode.Create, FileAccess.ReadWrite);
-				// Construct a BinaryFormatter and use it to serialize the data to the stream.
-				BinaryFormatter formatter = new BinaryFormatter();
-				try
-				{
-				//	formatter.Serialize(fs, saveData);
-				}
-				catch (SerializationException em)
-				{
-					Console.WriteLine("Failed to serialize. Reason: " + em.Message);
-
-				}
-				finally
-				{
-					fs.Close();
-				}
-				System.Windows.Application.Current.Shutdown();
+				if (!(human.myShips[i].healthReturn == 0))
+					boatsLeft++;
 			}
+			if (difficulty == 1)
+			{
+				score = 2500 - (timeCount * (attempts / 17) * (2 - (boatsLeft / 5)));
+			}
+			if (difficulty == 2)
+			{
+				score = 5000 - (timeCount * (attempts / 17) * (2 - (boatsLeft / 5)));
+			}
+			if (difficulty == 3)
+			{
+				score = 10000 - (timeCount * (attempts / 17) * (2 - (boatsLeft / 5)));
+			}
+			saveData = "Name: " + human.username + "                   " + "Score: " + score.ToString() + "                   " + "Time: " + _Time.Text + "*";
+			FileStream fs = new FileStream("../../highscores.txt", FileMode.Create, FileAccess.ReadWrite);
+			// Construct a BinaryFormatter and use it to serialize the data to the stream.
+			BinaryFormatter formatter = new BinaryFormatter();
+			try
+			{
+				formatter.Serialize(fs, saveData);
+			}
+			catch (SerializationException em)
+			{
+				Console.WriteLine("Failed to serialize. Reason: " + em.Message);
+
+			}
+			finally
+			{
+				fs.Close();
+			}
+			System.Windows.Application.Current.Shutdown();
 			//if you lose
 			if (human.Lost())
 			{
@@ -543,7 +543,17 @@ namespace battleship
 				else
 					MessageBox.Show("Vous avez perdu le jeu en " + GameTime + " secondes, vous êtes mauvais!");
 				System.Windows.Application.Current.Shutdown();
-
+			}
+			else {
+				//if you lose
+				if (otherPlayer.Lost())
+				{
+					if (english)
+						MessageBox.Show("You won the game in " + GameTime + " seconds, Congratulations!");
+					else
+						MessageBox.Show("Vous avez gagnez le jeu en " + GameTime + " secondes, Bravo!");
+					System.Windows.Application.Current.Shutdown();
+				}
 			}
 		}
 
