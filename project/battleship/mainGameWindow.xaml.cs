@@ -256,19 +256,18 @@ namespace battleship
 				Off.IsChecked = false;
 			var values = Enum.GetValues(typeof(SquareType));
 
-			for (int i = 0; i < AIGrid.RowDefinitions.Count * AIGrid.ColumnDefinitions.Count; i++)
-			{
-
-			}
-
+            otherPlayer.reveal();
 
 		}
 		//method which disables those cheats
 		private void CheatsOff(object sender, RoutedEventArgs e)
 		{
+            if (On.IsChecked) {
 			if (Off.IsChecked)
 				On.IsChecked = false;
-		}
+            otherPlayer.hide();
+            }
+        }
 		//the ship skins is of the USA
 		private void USA(object sender, RoutedEventArgs e)
 		{
