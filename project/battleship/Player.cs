@@ -336,10 +336,10 @@ namespace battleship
                     var square = MyGrid[row][col];
                     //SHIPINDEX = THE SHIPINDEX OF THAT SQUARE
                     damagedIndex = square.ShipIndex;
-                    //IF SHIPINDEX IS -1 (GOT HIT), CHANGE SQUARE TO SUNK
+                    //IF SHIPINDEX IS <-1 (GOT HIT), CHANGE SQUARE TO SUNK
                     if (myShips[damagedIndex].FiredAt())
                     {
-                        //IS SUNK IS TRUE, AND MINESUNK IS THE SHIP INDEX OF THE SQUARE (-1)
+                        //IS SUNK IS TRUE, AND MINESUNK IS THE SHIP INDEX OF THE SQUARE
                         MineSunk(square.ShipIndex);
                         //CHANGE SUNK TO TRUE
                         isSunk = true;

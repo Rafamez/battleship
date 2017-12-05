@@ -28,7 +28,7 @@ namespace battleship
         {
             InitializeComponent();
         }
-        private void highscores() {
+      /*  private void highscores() {
             click = !click;
             if (File.Exists("../../highscores.dat"))
             {
@@ -76,6 +76,6 @@ namespace battleship
                     h1_scores.Text += "10th" + lines[i] + Environment.NewLine;
             
             }
-        }
+        }*/
     }
 }

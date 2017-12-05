@@ -75,7 +75,7 @@
 
             </WrapPanel>
         </Border>
-        <Grid x:Name="GameGrid">
+        <Grid x:Name="GameGrid"  MouseLeftButtonDown="LayShip">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="2*"/>
@@ -240,31 +240,31 @@
                         <ColumnDefinition Width="50"/>
                         <ColumnDefinition Width="100"/>
                     </Grid.ColumnDefinitions>
-                    <Image x:Name="BattleShip" Grid.Row="0" Grid.Column="1" Source="Images\usa\battleshipH.png" Visibility="Visible" MouseLeftButtonDown="CallChoseShip" />
+                    <Image x:Name="BattleShip" Grid.Row="0" Grid.Column="1" Source="Images\usa\battleshipH.png" Visibility="Visible" MouseDown="CallChoseShip" />
                     <Button x:Name="BBButton" Grid.Row="0" Grid.Column="0" Visibility="Visible" Click="BButton_Click" Margin="10 10 10 10">
                         <Button.Background>
                             <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
                         </Button.Background>
                     </Button>
-                    <Image x:Name="Cruiser" Grid.Row="0" Grid.Column="1" Source="Images\usa\cruiserH.png" Visibility="Hidden" MouseLeftButtonDown="CallChoseShip"/>
+                    <Image x:Name="Cruiser" Grid.Row="0" Grid.Column="1" Source="Images\usa\cruiserH.png" Visibility="Hidden" MouseDown="CallChoseShip"/>
                     <Button x:Name="CButton" Grid.Row="0" Grid.Column="0" Visibility="Hidden" Click="CButton_Click" Margin="10 10 10 10">
                         <Button.Background>
                             <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
                         </Button.Background>
                     </Button>
-                    <Image x:Name="Destroyer" Grid.Row="0" Grid.Column="1" Source="Images\usa\destroyerH.png" Visibility="Hidden" MouseLeftButtonDown="CallChoseShip"/>
+                    <Image x:Name="Destroyer" Grid.Row="0" Grid.Column="1" Source="Images\usa\destroyerH.png" Visibility="Hidden" MouseDown="CallChoseShip"/>
                     <Button x:Name="DButton" Grid.Row="0" Grid.Column="0" Visibility="Hidden" Click="DButton_Click" Margin="10 10 10 10">
                         <Button.Background>
                             <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
                         </Button.Background>
                     </Button>
-                    <Image x:Name="Submarine" Grid.Row="0" Grid.Column="1" Source="Images\usa\submarineH.png" Visibility="Hidden" MouseLeftButtonDown="CallChoseShip"/>
+                    <Image x:Name="Submarine" Grid.Row="0" Grid.Column="1" Source="Images\usa\submarineH.png" Visibility="Hidden" MouseDown="CallChoseShip"/>
                     <Button x:Name="SButton" Grid.Row="0" Grid.Column="0" Visibility="Hidden" Click="SButton_Click" Margin="10 10 10 10">
                         <Button.Background>
                             <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
                         </Button.Background>
                     </Button>
-                    <Image x:Name="AircraftCarrier" Grid.Row="0" Grid.Column="1" Source="Images\usa\carrierH.png" Visibility="Hidden" MouseLeftButtonDown="CallChoseShip"/>
+                    <Image x:Name="AircraftCarrier" Grid.Row="0" Grid.Column="1" Source="Images\usa\carrierH.png" Visibility="Hidden" MouseDown="CallChoseShip"/>
                     <Button x:Name="ACButton" Grid.Row="0" Grid.Column="0" Visibility="Hidden" Click="ACButton_Click" Margin="10 10 10 10">
                         <Button.Background>
                             <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>

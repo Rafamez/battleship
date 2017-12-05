@@ -25,8 +25,8 @@ namespace battleship
     /// 
     public partial class mainGameWindow : Window
     {
-        public int xAxis = -1;
-        public int yAxis = -1;
+        public int xAxis = 0;
+        public int yAxis = 0;
         // public double size = 0; was used when we resized window, but feature was removed
         public int difficulty = 0;
         //general timer of the game
@@ -37,14 +37,11 @@ namespace battleship
         public int GameTime = 0;
         //the time that has passed for the round of the player
         public int PlayTime = 0;
-        //when end value == 17 (17 marks to hit to win) the game ends
-        public int endValue = 0;
-        //if the ennemy wins by taking down all your 17 marks, end game
-        public int friendlyDamage = 0;
         //time when each round will end
         public int expireTime = 20;
         //creating human
-        public Player human;
+        public Player human = new Player("Bob");
+        public Player other = new Player("AI");
         public string skin = "usa";
 
         public int attempts = 0;
@@ -65,9 +62,6 @@ namespace battleship
         public bool yourTurn = true;
         public int shipsUsed = -1;
         List<Boolean> boatClicked = new List<Boolean> { false, false, false, false, false };
-
-        Player player;
-        Player otherPlayer;
 
 
 
@@ -258,6 +252,7 @@ namespace battleship
 
             for (int i = 0; i < AIGrid.RowDefinitions.Count * AIGrid.ColumnDefinitions.Count; i++)
             {
+                
             }
 
 
@@ -360,9 +355,101 @@ namespace battleship
                 AircraftCarrier.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/carrierV.png");
             if (horizental[4])
                 AircraftCarrier.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/carrierH.png");
+        }      
+
+        private void LayShip(object sender, MouseButtonEventArgs e)
+        {
+            if (GameTime > 0) { 
+            var point = Mouse.GetPosition(HumanGrid);
+
+            xAxis = 0;
+            yAxis = 0;
+            double accumulatedHeight = 0.0;
+            double accumulatedWidth = 0.0;
+
+            // calc row mouse was over
+            foreach (var rowDefinition in HumanGrid.RowDefinitions)
+            {
+                accumulatedHeight += rowDefinition.ActualHeight;
+                if (accumulatedHeight >= point.Y)
+                    break;
+                xAxis++;
+            }
+
+            // calc col mouse was over
+            foreach (var columnDefinition in HumanGrid.ColumnDefinitions)
+            {
+                accumulatedWidth += columnDefinition.ActualWidth;
+                if (accumulatedWidth >= point.X)
+                    break;
+                yAxis++;
+            }
+            human.PlaceShips();
+            Console.WriteLine("Clicked at {0}, {1}", yAxis, xAxis);
+        }
         }
 
-        private void Image_GotFocus(object sender, RoutedEventArgs e)
+        private void CallChoseShip(object sender, MouseButtonEventArgs e)
+        {
+            if (GameTime != 0) { 
+            Image newimage = new Image();
+            newimage.Source = ((Image)sender).Source;
+            if (newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/battleshipH.png") || newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/battleshipV.png"))
+            {
+                if (!boatClicked[0])
+                    shipsUsed++;
+                boatClicked[0] = true;
+                boatClicked[1] = false;
+                boatClicked[2] = false;
+                boatClicked[3] = false;
+                boatClicked[4] = false;
+                
+            }
+            if (newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/cruiserH.png") || newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/cruiserV.png"))
+            {
+                if (!boatClicked[1])
+                    shipsUsed++;
+                boatClicked[0] = false;
+                boatClicked[1] = true;
+                boatClicked[2] = false;
+                boatClicked[3] = false;
+                boatClicked[4] = false;
+                
+            }
+            if (newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/destroyerH.png") || newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/destroyerV.png"))
+            {
+                if (!boatClicked[2])
+                    shipsUsed++;
+                boatClicked[0] = false;
+                boatClicked[1] = false;
+                boatClicked[2] = true;
+                boatClicked[3] = false;
+                boatClicked[4] = false;
+            }
+            if (newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/submarineH.png") || newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/submarineV.png"))
+            {
+                if (!boatClicked[3])
+                    shipsUsed++;
+                boatClicked[0] = false;
+                boatClicked[1] = false;
+                boatClicked[2] = false;
+                boatClicked[3] = true;
+                boatClicked[4] = false;
+            }
+            if (newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/carrierH.png") || newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/carrierV.png"))
+            {
+                if (!boatClicked[4])
+                    shipsUsed++;
+                boatClicked[0] = false;
+                boatClicked[1] = false;
+                boatClicked[2] = false;
+                boatClicked[3] = false;
+                boatClicked[4] = true;
+            }
+            }
+        }
+
+        private void Image_GotFocus(object sender, MouseButtonEventArgs e)
         {
             if (yourTurn && shipsUsed == 5)
             {
@@ -370,7 +457,7 @@ namespace battleship
                 xAxis = Grid.GetRow(newimage);
                 yAxis = Grid.GetColumn(newimage);
                 if (yourTurn)
-                    player.Fire(xAxis, yAxis, otherPlayer);
+                    human.Fire(xAxis, yAxis, other);
                 yourTurn = !yourTurn;
                 attempts++;
                 AttemptsValue.Text = attempts.ToString();
@@ -393,114 +480,5 @@ namespace battleship
             }
 
         }
-        private void CallChoseShip(object sender, RoutedEventArgs e)
-        {
-            Image newimage = new Image();
-            newimage.Source = ((Image)sender).Source;
-            if (newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/battleshipH.png") || newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/battleshipV.png"))
-            {
-                boatClicked[0] = true;
-                boatClicked[1] = false;
-                boatClicked[2] = false;
-                boatClicked[3] = false;
-                boatClicked[4] = false;
-                shipsUsed++;
-            }
-            if (newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/cruiserH.png") || newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/cruiserV.png"))
-            {
-                boatClicked[0] = false;
-                boatClicked[1] = true;
-                boatClicked[2] = false;
-                boatClicked[3] = false;
-                boatClicked[4] = false;
-                shipsUsed++;
-            }
-            if (newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/destroyerH.png") || newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/destroyerV.png"))
-            {
-                boatClicked[0] = false;
-                boatClicked[1] = false;
-                boatClicked[2] = true;
-                boatClicked[3] = false;
-                boatClicked[4] = false;
-                shipsUsed++;
-            }
-            if (newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/submarineH.png") || newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/submarineV.png"))
-            {
-                boatClicked[0] = false;
-                boatClicked[1] = false;
-                boatClicked[2] = false;
-                boatClicked[3] = true;
-                boatClicked[4] = false;
-                shipsUsed++;
-            }
-            if (newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/carrierH.png") || newimage.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/carrierV.png"))
-            {
-                boatClicked[0] = false;
-                boatClicked[1] = false;
-                boatClicked[2] = false;
-                boatClicked[3] = false;
-                boatClicked[4] = true;
-                shipsUsed++;
-            }
-        }
-
-        private void askPlayer()
-        {
-        }
-
-        private void LayShip(object sender, MouseButtonEventArgs e)
-        {
-            {
-                Image image = (Image)sender;
-                xAxis = Grid.GetRow(image);
-                yAxis = Grid.GetColumn(image);
-                if (boatClicked[0])
-                {
-                    player.PlaceShips();
-                    BattleShip.Visibility = Visibility.Hidden;
-                    BBButton.Visibility = Visibility.Hidden;
-                }
-                if (boatClicked[1])
-                {
-                    player.PlaceShips();
-                    Cruiser.Visibility = Visibility.Hidden;
-                    CButton.Visibility = Visibility.Hidden;
-                    Destroyer.Visibility = Visibility.Visible;
-                    DButton.Visibility = Visibility.Visible;
-                }
-                if (boatClicked[2])
-                {
-                    player.PlaceShips();
-                    Destroyer.Visibility = Visibility.Hidden;
-                    DButton.Visibility = Visibility.Hidden;
-                    Submarine.Visibility = Visibility.Visible;
-                    SButton.Visibility = Visibility.Visible;
-                }
-                if (boatClicked[3])
-                {
-                    player.PlaceShips();
-                    Submarine.Visibility = Visibility.Hidden;
-                    SButton.Visibility = Visibility.Hidden;
-                    AircraftCarrier.Visibility = Visibility.Visible;
-                    ACButton.Visibility = Visibility.Visible;
-                }
-                if (boatClicked[4])
-                {
-                    player.PlaceShips();
-                    AircraftCarrier.Visibility = Visibility.Hidden;
-                    ACButton.Visibility = Visibility.Hidden;
-                    Turn.Content = "YOUR \r\nTURN";
-                }
-            }
-        }
-
-        protected override void OnClosed(EventArgs e)
-        {
-            base.OnClosed(e);
-
-            Application.Current.Shutdown();
-        }
-
-
     }
 }
