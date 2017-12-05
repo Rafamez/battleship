@@ -390,7 +390,7 @@ namespace battleship
             }
 
         }
-        private void callChoseShip(object sender, RoutedEventArgs e)
+        private void CallChoseShip(object sender, RoutedEventArgs e)
         {
             Image newimage = new Image();
             newimage.Source = ((Image)sender).Source;
@@ -445,7 +445,7 @@ namespace battleship
         {
         }
 
-        private void layShip(object sender, MouseButtonEventArgs e)
+        private void LayShip(object sender, MouseButtonEventArgs e)
         {
             {
                 Image image = (Image)sender;

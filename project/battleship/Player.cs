@@ -301,12 +301,16 @@ namespace battleship
             EnemyGrid[row][col].ShipIndex = damagedIndex;
 
             //IF LOCATION ISSUNK IS TRUE (HITTING A SHIP)
-            if (isSunk)
+            if (isSunk) { 
                 EnemySunk(damagedIndex);
-            else
+                actions.Text += username + " hit " + enemyShips[damagedIndex].ToString() + " on location (" + row.ToString() + "," + col.ToString() + ")";
+            }
+            else { 
                 //IF ISSUNK IS FALSE (NOT HITTING A SHIP)
                 //CHANGE THE TYPE OF ENENMYGRID AT LOCATION TO MISS
                 EnemyGrid[row][col].Type = newType;
+                actions.Text += username + " missed his shot on locations (" + row.ToString() + "," + col.ToString() + ")";
+            }
         }
 
         //IF YOURE GETTING FIRED AT
@@ -323,7 +327,7 @@ namespace battleship
                 //IF ITS WATER, RETURN WATER
                 case SquareType.Water:
                     return SquareType.Water;
-                //IF ITS WATER
+                //IF ITS AN UNDAMAGED SHIP
                 case SquareType.Undamaged:
                     //VALUE TO GET TYPE OF VALUE AT [ROW][SQUARE] OF THE GRID
                     var square = MyGrid[row][col];
@@ -342,6 +346,8 @@ namespace battleship
 						Grid.SetRow(image, row);
 						Grid.SetColumn(image, col);
 						HumanGrid.Children.Add(image);
+                        if (myShips[damagedIndex].healthReturn == 0)
+                            MessageBox.Show(myShips[damagedIndex].ToString() + " has been sunk");
 					}
                     else
                     {

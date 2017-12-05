@@ -110,124 +110,124 @@
                     <RowDefinition Height="30"/>
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
-                <Image x:Name="Image0" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip" />
-                <Image x:Name="Image1" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip" />
-                <Image x:Name="Image2" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip" />
-                <Image x:Name="Image3" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip" />
-                <Image x:Name="Image4" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip" />
-                <Image x:Name="Image5" Grid.Row="0" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip" />
-                <Image x:Name="Image6" Grid.Row="0" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip" />
-                <Image x:Name="Image7" Grid.Row="0" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip" />
-                <Image x:Name="Image8" Grid.Row="0" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip" />
-                <Image x:Name="Image9" Grid.Row="0" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip" />
+                <Image x:Name="Image0" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip" />
+                <Image x:Name="Image1" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip" />
+                <Image x:Name="Image2" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip" />
+                <Image x:Name="Image3" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip" />
+                <Image x:Name="Image4" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip" />
+                <Image x:Name="Image5" Grid.Row="0" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip" />
+                <Image x:Name="Image6" Grid.Row="0" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip" />
+                <Image x:Name="Image7" Grid.Row="0" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip" />
+                <Image x:Name="Image8" Grid.Row="0" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip" />
+                <Image x:Name="Image9" Grid.Row="0" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip" />
 
 
-                <Image x:Name="Image10" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image11" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image12" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image13" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image14" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image15" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image16" Grid.Row="1" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image17" Grid.Row="1" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image18" Grid.Row="1" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image19" Grid.Row="1" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip"  />
+                <Image x:Name="Image10" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image11" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image12" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image13" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image14" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image15" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image16" Grid.Row="1" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image17" Grid.Row="1" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image18" Grid.Row="1" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image19" Grid.Row="1" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip"  />
 
 
-                <Image x:Name="Image20" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image21" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image22" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image23" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image24" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image25" Grid.Row="2" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image26" Grid.Row="2" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image27" Grid.Row="2" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image28" Grid.Row="2" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image29" Grid.Row="2" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="layShip"  />
+                <Image x:Name="Image20" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image21" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image22" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image23" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image24" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image25" Grid.Row="2" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image26" Grid.Row="2" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image27" Grid.Row="2" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image28" Grid.Row="2" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image29" Grid.Row="2" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="LayShip"  />
 
 
-                <Image x:Name="Image30" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip" />
-                <Image x:Name="Image31" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip" />
-                <Image x:Name="Image32" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip" />
-                <Image x:Name="Image33" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip" />
-                <Image x:Name="Image34" Grid.Row="3" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip" />
-                <Image x:Name="Image35" Grid.Row="3" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip" />
-                <Image x:Name="Image36" Grid.Row="3" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip" />
-                <Image x:Name="Image37" Grid.Row="3" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip" />
-                <Image x:Name="Image38" Grid.Row="3" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip" />
-                <Image x:Name="Image39" Grid.Row="3" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip" />
+                <Image x:Name="Image30" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip" />
+                <Image x:Name="Image31" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip" />
+                <Image x:Name="Image32" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip" />
+                <Image x:Name="Image33" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip" />
+                <Image x:Name="Image34" Grid.Row="3" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip" />
+                <Image x:Name="Image35" Grid.Row="3" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip" />
+                <Image x:Name="Image36" Grid.Row="3" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip" />
+                <Image x:Name="Image37" Grid.Row="3" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip" />
+                <Image x:Name="Image38" Grid.Row="3" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip" />
+                <Image x:Name="Image39" Grid.Row="3" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip" />
 
 
-                <Image x:Name="Image40" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image41" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image42" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image43" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image44" Grid.Row="4" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image45" Grid.Row="4" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image46" Grid.Row="4" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image47" Grid.Row="4" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image48" Grid.Row="4" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image49" Grid.Row="4" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
+                <Image x:Name="Image40" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image41" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image42" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image43" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image44" Grid.Row="4" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image45" Grid.Row="4" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image46" Grid.Row="4" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image47" Grid.Row="4" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image48" Grid.Row="4" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image49" Grid.Row="4" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
 
 
-                <Image x:Name="Image50" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image51" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image52" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image53" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image54" Grid.Row="5" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image55" Grid.Row="5" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image56" Grid.Row="5" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image57" Grid.Row="5" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image58" Grid.Row="5" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image59" Grid.Row="5" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
+                <Image x:Name="Image50" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image51" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image52" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image53" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image54" Grid.Row="5" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image55" Grid.Row="5" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image56" Grid.Row="5" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image57" Grid.Row="5" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image58" Grid.Row="5" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image59" Grid.Row="5" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
 
 
-                <Image x:Name="Image60" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"   />
-                <Image x:Name="Image61" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"   />
-                <Image x:Name="Image62" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"   />
-                <Image x:Name="Image63" Grid.Row="6" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"   />
-                <Image x:Name="Image64" Grid.Row="6" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"   />
-                <Image x:Name="Image65" Grid.Row="6" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"   />
-                <Image x:Name="Image66" Grid.Row="6" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"   />
-                <Image x:Name="Image67" Grid.Row="6" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"   />
-                <Image x:Name="Image68" Grid.Row="6" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"   />
-                <Image x:Name="Image69" Grid.Row="6" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"   />
+                <Image x:Name="Image60" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"   />
+                <Image x:Name="Image61" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"   />
+                <Image x:Name="Image62" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"   />
+                <Image x:Name="Image63" Grid.Row="6" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"   />
+                <Image x:Name="Image64" Grid.Row="6" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"   />
+                <Image x:Name="Image65" Grid.Row="6" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"   />
+                <Image x:Name="Image66" Grid.Row="6" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"   />
+                <Image x:Name="Image67" Grid.Row="6" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"   />
+                <Image x:Name="Image68" Grid.Row="6" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"   />
+                <Image x:Name="Image69" Grid.Row="6" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"   />
 
 
-                <Image x:Name="Image70" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image71" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image72" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image73" Grid.Row="7" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image74" Grid.Row="7" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image75" Grid.Row="7" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image76" Grid.Row="7" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image77" Grid.Row="7" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image78" Grid.Row="7" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image79" Grid.Row="7" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
+                <Image x:Name="Image70" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image71" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image72" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image73" Grid.Row="7" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image74" Grid.Row="7" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image75" Grid.Row="7" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image76" Grid.Row="7" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image77" Grid.Row="7" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image78" Grid.Row="7" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image79" Grid.Row="7" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
 
 
-                <Image x:Name="Image80" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image81" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image82" Grid.Row="8" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image83" Grid.Row="8" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image84" Grid.Row="8" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image85" Grid.Row="8" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image86" Grid.Row="8" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image87" Grid.Row="8" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image88" Grid.Row="8" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
-                <Image x:Name="Image89" Grid.Row="8" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="layShip"  />
+                <Image x:Name="Image80" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image81" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image82" Grid.Row="8" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image83" Grid.Row="8" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image84" Grid.Row="8" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image85" Grid.Row="8" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image86" Grid.Row="8" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image87" Grid.Row="8" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image88" Grid.Row="8" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
+                <Image x:Name="Image89" Grid.Row="8" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MouseLeftButtonDown="LayShip"  />
 
 
-                <Image x:Name="Image90" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   MouseLeftButtonDown="layShip"   />
-                <Image x:Name="Image91" Grid.Row="9" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   MouseLeftButtonDown="layShip"   />
-                <Image x:Name="Image92" Grid.Row="9" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   MouseLeftButtonDown="layShip"   />
-                <Image x:Name="Image93" Grid.Row="9" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   MouseLeftButtonDown="layShip"   />
-                <Image x:Name="Image94" Grid.Row="9" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   MouseLeftButtonDown="layShip"   />
-                <Image x:Name="Image95" Grid.Row="9" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   MouseLeftButtonDown="layShip"   />
-                <Image x:Name="Image96" Grid.Row="9" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   MouseLeftButtonDown="layShip"   />
-                <Image x:Name="Image97" Grid.Row="9" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   MouseLeftButtonDown="layShip"   />
-                <Image x:Name="Image98" Grid.Row="9" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   MouseLeftButtonDown="layShip"   />
-                <Image x:Name="Image99" Grid.Row="9" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   MouseLeftButtonDown="layShip"   />
+                <Image x:Name="Image90" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   MouseLeftButtonDown="LayShip"   />
+                <Image x:Name="Image91" Grid.Row="9" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   MouseLeftButtonDown="LayShip"   />
+                <Image x:Name="Image92" Grid.Row="9" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   MouseLeftButtonDown="LayShip"   />
+                <Image x:Name="Image93" Grid.Row="9" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   MouseLeftButtonDown="LayShip"   />
+                <Image x:Name="Image94" Grid.Row="9" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   MouseLeftButtonDown="LayShip"   />
+                <Image x:Name="Image95" Grid.Row="9" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   MouseLeftButtonDown="LayShip"   />
+                <Image x:Name="Image96" Grid.Row="9" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   MouseLeftButtonDown="LayShip"   />
+                <Image x:Name="Image97" Grid.Row="9" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   MouseLeftButtonDown="LayShip"   />
+                <Image x:Name="Image98" Grid.Row="9" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   MouseLeftButtonDown="LayShip"   />
+                <Image x:Name="Image99" Grid.Row="9" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   MouseLeftButtonDown="LayShip"   />
             </Grid>
 
 
@@ -240,31 +240,31 @@
                         <ColumnDefinition Width="50"/>
                         <ColumnDefinition Width="100"/>
                     </Grid.ColumnDefinitions>
-                    <Image x:Name="BattleShip" Grid.Row="0" Grid.Column="1" Source="Images\usa\battleshipH.png" Visibility="Visible" GotFocus="callChoseShip" />
+                    <Image x:Name="BattleShip" Grid.Row="0" Grid.Column="1" Source="Images\usa\battleshipH.png" Visibility="Visible" MouseLeftButtonDown="CallChoseShip" />
                     <Button x:Name="BBButton" Grid.Row="0" Grid.Column="0" Visibility="Visible" Click="BButton_Click" Margin="10 10 10 10">
                         <Button.Background>
                             <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
                         </Button.Background>
                     </Button>
-                    <Image x:Name="Cruiser" Grid.Row="0" Grid.Column="1" Source="Images\usa\cruiserH.png" Visibility="Hidden" GotFocus="callChoseShip"/>
+                    <Image x:Name="Cruiser" Grid.Row="0" Grid.Column="1" Source="Images\usa\cruiserH.png" Visibility="Hidden" MouseLeftButtonDown="CallChoseShip"/>
                     <Button x:Name="CButton" Grid.Row="0" Grid.Column="0" Visibility="Hidden" Click="CButton_Click" Margin="10 10 10 10">
                         <Button.Background>
                             <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
                         </Button.Background>
                     </Button>
-                    <Image x:Name="Destroyer" Grid.Row="0" Grid.Column="1" Source="Images\usa\destroyerH.png" Visibility="Hidden" GotFocus="callChoseShip"/>
+                    <Image x:Name="Destroyer" Grid.Row="0" Grid.Column="1" Source="Images\usa\destroyerH.png" Visibility="Hidden" MouseLeftButtonDown="CallChoseShip"/>
                     <Button x:Name="DButton" Grid.Row="0" Grid.Column="0" Visibility="Hidden" Click="DButton_Click" Margin="10 10 10 10">
                         <Button.Background>
                             <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
                         </Button.Background>
                     </Button>
-                    <Image x:Name="Submarine" Grid.Row="0" Grid.Column="1" Source="Images\usa\submarineH.png" Visibility="Hidden" GotFocus="callChoseShip"/>
+                    <Image x:Name="Submarine" Grid.Row="0" Grid.Column="1" Source="Images\usa\submarineH.png" Visibility="Hidden" MouseLeftButtonDown="CallChoseShip"/>
                     <Button x:Name="SButton" Grid.Row="0" Grid.Column="0" Visibility="Hidden" Click="SButton_Click" Margin="10 10 10 10">
                         <Button.Background>
                             <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
                         </Button.Background>
                     </Button>
-                    <Image x:Name="AircraftCarrier" Grid.Row="0" Grid.Column="1" Source="Images\usa\carrierH.png" Visibility="Hidden" GotFocus="callChoseShip"/>
+                    <Image x:Name="AircraftCarrier" Grid.Row="0" Grid.Column="1" Source="Images\usa\carrierH.png" Visibility="Hidden" MouseLeftButtonDown="CallChoseShip"/>
                     <Button x:Name="ACButton" Grid.Row="0" Grid.Column="0" Visibility="Hidden" Click="ACButton_Click" Margin="10 10 10 10">
                         <Button.Background>
                             <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
