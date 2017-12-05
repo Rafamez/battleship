@@ -37,7 +37,7 @@ namespace battleship
 
 
         //HUMAN SHIPS
-        List<Ship> myShips = new List<Ship>();
+        public List<Ship> myShips = new List<Ship>();
 
 
         //VALUE TO GET THE LIST USED
@@ -280,7 +280,7 @@ namespace battleship
         }
 
         //METHOD USED TO FIRE
-        public void Fire(int row, int col, AI otherPlayer)
+        public String Fire(int row, int col, AI otherPlayer)
         {
             //VALUE FOR LOCATION DAMAGED
             int damagedIndex;
@@ -293,31 +293,34 @@ namespace battleship
 
             //IF LOCATION ISSUNK IS TRUE (HITTING A SHIP)
             if (isSunk) { 
-                AI.MyGrid(damagedIndex);
-                actions.Text += username + " hit " + enemyShips[damagedIndex].ToString() + " on location (" + row.ToString() + "," + col.ToString() + ")";
+                otherPlayer.MineSunk(damagedIndex);
+                return username + " hit " + otherPlayer.myShips[damagedIndex].ToString() + " on location (" + row.ToString() + "," + col.ToString() + ")";
             }
             else { 
                 //IF ISSUNK IS FALSE (NOT HITTING A SHIP)
                 //CHANGE THE TYPE OF ENENMYGRID AT LOCATION TO MISS
-                EnemyGrid[row][col].Type = newType;
-                actions.Text += username + " missed his shot on locations (" + row.ToString() + "," + col.ToString() + ")";
+                otherPlayer.MyGrid[row][col].Type = newType;
+                return username + " missed his shot on locations (" + row.ToString() + "," + col.ToString() + ")";
             }
         }
 
         //IF YOURE GETTING FIRED AT
-        private SquareType FiredAt(int row, int col, out int damagedIndex, out bool isSunk)
+        public int[] FiredAt(int row, int col, out int damagedIndex, out bool isSunk)
         {
             //VALUE TO SEE IF LOCATION GOT SUNK
             isSunk = false;
             //DAMAGE INDEX
             damagedIndex = -1;
+								int[] something = new int[2];
 
             //SWITCH TO SEE THE TYPE OF THE LOCATION HIT
             switch (MyGrid[row][col].Type)
             {
                 //IF ITS WATER, RETURN WATER
                 case SquareType.Water:
-                    return SquareType.Water;
+					something[0] = -3;
+					something[1] = -3;
+					return something;
                 //IF ITS AN UNDAMAGED SHIP
                 case SquareType.Undamaged:
                     //VALUE TO GET TYPE OF VALUE AT [ROW][SQUARE] OF THE GRID
@@ -337,8 +340,13 @@ namespace battleship
 						Grid.SetRow(image, row);
 						Grid.SetColumn(image, col);
 						grid.Children.Add(image);
-                        if (myShips[damagedIndex].healthReturn == 0)
-                            MessageBox.Show(myShips[damagedIndex].ToString() + " has been sunk");
+						if (myShips[damagedIndex].healthReturn == 0)
+						{
+							MessageBox.Show(myShips[damagedIndex].ToString() + " has been sunk");
+							something[0] = -4;
+							something[1] = -4;
+							return something;
+						}
 					}
                     else
                     {
@@ -351,9 +359,11 @@ namespace battleship
 						Grid.SetColumn(image, col);
 						grid.Children.Add(image);
 					}
-                    return square.Type;
-                //IF ITS DAMAGED, RETURN ERROR
-                case SquareType.Miss:
+					something[0] = -2;
+					something[1] = -2;
+					return something;
+				//IF ITS DAMAGED, RETURN ERROR
+				case SquareType.Miss:
                     goto default;
                 //IF ITS UNKNOWN RETURN ERROR
                 //IF ITS SUNK RETURN ERROR
