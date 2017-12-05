@@ -32,7 +32,7 @@ namespace battleship
         {
             InitializeComponent();
         }
-        private void highscores() {
+      /*  private void highscores() {
             click = !click;
             if (File.Exists("../../highscores.txt"))
             {
@@ -102,6 +102,7 @@ namespace battleship
                     Highscores_1.Text += "10th" + lines[i] + Environment.NewLine;
             
             }
+<<<<<<< HEAD
         }
         public static void QuickSort<T>(T[] data, int left, int right)
 where T : IComparable<T>
@@ -129,5 +130,8 @@ where T : IComparable<T>
             if (left < j) QuickSort(data, left, j);
             if (i < right) QuickSort(data, i, right);
         }
+=======
+        }*/
+>>>>>>> 9f952af1047bcd993fe2d33d317fc14134a99f1b
     }
 }

@@ -10,7 +10,7 @@ using System.Windows.Controls;
 namespace battleship
 {
     //ENUMS REPRESENTING THE VALUE THE SQUARE CAN BE (CAN BE UNKNOWN, WATER, UNDAMAGED, DAMAGED OR SUNK)
-    public enum SquareType { Unknown, Water, Undamaged, Damaged, Sunk }
+    public enum SquareType {Unknown, Water, Undamaged, Miss, Sunk }
 
     public class Board : DependencyObject
     {

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 E:\school\semester3\battleship\project\battleship\battleship\bin\Debug\battleship.exe.config
 E:\school\semester3\battleship\project\battleship\battleship\bin\Debug\battleship.exe
 E:\school\semester3\battleship\project\battleship\battleship\bin\Debug\battleship.pdb
@@ -115,3 +116,26 @@ E:\school\semester3\battleshipREAL\battleship\project\battleship\obj\Debug\battl
 E:\school\semester3\battleshipREAL\battleship\project\battleship\obj\Debug\battleship.Properties.Resources.resources
 E:\school\semester3\battleshipREAL\battleship\project\battleship\obj\Debug\battleship.csproj.GenerateResource.Cache
 >>>>>>> 7dc7c96332a41b145a6b74bbefd8b2b8cbfa1498
+=======
+E:\battleship\project\battleship\bin\Debug\battleship.exe.config
+E:\battleship\project\battleship\bin\Debug\battleship.exe
+E:\battleship\project\battleship\bin\Debug\battleship.pdb
+E:\battleship\project\battleship\obj\Debug\battleship.csprojResolveAssemblyReference.cache
+E:\battleship\project\battleship\obj\Debug\Leaderboard.g.cs
+E:\battleship\project\battleship\obj\Debug\mainGameWindow.g.cs
+E:\battleship\project\battleship\obj\Debug\MainWindow.g.cs
+E:\battleship\project\battleship\obj\Debug\startWindow.g.cs
+E:\battleship\project\battleship\obj\Debug\App.g.cs
+E:\battleship\project\battleship\obj\Debug\battleship_MarkupCompile.cache
+E:\battleship\project\battleship\obj\Debug\battleship_MarkupCompile.lref
+E:\battleship\project\battleship\obj\Debug\Leaderboard.baml
+E:\battleship\project\battleship\obj\Debug\mainGameWindow.baml
+E:\battleship\project\battleship\obj\Debug\MainWindow.baml
+E:\battleship\project\battleship\obj\Debug\startWindow.baml
+E:\battleship\project\battleship\obj\Debug\battleship.g.resources
+E:\battleship\project\battleship\obj\Debug\battleship.Properties.Resources.resources
+E:\battleship\project\battleship\obj\Debug\battleship.csproj.GenerateResource.Cache
+E:\battleship\project\battleship\obj\Debug\battleship.csproj.CoreCompileInputs.cache
+E:\battleship\project\battleship\obj\Debug\battleship.exe
+E:\battleship\project\battleship\obj\Debug\battleship.pdb
+>>>>>>> 9f952af1047bcd993fe2d33d317fc14134a99f1b

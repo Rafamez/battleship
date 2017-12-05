@@ -4,15 +4,15 @@
 winexe
 C#
 .cs
-C:\battleship\project\battleship\obj\Debug\
+E:\battleship\project\battleship\obj\Debug\
 battleship
 none
 false
 DEBUG;TRACE
-C:\battleship\project\battleship\App.xaml
+E:\battleship\project\battleship\App.xaml
 4669610000
 
-13-26842210
+12961777735
 14-1001767708
 Leaderboard.xaml;mainGameWindow.xaml;MainWindow.xaml;startWindow.xaml;
 

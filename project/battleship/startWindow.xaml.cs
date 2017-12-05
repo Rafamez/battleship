@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -25,16 +26,38 @@ namespace battleship
     {
         private bool click = true;
         public System.Timers.Timer T = new Timer();
+
         mainGameWindow app = new mainGameWindow();
         public startWindow()
         {
             InitializeComponent();
+
+
+
         }
 
-        private void NewGame_Click(object sender, RoutedEventArgs e)
+        private void Video_Loaded(object sender, RoutedEventArgs e)
+     {
+        Video.Play();
+      } 
+    
+    private void Video_MediaEnded(object sender, RoutedEventArgs e)
+    {
+        Video.Position = TimeSpan.FromSeconds(0);
+     }
+
+private void NewGame_Click(object sender, RoutedEventArgs e)
         {
+
+            Console.WriteLine("Please enter your username:");
+            string username = Console.ReadLine();
+            
             this.Close();
-            app.Visibility = Visibility.Visible;
+              app.Visibility = Visibility.Visible;
+              
+           
+           
+
 
         }
 
@@ -74,5 +97,7 @@ namespace battleship
 
             }
         }
+
+    
     }
 }
