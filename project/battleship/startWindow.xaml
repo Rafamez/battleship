@@ -1,4 +1,4 @@
-﻿<Window x:Class="battleship.startWindow"
+<Window x:Class="battleship.startWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,10 +6,33 @@
         xmlns:local="clr-namespace:battleship"
         mc:Ignorable="d"
         Title="startWindow" Height="502.759" Width="1181.471" MinHeight="300" MinWidth="600" ResizeMode="NoResize">
+
     <Grid>
-        <Button x:Name="NewGame" Content="New Game" HorizontalAlignment="Left" Margin="109,281,0,0" VerticalAlignment="Top" Width="329" Height="113" Click="NewGame_Click"/>
-        <Button x:Name="LoadGame" Content="Load Game" HorizontalAlignment="Left" Margin="740,281,0,0" VerticalAlignment="Top" Width="329" Height="113" Click="LoadGame_Click"/>
-        <TextBlock x:Name="Battleship" HorizontalAlignment="Left" Margin="368,73,0,0" TextWrapping="Wrap" Text="BATTLESHIP" VerticalAlignment="Top" Height="121" Width="409" FontSize="72"/>
+
+        <MediaElement x:Name="Video" Height="695" Source="Images/oceanStartPage.mp4" LoadedBehavior="Manual" Loaded="Video_Loaded" MediaEnded="Video_MediaEnded" VerticalAlignment="Bottom" Margin="-76,0,-22,-220" />
+        <Button x:Name="NewGame" Margin="123,349,799,53" RenderTransformOrigin="0.483,0.522" Click="NewGame_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <ContentPresenter Content="{TemplateBinding Content}"/>
+                </ControlTemplate>
+            </Button.Template>
+            <Image Source="Images/startButton.png" Margin="-158,-289,-187,-300" HorizontalAlignment="Center" VerticalAlignment="Center" Height="671" Width="660"/>
+            
+        </Button>
+        <Button x:Name="LoadGame" Margin="756,349,166,53" RenderTransformOrigin="0.483,0.522" Click="LoadGame_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <ContentPresenter Content="{TemplateBinding Content}"/>
+                </ControlTemplate>
+            </Button.Template>
+            <Image Source="Images/loadButton.png" Margin="-158,-289,-187,-300" HorizontalAlignment="Center" VerticalAlignment="Center" Height="671" Width="660"/>
+
+        </Button>
+        <Button x:Name="NewGame1" Content="New Game" HorizontalAlignment="Left" Margin="109,281,0,0" VerticalAlignment="Top" Width="329" Height="113" Click="NewGame_Click" Visibility="Hidden"/>
+        <Button x:Name="LoadGame1" Content="Load Game" HorizontalAlignment="Left" Margin="740,281,0,0" VerticalAlignment="Top" Width="329" Height="113" Click="LoadGame_Click" Visibility="Hidden"/>
+        <Image x:Name="LogoImage" HorizontalAlignment="Center" Height="600" Margin="146,-198,131,73" VerticalAlignment="Center" Width="898" Source="Images/BattleshipLOGO.png"/>
 
     </Grid>
+
+
 </Window>
