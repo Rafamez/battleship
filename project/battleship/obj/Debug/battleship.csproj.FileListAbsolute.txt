@@ -95,3 +95,13 @@ E:\school\semester3\battleshipREAL\battleship\project\battleship\obj\Debug\start
 E:\school\semester3\battleshipREAL\battleship\project\battleship\obj\Debug\App.g.cs
 E:\school\semester3\battleshipREAL\battleship\project\battleship\obj\Debug\battleship_MarkupCompile.cache
 E:\school\semester3\battleshipREAL\battleship\project\battleship\obj\Debug\battleship_MarkupCompile.lref
+C:\battleship\project\battleship\obj\Debug\battleship.csprojResolveAssemblyReference.cache
+C:\battleship\project\battleship\obj\Debug\Leaderboard.g.cs
+C:\battleship\project\battleship\obj\Debug\mainGameWindow.g.cs
+C:\battleship\project\battleship\obj\Debug\MainWindow.g.cs
+C:\battleship\project\battleship\obj\Debug\startWindow.g.cs
+C:\battleship\project\battleship\obj\Debug\App.g.cs
+C:\battleship\project\battleship\obj\Debug\battleship_MarkupCompile.cache
+C:\battleship\project\battleship\obj\Debug\battleship_MarkupCompile.lref
+C:\battleship\project\battleship\obj\Debug\battleship.exe
+C:\battleship\project\battleship\obj\Debug\battleship.pdb

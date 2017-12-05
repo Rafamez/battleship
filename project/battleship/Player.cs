@@ -1,8 +1,10 @@
 ﻿using battleship;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
@@ -41,6 +43,7 @@ namespace battleship
 
         //VALUE TO GET THE LIST USED
         private static int ship = -1;
+        private string saveData;
 
         //CREATE PLAYER CLASS
         public Player(String name)
@@ -371,7 +374,45 @@ namespace battleship
                     MessageBox.Show("You finished the game in " + GameTime + " seconds, congratulations!");
                 else
                     MessageBox.Show("Vous avez fini le jeu en " + GameTime + " secondes, bravo!");
-                System.Windows.Application.Current.Shutdown();
+
+                //Serializing the highscores 
+                int score = 0;
+                int boatsLeft = 0;
+                for (int i = 0; i < human.myShips.Count; i++)
+                {
+                    if (!(human.myShips[i].gethealth == 0))
+                        boatsLeft++;
+                }
+                if (difficulty == 1)
+                {
+                    score = 2500 - (_Time.Text * (attempts_text / 17) * (2 - (boatsLeft / 5)));
+                }
+                if (difficulty == 2)
+                {
+                    score = 5000 - (_Time.Text * (attempts_text / 17) * (2 - (boatsLeft / 5)));
+                }
+                if (difficulty == 3)
+                {
+                    score = 10000 - (_Time.Text * (attempts_text / 17) * (2 - (boatsLeft / 5)));
+                }
+                saveData = username + "---------------------" + score.ToString() +_Time.Text;
+                FileStream fs = new FileStream("../../highscores.dat", FileMode.Create, FileAccess.ReadWrite);
+                // Construct a BinaryFormatter and use it to serialize the data to the stream.
+                BinaryFormatter formatter = new BinaryFormatter();
+                try
+                {
+                    formatter.Serialize(fs, saveData);
+                }
+                catch (SerializationException em)
+                {
+                    Console.WriteLine("Failed to serialize. Reason: " + em.Message);
+
+                }
+                finally
+                {
+                    fs.Close();
+                }
+            System.Windows.Application.Current.Shutdown();
             }
             //if you lose
             if (Lost())

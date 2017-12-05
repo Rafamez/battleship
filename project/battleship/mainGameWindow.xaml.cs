@@ -48,6 +48,7 @@ namespace battleship
         public string skin = "usa";
         //creating human
         private String[] saved = new String[250];
+        private Boolean clicked;
 
         public Boolean english = true;
 
@@ -176,7 +177,10 @@ namespace battleship
         //method which shows the leaderboard
         private void Leaderboard_Click(object sender, RoutedEventArgs e)
         {
+            clicked = !clicked;
+            if (clicked) {
 
+            }
         }
         //method which changes the game language to french
         private void French(object sender, RoutedEventArgs e)
