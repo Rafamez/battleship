@@ -135,31 +135,31 @@ namespace battleship
                     switch (ship)
                     {
                         case 0:
-                            image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images/" + skin + "/vertical/battleship/" + remainingLength.ToString() + ".png");
+                            image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/vertical/battleship/" + remainingLength.ToString() + ".png");
 							image.Stretch = Stretch.UniformToFill;
 							Grid.SetColumn(image, row);
 							HumanGrid.Children.Add(image);
                             break;
                         case 1:
-							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images/" + skin + "/vertical/cruiser/" + remainingLength.ToString() + ".png");
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/vertical/cruiser/" + remainingLength.ToString() + ".png");
 							image.Stretch = Stretch.UniformToFill;
 							Grid.SetColumn(image, row);
 							HumanGrid.Children.Add(image);
 							break;
                         case 2:
-							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images/" + skin + "/vertical/destroyer/" + remainingLength.ToString() + ".png");
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/vertical/destroyer/" + remainingLength.ToString() + ".png");
 							image.Stretch = Stretch.UniformToFill;
 							Grid.SetColumn(image, row);
 							HumanGrid.Children.Add(image);
 							break;
                         case 3:
-							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images/" + skin + "/vertical/submarine/" + remainingLength.ToString() + ".png");
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/vertical/submarine/" + remainingLength.ToString() + ".png");
 							image.Stretch = Stretch.UniformToFill;
 							Grid.SetColumn(image, row);
 							HumanGrid.Children.Add(image);
 							break;
 						case 4:
-							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images/" + skin + "/vertical/carrier/" + remainingLength.ToString() + ".png");
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/vertical/carrier/" + remainingLength.ToString() + ".png");
 							image.Stretch = Stretch.UniformToFill;
 							Grid.SetColumn(image, row);
 							HumanGrid.Children.Add(image);
@@ -214,31 +214,31 @@ namespace battleship
 					switch (ship)
 					{
 						case 0:
-							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images/" + skin + "vertical/battleship/" + remainingLength.ToString() + ".png");
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "vertical/battleship/" + remainingLength.ToString() + ".png");
 							image.Stretch = Stretch.UniformToFill;
 							Grid.SetRow(image, col);
 							HumanGrid.Children.Add(image);
 							break;
 						case 1:
-							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images/" + skin + "horizental/cruiser/" + remainingLength.ToString() + ".png");
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "horizental/cruiser/" + remainingLength.ToString() + ".png");
 							image.Stretch = Stretch.UniformToFill;
 							Grid.SetRow(image, col);
 							HumanGrid.Children.Add(image);
 							break;
 						case 2:
-							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images/" + skin + "horizental/destroyer/" + remainingLength.ToString() + ".png");
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "horizental/destroyer/" + remainingLength.ToString() + ".png");
 							image.Stretch = Stretch.UniformToFill;
 							Grid.SetRow(image, col);
 							HumanGrid.Children.Add(image);
 							break;
 						case 3:
-							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images/" + skin + "horizental/submarine/" + remainingLength.ToString() + ".png");
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "horizental/submarine/" + remainingLength.ToString() + ".png");
 							image.Stretch = Stretch.UniformToFill;
 							Grid.SetRow(image, col);
 							HumanGrid.Children.Add(image);
 							break;
 						case 4:
-							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images/" + skin + "horizental/carrier/" + remainingLength.ToString() + ".png");
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "horizental/carrier/" + remainingLength.ToString() + ".png");
 							image.Stretch = Stretch.UniformToFill;
 							Grid.SetRow(image, col);
 							HumanGrid.Children.Add(image);
