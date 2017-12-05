@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:battleship"
         mc:Ignorable="d"
-        Title="startWindow" Height="502.759" Width="1181.471" MinHeight="300" MinWidth="600" ResizeMode="NoResize">
+        Title="Battleship" Height="502.759" Width="1181.471" MinHeight="300" MinWidth="600" ResizeMode="NoResize">
 
     <Grid>
 

@@ -41,7 +41,7 @@ namespace battleship
 
 
         //VALUE TO GET THE LIST USED
-        private static int ship = -1;
+        private static int ship = 0;
         private string saveData;
 
         //CREATE PLAYER CLASS

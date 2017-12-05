@@ -114,7 +114,7 @@ namespace battleship
 			{
 				for (int j = 0; j != GRID_SIZE; ++j)
 				{
-					MyGrid[i][j].Reset(SquareType.Water);
+					MyGrid[i][j].Reset(SquareType.Unknown);
 				}
 			}
 			//CREATE AND SET MY SHIPS AND ENNEMY SHIPS
