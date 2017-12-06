@@ -11,7 +11,7 @@ using System.Windows.Media;
 namespace battleship
 {
     //public class for the AI (ennemy)
-    public class AI : ISerializable
+    public class AI : Window, ISerializable
     {
         int difficulty;
         //INT FOR THE SIZE OF THE GRID
@@ -102,8 +102,6 @@ namespace battleship
             }
 
             MakeMyGrid(getShipPlacement());
-            //ADD SHIPS TO THE BOARDS WHO HAVE SHIP PROERTIES
-            Reset();
         }
 
 
@@ -592,10 +590,10 @@ namespace battleship
         /**
 		 * This code will return a int representation of how the AI ship should be made
 		 * 1 = Carrier (Size 5)
-		 * 2 = Battleship (Size 4)
+		 * 2 = Submarine(Size 4)
 		 * 3 = Cruiser (Size 3)
-		 * 4 = Submarine (Size 3)
-		 * 5 = Destroyer (Size 2)
+		 * 4 = Destroyer (Size 3)
+		 * 5 = BattleShip (Size 2)
 		 * @ return an int[10,10] representing the grid
 		 * */
         public int[,] getShipPlacement()
@@ -789,14 +787,22 @@ namespace battleship
          * @Parameter an int[,] representing what the gird will become.
          * 
          * */
-        public void MakeMyGrid(int[,] grid)
+        public void MakeMyGrid(int[,] list)
         {
-            for (int i = 0; i < grid.GetLength(0); i++)
+            int battleShip = 1;
+            int cruiser = 1;
+            int destroyer = 1;
+            int submarine = 1;
+            int carrier = 1;
+            for (int i = 0; i < list.GetLength(0); i++)
             {
-                for (int j = 0; j < grid.GetLength(1); j++)
+                for (int j = 0; j < list.GetLength(1); j++)
                 {
+                    Boolean horizontal = true;
+                    Image image = new Image();
                     MyGrid[i][j].Type = SquareType.Unknown;
-                    switch (grid[i, j])
+
+                    switch (list[i, j])
                     {
                         case 0:
                             MyGrid[i][j].ShipIndex = -1;
@@ -805,230 +811,230 @@ namespace battleship
                             MyGrid[i][j].ShipIndex = 4;
                             break;
                         case 2:
-                            MyGrid[i][j].ShipIndex = 0;
+                            MyGrid[i][j].ShipIndex = 3;
                             break;
                         case 3:
                             MyGrid[i][j].ShipIndex = 1;
                             break;
                         case 4:
-                            MyGrid[i][j].ShipIndex = 3;
+                            MyGrid[i][j].ShipIndex = 2;
                             break;
                         case 5:
-                            MyGrid[i][j].ShipIndex = 2;
+                            MyGrid[i][j].ShipIndex = 0;
+                            break;
+                    }
+                    switch (MyGrid[i][j].ShipIndex)
+                    {
+                        case -1:
+                            break;
+                        case 0:
+                            if (!((i - 1) < 0))
+                            {
+                                if (list[i, j] == list[i - 1, j])
+                                {
+                                    horizontal = false;
+                                }
+                            }
+                            if (!((i + 1) > 9))
+                            {
+                                if (list[i, j] == list[i + 1, j])
+                                {
+                                    horizontal = false;
+                                }
+                            }
+                            if (horizontal)
+                            {
+                                image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/horizental/battleship" + battleShip.ToString() + ".png");
+                                image.Stretch = Stretch.Fill;
+                                image.Visibility = Visibility.Collapsed;
+                                Grid.SetRow(image, i);
+                                Grid.SetColumn(image, j);
+                                grid.Children.Add(image);
+                                battleShip++;
+                            }
+                            else
+                            {
+                                image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/vertical/battleship" + battleShip.ToString() + ".png");
+                                image.Stretch = Stretch.Fill;
+                                image.Visibility = Visibility.Collapsed;
+                                Grid.SetRow(image, i);
+                                Grid.SetColumn(image, j);
+                                grid.Children.Add(image);
+                                battleShip++;
+                            }
+                            break;
+                        case 1:
+                            if (!((i - 1) < 0))
+                            {
+                                if (list[i, j] == list[i - 1, j])
+                                {
+                                    horizontal = false;
+                                }
+                            }
+                            if (!((i + 1) > 9))
+                            {
+                                if (list[i, j] == list[i + 1, j])
+                                {
+                                    horizontal = false;
+                                }
+                            }
+                            if (horizontal)
+                            {
+                                image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/horizental/cruiser" + cruiser.ToString() + ".png");
+                                image.Stretch = Stretch.Fill;
+                                image.Visibility = Visibility.Collapsed;
+                                Grid.SetRow(image, i);
+                                Grid.SetColumn(image, j);
+                                grid.Children.Add(image);
+                                cruiser++;
+                            }
+                            else
+                            {
+                                image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/vertical/cruiser" + cruiser.ToString() + ".png");
+                                image.Stretch = Stretch.Fill;
+                                image.Visibility = Visibility.Collapsed;
+                                Grid.SetRow(image, i);
+                                Grid.SetColumn(image, j);
+                                grid.Children.Add(image);
+                                cruiser++;
+                            }
+                            break;
+                        case 2:
+                            if (!((i - 1) < 0))
+                            {
+                                if (list[i, j] == list[i - 1, j])
+                                {
+                                    horizontal = false;
+                                }
+                            }
+                            if (!((i + 1) > 9))
+                            {
+                                if (list[i, j] == list[i + 1, j])
+                                {
+                                    horizontal = false;
+                                }
+                            }
+                            if (horizontal)
+                            {
+                                image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/horizental/destroyer" + destroyer.ToString() + ".png");
+                                image.Stretch = Stretch.Fill;
+                                image.Visibility = Visibility.Collapsed;
+                                Grid.SetRow(image, i);
+                                Grid.SetColumn(image, j);
+                                grid.Children.Add(image);
+                                destroyer++;
+                            }
+                            else
+                            {
+                                image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/vertical/destroyer" + destroyer.ToString() + ".png");
+                                image.Stretch = Stretch.Fill;
+                                image.Visibility = Visibility.Collapsed;
+                                Grid.SetRow(image, i);
+                                Grid.SetColumn(image, j);
+                                grid.Children.Add(image);
+                                destroyer++;
+                            }
+                            break;
+                        case 3:
+                            if (!((i - 1) < 0))
+                            {
+                                if (list[i, j] == list[i - 1, j])
+                                {
+                                    horizontal = false;
+                                }
+                            }
+                            if (!((i + 1) > 9))
+                            {
+                                if (list[i, j] == list[i + 1, j])
+                                {
+                                    horizontal = false;
+                                }
+                            }
+                            if (horizontal)
+                            {
+                                image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/horizental/submarine" + submarine.ToString() + ".png");
+                                image.Stretch = Stretch.Fill;
+                                image.Visibility = Visibility.Collapsed;
+                                Grid.SetRow(image, i);
+                                Grid.SetColumn(image, j);
+                                grid.Children.Add(image);
+                                submarine++;
+                            }
+                            else
+                            {
+                                image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/vertical/submarine" + submarine.ToString() + ".png");
+                                image.Stretch = Stretch.Fill;
+                                image.Visibility = Visibility.Collapsed;
+                                Grid.SetRow(image, i);
+                                Grid.SetColumn(image, j);
+                                grid.Children.Add(image);
+                                submarine++;
+                            }
+                            break;
+                        case 4:
+                            if (!((i - 1) < 0))
+                            {
+                                if (list[i, j] == list[i - 1, j])
+                                {
+                                    horizontal = false;
+                                }
+                            }
+                            if (!((i + 1) > 9))
+                            {
+                                if (list[i, j] == list[i + 1, j])
+                                {
+                                    horizontal = false;
+                                }
+                            }
+                            if (horizontal)
+                            {
+                                image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/horizental/carrier" + carrier.ToString() + ".png");
+                                image.Stretch = Stretch.Fill;
+                                image.Visibility = Visibility.Collapsed;
+                                Grid.SetRow(image, i);
+                                Grid.SetColumn(image, j);
+                                grid.Children.Add(image);
+                                carrier++;
+                            }
+                            else
+                            {
+                                image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/vertical/carrier" + carrier.ToString() + ".png");
+                                image.Stretch = Stretch.Fill;
+                                image.Visibility = Visibility.Collapsed;
+                                Grid.SetRow(image, i);
+                                Grid.SetColumn(image, j);
+                                grid.Children.Add(image);
+                                carrier++;
+                            }
                             break;
                     }
                 }
             }
         }
-        //used to deserialize data, not ready (keep difficulty)
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            throw new NotImplementedException();
-        }
 
         public void reveal()
         {
-            int battleShip = 1;
-            int cruiser = 1;
-            int destroyer = 1;
-            int submarine = 1;
-            int carrier = 1;
-            for (int i = 0; i < MyGrid[i].Count-1; i++)
+            foreach (Image item in grid.Children)
             {
-                for (int j = 0; j < MyGrid[j].Count-1; j++)
+                item.Visibility = Visibility.Visible;
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
                 {
                     if (MyGrid[i][j].Type == SquareType.Unknown)
                     {
-                        Boolean horizontal = true;
                         switch (MyGrid[i][j].ShipIndex)
                         {
                             case -1:
                                 MyGrid[i][j].Type = SquareType.Water;
                                 break;
                             case 0:
-                                MyGrid[i][j].Type = SquareType.Undamaged;                                
-                                if (!(i - 1 < 0))
-                                {
-                                    if (MyGrid[i][j].ShipIndex == MyGrid[i-1][j].ShipIndex)
-                                    {
-                                        horizontal = false;
-                                    }
-                                }
-                                if (!(i + 1 > 9))
-                                {
-                                    if (MyGrid[i][j].ShipIndex == MyGrid[i + 1][j].ShipIndex)
-                                    {
-                                        horizontal = false;
-                                    }
-                                }
-                                if (horizontal)
-                                {
-                                    Image image = new Image();
-                                    image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "horizental/battleship" + battleShip.ToString() + ".png");
-                                    image.Stretch = Stretch.UniformToFill;
-                                    Grid.SetRow(image, i);
-                                    Grid.SetColumn(image, j);
-                                    grid.Children.Add(image);
-                                    battleShip++;
-                                }
-                                else
-                                {
-                                    Image image = new Image();
-                                    image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "vertical/battleship" + battleShip.ToString() + ".png");
-                                    image.Stretch = Stretch.UniformToFill;
-                                    Grid.SetRow(image, i);
-                                    Grid.SetColumn(image, j);
-                                    grid.Children.Add(image);
-                                    battleShip++;
-                                }
-                                break;
                             case 1:
-                                MyGrid[i][j].Type = SquareType.Undamaged;
-                                if (!(i - 1 < 0))
-                                {
-                                    if (MyGrid[i][j].ShipIndex == MyGrid[i - 1][j].ShipIndex)
-                                    {
-                                        horizontal = false;
-                                    }
-                                }
-                                if (!(i + 1 > 9))
-                                {
-                                    if (MyGrid[i][j].ShipIndex == MyGrid[i + 1][j].ShipIndex)
-                                    {
-                                        horizontal = false;
-                                    }
-                                }
-                                if (horizontal)
-                                {
-                                    Image image = new Image();
-                                    image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "horizental/cruiser" + cruiser.ToString() + ".png");
-                                    image.Stretch = Stretch.UniformToFill;
-                                    Grid.SetRow(image, i);
-                                    Grid.SetColumn(image, j);
-                                    grid.Children.Add(image);
-                                    cruiser++;
-                                }
-                                else
-                                {
-                                    Image image = new Image();
-                                    image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "vertical/cruiser" + cruiser.ToString() + ".png");
-                                    image.Stretch = Stretch.UniformToFill;
-                                    Grid.SetRow(image, i);
-                                    Grid.SetColumn(image, j);
-                                    grid.Children.Add(image);
-                                    cruiser++;
-                                }
-                                break;
                             case 2:
-                                MyGrid[i][j].Type = SquareType.Undamaged;
-                                if (!(i - 1 < 0))
-                                {
-                                    if (MyGrid[i][j].ShipIndex == MyGrid[i - 1][j].ShipIndex)
-                                    {
-                                        horizontal = false;
-                                    }
-                                }
-                                if (!(i + 1 > 9))
-                                {
-                                    if (MyGrid[i][j].ShipIndex == MyGrid[i + 1][j].ShipIndex)
-                                    {
-                                        horizontal = false;
-                                    }
-                                }
-                                if (horizontal)
-                                {
-                                    Image image = new Image();
-                                    image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "horizental/destroyer" + destroyer.ToString() + ".png");
-                                    image.Stretch = Stretch.UniformToFill;
-                                    Grid.SetRow(image, i);
-                                    Grid.SetColumn(image, j);
-                                    grid.Children.Add(image);
-                                    destroyer++;
-                                }
-                                else
-                                {
-                                    Image image = new Image();
-                                    image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "vertical/destroyer" + destroyer.ToString() + ".png");
-                                    image.Stretch = Stretch.UniformToFill;
-                                    Grid.SetRow(image, i);
-                                    Grid.SetColumn(image, j);
-                                    grid.Children.Add(image);
-                                    destroyer++;
-                                }
-                                break;
                             case 3:
-                                MyGrid[i][j].Type = SquareType.Undamaged;
-                                if (!(i - 1 < 0))
-                                {
-                                    if (MyGrid[i][j].ShipIndex == MyGrid[i - 1][j].ShipIndex)
-                                    {
-                                        horizontal = false;
-                                    }
-                                }
-                                if (!(i + 1 > 9))
-                                {
-                                    if (MyGrid[i][j].ShipIndex == MyGrid[i + 1][j].ShipIndex)
-                                    {
-                                        horizontal = false;
-                                    }
-                                }
-                                if (horizontal)
-                                {
-                                    Image image = new Image();
-                                    image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "horizental/submarine" + submarine.ToString() + ".png");
-                                    image.Stretch = Stretch.UniformToFill;
-                                    Grid.SetRow(image, i);
-                                    Grid.SetColumn(image, j);
-                                    grid.Children.Add(image);
-                                    submarine++;
-                                }
-                                else
-                                {
-                                    Image image = new Image();
-                                    image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "vertical/submarine" + submarine.ToString() + ".png");
-                                    image.Stretch = Stretch.UniformToFill;
-                                    Grid.SetRow(image, i);
-                                    Grid.SetColumn(image, j);
-                                    grid.Children.Add(image);
-                                    submarine++;
-                                }
-                                break;
                             case 4:
                                 MyGrid[i][j].Type = SquareType.Undamaged;
-                                if (!(i - 1 < 0))
-                                {
-                                    if (MyGrid[i][j].ShipIndex == MyGrid[i - 1][j].ShipIndex)
-                                    {
-                                        horizontal = false;
-                                    }
-                                }
-                                if (!(i + 1 > 9))
-                                {
-                                    if (MyGrid[i][j].ShipIndex == MyGrid[i + 1][j].ShipIndex)
-                                    {
-                                        horizontal = false;
-                                    }
-                                }
-                                if (horizontal)
-                                {
-                                    Image image = new Image();
-                                    image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "horizental/carrier" + carrier.ToString() + ".png");
-                                    image.Stretch = Stretch.UniformToFill;
-                                    Grid.SetRow(image, i);
-                                    Grid.SetColumn(image, j);
-                                    grid.Children.Add(image);
-                                    carrier++;
-                                }
-                                else
-                                {
-                                    Image image = new Image();
-                                    image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "vertical/carrier" + carrier.ToString() + ".png");
-                                    image.Stretch = Stretch.UniformToFill;
-                                    Grid.SetRow(image, i);
-                                    Grid.SetColumn(image, j);
-                                    grid.Children.Add(image);
-                                    carrier++;
-                                }
                                 break;
                         }
                     }
@@ -1038,9 +1044,14 @@ namespace battleship
 
         public void hide()
         {
-            for (int i = 0; i < MyGrid[i].Count-1; i++)
+            foreach (Image item in grid.Children)
             {
-                for (int j = 0; j < MyGrid[j].Count-1; j++)
+                item.Visibility = Visibility.Collapsed;
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
                 {
                     switch (MyGrid[i][j].Type)
                     {
@@ -1054,6 +1065,10 @@ namespace battleship
                 }
             }
         }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
-
