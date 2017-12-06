@@ -31,10 +31,14 @@ namespace battleship
         public startWindow()
         {
             InitializeComponent();
+			MediaElement media = new MediaElement();
+			media.LoadedBehavior = MediaState.Manual;
+			media.UnloadedBehavior = MediaState.Manual;
+			media.Source = new Uri("Images/oceanStartPage.wmv", UriKind.Relative);
+			mom.Children.Add(media);
+			media.Play();
 
-
-
-        }
+		}
     
     private void Video_MediaEnded(object sender, RoutedEventArgs e)
     {

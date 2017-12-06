@@ -52,6 +52,8 @@ namespace battleship
 		public Player human;
 		public AI otherPlayer;
 
+		private int shotsFired = 0;
+
 		public Boolean english = true;
 
 		public List<Boolean> horizental = new List<Boolean> { true, true, true, true, true };
@@ -72,7 +74,7 @@ namespace battleship
 
 
 			human = new Player("Bob", HumanGrid, skin);
-			otherPlayer = new AI(difficulty, human, AIGrid);
+			otherPlayer = new AI(difficulty, human, AIGrid, skin);
 
 
 			UnitedStates.IsChecked = true;
@@ -254,28 +256,24 @@ namespace battleship
 		//method which allows for cheats (for debugg reasons or if you want to augment your self esteem)
 		private void CheatsOn(object sender, RoutedEventArgs e)
 		{
-			if (T.Enabled)
-			{
-				if (On.IsChecked)
-					Off.IsChecked = false;
-				var values = Enum.GetValues(typeof(SquareType));
+			if (T.Enabled || GameTime>0) {
+			if (On.IsChecked)
+				Off.IsChecked = false;
+			var values = Enum.GetValues(typeof(SquareType));
 
-				for (int i = 0; i < AIGrid.RowDefinitions.Count * AIGrid.ColumnDefinitions.Count; i++)
-				{
-
-				}
+            otherPlayer.reveal();
 			}
-
 		}
 		//method which disables those cheats
 		private void CheatsOff(object sender, RoutedEventArgs e)
 		{
-			//FIX THIS
 			if (On.IsChecked) {
-				for (;;) {
-				}
-			}
-		}
+			if (Off.IsChecked)
+				On.IsChecked = false;
+            otherPlayer.hide();
+            }
+        }
+
 		//the ship skins is of the USA
 		private void USA(object sender, RoutedEventArgs e)
 		{
@@ -372,7 +370,7 @@ namespace battleship
 
 		private void LayShip(object sender, MouseButtonEventArgs e)
 		{
-			if (GameTime > 0)
+			if (T.Enabled)
 			{
 				var point = Mouse.GetPosition(HumanGrid);
 
@@ -387,7 +385,7 @@ namespace battleship
 					accumulatedHeight += rowDefinition.ActualHeight;
 					if (accumulatedHeight >= point.Y)
 						break;
-					xAxis++;
+					++xAxis;
 					if (xAxis == 10)
 						break;
 				}
@@ -398,74 +396,116 @@ namespace battleship
 					accumulatedWidth += columnDefinition.ActualWidth;
 					if (accumulatedWidth >= point.X)
 						break;
-					yAxis++;
+					++yAxis;
 					if (yAxis==10)
 						break;
 				}
+				otherPlayer.getShipPlacement();
 				human.PlaceShips(xAxis, yAxis, horizental);
+				setVisibility();
 				Console.WriteLine("Clicked at {0}, {1}", yAxis, xAxis);
 			}
 		}
+
+		private void setVisibility()
+		{
+			switch (human.ship-1) {
+				case (0):
+					BattleShip.Visibility = Visibility.Hidden;
+					BBButton.Visibility = Visibility.Hidden;
+					Cruiser.Visibility = Visibility.Visible;
+					CButton.Visibility = Visibility.Visible;
+					break;
+				case (1):
+					Cruiser.Visibility = Visibility.Hidden;
+					CButton.Visibility = Visibility.Hidden;
+					Destroyer.Visibility = Visibility.Visible;
+					DButton.Visibility = Visibility = Visibility;
+					break;
+				case (2):
+					Destroyer.Visibility = Visibility.Hidden;
+					DButton.Visibility = Visibility.Hidden;
+					Submarine.Visibility = Visibility.Visible;
+					SButton.Visibility = Visibility = Visibility;
+					break;
+				case (3):
+					Submarine.Visibility = Visibility.Hidden;
+					SButton.Visibility = Visibility.Hidden;
+					AircraftCarrier.Visibility = Visibility.Visible;
+					ACButton.Visibility = Visibility = Visibility;
+					break;
+				case (4):
+					AircraftCarrier.Visibility = Visibility.Hidden;
+					ACButton.Visibility = Visibility.Hidden;
+					break;
+
+
+			}
+		}
+
+
 
 		private void boatClickedSet()
 		{
 			for (int i = 0; i < boatClicked.Count; i++) {
 				boatClicked[i] = false;
 			}
-			boatClicked[shipsUsed] = true;
+			boatClicked[human.ship] = true;
 		}
 
 
 		private void CallChoseShip(object sender, MouseButtonEventArgs e)
 		{
-			if (GameTime != 0)
+			if (T.Enabled)
 			{
 				Image newimage = (Image) sender;
 				
 				if (newimage.Source.ToString() == "pack://application:,,,/battleship;component/Images/usa/battleshipH.png" || newimage.Source.ToString() == "../../Images/usa/battleshipV.png")
 				{
 					if (!boatClicked[0])
-						shipsUsed++;
 					boatClickedSet();
 
 				}
 				if (newimage.Source.ToString() == "pack://application:,,,/battleship;component/Images/usa/cruiserH.png" || newimage.Source.ToString() == "../../Images/usa/cruiserV.png")
 				{
 					if (!boatClicked[1])
-						shipsUsed++;
 					boatClickedSet();
 
 				}
 				if (newimage.Source.ToString() == "pack://application:,,,/battleship;component/Images/usa/destroyerH.png" || newimage.Source.ToString() == "../../Images/usa/destroyerV.png")
 				{
 					if (!boatClicked[2])
-						shipsUsed++;
 					boatClickedSet();
 				}
 				if (newimage.Source.ToString() == "pack://application:,,,/battleship;component/Images/usa/submarineH.png" || newimage.Source.ToString() == "../../Images/usa/submarineV.png")
 				{
 					if (!boatClicked[3])
-						shipsUsed++;
 					boatClickedSet();
 				}
 				if (newimage.Source.ToString() == "pack://application:,,,/battleship;component/Images/usa/carrierH.png" || newimage.Source.ToString() == "../../Images/usa/carrierV.png")
 				{
 					if (!boatClicked[4])
-						shipsUsed++;
 					boatClickedSet();
 				}
 			}
 		}
 
-		private void Image_GotFocus(object sender, MouseButtonEventArgs e)
+		private void ImageGotClicked(object sender, MouseButtonEventArgs e)
 		{
 			if (yourTurn && shipsUsed == 5)
 			{
+				Random rnd = new Random(10);
+
 				Image newimage = (Image)sender;
 				xAxis = Grid.GetRow(newimage);
 				yAxis = Grid.GetColumn(newimage);
 				if (yourTurn)
-					actions.Text+= human.Fire(xAxis, yAxis, otherPlayer);
+					actions.Text += human.Fire(xAxis, yAxis, otherPlayer);
+				else
+				{
+					actions.Text += human.gettingShot[shotsFired];
+					shotsFired++;
+				}
 				yourTurn = !yourTurn;
 				attempts++;
 				AttemptValues.Text = attempts.ToString();

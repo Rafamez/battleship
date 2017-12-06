@@ -41,11 +41,17 @@ namespace battleship
 
 
         //VALUE TO GET THE LIST USED
-        private static int ship = 0;
+		public int ship = 0;
+		//value to chose which image to put on grid
+		private int imagePos = 1;
 
-        //CREATE PLAYER CLASS
-        public Player(String name, Grid grid, String skin)
+		public StringBuilder gettingShot;
+
+
+		//CREATE PLAYER CLASS
+		public Player(String name, Grid grid, String skin)
         {
+
             //SET USERNAME
             username = name;
 			this.grid = grid;
@@ -88,36 +94,57 @@ namespace battleship
         //METHOD RETUNRS BOOL TO SEE IF SQUARE IS FREE
         private bool SquareFree(int row, int col)
         {
-            return (MyGrid[row][col].ShipIndex == -1) ? true : false;
-        }
-        //METHOD TO PLACE SHIP DOWN, RETURNS BOOLEAN TRUE IF PLACED CORRECTLY
-        private bool PlaceVertical(int shipIndex, int remainingLength, int x, int y)
+			try
+			{
+				return (MyGrid[row][col].ShipIndex == -1) ? true : false;
+			}
+			catch (Exception e) {
+				return false;
+			}
+
+		}
+
+
+
+
+		//CREATING FUN TO SEE IF ITS POSSIBLE TO PLACE SHIP
+		private bool PlacementPossibleV(int shipIndex, int remainingLength, int x, int y)
+		{
+			{
+				//X AND Y TO PLACE
+				int startPosRow = x;
+				int startPosCol = y;
+				//VALUE FOR REMANING LENGTH OF SHIP
+				int tmp = remainingLength;
+				//LOOP TO PLACE SHIP, BASED ON REMAINING OF GRID
+				for (int row = startPosRow; tmp != 0; ++row)
+				{
+					//IF SQUARE IS NOT FREE, RETURN FALSE
+					if (!SquareFree(row, startPosCol))
+						return false;
+					//SQUARE WAS FREE, -1 TO TEMP
+					--tmp;
+				}
+
+				//RETURN TRUE IF PLACEMENT IS DONE CORRECTLY
+				return true;
+			}
+		}
+
+
+		//METHOD TO PLACE SHIP DOWN, RETURNS BOOLEAN TRUE IF PLACED CORRECTLY
+		private bool PlaceVertical(int shipIndex, int remainingLength, int x, int y)
         {
-            //X AND Y POSITION TO PLACE
-            int startPosRow = x;
+			//reset imagePos
+			imagePos = 1;
+			//X AND Y POSITION TO PLACE
+			int startPosRow = x;
             int startPosCol = y;
 
-            //CREATING FUN TO SEE IF ITS POSSIBLE TO PLACE SHIP
-            Func<bool> PlacementPossible = () =>
-            {
-                //VALUE FOR REMAINING LENGTH OF SHIP
-                int tmp = remainingLength;
-                //LOOP TO PLACE SHIP, BASED ON REMAINING OF GRID
-                for (int row = startPosRow; tmp != 0; ++row)
-                {
-                    //IF SQUARE IS NOT FREE, RETURN FALSE
-                    if (!SquareFree(row, startPosCol))
-                        return false;
-                    //SQUARE WAS FREE, -1 TO TEMP
-                    --tmp;
-                }
-
-                //RETURN TRUE IF PLACEMENT IS DONE CORRECTLY
-                return true;
-            };
+            
 
             //IF IT IS POSSIBLE
-            if (PlacementPossible())
+            if (PlacementPossibleV(shipIndex, remainingLength, x, y))
             {
                 //LOOP TO SEE IF SQUARE IS OCCUPIED
                 for (int row = startPosRow; remainingLength != 0; ++row)
@@ -130,74 +157,91 @@ namespace battleship
                     switch (ship)
                     {
                         case 0:
-                            image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/vertical/battleship" + remainingLength.ToString() + ".png");
-							image.Stretch = Stretch.UniformToFill;
-							Grid.SetColumn(image, row);
+                            image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/vertical/battleship" + imagePos.ToString() + ".png");
+							image.Stretch = Stretch.Fill;
+							Grid.SetRow(image, row);
+							Grid.SetColumn(image, startPosCol);
 							grid.Children.Add(image);
                             break;
                         case 1:
-							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/vertical/cruiser" + remainingLength.ToString() + ".png");
-							image.Stretch = Stretch.UniformToFill;
-							Grid.SetColumn(image, row);
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/vertical/cruiser" + imagePos.ToString() + ".png");
+							image.Stretch = Stretch.Fill;
+							Grid.SetRow(image, row);
+							Grid.SetColumn(image, startPosCol);
 							grid.Children.Add(image);
 							break;
                         case 2:
-							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/vertical/destroyer" + remainingLength.ToString() + ".png");
-							image.Stretch = Stretch.UniformToFill;
-							Grid.SetColumn(image, row);
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/vertical/destroyer" + imagePos.ToString() + ".png");
+							image.Stretch = Stretch.Fill;
+							Grid.SetRow(image, row);
+							Grid.SetColumn(image, startPosCol);
 							grid.Children.Add(image);
 							break;
                         case 3:
-							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/vertical/submarine" + remainingLength.ToString() + ".png");
-							image.Stretch = Stretch.UniformToFill;
-							Grid.SetColumn(image, row);
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/vertical/submarine" + imagePos.ToString() + ".png");
+							image.Stretch = Stretch.Fill;
+							Grid.SetRow(image, row);
+							Grid.SetColumn(image, startPosCol);
 							grid.Children.Add(image);
 							break;
 						case 4:
-							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/vertical/carrier" + remainingLength.ToString() + ".png");
-							image.Stretch = Stretch.UniformToFill;
-							Grid.SetColumn(image, row);
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/vertical/carrier" + imagePos.ToString() + ".png");
+							image.Stretch = Stretch.Fill;
+							Grid.SetRow(image, row);
+							Grid.SetColumn(image, startPosCol);
 							grid.Children.Add(image);
 							break;
                     }
                     //REMAINING LENGTH -1
                     --remainingLength;
-                }
+					//imagePos +1
+					++imagePos;
+
+				}
                 //RETURN TRUE IF PLACEMENT WAS POSSIBLE
                 return true;
-            }
+			}
             //RETURN FALSE IF IT WASNT
             return false;
         }
 
-        //METHOD TO PLACE BOAT HORIZONTALLY
-        private bool PlaceHorizontal(int shipIndex, int remainingLength, int x, int y)
+
+		private bool PlacementPossibleH(int shipIndex, int remainingLength, int x, int y) {
+			{
+				//X AND Y TO PLACE
+				int startPosRow = x;
+				int startPosCol = y;
+				//VALUE FOR REMANING LENGTH OF SHIP
+				int tmp = remainingLength;
+				//LOOP TO PLACE SHIP, BASED ON REMANING LENGTH OF THE GRID
+				for (int col = startPosCol; tmp != 0; ++col)
+				{
+					//IF THE SQUARE IS NOT FREE
+					if (!SquareFree(startPosRow, col))
+						//RETURN FALSE
+						return false;
+					// IF IT IS FREE, TAKE OFF 1 TO REMAINING LENGTH
+					--tmp;
+				}
+				//RETURN TRUE IF PLACEMENT IS POSSIBLE
+				return true;
+			}
+		}
+
+
+
+		//METHOD TO PLACE BOAT HORIZONTALLY
+		private bool PlaceHorizontal(int shipIndex, int remainingLength, int x, int y)
         {
+			//reset imagePos
+			imagePos = 1;
             //X AND Y TO PLACE
             int startPosRow = x;
-            int startPosCol = y;
-
-            //CREATING FUNCTION TO SEE IF IT IS POSSIBLE
-            Func<bool> PlacementPossible = () =>
-            {
-                //VALUE FOR REMANING LENGTH OF SHIP
-                int tmp = remainingLength;
-                //LOOP TO PLACE SHIP, BASED ON REMANING LENGTH OF THE GRID
-                for (int col = startPosCol; tmp != 0; ++col)
-                {
-                    //IF THE SQUARE IS NOT FREE
-                    if (!SquareFree(startPosRow, col))
-                        //RETURN FALSE
-                        return false;
-                    // IF IT IS FREE, TAKE OFF 1 TO REMAINING LENGTH
-                    --tmp;
-                }
-                //RETURN TRUE IF PLACEMENT IS POSSIBLE
-                return true;
-            };
+			int startPosCol = y;
             //IF PLACEMENT IS POSSIBLE
-            if (PlacementPossible())
-            {
+            if (PlacementPossibleH(shipIndex, remainingLength, x, y))
+
+			{
                 //LOOP TO CHANGE VALUE OF BOARD
                 for (int col = startPosCol; remainingLength != 0; ++col)
                 {
@@ -209,41 +253,49 @@ namespace battleship
 					switch (ship)
 					{
 						case 0:
-							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "vertical/battleship" + remainingLength.ToString() + ".png");
-							image.Stretch = Stretch.UniformToFill;
-							Grid.SetRow(image, col);
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/horizental/battleship" + imagePos.ToString() + ".png");
+							image.Stretch = Stretch.Fill;
+							Grid.SetColumn(image, col);
+							Grid.SetRow(image, startPosRow);
 							grid.Children.Add(image);
 							break;
 						case 1:
-							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "horizental/cruiser" + remainingLength.ToString() + ".png");
-							image.Stretch = Stretch.UniformToFill;
-							Grid.SetRow(image, col);
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/horizental/cruiser" + imagePos.ToString() + ".png");
+							image.Stretch = Stretch.Fill;
+							Grid.SetColumn(image, col);
+							Grid.SetRow(image, startPosRow);
 							grid.Children.Add(image);
 							break;
 						case 2:
-							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "horizental/destroyer" + remainingLength.ToString() + ".png");
-							image.Stretch = Stretch.UniformToFill;
-							Grid.SetRow(image, col);
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/horizental/destroyer" + imagePos.ToString() + ".png");
+							image.Stretch = Stretch.Fill;
+							Grid.SetColumn(image, col);
+							Grid.SetRow(image, startPosRow);
 							grid.Children.Add(image);
 							break;
 						case 3:
-							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "horizental/submarine" + remainingLength.ToString() + ".png");
-							image.Stretch = Stretch.UniformToFill;
-							Grid.SetRow(image, col);
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/horizental/submarine" + imagePos.ToString() + ".png");
+							image.Stretch = Stretch.Fill;
+							Grid.SetColumn(image, col);
+							Grid.SetRow(image, startPosRow);
 							grid.Children.Add(image);
 							break;
 						case 4:
-							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "horizental/carrier" + remainingLength.ToString() + ".png");
-							image.Stretch = Stretch.UniformToFill;
-							Grid.SetRow(image, col);
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/horizental/carrier" + imagePos.ToString() + ".png");
+							image.Stretch = Stretch.Fill;
+							Grid.SetColumn(image, col);
+							Grid.SetRow(image, startPosRow);
 							grid.Children.Add(image);
 							break;
 					}
 					// -1 TO LENGTH
 					--remainingLength;
-                }
-                //RETURN TRUE IF THIS WAS ABLE TO BE DONE
-                return true;
+					//+1 to imagePos
+					++imagePos;
+				}
+
+				//RETURN TRUE IF THIS WAS ABLE TO BE DONE
+				return true;
             }
             //RETURN FALSE IF IT WASNT
             return false;
@@ -310,16 +362,17 @@ namespace battleship
             isSunk = false;
             //DAMAGE INDEX
             damagedIndex = -1;
-								int[] something = new int[2];
+			int[] location = new int[2];
 
             //SWITCH TO SEE THE TYPE OF THE LOCATION HIT
             switch (MyGrid[row][col].Type)
             {
                 //IF ITS WATER, RETURN WATER
                 case SquareType.Water:
-					something[0] = -3;
-					something[1] = -3;
-					return something;
+					location[0] = -3;
+					location[1] = -3;
+					gettingShot.Append("AI has missed his shot on location (" + row.ToString() + "," + col.ToString() + ")");
+					return location;
                 //IF ITS AN UNDAMAGED SHIP
                 case SquareType.Undamaged:
                     //VALUE TO GET TYPE OF VALUE AT [ROW][SQUARE] OF THE GRID
@@ -339,12 +392,13 @@ namespace battleship
 						Grid.SetRow(image, row);
 						Grid.SetColumn(image, col);
 						grid.Children.Add(image);
+						gettingShot.Append("AI shot " + myShips[damagedIndex].type.ToString() + " on location (" + row.ToString() + "," + col.ToString() + ")");
 						if (myShips[damagedIndex].healthReturn == 0)
 						{
 							MessageBox.Show(myShips[damagedIndex].ToString() + " has been sunk");
-							something[0] = -4;
-							something[1] = -4;
-							return something;
+							location[0] = -4;
+							location[1] = -4;
+							return location;
 						}
 					}
                     else
@@ -358,9 +412,9 @@ namespace battleship
 						Grid.SetColumn(image, col);
 						grid.Children.Add(image);
 					}
-					something[0] = -2;
-					something[1] = -2;
-					return something;
+					location[0] = -2;
+					location[1] = -2;
+					return location;
 				//IF ITS DAMAGED, RETURN ERROR
 				case SquareType.Miss:
                     goto default;
@@ -396,20 +450,26 @@ namespace battleship
 			//BOOLEAN TO SEE IF SHIP WAS PLACED
 			bool placed = false;
 			//LOOP TO PLACE SHIPS
-			for (; !placed;)
 			{
 				//INT FOR LENGTH OF SHIP
 				int remainingLength = myShips[ship].Length;
 				//IF VERTICAL IS TRUE (PLACE SHIP VERTICALLY)
 				//INSERT IMAGES HERE
-				if (vertical)
-					//PLACE THE SHIP VERTICALLY. BOOLEAN TO SEE IF IT SUCCEEDED OR NOT
-					placed = PlaceVertical(ship, remainingLength, x, y);
-				else
+				if (vertical) {
+					if (PlacementPossibleV(ship, remainingLength, x, y)) { 
+						//PLACE THE SHIP VERTICALLY. BOOLEAN TO SEE IF IT SUCCEEDED OR NOT
+						placed = PlaceVertical(ship, remainingLength, x, y);
+						ship++;
+					}
+				}
+				else {
+					if (PlacementPossibleH(ship, remainingLength, x, y)) { 
 					//PLACE THE SHIP VERTICALLY, BOOLEAN TO SEE IF IT SUCCEEDED
 					placed = PlaceHorizontal(ship, remainingLength, x, y);
-			}
-			ship++;
+					ship++;
+					}
+				}
+			}		
 		}
     }
 }

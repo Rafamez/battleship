@@ -18,7 +18,7 @@ namespace battleship
 			get { return health; }
 		} 
         //VALUE FOR TYPE OF THE SHIP
-        private readonly ShipType type;
+        public readonly ShipType type;
         //PARAMETER FOR BOOLEANS, ADDING LENGTH VALUE TO THEIR NAMES
         private static readonly Dictionary<ShipType, int> shipLengths =
             new Dictionary<ShipType, int>()
