@@ -23,8 +23,8 @@ namespace battleship
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
 	/// 
-	public partial class mainGameWindow : Window
-	{
+	public partial class mainGameWindow : Window,ISerializable
+    {
 		public int xAxis = 0;
 		public int yAxis = 0;
 		// public double size = 0; was used when we resized window, but feature was removed
@@ -63,8 +63,9 @@ namespace battleship
 		public bool yourTurn = true;
 		public int shipsUsed = -1;
 		List<Boolean> boatClicked = new List<Boolean> { false, false, false, false, false };
+        private string saveData;
 
-		public mainGameWindow()
+        public mainGameWindow()
 		{
 			InitializeComponent();
 
@@ -461,7 +462,7 @@ namespace battleship
 					actions.Text+= human.Fire(xAxis, yAxis, otherPlayer);
 				yourTurn = !yourTurn;
 				attempts++;
-				AttemptsValue.Text = attempts.ToString();
+				AttemptValues.Text = attempts.ToString();
 				if (yourTurn)
 				{
 					if (english)
@@ -496,47 +497,52 @@ namespace battleship
 				else
 					MessageBox.Show("Vous avez fini le jeu en " + GameTime + " secondes, bravo!");
 
-				//Serializing the highscores 
-				int score = 0;
-				int boatsLeft = 0;
-				for (int i = 0; i < human.myShips.Count; i++)
-				{
-					if (!(human.myShips[i].healthReturn == 0))
-						boatsLeft++;
-				}
-				if (difficulty == 1)
-				{
-					score = 2500 - (GameTime * (attempts / 17) * (2 - (boatsLeft / 5)));
-				}
-				if (difficulty == 2)
-				{
-					score = 5000 - (GameTime * (attempts / 17) * (2 - (boatsLeft / 5)));
-				}
-				if (difficulty == 3)
-				{
-					score = 10000 - (GameTime * (attempts / 17) * (2 - (boatsLeft / 5)));
-				}
-				//saveData = human.username + "---------------------" + score.ToString() + _Time.Text;
-				FileStream fs = new FileStream("../../highscores.dat", FileMode.Create, FileAccess.ReadWrite);
-				// Construct a BinaryFormatter and use it to serialize the data to the stream.
-				BinaryFormatter formatter = new BinaryFormatter();
-				try
-				{
-				//	formatter.Serialize(fs, saveData);
-				}
-				catch (SerializationException em)
-				{
-					Console.WriteLine("Failed to serialize. Reason: " + em.Message);
+                //Serializing the highscores 
 
-				}
-				finally
-				{
-					fs.Close();
-				}
-				System.Windows.Application.Current.Shutdown();
-			}
-			//if you lose
-			if (human.Lost())
+                //Serializing the highscores 
+                int score = 0;
+                int boatsLeft = 0;
+                int attempts = Convert.ToInt32(AttemptValues.Text);
+                int timeCount = Convert.ToInt32(AttemptValues.Text);
+                for (int i = 0; i < human.myShips.Count; i++)
+                {
+                    if (!(human.myShips[i].healthReturn == 0))
+                        boatsLeft++;
+                }
+                if (difficulty == 1)
+                {
+                    score = 2500 - (timeCount * (attempts / 17) * (2 - (boatsLeft / 5)));
+                }
+                if (difficulty == 2)
+                {
+                    score = 5000 - (timeCount * (attempts / 17) * (2 - (boatsLeft / 5)));
+                }
+                if (difficulty == 3)
+                {
+                    score = 10000 - (timeCount * (attempts / 17) * (2 - (boatsLeft / 5)));
+                }
+                saveData = "Name: " + ' ' + score.ToString() + ' ' + _Time.Text + '*';
+                FileStream fs = new FileStream("../../highscores.txt", FileMode.Create, FileAccess.ReadWrite);
+                // Construct a BinaryFormatter and use it to serialize the data to the stream.
+                BinaryFormatter formatter = new BinaryFormatter();
+                try
+                {
+                    
+                    formatter.Serialize(fs, saveData);
+                }
+                catch (SerializationException em)
+                {
+                    Console.WriteLine("Failed to serialize. Reason: " + em.Message);
+
+                }
+                finally
+                {
+                    fs.Close();
+                }
+                System.Windows.Application.Current.Shutdown();
+            }
+            //if you lose
+            if (human.Lost())
 			{
 				if (english)
 					MessageBox.Show("You lost the game in " + GameTime + " seconds, git gud!");
@@ -547,6 +553,9 @@ namespace battleship
 			}
 		}
 
-
-	}
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

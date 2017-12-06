@@ -393,62 +393,13 @@ namespace battleship
 			//CALL METHOD HERE WHICH ASKS USER FOR POSITION
 			//TAKE OFF X AND Y FROM PLACESHIPS AND CALLING METHOD FROM MAINGAMEWINDOW TO GET LOCATION OF IMAGE CLICK
 
-<<<<<<< HEAD
-                //Serializing the highscores 
-                int score = 0;
-                int boatsLeft = 0;
-                int attempts = Convert.ToInt32(AttemptValues.Text);
-                int timeCount = Convert.ToInt32(AttemptValues.Text);
-                for (int i = 0; i < human.myShips.Count; i++)
-                {
-                    if (!(human.myShips[i].healthReturn == 0))
-                        boatsLeft++;
-                }
-                if (difficulty == 1)
-                {
-                    score = 2500 - (timeCount * (attempts / 17) * (2 - (boatsLeft / 5)));
-                }
-                if (difficulty == 2)
-                {
-                    score = 5000 - (timeCount * (attempts / 17) * (2 - (boatsLeft / 5)));
-                }
-                if (difficulty == 3)
-                {
-                    score = 10000 - (timeCount * (attempts / 17) * (2 - (boatsLeft / 5)));
-                }
-                saveData ="Name: "+ username + "                   " + "Score: " + score.ToString() + "                   "  + "Time: " + _Time.Text + "*";
-                FileStream fs = new FileStream("../../highscores.txt", FileMode.Create, FileAccess.ReadWrite);
-                // Construct a BinaryFormatter and use it to serialize the data to the stream.
-                BinaryFormatter formatter = new BinaryFormatter();
-                try
-                {
-                    formatter.Serialize(fs, saveData);
-                }
-                catch (SerializationException em)
-                {
-                    Console.WriteLine("Failed to serialize. Reason: " + em.Message);
+        
 
-                }
-                finally
-                {
-                    fs.Close();
-                }
-            System.Windows.Application.Current.Shutdown();
-            }
-            //if you lose
-            if (Lost())
-            {
-                if (english)
-                    MessageBox.Show("You lost the game in " + GameTime + " seconds, git gud!");
-                else
-                    MessageBox.Show("Vous avez perdu le jeu en " + GameTime + " secondes, vous êtes mauvais!");
-                System.Windows.Application.Current.Shutdown();
-=======
 			//BOOLEAN TO GET THE VALUE HORIZENTAL (IF ITS HORIZENTAL OR VERTICAL)
 			bool vertical = !horizental[ship];
 			//BOOLEAN TO SEE IF SHIP WAS PLACED
 			bool placed = false;
->>>>>>> 9f952af1047bcd993fe2d33d317fc14134a99f1b
+
 
 			//LOOP TO PLACE SHIPS
 			for (; !placed;)

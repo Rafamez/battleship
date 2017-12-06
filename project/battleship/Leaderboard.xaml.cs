@@ -22,7 +22,7 @@ namespace battleship
     /// Interaction logic for Leaderboard.xaml
     /// 
     /// </summary>
-    public partial class Leaderboard : Window
+    public partial class Leaderboard : Window, ISerializable
     {
         private Boolean click;
         private string a = "";
@@ -32,8 +32,9 @@ namespace battleship
         {
             InitializeComponent();
         }
-      /*  private void highscores() {
+      private void highscores() {
             click = !click;
+            //DESERIALIZING THE FILE 
             if (File.Exists("../../highscores.txt"))
             {
                 BinaryFormatter bf = new BinaryFormatter();
@@ -61,49 +62,88 @@ namespace battleship
                 for (int i = 0; i < lines.Count; i++) {
                     linesArray[i]=lines[i];
                 }
-                int b = Array.IndexOf(linesArray, "Score: ");
+                //Array Needed to get the scores 
                 String[] scores = new String[linesArray.Length];
-                //getting the scores so you can compare the scores and sort it after 
-                for (int j = 0; j < linesArray.Length; j++)
+                //COUNT FOR GETTING THE SCORES 
+                int count = 0;
+                
+               
+                
+                //getting the scores so you can compare the scores and sort the linesArray after 
+                foreach (string line in  linesArray)
                 {
-                    scores[j] = Regex.Match(linesArray[j], @"\d+").Value;
+                    // creating another array so that you can get the values 
+                    string[] hole = line.Split(' ');
+                    //you need to find and copy and put only the scores into the scores array
+                    if(count==0)
+                        scores[count] = hole[count];
+                    if (count % 2 == 0)
+                    {
+                        scores[count-1] = hole[count];
+                    }
+                    count++;
+                }
+                    //sort the array for scores 
+                    Array.Sort(scores);
+                //try to match the scores array with the lines array if does not not find and replace the instance in the other indexes of the array 
+                for (int i = 0; i<scores.Length;i++) {
+                    //check if the lines arrays have the right score if they do dont sort and go to next
+                    if (linesArray[i].Contains(scores[i]) == true) { 
+                        continue;
+                    }
+                    //if it isnt true then you will need to swap
+                    else
+                    {
+                        //loop to find if the scores from linesArray is false 
+                        for (int j= 0; j < linesArray.Length; j++) {
+                            //keeps going until you find the linesArray index that matches the score
+                            if (linesArray[j].Contains(scores[i]) == false)
+                            {
+                                continue;
+                            }
+                            //when found swap the indexs of the linesArray[i] with linesArray[j](the proper order)
+                            else {
+                                swap(linesArray[i], linesArray[j]);
+                            }
+                        }
+                    }
 
                 }
-                
-                // Regex regex = new Regex(@"^\d[4]");
-               // Pattern p = Pattern.compile("\\d+");
-  
-                //Array.Sort(linesArray);
             }
-          
+          //get the top 10 highscores and then display them into the highscores_1 text block
             for (int i = 0; i < 10; i++)
             {
                 if (i == 0) { 
                     Highscores_1.Text += "Top 10 Scores" + Environment.NewLine;
-                    Highscores_1.Text += "1st" + lines[i] + Environment.NewLine;
+
+                    Highscores_1.Text += "Name" + "Score" + "Time"+ Environment.NewLine;
+
+                    Highscores_1.Text += "1st" + linesArray[i] + Environment.NewLine;
                 }
                 if (i == 1)
-                    Highscores_1.Text += "2nd" + lines[i] + Environment.NewLine;
+                    Highscores_1.Text += "2nd" + linesArray[i] + Environment.NewLine;
                 if (i == 2)
-                    Highscores_1.Text += "3rd" + lines[i] +Environment.NewLine;
+                    Highscores_1.Text += "3rd" + linesArray[i] +Environment.NewLine;
                 if (i == 3)
-                    Highscores_1.Text += "4th" + lines[i] + Environment.NewLine;
+                    Highscores_1.Text += "4th" + linesArray[i] + Environment.NewLine;
                 if (i == 4)
-                    Highscores_1.Text += "5th" + lines[i] + Environment.NewLine;
+                    Highscores_1.Text += "5th" + linesArray[i] + Environment.NewLine;
                 if (i == 5)
-                    Highscores_1.Text += "6th" + lines[i] + Environment.NewLine;
+                    Highscores_1.Text += "6th" + linesArray[i] + Environment.NewLine;
                 if (i == 6)
-                    Highscores_1.Text += "7th" + lines[i] + Environment.NewLine;
+                    Highscores_1.Text += "7th" + linesArray[i] + Environment.NewLine;
                 if (i == 7)
-                    Highscores_1.Text += "8th" + lines[i] + Environment.NewLine;
+                    Highscores_1.Text += "8th" + linesArray[i] + Environment.NewLine;
                 if (i == 8)
-                    Highscores_1.Text += "9th" + lines[i] + Environment.NewLine;
+                    Highscores_1.Text += "9th" + linesArray[i] + Environment.NewLine;
                 if (i == 9)
-                    Highscores_1.Text += "10th" + lines[i] + Environment.NewLine;
+                    Highscores_1.Text += "10th" + linesArray[i] + Environment.NewLine;
             
             }
-<<<<<<< HEAD
+
         }
+        //created method to sort a list 
+        //
         public static void QuickSort<T>(T[] data, int left, int right)
 where T : IComparable<T>
         {
@@ -130,8 +170,18 @@ where T : IComparable<T>
             if (left < j) QuickSort(data, left, j);
             if (i < right) QuickSort(data, i, right);
         }
-=======
-        }*/
->>>>>>> 9f952af1047bcd993fe2d33d317fc14134a99f1b
+        //method to swap indexes 
+       public  static void swap(String a, String b)
+        {
+            String temp = a;
+            a = b;
+            b = temp;
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
+
