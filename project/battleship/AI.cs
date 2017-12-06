@@ -20,8 +20,9 @@ namespace battleship
         //AI BOARD
         public List<List<Board>> MyGrid { get; set; }
 
-        Grid grid;
         String skin;
+
+        Grid grid;
 
 
         //AI SHIPS
@@ -548,9 +549,8 @@ namespace battleship
                     //IF SHIPINDEX IS <-1 (GOT HIT), CHANGE SQUARE TO SUNK
                     if (myShips[damagedIndex].FiredAt())
                     {
-                        //IS SUNK IS TRUE, AND MINESUNK IS THE SHIP INDEX OF THE SQUARE
-                        MineSunk(square.ShipIndex);
                         //CHANGE SUNK TO TRUE
+                        square.Type = SquareType.Sunk;
                         isSunk = true;
                         Image image = new Image();
                         image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images/cross.jpg");
@@ -559,7 +559,11 @@ namespace battleship
                         Grid.SetColumn(image, col);
                         grid.Children.Add(image);
                         if (myShips[damagedIndex].healthReturn == 0)
+                        {
                             MessageBox.Show(myShips[damagedIndex].ToString() + " has been sunk");
+                            //IS SUNK IS TRUE, AND MINESUNK IS THE SHIP INDEX OF THE SQUARE
+                            MineSunk(square.ShipIndex);
+                        }
                     }
                     else
                     {
@@ -672,7 +676,7 @@ namespace battleship
                             break;
                     }
                     Boolean valid = true;
-                    for (int i = 0; i < ship.Length; i++)
+                    for (int i = 0; i < size; i++)
                     {
                         if (addShip[i, 0] < 0 || addShip[i, 0] > 9 || addShip[i, 1] < 0 || addShip[i, 1] > 9)
                         {
@@ -689,7 +693,7 @@ namespace battleship
                     {
                         if (this.difficulty == 3)
                         {
-                            for (int j = 0; j < ship.Length; j++)
+                            for (int j = 0; j < size; j++)
                             {
                                 if (!((addShip[j, 0] - 1) < 0))
                                 {
@@ -822,33 +826,234 @@ namespace battleship
             throw new NotImplementedException();
         }
 
-        public bool checkVertical(int x, int y, int[,] grid)
+        public void reveal()
         {
-            if (!((x + 1) > 9))
+            int battleShip = 1;
+            int cruiser = 1;
+            int destroyer = 1;
+            int submarine = 1;
+            int carrier = 1;
+            for (int i = 0; i < MyGrid[i].Count; i++)
             {
-                if (!(grid[x+1,y] == 0))
+                for (int j = 0; j < MyGrid[j].Count; j++)
                 {
-                    return true;
-                }
-                else if (!((x - 1) < 0))
-                {
-                    if (!(grid[x-1,y] == 0))
+                    if (MyGrid[i][j].Type == SquareType.Unknown)
                     {
-                        return true;
+                        Boolean horizontal = true;
+                        switch (MyGrid[i][j].ShipIndex)
+                        {
+                            case -1:
+                                MyGrid[i][j].Type = SquareType.Water;
+                                break;
+                            case 0:
+                                MyGrid[i][j].Type = SquareType.Undamaged;                                
+                                if (!(i - 1 < 0))
+                                {
+                                    if (MyGrid[i][j].ShipIndex == MyGrid[i-1][j].ShipIndex)
+                                    {
+                                        horizontal = false;
+                                    }
+                                }
+                                if (!(i + 1 > 9))
+                                {
+                                    if (MyGrid[i][j].ShipIndex == MyGrid[i + 1][j].ShipIndex)
+                                    {
+                                        horizontal = false;
+                                    }
+                                }
+                                if (horizontal)
+                                {
+                                    Image image = new Image();
+                                    image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "horizental/battleship" + battleShip.ToString() + ".png");
+                                    image.Stretch = Stretch.UniformToFill;
+                                    Grid.SetRow(image, i);
+                                    Grid.SetColumn(image, j);
+                                    grid.Children.Add(image);
+                                    battleShip++;
+                                }
+                                else
+                                {
+                                    Image image = new Image();
+                                    image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "vertical/battleship" + battleShip.ToString() + ".png");
+                                    image.Stretch = Stretch.UniformToFill;
+                                    Grid.SetRow(image, i);
+                                    Grid.SetColumn(image, j);
+                                    grid.Children.Add(image);
+                                    battleShip++;
+                                }
+                                break;
+                            case 1:
+                                MyGrid[i][j].Type = SquareType.Undamaged;
+                                if (!(i - 1 < 0))
+                                {
+                                    if (MyGrid[i][j].ShipIndex == MyGrid[i - 1][j].ShipIndex)
+                                    {
+                                        horizontal = false;
+                                    }
+                                }
+                                if (!(i + 1 > 9))
+                                {
+                                    if (MyGrid[i][j].ShipIndex == MyGrid[i + 1][j].ShipIndex)
+                                    {
+                                        horizontal = false;
+                                    }
+                                }
+                                if (horizontal)
+                                {
+                                    Image image = new Image();
+                                    image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "horizental/cruiser" + cruiser.ToString() + ".png");
+                                    image.Stretch = Stretch.UniformToFill;
+                                    Grid.SetRow(image, i);
+                                    Grid.SetColumn(image, j);
+                                    grid.Children.Add(image);
+                                    cruiser++;
+                                }
+                                else
+                                {
+                                    Image image = new Image();
+                                    image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "vertical/cruiser" + cruiser.ToString() + ".png");
+                                    image.Stretch = Stretch.UniformToFill;
+                                    Grid.SetRow(image, i);
+                                    Grid.SetColumn(image, j);
+                                    grid.Children.Add(image);
+                                    cruiser++;
+                                }
+                                break;
+                            case 2:
+                                MyGrid[i][j].Type = SquareType.Undamaged;
+                                if (!(i - 1 < 0))
+                                {
+                                    if (MyGrid[i][j].ShipIndex == MyGrid[i - 1][j].ShipIndex)
+                                    {
+                                        horizontal = false;
+                                    }
+                                }
+                                if (!(i + 1 > 9))
+                                {
+                                    if (MyGrid[i][j].ShipIndex == MyGrid[i + 1][j].ShipIndex)
+                                    {
+                                        horizontal = false;
+                                    }
+                                }
+                                if (horizontal)
+                                {
+                                    Image image = new Image();
+                                    image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "horizental/destroyer" + destroyer.ToString() + ".png");
+                                    image.Stretch = Stretch.UniformToFill;
+                                    Grid.SetRow(image, i);
+                                    Grid.SetColumn(image, j);
+                                    grid.Children.Add(image);
+                                    destroyer++;
+                                }
+                                else
+                                {
+                                    Image image = new Image();
+                                    image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "vertical/destroyer" + destroyer.ToString() + ".png");
+                                    image.Stretch = Stretch.UniformToFill;
+                                    Grid.SetRow(image, i);
+                                    Grid.SetColumn(image, j);
+                                    grid.Children.Add(image);
+                                    destroyer++;
+                                }
+                                break;
+                            case 3:
+                                MyGrid[i][j].Type = SquareType.Undamaged;
+                                if (!(i - 1 < 0))
+                                {
+                                    if (MyGrid[i][j].ShipIndex == MyGrid[i - 1][j].ShipIndex)
+                                    {
+                                        horizontal = false;
+                                    }
+                                }
+                                if (!(i + 1 > 9))
+                                {
+                                    if (MyGrid[i][j].ShipIndex == MyGrid[i + 1][j].ShipIndex)
+                                    {
+                                        horizontal = false;
+                                    }
+                                }
+                                if (horizontal)
+                                {
+                                    Image image = new Image();
+                                    image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "horizental/submarine" + submarine.ToString() + ".png");
+                                    image.Stretch = Stretch.UniformToFill;
+                                    Grid.SetRow(image, i);
+                                    Grid.SetColumn(image, j);
+                                    grid.Children.Add(image);
+                                    submarine++;
+                                }
+                                else
+                                {
+                                    Image image = new Image();
+                                    image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "vertical/submarine" + submarine.ToString() + ".png");
+                                    image.Stretch = Stretch.UniformToFill;
+                                    Grid.SetRow(image, i);
+                                    Grid.SetColumn(image, j);
+                                    grid.Children.Add(image);
+                                    submarine++;
+                                }
+                                break;
+                            case 4:
+                                MyGrid[i][j].Type = SquareType.Undamaged;
+                                if (!(i - 1 < 0))
+                                {
+                                    if (MyGrid[i][j].ShipIndex == MyGrid[i - 1][j].ShipIndex)
+                                    {
+                                        horizontal = false;
+                                    }
+                                }
+                                if (!(i + 1 > 9))
+                                {
+                                    if (MyGrid[i][j].ShipIndex == MyGrid[i + 1][j].ShipIndex)
+                                    {
+                                        horizontal = false;
+                                    }
+                                }
+                                if (horizontal)
+                                {
+                                    Image image = new Image();
+                                    image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "horizental/carrier" + carrier.ToString() + ".png");
+                                    image.Stretch = Stretch.UniformToFill;
+                                    Grid.SetRow(image, i);
+                                    Grid.SetColumn(image, j);
+                                    grid.Children.Add(image);
+                                    carrier++;
+                                }
+                                else
+                                {
+                                    Image image = new Image();
+                                    image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "vertical/carrier" + carrier.ToString() + ".png");
+                                    image.Stretch = Stretch.UniformToFill;
+                                    Grid.SetRow(image, i);
+                                    Grid.SetColumn(image, j);
+                                    grid.Children.Add(image);
+                                    carrier++;
+                                }
+                                break;
+                        }
                     }
                 }
             }
-            else
+        }
+
+        public void hide()
+        {
+            for (int i = 0; i < MyGrid[i].Count; i++)
             {
-                if (!((x - 1) < 0))
+                for (int j = 0; j < MyGrid[j].Count; j++)
                 {
-                    if (!(grid[x - 1, y] == 0))
+                    switch (MyGrid[i][j].Type)
                     {
-                        return true;
+                        case SquareType.Undamaged:
+                        case SquareType.Water:
+                            MyGrid[i][j].Type = SquareType.Unknown;
+                            break;
+                        default:
+                            break;
                     }
                 }
             }
-            return false;
         }
     }
 }
+
