@@ -57,8 +57,8 @@ namespace battleship
             if (difficulty >= 2)
             {
                 tailFound = new int[2];
+                tailFound[0] = 100;
                 tailFound[1] = 100;
-                tailFound[2] = 100;
                 search = new int[4, 2];
             }
             if (difficulty == 3)

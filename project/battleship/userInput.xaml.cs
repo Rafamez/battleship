@@ -27,11 +27,12 @@ namespace battleship
 		public userInput()
 		{
 			InitializeComponent();
+			WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
 		}
 
 		private void Start_Click(object sender, RoutedEventArgs e)
 		{
-			if (username != null && username.Length>0 && expireDate > -1) {
+			if (!(string.IsNullOrWhiteSpace(username)) && username.Trim().Length != 0 && expireDate > -1) {
 				//ETHAN SERIALIZE THE VALUES
 				this.Close();
 				app.Visibility = Visibility.Visible;

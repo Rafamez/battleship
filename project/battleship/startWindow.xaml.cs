@@ -31,6 +31,7 @@ namespace battleship
         public startWindow()
         {
             InitializeComponent();
+			WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
 			MediaElement media = new MediaElement();
 			media.LoadedBehavior = MediaState.Manual;
 			media.UnloadedBehavior = MediaState.Manual;

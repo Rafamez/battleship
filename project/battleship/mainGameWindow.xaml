@@ -18,8 +18,8 @@
 					<MenuItem x:Name="EnglishLanguage" Header="English" Click="English"/>
 				</MenuItem>
 				<MenuItem x:Name="Cheats" Header="Cheats">
-					<MenuItem x:Name="On" Header="On" Icon="" Checked="CheatsOn" IsCheckable="True"/>
-					<MenuItem x:Name="Off" Header="Off" Icon=""  Checked="CheatsOff" IsCheckable="True"/>
+					<MenuItem x:Name="On" Header="On" Icon="" Click="CheatsOn"/>
+					<MenuItem x:Name="Off" Header="Off" Icon="" Click="CheatsOff"/>
 				</MenuItem>
 				<MenuItem x:Name="Skins" Header="Skin" RenderTransformOrigin="0.414,0.957">
 					<MenuItem x:Name="UnitedStates" Header="USA"   Click="USA" IsCheckable="True">

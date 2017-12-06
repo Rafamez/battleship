@@ -42,7 +42,10 @@ namespace battleship
 
 		public string skin = "usa";
 
+		int ennemyPlacedShips = 0;
+
 		public int attempts = 0;
+
 		//creating human
 		private String[] saved = new String[250];
 		private string saveData;
@@ -65,16 +68,14 @@ namespace battleship
 		}
 
 		public bool yourTurn = true;
-		public int shipsUsed = -1;
 		List<Boolean> boatClicked = new List<Boolean> { false, false, false, false, false };
 
 		public mainGameWindow()
 		{
 			InitializeComponent();
-
+			WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
 
 			human = new Player("Bob", HumanGrid, skin);
-			otherPlayer = new AI(difficulty, human, AIGrid, skin);
 
 
 			UnitedStates.IsChecked = true;
@@ -107,6 +108,8 @@ namespace battleship
 			{
 				//increment the value of the Time label by 1 
 				_Time.Text = GameTime.ToString();
+				if (yourTurn)
+					otherPlayer.AITurn();
 			});
 
 		}
@@ -153,6 +156,10 @@ namespace battleship
 			Japan.IsCheckable = false;
 			Russia.IsCheckable = false;
 			Germany.IsCheckable = false;
+			otherPlayer = new AI(difficulty, human, AIGrid, skin);
+			if (ennemyPlacedShips==0)
+			otherPlayer.getShipPlacement();
+			ennemyPlacedShips++;
 		}
 		//method for the when the user stops the game (automatically saves + stops timer)
 		private void Stop_Click(object sender, RoutedEventArgs e)
@@ -256,24 +263,14 @@ namespace battleship
 		//method which allows for cheats (for debugg reasons or if you want to augment your self esteem)
 		private void CheatsOn(object sender, RoutedEventArgs e)
 		{
-			if (T.Enabled || GameTime > 0)
-			{
-				if (On.IsChecked)
-					Off.IsChecked = false;
-				var values = Enum.GetValues(typeof(SquareType));
-
+			if(T.Enabled || GameTime!=0)
 				otherPlayer.reveal();
-			}
 		}
 		//method which disables those cheats
 		private void CheatsOff(object sender, RoutedEventArgs e)
 		{
-			if (On.IsChecked)
-			{
-				if (Off.IsChecked)
-					On.IsChecked = false;
+			if (T.Enabled || GameTime != 0)
 				otherPlayer.hide();
-			}
 		}
 
 		//the ship skins is of the USA
@@ -372,8 +369,6 @@ namespace battleship
 
 		private void LayShip(object sender, MouseButtonEventArgs e)
 		{
-			if (T.Enabled)
-			{
 				var point = Mouse.GetPosition(HumanGrid);
 
 				xAxis = 0;
@@ -402,11 +397,10 @@ namespace battleship
 					if (yAxis == 10)
 						break;
 				}
-				otherPlayer.getShipPlacement();
 				human.PlaceShips(xAxis, yAxis, horizental);
 				setVisibility();
 				Console.WriteLine("Clicked at {0}, {1}", yAxis, xAxis);
-			}
+			
 		}
 
 		private void setVisibility()
@@ -460,7 +454,6 @@ namespace battleship
 
 		private void CallChoseShip(object sender, MouseButtonEventArgs e)
 		{
-			if (T.Enabled)
 			{
 				Image newimage = (Image)sender;
 
@@ -496,13 +489,6 @@ namespace battleship
 
 		private void ImageGotClicked(object sender, MouseButtonEventArgs e)
 		{
-			if (yourTurn && shipsUsed == 5)
-			{
-				Random rnd = new Random(10);
-
-				Image newimage = (Image)sender;
-				xAxis = Grid.GetRow(newimage);
-				yAxis = Grid.GetColumn(newimage);
 				if (yourTurn)
 					actions.Text += human.Fire(xAxis, yAxis, otherPlayer);
 				else
@@ -531,7 +517,6 @@ namespace battleship
 
 			}
 
-		}
 
 
 
@@ -626,7 +611,7 @@ namespace battleship
 
 		private void reset_Click(object sender, RoutedEventArgs e)
 		{
-			if (T.Enabled || GameTime > 0)
+			if (!T.Enabled && GameTime == 0)
 			{
 				BattleShip.Visibility = Visibility.Visible;
 				BBButton.Visibility = Visibility.Visible;
@@ -642,8 +627,8 @@ namespace battleship
 				int size = HumanGrid.Children.Count - 1;
 
 				human.RemoveAll();
+				HumanGrid.Children.Clear();
 				}
 			}
 		}
 	}
-}

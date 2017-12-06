@@ -18,14 +18,10 @@
 		</Grid.ColumnDefinitions>
 
 		<Label x:Name="usernameInput" Content="_Username: " VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0"/>
-		<Label x:Name="ExpireTimeInput" Content="_ExpireTime: " VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0"/>
-		<TextBox x:Name="UsernameValue" Opacity="50" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1" MinWidth="100" ScrollViewer.HorizontalScrollBarVisibility="Auto" Text="" KeyDown="UsernameValue_KeyDown"/>
-		<TextBox x:Name="ExpireTimeValue" Opacity="50" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" MinWidth="100" ScrollViewer.HorizontalScrollBarVisibility="Auto" Text="" KeyDown="ExpireTimeValue_KeyDown"/>
+		<Label x:Name="ExpireTimeInput" Content="_ExpireTime (s): " VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0"/>
+		<TextBox x:Name="UsernameValue" Opacity="50" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1" MinWidth="100" Text="" KeyDown="UsernameValue_KeyDown"/>
+		<TextBox x:Name="ExpireTimeValue" Opacity="50" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" MinWidth="100" Text="" KeyDown="ExpireTimeValue_KeyDown"/>
 		<Button x:Name="Start" Content="_Start" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Width="70" Click="Start_Click"/>
 		<Button x:Name="Reset" Content="_Reset" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Width="70" Click="Reset_Click"/>
-
-
-
-
 	</Grid>
 </Window>
