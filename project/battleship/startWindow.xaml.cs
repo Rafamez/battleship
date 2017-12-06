@@ -27,14 +27,17 @@ namespace battleship
         private bool click = true;
         public System.Timers.Timer T = new Timer();
 
-        mainGameWindow app = new mainGameWindow();
+        userInput app = new userInput();
         public startWindow()
         {
             InitializeComponent();
 			MediaElement media = new MediaElement();
 			media.LoadedBehavior = MediaState.Manual;
 			media.UnloadedBehavior = MediaState.Manual;
-			media.Source = new Uri("Images/oceanStartPage.wmv", UriKind.Relative);
+			media.Source = new Uri(System.IO.Path.Combine(Environment.CurrentDirectory, "../../Images/oceanStartPage.wmv"));
+			media.Stretch = Stretch.Fill;
+			media.MediaEnded += Video_MediaEnded;
+			Panel.SetZIndex(media, -1);
 			mom.Children.Add(media);
 			media.Play();
 
@@ -42,22 +45,14 @@ namespace battleship
     
     private void Video_MediaEnded(object sender, RoutedEventArgs e)
     {
-        Video.Position = TimeSpan.FromSeconds(0);
+			MediaElement media = (MediaElement)sender;
+			media.Position = TimeSpan.FromSeconds(0);
      }
 
-private void NewGame_Click(object sender, RoutedEventArgs e)
-        {
-
-            Console.WriteLine("Please enter your username:");
-            string username = Console.ReadLine();
-            
+	private void NewGame_Click(object sender, RoutedEventArgs e)
+        {   
             this.Close();
-              app.Visibility = Visibility.Visible;
-              
-           
-           
-
-
+			app.Visibility = Visibility.Visible;
         }
 
         private void LoadGame_Click(object sender, RoutedEventArgs e)
@@ -70,22 +65,29 @@ private void NewGame_Click(object sender, RoutedEventArgs e)
                 MessageBoxResult dialogResult = MessageBox.Show("Do you want to load the file", "Load Game", MessageBoxButton.YesNo);
                 if (dialogResult == MessageBoxResult.Yes)
                 {
-                    //do something
-                    try
-                    {
-                        BinaryFormatter F = new BinaryFormatter();
+					//do something
+					try
+					{
+						BinaryFormatter F = new BinaryFormatter();
 
-                        string a = (string)F.Deserialize(Fs);
-                    }
-                    catch (SerializationException em)
-                    {
-                        Console.WriteLine("Failed to deserialize. Reason: " + em.Message);
+						string a = (string)F.Deserialize(Fs);
+					}
+					catch (SerializationException em)
+					{
+						MessageBox.Show("Failed to deserialize. Reason: " + em.Message);
 
-                    }
-                    finally
-                    {
-                        Fs.Close();
-                    }
+					}
+					catch (FileNotFoundException fnfe)
+					{
+						MessageBox.Show("The file was not found");
+					}
+				//	catch (Exception excp) {
+				//		MessageBox.Show("An error was found");
+				//	}
+					finally
+					{
+						Fs.Close();
+					}
                 }
 
                 else if (dialogResult == MessageBoxResult.No)

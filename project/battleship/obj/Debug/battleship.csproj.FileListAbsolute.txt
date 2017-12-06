@@ -18,3 +18,5 @@ I:\battleship\project\battleship\obj\Debug\battleship.Properties.Resources.resou
 I:\battleship\project\battleship\obj\Debug\battleship.csproj.GenerateResource.Cache
 I:\battleship\project\battleship\obj\Debug\battleship.exe
 I:\battleship\project\battleship\obj\Debug\battleship.pdb
+I:\battleship\project\battleship\obj\Debug\userInput.g.cs
+I:\battleship\project\battleship\obj\Debug\userInput.baml

@@ -8,7 +8,6 @@
         Title="Battleship" Height="502.759" Width="1181.471" MinHeight="300" MinWidth="600" ResizeMode="NoResize">
 
 	<Grid x:Name="mom">
-		<MediaElement x:Name="Video" Source="Images/oceanStartPage.wmv" MediaEnded="Video_MediaEnded" VerticalAlignment="Center"  Stretch="Fill"/>
 		<Grid x:Name="son">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="2*"/>

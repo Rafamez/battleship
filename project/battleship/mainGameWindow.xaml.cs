@@ -23,8 +23,8 @@ namespace battleship
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
 	/// 
-	public partial class mainGameWindow : Window,ISerializable
-    {
+	public partial class mainGameWindow : Window, ISerializable
+	{
 		public int xAxis = 0;
 		public int yAxis = 0;
 		// public double size = 0; was used when we resized window, but feature was removed
@@ -68,7 +68,7 @@ namespace battleship
 		public int shipsUsed = -1;
 		List<Boolean> boatClicked = new List<Boolean> { false, false, false, false, false };
 
-        public mainGameWindow()
+		public mainGameWindow()
 		{
 			InitializeComponent();
 
@@ -256,23 +256,25 @@ namespace battleship
 		//method which allows for cheats (for debugg reasons or if you want to augment your self esteem)
 		private void CheatsOn(object sender, RoutedEventArgs e)
 		{
-			if (T.Enabled || GameTime>0) {
-			if (On.IsChecked)
-				Off.IsChecked = false;
-			var values = Enum.GetValues(typeof(SquareType));
+			if (T.Enabled || GameTime > 0)
+			{
+				if (On.IsChecked)
+					Off.IsChecked = false;
+				var values = Enum.GetValues(typeof(SquareType));
 
-            otherPlayer.reveal();
+				otherPlayer.reveal();
 			}
 		}
 		//method which disables those cheats
 		private void CheatsOff(object sender, RoutedEventArgs e)
 		{
-			if (On.IsChecked) {
-			if (Off.IsChecked)
-				On.IsChecked = false;
-            otherPlayer.hide();
-            }
-        }
+			if (On.IsChecked)
+			{
+				if (Off.IsChecked)
+					On.IsChecked = false;
+				otherPlayer.hide();
+			}
+		}
 
 		//the ship skins is of the USA
 		private void USA(object sender, RoutedEventArgs e)
@@ -397,7 +399,7 @@ namespace battleship
 					if (accumulatedWidth >= point.X)
 						break;
 					++yAxis;
-					if (yAxis==10)
+					if (yAxis == 10)
 						break;
 				}
 				otherPlayer.getShipPlacement();
@@ -409,7 +411,8 @@ namespace battleship
 
 		private void setVisibility()
 		{
-			switch (human.ship-1) {
+			switch (human.ship - 1)
+			{
 				case (0):
 					BattleShip.Visibility = Visibility.Hidden;
 					BBButton.Visibility = Visibility.Hidden;
@@ -447,7 +450,8 @@ namespace battleship
 
 		private void boatClickedSet()
 		{
-			for (int i = 0; i < boatClicked.Count; i++) {
+			for (int i = 0; i < boatClicked.Count; i++)
+			{
 				boatClicked[i] = false;
 			}
 			boatClicked[human.ship] = true;
@@ -458,34 +462,34 @@ namespace battleship
 		{
 			if (T.Enabled)
 			{
-				Image newimage = (Image) sender;
-				
+				Image newimage = (Image)sender;
+
 				if (newimage.Source.ToString() == "pack://application:,,,/battleship;component/Images/usa/battleshipH.png" || newimage.Source.ToString() == "../../Images/usa/battleshipV.png")
 				{
 					if (!boatClicked[0])
-					boatClickedSet();
+						boatClickedSet();
 
 				}
 				if (newimage.Source.ToString() == "pack://application:,,,/battleship;component/Images/usa/cruiserH.png" || newimage.Source.ToString() == "../../Images/usa/cruiserV.png")
 				{
 					if (!boatClicked[1])
-					boatClickedSet();
+						boatClickedSet();
 
 				}
 				if (newimage.Source.ToString() == "pack://application:,,,/battleship;component/Images/usa/destroyerH.png" || newimage.Source.ToString() == "../../Images/usa/destroyerV.png")
 				{
 					if (!boatClicked[2])
-					boatClickedSet();
+						boatClickedSet();
 				}
 				if (newimage.Source.ToString() == "pack://application:,,,/battleship;component/Images/usa/submarineH.png" || newimage.Source.ToString() == "../../Images/usa/submarineV.png")
 				{
 					if (!boatClicked[3])
-					boatClickedSet();
+						boatClickedSet();
 				}
 				if (newimage.Source.ToString() == "pack://application:,,,/battleship;component/Images/usa/carrierH.png" || newimage.Source.ToString() == "../../Images/usa/carrierV.png")
 				{
 					if (!boatClicked[4])
-					boatClickedSet();
+						boatClickedSet();
 				}
 			}
 		}
@@ -548,52 +552,52 @@ namespace battleship
 				else
 					MessageBox.Show("Vous avez fini le jeu en " + GameTime + " secondes, bravo!");
 
-                //Serializing the highscores 
+				//Serializing the highscores 
 
-                //Serializing the highscores 
-                score = 0;
+				//Serializing the highscores 
+				score = 0;
 				boatsLeft = 0;
-                attempts = Convert.ToInt32(AttemptValues.Text);
-                timeCount = Convert.ToInt32(AttemptValues.Text);
-                for (int j = 0; j < human.myShips.Count; j++)
-                {
-                    if (!(human.myShips[j].healthReturn == 0))
-                        boatsLeft++;
-                }
-                if (difficulty == 1)
-                {
-                    score = 2500 - (timeCount * (attempts / 17) * (2 - (boatsLeft / 5)));
-                }
-                if (difficulty == 2)
-                {
-                    score = 5000 - (timeCount * (attempts / 17) * (2 - (boatsLeft / 5)));
-                }
-                if (difficulty == 3)
-                {
-                    score = 10000 - (timeCount * (attempts / 17) * (2 - (boatsLeft / 5)));
-                }
-                saveData = "Name: " + ' ' + score.ToString() + ' ' + _Time.Text + '*';
-                FileStream fs = new FileStream("../../highscores.txt", FileMode.Create, FileAccess.ReadWrite);
-                // Construct a BinaryFormatter and use it to serialize the data to the stream.
-                BinaryFormatter formatter = new BinaryFormatter();
-                try
-                {
-                    
-                    formatter.Serialize(fs, saveData);
-                }
-                catch (SerializationException em)
-                {
-                    Console.WriteLine("Failed to serialize. Reason: " + em.Message);
+				attempts = Convert.ToInt32(AttemptValues.Text);
+				timeCount = Convert.ToInt32(AttemptValues.Text);
+				for (int j = 0; j < human.myShips.Count; j++)
+				{
+					if (!(human.myShips[j].healthReturn == 0))
+						boatsLeft++;
+				}
+				if (difficulty == 1)
+				{
+					score = 2500 - (timeCount * (attempts / 17) * (2 - (boatsLeft / 5)));
+				}
+				if (difficulty == 2)
+				{
+					score = 5000 - (timeCount * (attempts / 17) * (2 - (boatsLeft / 5)));
+				}
+				if (difficulty == 3)
+				{
+					score = 10000 - (timeCount * (attempts / 17) * (2 - (boatsLeft / 5)));
+				}
+				saveData = "Name: " + ' ' + score.ToString() + ' ' + _Time.Text + '*';
+				FileStream fs = new FileStream("../../highscores.txt", FileMode.Create, FileAccess.ReadWrite);
+				// Construct a BinaryFormatter and use it to serialize the data to the stream.
+				BinaryFormatter formatter = new BinaryFormatter();
+				try
+				{
 
-                }
-                finally
-                {
-                    fs.Close();
-                }
-                System.Windows.Application.Current.Shutdown();
-            }
-            //if you lose
-            if (human.Lost())
+					formatter.Serialize(fs, saveData);
+				}
+				catch (SerializationException em)
+				{
+					Console.WriteLine("Failed to serialize. Reason: " + em.Message);
+
+				}
+				finally
+				{
+					fs.Close();
+				}
+				System.Windows.Application.Current.Shutdown();
+			}
+			//if you lose
+			if (human.Lost())
 			{
 				if (english)
 					MessageBox.Show("You lost the game in " + GameTime + " seconds, git gud!");
@@ -601,7 +605,8 @@ namespace battleship
 					MessageBox.Show("Vous avez perdu le jeu en " + GameTime + " secondes, vous êtes mauvais!");
 				System.Windows.Application.Current.Shutdown();
 			}
-			else {
+			else
+			{
 				//if you lose
 				if (otherPlayer.Lost())
 				{
@@ -614,9 +619,31 @@ namespace battleship
 			}
 		}
 
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            throw new NotImplementedException();
-        }
-    }
+		public void GetObjectData(SerializationInfo info, StreamingContext context)
+		{
+			throw new NotImplementedException();
+		}
+
+		private void reset_Click(object sender, RoutedEventArgs e)
+		{
+			if (T.Enabled || GameTime > 0)
+			{
+				BattleShip.Visibility = Visibility.Visible;
+				BBButton.Visibility = Visibility.Visible;
+				Cruiser.Visibility = Visibility.Hidden;
+				CButton.Visibility = Visibility.Hidden;
+				Destroyer.Visibility = Visibility.Hidden;
+				DButton.Visibility = Visibility.Hidden;
+				Submarine.Visibility = Visibility.Hidden;
+				SButton.Visibility = Visibility.Hidden;
+				AircraftCarrier.Visibility = Visibility.Hidden;
+				ACButton.Visibility = Visibility.Hidden;
+				human.ship = 0;
+				int size = HumanGrid.Children.Count - 1;
+
+				human.RemoveAll();
+				}
+			}
+		}
+	}
 }

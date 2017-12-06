@@ -78,6 +78,9 @@
     <Compile Include="startWindow.xaml.cs">
       <DependentUpon>startWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="userInput.xaml.cs">
+      <DependentUpon>userInput.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Player.cs" />
@@ -106,12 +109,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="background.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="background2.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\cross.jpg" />
@@ -151,6 +148,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="startWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="userInput.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
