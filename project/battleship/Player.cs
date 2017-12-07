@@ -35,9 +35,18 @@ namespace battleship
 		Grid grid;
 		String skin;
 
+        public String setString {
+            get
+            {
+                return this.skin;
+            }
+            set
+            { 
+                this.skin = value; ; }
+            }
 
-		//HUMAN SHIPS
-		public List<Ship> myShips = new List<Ship>();
+        //HUMAN SHIPS
+        public List<Ship> myShips = new List<Ship>();
 
 
 		//VALUE TO GET THE LIST USED
@@ -76,6 +85,7 @@ namespace battleship
 			//ADD SHIPS TO THE BOARDS WHO HAVE SHIP PROERTIES
 			Reset();
 		}
+
 
 		//METHOD USED TO CHANGE THE TYPE VALUE OF THE BOARDS WHO HAVE SHIPS ON THEM + SET THE SHIPS
 		public void Reset()

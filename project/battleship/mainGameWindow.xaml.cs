@@ -292,6 +292,8 @@ namespace battleship
             Germany.IsChecked = false;
             Russia.IsChecked = false;
             UnitedStates.IsChecked = true;
+            human.setString = skin;
+            checkImage();
 
 
         }
@@ -303,6 +305,8 @@ namespace battleship
             Russia.IsChecked = false;
             UnitedStates.IsChecked = false;
             Japan.IsChecked = true;
+            human.setString = skin;
+            checkImage();
 
 
 
@@ -315,8 +319,8 @@ namespace battleship
             Germany.IsChecked = false;
             UnitedStates.IsChecked = false;
             Russia.IsChecked = true;
-
-
+            human.setString = skin;
+            checkImage();
         }
         //the ship skins is of germany
         private void GER(object sender, RoutedEventArgs e)
@@ -326,8 +330,34 @@ namespace battleship
             Japan.IsChecked = false;
             Russia.IsChecked = false;
             Germany.IsChecked = true;
+            human.setString = skin;
+            checkImage();
 
 
+        }
+
+        private void checkImage()
+        {
+            if (!horizental[0])
+                BattleShip.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/battleshipV.png");
+            if (horizental[0])
+                BattleShip.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/battleshipH.png");
+            if (!horizental[1])
+                Cruiser.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/cruiserV.png");
+            if (horizental[1])
+                Cruiser.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/cruiserH.png");
+            if (!horizental[2])
+                Destroyer.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/destroyerV.png");
+            if (horizental[2])
+                Destroyer.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/destroyerH.png");
+            if (!horizental[3])
+                Submarine.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/submarineV.png");
+            if (horizental[3])
+                Submarine.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/submarineH.png");
+            if (!horizental[4])
+                AircraftCarrier.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/carrierV.png");
+            if (horizental[4])
+                AircraftCarrier.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/" + skin + "/carrierH.png");
         }
 
 
@@ -468,29 +498,29 @@ namespace battleship
             {
                 Image newimage = (Image)sender;
 
-                if (newimage.Source.ToString() == "pack://application:,,,/battleship;component/Images/usa/battleshipH.png" || newimage.Source.ToString() == "../../Images/usa/battleshipV.png")
+                if (newimage.Source.ToString() == "pack://application:,,,/battleship;component/Images/" + skin + "/battleshipH.png" || newimage.Source.ToString() == "../../Images/" + skin + "/battleshipV.png")
                 {
                     if (!boatClicked[0])
                         boatClickedSet();
 
                 }
-                if (newimage.Source.ToString() == "pack://application:,,,/battleship;component/Images/usa/cruiserH.png" || newimage.Source.ToString() == "../../Images/usa/cruiserV.png")
+                if (newimage.Source.ToString() == "pack://application:,,,/battleship;component/Images/" + skin + "/cruiserH.png" || newimage.Source.ToString() == "../../Images/" + skin + "/cruiserV.png")
                 {
                     if (!boatClicked[1])
                         boatClickedSet();
 
                 }
-                if (newimage.Source.ToString() == "pack://application:,,,/battleship;component/Images/usa/destroyerH.png" || newimage.Source.ToString() == "../../Images/usa/destroyerV.png")
+                if (newimage.Source.ToString() == "pack://application:,,,/battleship;component/Images/" + skin + "/destroyerH.png" || newimage.Source.ToString() == "../../Images/" + skin + "/destroyerV.png")
                 {
                     if (!boatClicked[2])
                         boatClickedSet();
                 }
-                if (newimage.Source.ToString() == "pack://application:,,,/battleship;component/Images/usa/submarineH.png" || newimage.Source.ToString() == "../../Images/usa/submarineV.png")
+                if (newimage.Source.ToString() == "pack://application:,,,/battleship;component/Images/" + skin + "/submarineH.png" || newimage.Source.ToString() == "../../Images/" + skin + "/submarineV.png")
                 {
                     if (!boatClicked[3])
                         boatClickedSet();
                 }
-                if (newimage.Source.ToString() == "pack://application:,,,/battleship;component/Images/usa/carrierH.png" || newimage.Source.ToString() == "../../Images/usa/carrierV.png")
+                if (newimage.Source.ToString() == "pack://application:,,,/battleship;component/Images/" + skin + "/carrierH.png" || newimage.Source.ToString() == "../../Images/" + skin + "/carrierV.png")
                 {
                     if (!boatClicked[4])
                         boatClickedSet();

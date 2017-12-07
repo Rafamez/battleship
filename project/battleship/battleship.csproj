@@ -166,106 +166,106 @@
     <Resource Include="Images\usa\submarineV.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\vertical\destroyer3.png" />
+    <Resource Include="Images\usa\vertical\destroyer3.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\vertical\submarine1.png" />
+    <Resource Include="Images\usa\vertical\submarine1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\vertical\submarine2.png" />
+    <Resource Include="Images\usa\vertical\submarine2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\vertical\submarine3.png" />
+    <Resource Include="Images\usa\vertical\submarine3.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\vertical\submarine4.png" />
+    <Resource Include="Images\usa\vertical\submarine4.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\vertical\battleship1.png" />
+    <Resource Include="Images\usa\vertical\battleship1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\vertical\battleship2.png" />
+    <Resource Include="Images\usa\vertical\battleship2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\vertical\carrier1.png" />
+    <Resource Include="Images\usa\vertical\carrier1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\vertical\carrier2.png" />
+    <Resource Include="Images\usa\vertical\carrier2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\vertical\carrier3.png" />
+    <Resource Include="Images\usa\vertical\carrier3.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\vertical\carrier4.png" />
+    <Resource Include="Images\usa\vertical\carrier4.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\vertical\carrier5.png" />
+    <Resource Include="Images\usa\vertical\carrier5.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\vertical\cruiser1.png" />
+    <Resource Include="Images\usa\vertical\cruiser1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\vertical\cruiser2.png" />
+    <Resource Include="Images\usa\vertical\cruiser2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\vertical\cruiser3.png" />
+    <Resource Include="Images\usa\vertical\cruiser3.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\vertical\destroyer1.png" />
+    <Resource Include="Images\usa\vertical\destroyer1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\vertical\destroyer2.png" />
+    <Resource Include="Images\usa\vertical\destroyer2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\horizental\destroyer3.png" />
+    <Resource Include="Images\usa\horizental\destroyer3.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\horizental\submarine1.png" />
+    <Resource Include="Images\usa\horizental\submarine1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\horizental\submarine2.png" />
+    <Resource Include="Images\usa\horizental\submarine2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\horizental\submarine3.png" />
+    <Resource Include="Images\usa\horizental\submarine3.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\horizental\submarine4.png" />
+    <Resource Include="Images\usa\horizental\submarine4.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\horizental\battleship1.png" />
+    <Resource Include="Images\usa\horizental\battleship1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\horizental\battleship2.png" />
+    <Resource Include="Images\usa\horizental\battleship2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\horizental\carrier1.png" />
+    <Resource Include="Images\usa\horizental\carrier1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\horizental\carrier2.png" />
+    <Resource Include="Images\usa\horizental\carrier2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\horizental\carrier3.png" />
+    <Resource Include="Images\usa\horizental\carrier3.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\horizental\carrier4.png" />
+    <Resource Include="Images\usa\horizental\carrier4.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\horizental\carrier5.png" />
+    <Resource Include="Images\usa\horizental\carrier5.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\horizental\cruiser1.png" />
+    <Resource Include="Images\usa\horizental\cruiser1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\horizental\cruiser2.png" />
+    <Resource Include="Images\usa\horizental\cruiser2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\horizental\cruiser3.png" />
+    <Resource Include="Images\usa\horizental\cruiser3.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\horizental\destroyer1.png" />
+    <Resource Include="Images\usa\horizental\destroyer1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\usa\horizental\destroyer2.png" />
+    <Resource Include="Images\usa\horizental\destroyer2.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\BattleshipLOGO.png" />
@@ -280,6 +280,399 @@
   <ItemGroup>
     <Resource Include="Images\cross.png" />
     <Resource Include="Images\X.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\horizental\battleship2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\horizental\carrier1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\horizental\carrier2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\horizental\carrier3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\horizental\carrier4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\horizental\carrier5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\horizental\cruiser1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\horizental\cruiser2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\horizental\cruiser3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\horizental\destroyer1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\horizental\destroyer2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\horizental\destroyer3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\horizental\submarine1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\horizental\submarine2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\horizental\submarine3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\horizental\submarine4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\horizental\battleship1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\vertical\destroyer2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\vertical\destroyer3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\vertical\submarine1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\vertical\submarine2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\vertical\submarine3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\vertical\submarine4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\vertical\battleship1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\vertical\battleship2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\vertical\carrier1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\vertical\carrier2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\vertical\carrier3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\vertical\carrier4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\vertical\carrier5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\vertical\cruiser1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\vertical\cruiser2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\vertical\cruiser3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\vertical\destroyer1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\submarineH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\submarineV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\battleshipH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\battleshipV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\carrierH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\carrierV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\cruiserH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\cruiserV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\destroyerH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\germany\destroyerV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\submarineH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\submarineV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\battleshipV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\carrierH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\carrierV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\cruiserH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\cruiserV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\destroyerH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\destroyerV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\horizental\carrier2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\horizental\carrier3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\horizental\carrier4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\horizental\carrier5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\horizental\cruiser1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\horizental\cruiser2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\horizental\cruiser3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\horizental\destroyer1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\horizental\destroyer2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\horizental\destroyer3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\horizental\submarine1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\horizental\submarine2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\horizental\submarine3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\horizental\submarine4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\horizental\battleship1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\horizental\battleship2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\horizental\carrier1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\vertical\carrier1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\vertical\carrier2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\vertical\carrier3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\vertical\carrier4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\vertical\carrier5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\vertical\cruiser1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\vertical\cruiser2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\vertical\cruiser3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\vertical\destroyer1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\vertical\destroyer2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\vertical\destroyer3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\vertical\submarine1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\vertical\submarine2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\vertical\submarine3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\vertical\submarine4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\vertical\battleship1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\japan\vertical\battleship2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\battleshipH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\battleshipV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\carrierH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\carrierV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\cruiserH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\cruiserV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\destroyerH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\destroyerV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\submarineH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\submarineV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\vertical\submarine1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\vertical\submarine2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\vertical\submarine3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\vertical\submarine4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\vertical\battleship1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\vertical\battleship2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\vertical\carrier1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\vertical\carrier2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\vertical\carrier3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\vertical\carrier4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\vertical\carrier5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\vertical\cruiser1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\vertical\cruiser2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\vertical\cruiser3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\vertical\destroyer1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\vertical\destroyer2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\vertical\destroyer3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\horizental\destroyer2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\horizental\destroyer3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\horizental\submarine1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\horizental\submarine2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\horizental\submarine3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\horizental\submarine4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\horizental\battleship1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\horizental\battleship2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\horizental\carrier1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\horizental\carrier2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\horizental\carrier3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\horizental\carrier4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\horizental\carrier5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\horizental\cruiser1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\horizental\cruiser2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\horizental\cruiser3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\russia\horizental\destroyer1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
