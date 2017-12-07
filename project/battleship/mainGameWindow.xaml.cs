@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -73,8 +73,17 @@ namespace battleship
 		{
 			InitializeComponent();
 			WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            MediaElement media = new MediaElement();
+            media.LoadedBehavior = MediaState.Manual;
+            media.UnloadedBehavior = MediaState.Manual;
+            media.Source = new Uri(System.IO.Path.Combine(Environment.CurrentDirectory, "../../Images/gamebackground.mp4"));
+            media.Stretch = Stretch.Fill;
+            media.MediaEnded += Video_MediaEnded;
+            Panel.SetZIndex(media, -1);
+            mom.Children.Add(media);
+            media.Play();
 
-			human = new Player("Bob", HumanGrid, skin);
+            human = new Player("Bob", HumanGrid, skin);
 
 
 			UnitedStates.IsChecked = true;
@@ -111,8 +120,14 @@ namespace battleship
 
 		}
 
-		//method for the when the user choses easy difficulty, changes the value to 1
-		private void Easy_Click(object sender, RoutedEventArgs e)
+        private void Video_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            MediaElement media = (MediaElement)sender;
+            media.Position = TimeSpan.FromSeconds(0);
+        }
+
+        //method for the when the user choses easy difficulty, changes the value to 1
+        private void Easy_Click(object sender, RoutedEventArgs e)
 		{
 			difficulty = 1;
 			Hard.Background = Brushes.DarkGray;
