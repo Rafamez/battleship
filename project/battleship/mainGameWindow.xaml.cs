@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,61 +19,66 @@ using System.Windows.Shapes;
 
 namespace battleship
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    /// 
-    [Serializable]
-    public partial class mainGameWindow : Window, ISerializable
-    {
-        public int xAxis = 0;
-        public int yAxis = 0;
-        // public double size = 0; was used when we resized window, but feature was removed
-        public int difficulty = 0;
-        //general timer of the game
-        public System.Timers.Timer T = new Timer();
-        //time for the amount of time the user has been playing
-        public System.Timers.Timer PT = new Timer();
-        //the game time passed
-        public int GameTime = 0;
-        //the time that has passed for the round of the player
-        public int PlayTime = 0;
-        //time when each round will end
-        public int expireTime = 20;
+   [Serializable]
+	public partial class mainGameWindow : Window
+	{
+		public int xAxis = 0;
+		public int yAxis = 0;
+		// public double size = 0; was used when we resized window, but feature was removed
+		public int difficulty = 0;
+		//general timer of the game
+		public System.Timers.Timer T = new Timer();
+		//time for the amount of time the user has been playing
+		public System.Timers.Timer PT = new Timer();
+		//the game time passed
+		public int GameTime = 0;
+		//the time that has passed for the round of the player
+		public int PlayTime = 0;
+		//time when each round will end
+		public int expireTime = 20;
 
-        public string skin = "usa";
+		public string skin = "usa";
 
-        int ennemyPlacedShips = 0;
+		int ennemyPlacedShips = 0;
 
-        public int attempts = 0;
+		public int attempts = 0;
 
-        //creating human
-        private String[] saved = new String[250];
-        private string saveData;
+		//creating human
+		private String[] saved = new String[250];
+		private string saveData;
 
-        private Boolean clicked;
-        //creating human
-        public Player human;
-        public AI otherPlayer;
+		private Boolean clicked;
+		//creating human
+		public Player human;
+		public AI otherPlayer;
 
-        private int shotsFired = 0;
+		private int shotsFired = 0;
 
-        public Boolean english = true;
+		public Boolean english = true;
 
-        public List<Boolean> horizental = new List<Boolean> { true, true, true, true, true };
+		public List<Boolean> horizental = new List<Boolean> { true, true, true, true, true };
 
-        public List<Boolean> isHorizental
-        {
-            get { return horizental; }
-            set {; }
-        }
+		public List<Boolean> isHorizental
+		{
+			get { return horizental; }
+			set {; }
+		}
 
-        List<Boolean> boatClicked = new List<Boolean> { false, false, false, false, false };
+		List<Boolean> boatClicked = new List<Boolean> { false, false, false, false, false };
 
-        public mainGameWindow()
-        {
-            InitializeComponent();
-            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+		public mainGameWindow()
+		{
+			InitializeComponent();
+			WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            MediaElement media = new MediaElement();
+            media.LoadedBehavior = MediaState.Manual;
+            media.UnloadedBehavior = MediaState.Manual;
+            media.Source = new Uri(System.IO.Path.Combine(Environment.CurrentDirectory, "../../Images/gamebackground.mp4"));
+            media.Stretch = Stretch.Fill;
+            media.MediaEnded += Video_MediaEnded;
+            Panel.SetZIndex(media, -1);
+            mom.Children.Add(media);
+            media.Play();
 
             human = new Player("Bob", HumanGrid, skin);
 
@@ -87,8 +92,6 @@ namespace battleship
             PT.Elapsed += new ElapsedEventHandler(OnTimedEventExpire);
             PT.Interval = expireTime * 1000;
 
-            //set the interval to 1000
-            PT.Interval = 1000;
             //small text used to justify whos turn it is
             Easy.Background = Brushes.WhiteSmoke;
             Medium.Background = Brushes.DarkGray;
@@ -122,7 +125,12 @@ namespace battleship
                 //increment the value of the Time label by 1 
                 Time.Text = GameTime.ToString();
             });
+        }
 
+        private void Video_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            MediaElement media = (MediaElement)sender;
+            media.Position = TimeSpan.FromSeconds(0);
         }
 
         //method for the when the user choses easy difficulty, changes the value to 1
@@ -171,26 +179,26 @@ namespace battleship
             if (ennemyPlacedShips == 0)
                 otherPlayer.getShipPlacement();
             ennemyPlacedShips++;
-        }
-        //method for the when the user stops the game (automatically saves + stops timer)
-        private void Stop_Click(object sender, RoutedEventArgs e)
-        {
-            T.Enabled = false;
-            if (File.Exists(@"../../DataFile.txt"))
-            {
-                File.Delete(@"../../DataFile.txt");
-            }
-            saved[0] = Score.Text + '*';
-            saved[1] = Time.Text + '*';
-            saved[2] = difficulty.ToString() + '*';
-            // saved[3] = Name.Text +'*';
-            // saved[4] = Credit.Text +'*';
-            //saved[5] = empire.text +'*';
-            //saved[6]= language.text +'*';
-            //saved[7]= cheats.text +'*';
+        }			
+		//method for the when the user stops the game (automatically saves + stops timer)
+		private void Stop_Click(object sender, RoutedEventArgs e)
+		{
+			T.Enabled = false;
+			if (File.Exists(@"../../DataFile.txt"))
+			{
+				File.Delete(@"../../DataFile.txt");
+			}
+			saved[0] = Score.Text + '*';
+			saved[1] = Time.Text + '*';
+			saved[2] = difficulty.ToString() + '*';
+			// saved[3] = Name.Text +'*';
+			// saved[4] = Credit.Text +'*';
+			//saved[5] = empire.text +'*';
+			//saved[6]= language.text +'*';
+			//saved[7]= cheats.text +'*';
 
-            //SAVE THE ELEMENTS FOR THE GRID 
-            /*   for (int i = 0; i < GameGrid.Text.Length; i++)
+			//SAVE THE ELEMENTS FOR THE GRID 
+			/*   for (int i = 0; i < GameGrid.Text.Length; i++)
                {
                    saved[i + 4] = secret[i];
 
@@ -623,17 +631,17 @@ namespace battleship
                     fs.Close();
                 }
             }
-            if(human.Lost())
+            if (human.Lost())
             {
                 if (english)
-            
-                MessageBox.Show("You lost the game in " + GameTime + " seconds, git gud!");
-				else
-					MessageBox.Show("Vous avez perdu le jeu en " + GameTime + " secondes, vous êtes mauvais!");
+
+                    MessageBox.Show("You lost the game in " + GameTime + " seconds, git gud!");
+                else
+                    MessageBox.Show("Vous avez perdu le jeu en " + GameTime + " secondes, vous êtes mauvais!");
                 System.Windows.Application.Current.Shutdown();
             }
-            else
-            {
+			else
+			{
                 //if you lose
                 if (otherPlayer.Lost())
                 {
@@ -674,3 +682,4 @@ namespace battleship
         }
     }
 }
+				

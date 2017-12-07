@@ -583,7 +583,7 @@ namespace battleship
 							grid.Children.Add(image);
 							if (myShips[damagedIndex].healthReturn == 0)
 							{
-								MessageBox.Show(myShips[damagedIndex].ToString() + " has been sunk");
+								MessageBox.Show(myShips[damagedIndex].type.ToString() + " has been sunk");
 								//IS SUNK IS TRUE, AND MINESUNK IS THE SHIP INDEX OF THE SQUARE
 								MineSunk(MyGrid[row][col].ShipIndex);
 							}
@@ -605,7 +605,7 @@ namespace battleship
 					grid.Children.Add(image);
 					if (myShips[damagedIndex].healthReturn == 0)
 					{
-						MessageBox.Show(myShips[damagedIndex].ToString() + " has been sunk");
+						MessageBox.Show(myShips[damagedIndex].type.ToString() + " has been sunk");
 						//IS SUNK IS TRUE, AND MINESUNK IS THE SHIP INDEX OF THE SQUARE
 						MineSunk(MyGrid[row][col].ShipIndex);
 					}
