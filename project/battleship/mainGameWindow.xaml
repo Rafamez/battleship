@@ -190,7 +190,7 @@
 			</Grid>
 
 
-			<ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="3" FontFamily="OCR A Extended" HorizontalScrollBarVisibility="Auto">
+			<ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="3" FontFamily="OCR A Extended" HorizontalScrollBarVisibility="Auto" Width="200" Height="300" >
 				<TextBlock x:Name="actions" Text="" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="20, 40, 20, 0"  />
 			</ScrollViewer>
 		</Grid>

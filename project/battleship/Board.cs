@@ -11,7 +11,7 @@ namespace battleship
 {
     //ENUMS REPRESENTING THE VALUE THE SQUARE CAN BE (CAN BE UNKNOWN, WATER, UNDAMAGED, DAMAGED OR SUNK)
     public enum SquareType {Unknown, Water, Undamaged, Miss, Sunk }
-
+    [Serializable]
     public class Board : DependencyObject
     {
         //GET THE ROW OF THE BOARD

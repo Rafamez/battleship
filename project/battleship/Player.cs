@@ -377,7 +377,7 @@ namespace battleship
 					location[0] = -1;
 					location[1] = -1;
 					MyGrid[row][col].Type=SquareType.Miss;
-					image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/X.jpg");
+					image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/X.png");
 					image.Stretch = Stretch.Fill;
 					Grid.SetRow(image, row);
 					Grid.SetColumn(image, col);
@@ -396,7 +396,7 @@ namespace battleship
 						MineSunk(square.ShipIndex);
 						//CHANGE SUNK TO TRUE
 						isSunk = true;
-						image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/cross.jpg");
+						image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/cross.png");
 						image.Stretch = Stretch.Fill;
 						Grid.SetRow(image, row);
 						Grid.SetColumn(image, col);
@@ -413,7 +413,7 @@ namespace battleship
 					{
 						//SET THE TYPE OF THE SQUARE TO DAMAGED
 						square.Type = SquareType.Miss;
-						image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/X.jpg");
+						image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/X.png");
 						image.Stretch = Stretch.Fill;
 						Grid.SetRow(image, row);
 						Grid.SetColumn(image, col);

@@ -11,7 +11,8 @@ using System.Windows.Media;
 namespace battleship
 {
 	//public class for the AI (ennemy)
-	public class AI : Window, ISerializable
+    [Serializable]
+	public class AI : Window
 	{
 		int difficulty;
 		//INT FOR THE SIZE OF THE GRID
@@ -555,7 +556,7 @@ namespace battleship
 					switch (MyGrid[row][col].ShipIndex)
 					{
 						case -1:
-							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/X.jpg");
+							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/X.png");
 							for (int i = 0; i < grid.Children.Count; i++)
 							{
 								UIElement e = grid.Children[i];
@@ -568,9 +569,9 @@ namespace battleship
 							grid.Children.Add(image);
 							return SquareType.Miss;
 						default:
-							myShips[1].FiredAt();
 							damagedIndex = MyGrid[row][col].ShipIndex;
-							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/Cross.jpg");
+                            myShips[damagedIndex].FiredAt();
+                            image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/Cross.png");
 							for (int i = 0; i < grid.Children.Count; i++)
 							{
 								UIElement e = grid.Children[i];
@@ -592,7 +593,7 @@ namespace battleship
 				case SquareType.Undamaged:
 					damagedIndex = MyGrid[row][col].ShipIndex;
 					myShips[damagedIndex].FiredAt();
-					image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/Cross.jpg");
+					image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/Cross.png");
 					for (int i = 0; i < grid.Children.Count; i++)
 					{
 						UIElement e = grid.Children[i];
@@ -610,7 +611,7 @@ namespace battleship
 					}
 					return SquareType.Sunk;
 				case SquareType.Water:
-					image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/X.jpg");
+					image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/X.png");
 					for (int i = 0; i < grid.Children.Count; i++)
 					{
 						UIElement e = grid.Children[i];
@@ -1112,11 +1113,6 @@ namespace battleship
 					}
 				}
 			}
-		}
-
-		public void GetObjectData(SerializationInfo info, StreamingContext context)
-		{
-			throw new NotImplementedException();
 		}
 	}
 }

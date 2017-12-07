@@ -69,6 +69,11 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Ship.cs" />
     <Compile Include="AI.cs" />
     <Compile Include="App.xaml.cs">
@@ -86,11 +91,6 @@
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -111,9 +111,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\cross.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\japan\Japan.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -130,9 +127,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\background2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\X.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Leaderboard.xaml">
@@ -282,6 +276,10 @@
     <Resource Include="Images\oceanStartPage.wmv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cross.png" />
+    <Resource Include="Images\X.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
