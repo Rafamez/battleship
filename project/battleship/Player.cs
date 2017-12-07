@@ -45,7 +45,7 @@ namespace battleship
 		//value to chose which image to put on grid
 		private int imagePos = 1;
 
-		public StringBuilder gettingShot;
+		public String gettingShot;
 
 
 		//CREATE PLAYER CLASS
@@ -345,11 +345,10 @@ namespace battleship
 			otherPlayer.MyGrid[row][col].ShipIndex = damagedIndex;
 
 			//IF LOCATION ISSUNK IS TRUE (HITTING A SHIP)
+			if (damagedIndex>-1)
+				return username + " hit " + otherPlayer.myShips[damagedIndex].type.ToString() + " on location (" + row.ToString() + "," + col.ToString() + ")";
 			if (isSunk)
-			{
 				otherPlayer.MineSunk(damagedIndex);
-				return username + " hit " + otherPlayer.myShips[damagedIndex].ToString() + " on location (" + row.ToString() + "," + col.ToString() + ")";
-			}
 			else
 			{
 				//IF ISSUNK IS FALSE (NOT HITTING A SHIP)
@@ -357,6 +356,7 @@ namespace battleship
 				otherPlayer.MyGrid[row][col].Type = newType;
 				return username + " missed his shot on locations (" + row.ToString() + "," + col.ToString() + ")";
 			}
+			return null;
 		}
 
 		//IF YOURE GETTING FIRED AT
@@ -367,15 +367,21 @@ namespace battleship
 			//DAMAGE INDEX
 			damagedIndex = -1;
 			int[] location = new int[2];
+			Image image = new Image();
 
 			//SWITCH TO SEE THE TYPE OF THE LOCATION HIT
 			switch (MyGrid[row][col].Type)
 			{
 				//IF ITS WATER, RETURN WATER
 				case SquareType.Water:
-					location[0] = -3;
-					location[1] = -3;
-					gettingShot.Append("AI has missed his shot on location (" + row.ToString() + "," + col.ToString() + ")");
+					location[0] = -1;
+					location[1] = -1;
+					MyGrid[row][col].Type=SquareType.Miss;
+					image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/X.jpg");
+					image.Stretch = Stretch.Fill;
+					Grid.SetRow(image, row);
+					Grid.SetColumn(image, col);
+					grid.Children.Add(image);
 					return location;
 				//IF ITS AN UNDAMAGED SHIP
 				case SquareType.Undamaged:
@@ -390,13 +396,11 @@ namespace battleship
 						MineSunk(square.ShipIndex);
 						//CHANGE SUNK TO TRUE
 						isSunk = true;
-						Image image = new Image();
-						image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images/cross.jpg");
-						image.Stretch = Stretch.UniformToFill;
+						image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/cross.jpg");
+						image.Stretch = Stretch.Fill;
 						Grid.SetRow(image, row);
 						Grid.SetColumn(image, col);
 						grid.Children.Add(image);
-						gettingShot.Append("AI shot " + myShips[damagedIndex].type.ToString() + " on location (" + row.ToString() + "," + col.ToString() + ")");
 						if (myShips[damagedIndex].healthReturn == 0)
 						{
 							MessageBox.Show(myShips[damagedIndex].ToString() + " has been sunk");
@@ -409,15 +413,14 @@ namespace battleship
 					{
 						//SET THE TYPE OF THE SQUARE TO DAMAGED
 						square.Type = SquareType.Miss;
-						Image image = new Image();
-						image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Images/X.jpg");
-						image.Stretch = Stretch.UniformToFill;
+						image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/X.jpg");
+						image.Stretch = Stretch.Fill;
 						Grid.SetRow(image, row);
 						Grid.SetColumn(image, col);
 						grid.Children.Add(image);
 					}
-					location[0] = -2;
-					location[1] = -2;
+					location[0] = row;
+					location[1] = col;
 					return location;
 				//IF ITS DAMAGED, RETURN ERROR
 				case SquareType.Miss:
@@ -427,7 +430,9 @@ namespace battleship
 				case SquareType.Sunk:
 					goto default;
 				default:
-					throw new Exception("fail");
+					location[0] = -2;
+					location[1] = -2;
+					return location;
 			}
 		}
 

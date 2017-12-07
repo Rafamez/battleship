@@ -67,7 +67,6 @@ namespace battleship
 			set {; }
 		}
 
-		public bool yourTurn = true;
 		List<Boolean> boatClicked = new List<Boolean> { false, false, false, false, false };
 
 		public mainGameWindow()
@@ -107,9 +106,7 @@ namespace battleship
 			this.Dispatcher.Invoke(() =>
 			{
 				//increment the value of the Time label by 1 
-				_Time.Text = GameTime.ToString();
-				if (yourTurn)
-					otherPlayer.AITurn();
+				Time.Text = GameTime.ToString();
 			});
 
 		}
@@ -169,8 +166,8 @@ namespace battleship
 			{
 				File.Delete(@"../../DataFile.txt");
 			}
-			saved[0] = _Score.Text + '*';
-			saved[1] = _Time.Text + '*';
+			saved[0] = Score.Text + '*';
+			saved[1] = Time.Text + '*';
 			saved[2] = difficulty.ToString() + '*';
 			// saved[3] = Name.Text +'*';
 			// saved[4] = Credit.Text +'*';
@@ -489,33 +486,45 @@ namespace battleship
 
 		private void ImageGotClicked(object sender, MouseButtonEventArgs e)
 		{
-				if (yourTurn)
-					actions.Text += human.Fire(xAxis, yAxis, otherPlayer);
-				else
-				{
-					actions.Text += human.gettingShot[shotsFired];
-					shotsFired++;
-				}
-				yourTurn = !yourTurn;
+			var point = Mouse.GetPosition(AIGrid);
+
+			xAxis = 0;
+			yAxis = 0;
+			double accumulatedHeight = 0.0;
+			double accumulatedWidth = 0.0;
+
+			// calc row mouse was over
+			foreach (var rowDefinition in AIGrid.RowDefinitions)
+			{
+				accumulatedHeight += rowDefinition.ActualHeight;
+				if (accumulatedHeight >= point.Y)
+					break;
+				++xAxis;
+				if (xAxis == 10)
+					break;
+			}
+
+			// calc col mouse was over
+			foreach (var columnDefinition in AIGrid.ColumnDefinitions)
+			{
+				accumulatedWidth += columnDefinition.ActualWidth;
+				if (accumulatedWidth >= point.X)
+					break;
+				++yAxis;
+				if (yAxis == 10)
+					break;
+			}
+			if (T.Enabled || GameTime > 0) { 
+			if (otherPlayer.MyGrid[xAxis][yAxis].Type != SquareType.Sunk && otherPlayer.MyGrid[xAxis][yAxis].Type != SquareType.Miss) { 
+				actions.Text += human.Fire(xAxis, yAxis, otherPlayer);
+				actions.Text += Environment.NewLine;
+				otherPlayer.AITurn();
+				shotsFired++;
 				attempts++;
 				AttemptValues.Text = attempts.ToString();
-				if (yourTurn)
-				{
-					if (english)
-						Turn.Content = "YOUR \r\nTURN";
-					else
-						Turn.Content = "VOTRE \r\nTOURS";
-
 				}
-				else
-				{
-					if (english)
-						Turn.Content = "AI \r\nTURN";
-					else
-						Turn.Content = "TOURS \r\n DU ROBOT";
-				}
-
 			}
+		}
 
 
 
@@ -561,7 +570,7 @@ namespace battleship
 				{
 					score = 10000 - (timeCount * (attempts / 17) * (2 - (boatsLeft / 5)));
 				}
-				saveData = "Name: " + ' ' + score.ToString() + ' ' + _Time.Text + '*';
+				saveData = "Name: " + ' ' + score.ToString() + ' ' + Time.Text + '*';
 				FileStream fs = new FileStream("../../highscores.txt", FileMode.Create, FileAccess.ReadWrite);
 				// Construct a BinaryFormatter and use it to serialize the data to the stream.
 				BinaryFormatter formatter = new BinaryFormatter();
