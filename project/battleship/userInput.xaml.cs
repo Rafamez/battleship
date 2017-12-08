@@ -65,5 +65,16 @@ namespace battleship
 
 			}
 		}
+		 protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            bool wasCodeClosed = new StackTrace().GetFrames().FirstOrDefault(x => x.GetMethod() == typeof(Window).GetMethod("Close")) != null;
+            if (!wasCodeClosed)
+            {
+                Application.Current.Shutdown();
+            }
+
+
+            base.OnClosing(e);
+        }
 	}
 }
