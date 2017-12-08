@@ -1,0 +1,46 @@
+<Window x:Class="battleship.startWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:battleship"
+        mc:Ignorable="d"
+        Title="Battleship" Height="502.759" Width="1181.471" MinHeight="300" MinWidth="600" ResizeMode="NoResize">
+
+	<Grid x:Name="mom">
+		<Grid x:Name="son">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="3*"/>
+				<ColumnDefinition Width="2*"/>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+			</Grid.RowDefinitions>
+			<Image x:Name="LogoImage" HorizontalAlignment="Center" VerticalAlignment="Center" Source="Images/BattleshipLOGO.png" Grid.Column="1" Grid.Row="0" Stretch="Uniform"/>
+				<Button x:Name="NewGame" RenderTransformOrigin="0.483,0.522" Click="NewGame_Click" Grid.Column="0" Grid.Row="3">
+					<Button.Template>
+						<ControlTemplate TargetType="{x:Type Button}">
+							<ContentPresenter Content="{TemplateBinding Content}"/>
+						</ControlTemplate>
+					</Button.Template>
+					<Image Source="Images/startButton.png" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="671" Width="660"/>
+
+				</Button>
+				<Button x:Name="LoadGame" Margin="0,0,0,0" RenderTransformOrigin="0.483,0.522" Click="LoadGame_Click" Grid.Row="2" Grid.Column="2">
+					<Button.Template>
+						<ControlTemplate TargetType="{x:Type Button}">
+							<ContentPresenter Content="{TemplateBinding Content}"/>
+						</ControlTemplate>
+					</Button.Template>
+					<Image Source="Images/loadButton.png" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="671" Width="660"/>
+
+				</Button>
+
+		</Grid>
+	</Grid>
+
+
+</Window>

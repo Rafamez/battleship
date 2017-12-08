@@ -1,0 +1,225 @@
+<Window x:Name="gameWindow" x:Class="battleship.mainGameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:battleship"
+        mc:Ignorable="d"
+        Title="Battleship" 
+        Height="530.258" Width="1210.116" MinHeight="300" MinWidth="600" ResizeMode="CanMinimize" WindowState="Normal" Closed="gameWindow_Closed" >
+
+    <Grid x:Name="mom">
+        <StackPanel Height="auto" Width="auto" Margin="0,0,-0.4,-3.8">
+
+
+
+            <ToolBar x:Name="menu" Background="White">
+                <Menu>
+                    <MenuItem x:Name="Languages" Header="Language">
+                        <MenuItem x:Name="FrenchLanguage"  Header="French" Click="French" />
+                        <MenuItem x:Name="EnglishLanguage" Header="English" Click="English"/>
+                    </MenuItem>
+                    <MenuItem x:Name="Cheats" Header="Cheats">
+                        <MenuItem x:Name="On" Header="On" Icon="" Click="CheatsOn"/>
+                        <MenuItem x:Name="Off" Header="Off" Icon="" Click="CheatsOff"/>
+                    </MenuItem>
+                    <MenuItem x:Name="Skins" Header="Skin" RenderTransformOrigin="0.414,0.957">
+                        <MenuItem x:Name="UnitedStates" Header="USA"   Click="USA" IsCheckable="True">
+                            <MenuItem.Icon>
+                                <Image Source="Images\usa\USA.jpg" Width="20" Height="20" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem x:Name="Japan" Header="JPN" Click="JPN" IsCheckable="True">
+                            <MenuItem.Icon>
+                                <Image Source="Images\japan\Japan.jpg" Width="20" Height="20" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem x:Name="Russia" Header="RUS" Click="RUS" IsCheckable="True">
+                            <MenuItem.Icon>
+                                <Image Source="Images\russia\Russia.jpg" Width="20" Height="20" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem x:Name="Germany" Header="GER" Click="GER" IsCheckable="True">
+                            <MenuItem.Icon>
+                                <Image Source="Images\germany\Germany.jpg" Width="20" Height="20" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </MenuItem>
+
+                </Menu>
+            </ToolBar>
+
+
+            <Label x:Name="Title" Content="Battleship: The Game" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontFamily="OCR A Std" Foreground="White"/>
+
+
+            <Border BorderBrush="Black" BorderThickness="2" Height="44" Margin="0,0,-0.8,0" Background="#FF8D8D8D">
+                <WrapPanel Margin="0,0,0,-2" RenderTransformOrigin="0.5,0.5">
+                    <WrapPanel.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleX="1.468"/>
+                            <RotateTransform/>
+                            <TranslateTransform X="0.474"/>
+                        </TransformGroup>
+                    </WrapPanel.RenderTransform>
+                    <Label x:Name="scoreLabel" Content="Score" Width="56.028" Height="24" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10 10 10 10" FontFamily="OCR A Extended" Foreground="White"/>
+                    <TextBlock x:Name="Score" Text="0" Width="80" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 10 5 10" Padding="4" FontFamily="OCR A Extended" Foreground="White"/>
+                    <Label x:Name="TimeLabel" Content="Time:" Width="50" Height="26" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10 10 10 10" FontFamily="OCR A Extended" Foreground="White"/>
+                    <TextBlock x:Name="Time" Text="0" Width="43" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 10 5 10" Padding="3" FontFamily="OCR A Extended" Foreground="White"/>
+                    <Label x:Name="Difficulty" Content="Difficulty" Width="89" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10 10 10 10" FontFamily="OCR A Extended" Foreground="White"/>
+                    <Button x:Name="Easy" Content="_Easy"  Width="78" Click="Easy_Click" FontFamily="OCR A Extended"/>
+                    <Button x:Name="Medium" Content="_Medium" Width="78" Click="Medium_Click" Background="#FFDDDDDD" FontFamily="OCR A Extended"/>
+                    <Button x:Name="Hard" Content="_Hard" Width="78" Click="Hard_Click" Margin=" 0 0 30 0" Background="#FFDDDDDD" FontFamily="OCR A Extended"/>
+                    <Label x:Name="AttemptsCount" Content="Attempts: " Width="79" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10 10 10 10" FontFamily="OCR A Extended" Foreground="White"/>
+                    <TextBlock x:Name="AttemptValues" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" Text="0" Foreground="White"/>
+
+                    <Button x:Name="reset" Content="_Reset" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Margin="30 0 0 0" Click="reset_Click" FontFamily="OCR A Extended"/>
+                    <Image x:Name="Mute_Click" Source="Images/MuteBUTTpng.png" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill" MouseLeftButtonDown="Mute_click" Visibility="Visible" Width="45"/>
+                    <Image x:Name="Volume_Click" Source="Images/VolumeButtpng.png" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill" MouseLeftButtonDown="Volume_click" Visibility="Hidden" Width="45"/>
+
+
+
+                </WrapPanel>
+            </Border>
+            <Grid x:Name="GameGrid">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="2*"/>
+
+                </Grid.ColumnDefinitions>
+
+                <Grid x:Name="HumanGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30 10 0 0" Width="300" Grid.Column="0" MouseLeftButtonDown="LayShip" >
+                    <Grid.Background>
+                        <ImageBrush ImageSource="Images/background.jpg" TileMode="Tile" Stretch="UniformToFill"/>
+                    </Grid.Background>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="30"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+
+                </Grid>
+
+
+                <WrapPanel Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 50 0 0" Background="#FF8D8D8D">
+                    <Grid x:Name="shipsLocations">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+                        <Image x:Name="BattleShip" Grid.Row="0" Grid.Column="1" Source="Images\usa\battleshipH.png" Visibility="Visible" MouseLeftButtonDown="CallChoseShip" Stretch="Uniform" />
+                        <Button x:Name="BBButton" Grid.Row="0" Grid.Column="0" Visibility="Visible" Click="BButton_Click" Margin="10 10 10 10">
+                            <Button.Background>
+                                <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
+                            </Button.Background>
+                        </Button>
+                        <Image x:Name="Cruiser" Grid.Row="0" Grid.Column="1" Source="Images\usa\cruiserH.png" Visibility="Hidden" MouseLeftButtonDown="CallChoseShip" Stretch="Uniform"/>
+                        <Button x:Name="CButton" Grid.Row="0" Grid.Column="0" Visibility="Hidden" Click="CButton_Click" Margin="10 10 10 10">
+                            <Button.Background>
+                                <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
+                            </Button.Background>
+                        </Button>
+                        <Image x:Name="Destroyer" Grid.Row="0" Grid.Column="1" Source="Images\usa\destroyerH.png" Visibility="Hidden" MouseLeftButtonDown="CallChoseShip" Stretch="Uniform"/>
+                        <Button x:Name="DButton" Grid.Row="0" Grid.Column="0" Visibility="Hidden" Click="DButton_Click" Margin="10 10 10 10">
+                            <Button.Background>
+                                <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
+                            </Button.Background>
+                        </Button>
+                        <Image x:Name="Submarine" Grid.Row="0" Grid.Column="1" Source="Images\usa\submarineH.png" Visibility="Hidden" MouseLeftButtonDown="CallChoseShip" Stretch="Uniform"/>
+                        <Button x:Name="SButton" Grid.Row="0" Grid.Column="0" Visibility="Hidden" Click="SButton_Click" Margin="10 10 10 10">
+                            <Button.Background>
+                                <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
+                            </Button.Background>
+                        </Button>
+                        <Image x:Name="AircraftCarrier" Grid.Row="0" Grid.Column="1" Source="Images\usa\carrierH.png" Visibility="Hidden" MouseLeftButtonDown="CallChoseShip" Stretch="Uniform"/>
+                        <Button x:Name="ACButton" Grid.Row="0" Grid.Column="0" Visibility="Hidden" Click="ACButton_Click" Margin="10 10 10 10">
+                            <Button.Background>
+                                <ImageBrush ImageSource="Images\return.png" TileMode="Tile"/>
+                            </Button.Background>
+                        </Button>
+                    </Grid>
+                </WrapPanel>
+
+
+                <Grid x:Name="AIGrid" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 10 0 0" Width="300" Grid.Column="2" MouseLeftButtonDown="ImageGotClicked">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="Images\background2.jpg" TileMode="Tile" Stretch="UniformToFill"/>
+                    </Grid.Background>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="30"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                </Grid>
+
+
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="3" FontFamily="OCR A Extended" HorizontalScrollBarVisibility="Auto">
+                    <TextBlock x:Name="actions" Text="" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="20, 40, 20, 0" Background="#FF8D8D8D"  />
+                </ScrollViewer>
+                <Label x:Name="TurnTimeLeft" Content="TurnTimeLeft" Grid.Column="1" HorizontalAlignment="Left" Margin="8,268,0,0" VerticalAlignment="Top" FontFamily="OCR A Extended" Visibility="Visible" Foreground="White"/>
+                <TextBlock x:Name="timeLeft" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="105,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="OCR A Extended" Visibility="Visible" Foreground="#FFF3F3F3"/>
+            </Grid>
+
+
+            <Grid x:Name="optionsGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="Start" Content="_Start" Width="150" HorizontalAlignment="Left" Margin="20,30,0,-0.4" IsDefault="True" Click="Start_Click" Grid.Column="0" Height="20" VerticalAlignment="Top" FontFamily="OCR A Extended"/>
+                <Button x:Name="Leaderboard" Content="_Leaderboard" Width="150" Height="20" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 30 0 0" Click="Leaderboard_Click" Grid.Column="1" FontFamily="OCR A Extended"/>
+                <Button x:Name="Stop" Content="Sto_p" Width="150" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 30 20 0" IsCancel="True" Click="Stop_Click" Grid.Column="2" FontFamily="OCR A Extended"/>
+            </Grid>
+
+
+
+        </StackPanel>
+    </Grid>
+
+</Window>

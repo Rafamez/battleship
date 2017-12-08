@@ -1,0 +1,15 @@
+﻿<Window x:Class="battleship.Leaderboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:battleship"
+        mc:Ignorable="d"
+        Title="Leaderboard" Height="700" Width="500">
+    <Grid>
+        <TextBlock x:Name="LeaderBoardText" HorizontalAlignment="Left" Margin="87,55,0,0" TextWrapping="Wrap" Text="LEADERBOARD" VerticalAlignment="Top" Height="72" Width="333" FontSize="48"/>
+        <CheckBox Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Highscores_1" HorizontalAlignment="Left" Height="479" Margin="37,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="418"/>
+
+    </Grid>
+</Window>

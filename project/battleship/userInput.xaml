@@ -1,0 +1,27 @@
+﻿<Window x:Class="battleship.userInput"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:battleship"
+        mc:Ignorable="d"
+        Title="Please Enter Information" Height="120.167" Width="221.848" Background="#FF8D8D8D" ResizeMode="CanMinimize" WindowState="Normal">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+
+		<Label x:Name="usernameInput" Content="_Username: " VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0"/>
+		<Label x:Name="ExpireTimeInput" Content="_ExpireTime (s): " VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0"/>
+		<TextBox x:Name="UsernameValue" Opacity="50" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1" MinWidth="100" Text="" KeyDown="UsernameValue_KeyDown"/>
+		<TextBox x:Name="ExpireTimeValue" Opacity="50" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" MinWidth="100" Text="" KeyDown="ExpireTimeValue_KeyDown"/>
+		<Button x:Name="Start" Content="_Start" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Width="70" Click="Start_Click"/>
+		<Button x:Name="Reset" Content="_Reset" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Width="70" Click="Reset_Click"/>
+	</Grid>
+</Window>
