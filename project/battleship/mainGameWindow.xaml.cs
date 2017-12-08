@@ -20,57 +20,95 @@ using System.Windows.Shapes;
 
 namespace battleship
 {
-   [Serializable]
-	public partial class mainGameWindow : Window
-	{
-		public int xAxis = 0;
-		public int yAxis = 0;
-		// public double size = 0; was used when we resized window, but feature was removed
-		public int difficulty = 0;
-		//general timer of the game
-		public System.Timers.Timer T = new Timer();
-		//time for the amount of time the user has been playing
-		public System.Timers.Timer PT = new Timer();
-		//the game time passed
-		public int GameTime = 0;
-		//the time that has passed for the round of the player
-		public int PlayTime = 0;
-		//time when each round will end
-		public int expireTime = 20;
+    [Serializable]
+    public partial class mainGameWindow : Window
+    {
+        private static MediaPlayer player = new MediaPlayer();
+        public int xAxis = 0;
+        public int yAxis = 0;
+        // public double size = 0; was used when we resized window, but feature was removed
+        public int difficulty = 0;
+        //general timer of the game
+        public System.Timers.Timer T = new Timer();
+        //time for the amount of time the user has been playing
+        public System.Timers.Timer PT = new Timer();
+        //the game time passed
+        public int GameTime = 0;
+        //the time that has passed for the round of the player
+        public int PlayTime = 0;
+        //time when each round will end
+        public int expireTime = 20;
+        public int expireTime2 = 0;
 
-		public string skin = "usa";
+        public string skin = "usa";
 
-		int ennemyPlacedShips = 0;
+        int ennemyPlacedShips = 0;
 
-		public int attempts = 0;
+        public int attempts = 0;
 
-		//creating human
-		private String[] saved = new String[250];
-		private string saveData;
+        //creating human
+        private String[] saved = new String[250];
+        private string saveData;
 
-		private Boolean clicked;
-		//creating human
-		public Player human;
-		public AI otherPlayer;
+        private Boolean clicked;
+        //creating human
+        public Player human;
+        public AI otherPlayer;
 
-		private int shotsFired = 0;
+        private int shotsFired = 0;
 
-		public Boolean english = true;
+        public Boolean english = true;
 
-		public List<Boolean> horizental = new List<Boolean> { true, true, true, true, true };
+        private Boolean musicPlaying = true;
 
-		public List<Boolean> isHorizental
-		{
-			get { return horizental; }
-			set {; }
-		}
+        public List<Boolean> horizental = new List<Boolean> { true, true, true, true, true };
 
-		List<Boolean> boatClicked = new List<Boolean> { false, false, false, false, false };
 
-		public mainGameWindow()
-		{
-			InitializeComponent();
-			WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+
+
+        public List<Boolean> isHorizental
+        {
+            get { return horizental; }
+            set {; }
+        }
+
+        List<Boolean> boatClicked = new List<Boolean> { false, false, false, false, false };
+        private String[] a = new String[2];
+
+        public mainGameWindow()
+        {
+            InitializeComponent();
+
+            //deserializes and adds the username and the timeleft 
+
+
+            /* FileStream Fs = new FileStream("../../userInput.txt", FileMode.Open, FileAccess.Read);
+             try
+             {
+                 BinaryFormatter F = new BinaryFormatter();
+
+                 a = (String[])F.Deserialize(Fs);
+             }
+             catch (SerializationException em)
+             {
+                 MessageBox.Show("Failed to deserialize. Reason: " + em.Message);
+
+             }
+             catch (FileNotFoundException fnfe)
+             {
+                 MessageBox.Show("The file was not found");
+             }
+             //	catch (Exception excp) {
+             //		MessageBox.Show("An error was found");
+             //	}
+             finally
+             {
+                 Fs.Close();
+
+             }
+             expireTime = Convert.ToInt32( a[1]);
+             expireTime2 = expireTime;*/
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             MediaElement media = new MediaElement();
             media.LoadedBehavior = MediaState.Manual;
             media.UnloadedBehavior = MediaState.Manual;
@@ -81,7 +119,16 @@ namespace battleship
             mom.Children.Add(media);
             media.Play();
 
+            //MUSIC
+            player.Open(new Uri(System.IO.Path.Combine(Environment.CurrentDirectory, "../../Images/MainOST.mp3")));
+            player.Play();
+
+            //player.Pause();
             human = new Player("Bob", HumanGrid, skin);
+
+            Leaderboard lb = new Leaderboard();
+
+
 
 
             UnitedStates.IsChecked = true;
@@ -103,18 +150,37 @@ namespace battleship
         //when the elapsedEventArgs e is met (1000 milliseconds elapsed)
         private void OnTimedEvent(object source, ElapsedEventArgs e)
         {
-            //increment 1 to gametime
-            GameTime++;
-            //if the round for the player has started, start adding time to its counter
-            if (PT.Enabled == true)
-                PlayTime++;
-            //invoke the time_passed textbox and change its values with the new value of gamtime
-            this.Dispatcher.Invoke(() =>
+            if (T.Enabled)
             {
-                //increment the value of the Time label by 1 
-                Time.Text = GameTime.ToString();
-            });
 
+
+                //getting the play 
+                if (expireTime == 0)
+                {
+
+
+                    expireTime = expireTime2;
+                    otherPlayer.AITurn();
+
+                }
+                expireTime--;
+                //increment 1 to gametime
+                GameTime++;
+                //if the round for the player has started, start adding time to its counter
+                if (PT.Enabled == true)
+                {
+                    PlayTime++;
+
+
+                }
+                //invoke the time_passed textbox and change its values with the new value of gamtime
+                this.Dispatcher.Invoke(() =>
+                {
+                    //increment the value of the Time label by 1 
+                    Time.Text = GameTime.ToString();
+                });
+
+            }
         }
 
         //ETHAN USE THIS METHOD TO CHANGE THE VALUE OF THE TIMER.TXT ON MAINWINDOWSGAME
@@ -133,6 +199,12 @@ namespace battleship
             MediaElement media = (MediaElement)sender;
             media.Position = TimeSpan.FromSeconds(0);
         }
+        private void Video_MediaEnded2(object sender, RoutedEventArgs e)
+        {
+            MediaPlayer media = (MediaPlayer)sender;
+            media.Position = TimeSpan.FromSeconds(0);
+        }
+
 
         //method for the when the user choses easy difficulty, changes the value to 1
         private void Easy_Click(object sender, RoutedEventArgs e)
@@ -165,6 +237,37 @@ namespace battleship
         {
             T.Enabled = true;
             //disable change of difficulty once game has started
+
+            //deserializes and adds the username and the timeleft 
+
+          //  FileStream Fs = new FileStream("../../userInput.txt", FileMode.Open, FileAccess.Read);
+       /*     try
+            {
+                BinaryFormatter F = new BinaryFormatter();
+
+                a = (String[])F.Deserialize(Fs);
+            }
+            catch (SerializationException em)
+            {
+                MessageBox.Show("Failed to deserialize. Reason: " + em.Message);
+
+            }
+            catch (FileNotFoundException fnfe)
+            {
+                MessageBox.Show("The file was not found");
+            }
+            //	catch (Exception excp) {
+            //		MessageBox.Show("An error was found");
+            //	}
+            finally
+            {
+                Fs.Close();
+
+            }
+            timeLeft.Text = a[1].ToString();
+            human.username = a[0];
+
+            */
             Easy.Click -= Easy_Click;
             Medium.Click -= Medium_Click;
             Hard.Click -= Hard_Click;
@@ -180,26 +283,65 @@ namespace battleship
             if (ennemyPlacedShips == 0)
                 otherPlayer.getShipPlacement();
             ennemyPlacedShips++;
-        }			
-		//method for the when the user stops the game (automatically saves + stops timer)
-		private void Stop_Click(object sender, RoutedEventArgs e)
-		{
-			T.Enabled = false;
-			if (File.Exists(@"../../DataFile.txt"))
-			{
-				File.Delete(@"../../DataFile.txt");
-			}
-			saved[0] = Score.Text + '*';
-			saved[1] = Time.Text + '*';
-			saved[2] = difficulty.ToString() + '*';
-			// saved[3] = Name.Text +'*';
-			// saved[4] = Credit.Text +'*';
-			//saved[5] = empire.text +'*';
-			//saved[6]= language.text +'*';
-			//saved[7]= cheats.text +'*';
+        }
+        //method for the when the user stops the game (automatically saves + stops timer)
+        private void Stop_Click(object sender, RoutedEventArgs e)
+        {
+       /*     T.Enabled = false;
+            if (File.Exists(@"../../DataFile.txt"))
+            {
 
-			//SAVE THE ELEMENTS FOR THE GRID 
-			/*   for (int i = 0; i < GameGrid.Text.Length; i++)
+                File.Delete(@"../../DataFile.txt");
+            }
+            if (File.Exists(@"../../DataFile.ser"))
+            {
+                File.Delete(@"../../DataFile.ser");
+            }
+            saved[0] = Score.Text;
+            saved[1] = Time.Text;
+            saved[2] = difficulty.ToString();
+            saved[3] = AttemptValues.Text;
+            saved[4] = timeLeft.Text;
+            saved[5] = skin.ToString();
+            saved[6] = human.username;
+
+            Serialize(TimeLabel.Content, "../../DataFile.ser");
+            Serialize(Language, "../../DataFile.ser");
+            Serialize(AttemptsCount.Content, "../../DataFile.ser");
+            Serialize(Easy.Content, "../../DataFile.ser");
+            Serialize(Medium.Content, "../../DataFile.ser");
+            Serialize(Hard.Content, "../../DataFile.ser");
+            Serialize(Cheats, "../../DataFile.ser");
+            Serialize(Skins, "../../DataFile.ser");
+            Serialize(HumanGrid, "../../DataFile.ser");
+            Serialize(AIGrid, "../../DataFile.ser");
+            Serialize(TurnTimeLeft.Content, "../../DataFile.ser");
+
+
+            Serialize(human.myShips, "../../DataFile.ser");
+            Serialize(otherPlayer.myShips, "../../DataFile.ser");
+            Serialize(human.MyGrid, "../../DataFile.ser");
+            Serialize(otherPlayer.MyGrid, "../../DataFile.ser");
+
+
+
+            //saved[5] = empire.text +'*';
+            //saved[6]= language.text +'*';
+            //saved[7]= cheats.text +'*';
+            /*
+             * skins
+             * difficulty
+             * cheats 
+             * human grid
+             * ai grid 
+             * human ships 
+             * ai ships
+             * ai my grid 
+             * human my grid
+             * username
+             * */
+            //SAVE THE ELEMENTS FOR THE GRID 
+            /*   for (int i = 0; i < GameGrid.Text.Length; i++)
                {
                    saved[i + 4] = secret[i];
 
@@ -209,7 +351,7 @@ namespace battleship
                    saved[j + 20] = Convert.ToString(reveal[j]);
 
                }*/
-            FileStream fs = new FileStream("../../DataFile.txt", FileMode.Create, FileAccess.ReadWrite);
+          /*  FileStream fs = new FileStream("../../DataFile.txt", FileMode.Create, FileAccess.ReadWrite);
             // Construct a BinaryFormatter and use it to serialize the data to the stream.
             BinaryFormatter formatter = new BinaryFormatter();
             try
@@ -224,7 +366,7 @@ namespace battleship
             finally
             {
                 fs.Close();
-            }
+            }*/
         }
         //method which shows the leaderboard
         private void Leaderboard_Click(object sender, RoutedEventArgs e)
@@ -232,6 +374,7 @@ namespace battleship
             clicked = !clicked;
             if (clicked)
             {
+                //app2.Visibility = Visibility.Visible;
 
             }
         }
@@ -239,6 +382,8 @@ namespace battleship
         private void French(object sender, RoutedEventArgs e)
         {
             english = false;
+            TurnTimeLeft.Content = "TourneTempsRestant";
+            reset.Content = "Réinitialiser";
             Title.Content = "BattleShip: Le jeu";
             TimeLabel.Content = "Temps";
             Difficulty.Content = "Difficulté";
@@ -261,7 +406,8 @@ namespace battleship
         private void English(object sender, RoutedEventArgs e)
         {
             english = true;
-
+            TurnTimeLeft.Content = "TurnTimeLeft";
+            reset.Content = "Reset";
             Title.Content = "BattleShip: The Game";
             TimeLabel.Content = "Time";
             Difficulty.Content = "Difficulty";
@@ -577,6 +723,7 @@ namespace battleship
                     shotsFired++;
                     attempts++;
                     AttemptValues.Text = attempts.ToString();
+                    end();
                 }
             }
         }
@@ -589,7 +736,7 @@ namespace battleship
         public void end()
         {
             //if you lose
-            if (human.Lost() && otherPlayer.Lost())
+            if (human.Lost() || otherPlayer.Lost())
             {
                 //Serializing the highscores 
                 int score = 0;
@@ -635,25 +782,21 @@ namespace battleship
             if (human.Lost())
             {
                 if (english)
-
                     MessageBox.Show("You lost the game in " + GameTime + " seconds, git gud!");
                 else
                     MessageBox.Show("Vous avez perdu le jeu en " + GameTime + " secondes, vous êtes mauvais!");
                 System.Windows.Application.Current.Shutdown();
             }
-			else
-			{
-                //if you lose
-                if (otherPlayer.Lost())
-                {
-                    if (english)
-                        MessageBox.Show("You won the game in " + GameTime + " seconds, Congratulations!");
-                    else
-                        MessageBox.Show("Vous avez gagnez le jeu en " + GameTime + " secondes, Bravo!");
-                    System.Windows.Application.Current.Shutdown();
-                }
+            else if (otherPlayer.Lost())
+            {
+                if (english)
+                    MessageBox.Show("You won the game in " + GameTime + " seconds, Congratulations!");
+                else
+                    MessageBox.Show("Vous avez gagnez le jeu en " + GameTime + " secondes, Bravo!");
+                System.Windows.Application.Current.Shutdown();
             }
         }
+
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
@@ -681,7 +824,49 @@ namespace battleship
                 HumanGrid.Children.Clear();
             }
         }
-	protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        private void Mute_click(object sender, MouseButtonEventArgs e)
+        {
+            if (musicPlaying)
+            {
+                player.Pause();
+                musicPlaying = false;
+                Mute_Click.Visibility = Visibility.Hidden;
+                Volume_Click.Visibility = Visibility.Visible;
+            }
+        }
+        private void Volume_click(object sender, MouseButtonEventArgs e)
+        {
+            if (!musicPlaying)
+            {
+                player.Play();
+                musicPlaying = true;
+                Mute_Click.Visibility = Visibility.Visible;
+                Volume_Click.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void gameWindow_Closed(object sender, EventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
+        public static void Serialize(Object o, string filespec)
+        {
+            IFormatter f = new BinaryFormatter();
+            Stream writer = new FileStream(filespec, FileMode.Create, FileAccess.ReadWrite, FileShare.None);
+            f.Serialize(writer, o);
+            writer.Close();
+        }
+
+        public static Object DeSerialize(string filespec)
+        {
+            IFormatter f = new BinaryFormatter();
+            Stream reader = new FileStream(filespec, FileMode.Open, FileAccess.Read, FileShare.None);
+            Object o = f.Deserialize(reader);
+            reader.Close();
+
+            return o;
+        }
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
             bool wasCodeClosed = new StackTrace().GetFrames().FirstOrDefault(x => x.GetMethod() == typeof(Window).GetMethod("Close")) != null;
             if (!wasCodeClosed)
@@ -694,4 +879,4 @@ namespace battleship
         }
     }
 }
-				
+
