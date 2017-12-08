@@ -26,7 +26,7 @@ namespace battleship
 		public int xAxis = 0;
 		public int yAxis = 0;
 		// public double size = 0; was used when we resized window, but feature was removed
-		public int difficulty = 0;
+		public int difficulty = 1;
 		//general timer of the game
 		public System.Timers.Timer T = new Timer();
 		//time for the amount of time the user has been playing
@@ -37,6 +37,8 @@ namespace battleship
 		public int PlayTime = 0;
 		//time when each round will end
 		public int expireTime = 20;
+
+		bool unstart = true;
 
 		public string skin = "usa";
 
@@ -165,23 +167,27 @@ namespace battleship
         //method for the when the user starts the game (option to load + start timer)
         private void Start_Click(object sender, RoutedEventArgs e)
         {
-            T.Enabled = true;
-            //disable change of difficulty once game has started
-            Easy.Click -= Easy_Click;
-            Medium.Click -= Medium_Click;
-            Hard.Click -= Hard_Click;
-            UnitedStates.Click -= USA;
-            Japan.Click -= JPN;
-            Russia.Click -= RUS;
-            Germany.Click -= GER;
-            UnitedStates.IsCheckable = false;
-            Japan.IsCheckable = false;
-            Russia.IsCheckable = false;
-            Germany.IsCheckable = false;
-            otherPlayer = new AI(difficulty, human, AIGrid, skin);
-            if (ennemyPlacedShips == 0)
-                otherPlayer.getShipPlacement();
-            ennemyPlacedShips++;
+			if (unstart)
+			{
+				T.Enabled = true;
+				//disable change of difficulty once game has started
+				Easy.Click -= Easy_Click;
+				Medium.Click -= Medium_Click;
+				Hard.Click -= Hard_Click;
+				UnitedStates.Click -= USA;
+				Japan.Click -= JPN;
+				Russia.Click -= RUS;
+				Germany.Click -= GER;
+				UnitedStates.IsCheckable = false;
+				Japan.IsCheckable = false;
+				Russia.IsCheckable = false;
+				Germany.IsCheckable = false;
+				otherPlayer = new AI(difficulty, human, AIGrid, skin);
+				if (ennemyPlacedShips == 0)
+					otherPlayer.getShipPlacement();
+				ennemyPlacedShips++;
+				unstart = true;
+			}
         }			
 		//method for the when the user stops the game (automatically saves + stops timer)
 		private void Stop_Click(object sender, RoutedEventArgs e)

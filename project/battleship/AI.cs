@@ -182,6 +182,7 @@ namespace battleship
 				if (!(direction == ""))
 				{
 					int[] number = new int[2];
+					int[] other = new int[2];
 
 					//Picks shoot area based on direction, and adapt the direction to get ready for the next step
 					switch (direction)
@@ -190,49 +191,66 @@ namespace battleship
 							if (reversed == false)
 							{
 
-								headFound[0] = headFound[0] - 1;
-								number = shoot(headFound[0], headFound[1]);
-							}
-							else
-							{
-								tailFound[0] = tailFound[0] + 1;
-								number = shoot(tailFound[0], tailFound[1]);
-							}
-							break;
-						case "Right":
-							if (reversed == false)
-							{
-								headFound[0] = headFound[0] + 1;
-								number = shoot(headFound[0], headFound[1]);
-							}
-							else
-							{
-								tailFound[0] = tailFound[0] - 1;
-								number = shoot(tailFound[0], tailFound[1]);
-							}
-							break;
-						case "Up":
-							if (reversed == false)
-							{
 								headFound[1] = headFound[1] - 1;
 								number = shoot(headFound[0], headFound[1]);
+								other[0] = headFound[0];
+								other[1] = headFound[1];
 							}
 							else
 							{
 								tailFound[1] = tailFound[1] + 1;
 								number = shoot(tailFound[0], tailFound[1]);
+								other[0] = tailFound[0];
+								other[0] = tailFound[1];
+
 							}
 							break;
-						case "Down":
+						case "Right":
 							if (reversed == false)
 							{
 								headFound[1] = headFound[1] + 1;
 								number = shoot(headFound[0], headFound[1]);
+								other[0] = headFound[0];
+								other[1] = headFound[1];
 							}
 							else
 							{
 								tailFound[1] = tailFound[1] - 1;
 								number = shoot(tailFound[0], tailFound[1]);
+								other[0] = tailFound[0];
+								other[0] = tailFound[1];
+							}
+							break;
+						case "Up":
+							if (reversed == false)
+							{
+								headFound[0] = headFound[0] - 1;
+								number = shoot(headFound[0], headFound[1]);
+								other[0] = headFound[0];
+								other[1] = headFound[1];
+							}
+							else
+							{
+								tailFound[0] = tailFound[0] + 1;
+								number = shoot(tailFound[0], tailFound[1]);
+								other[0] = tailFound[0];
+								other[0] = tailFound[1];
+							}
+							break;
+						case "Down":
+							if (reversed == false)
+							{
+								headFound[0] = headFound[0] + 1;
+								number = shoot(headFound[0], headFound[1]);
+								other[0] = headFound[0];
+								other[1] = headFound[1];
+							}
+							else
+							{
+								tailFound[0] = tailFound[0] - 1;
+								number = shoot(tailFound[0], tailFound[1]);
+								other[0] = tailFound[0];
+								other[0] = tailFound[1];
 							}
 							break;
 						default:
@@ -246,20 +264,28 @@ namespace battleship
 						switch (direction)
 						{
 							case "Left":
-								tailFound[0] = tailFound[0] + 1;
-								number = shoot(tailFound[0], tailFound[1]);
-								break;
-							case "Right":
-								tailFound[0] = tailFound[0] - 1;
-								number = shoot(tailFound[0], tailFound[1]);
-								break;
-							case "Up":
 								tailFound[1] = tailFound[1] + 1;
 								number = shoot(tailFound[0], tailFound[1]);
+								other[0] = tailFound[0];
+								other[0] = tailFound[1];
 								break;
-							case "Down":
+							case "Right":
 								tailFound[1] = tailFound[1] - 1;
 								number = shoot(tailFound[0], tailFound[1]);
+								other[0] = tailFound[0];
+								other[0] = tailFound[1];
+								break;
+							case "Up":
+								tailFound[0] = tailFound[0] + 1;
+								number = shoot(tailFound[0], tailFound[1]);
+								other[0] = tailFound[0];
+								other[0] = tailFound[1];
+								break;
+							case "Down":
+								tailFound[0] = tailFound[0] - 1;
+								number = shoot(tailFound[0], tailFound[1]);
+								other[0] = tailFound[0];
+								other[0] = tailFound[1];
 								break;
 							default:
 								throw new Exception("AI made it to a direction not valid in the code");
@@ -270,29 +296,61 @@ namespace battleship
 					//Will add to make sure that it switches when need be (Second line if opposite of current check).
 					if (difficulty == 3)
 					{
-						if (even)
+						if (!(number[0] == -3))
 						{
-							if (number[1] % 2 == 0)
+							if (even)
 							{
-								line[number[0]] = line[number[0]] + 1;
+								if (isEven(other[0]))
+								{
+									if (isEven(other[1]))
+									{
+										line[other[0]] = line[other[0]] + 1;
+									}
+									else
+									{
+										secondLine[other[0]] = secondLine[other[0]] + 1;
+									}
+								}
+								else
+								{
+									if (!(isEven(other[1])))
+									{
+										line[other[0]] = line[other[0]] + 1;
+									}
+									else
+									{
+										secondLine[other[0]] = secondLine[other[0]] + 1;
+									}
+								}
 							}
 							else
 							{
-								secondLine[number[0]] = secondLine[number[0]] + 1;
-							}
-						}
-						else
-						{
-							if (!(number[1] % 2 == 0))
-							{
-								line[number[0]] = line[number[0]] + 1;
-							}
-							else
-							{
-								secondLine[number[0]] = secondLine[number[0]] + 1;
+								if (isEven(other[0]))
+								{
+									if (!(isEven(other[1])))
+									{
+										line[other[0]] = line[other[0]] + 1;
+									}
+									else
+									{
+										secondLine[other[0]] = secondLine[other[0]] + 1;
+									}
+								}
+								else
+								{
+									if (!(isEven(other[1])))
+									{
+										line[other[0]] = line[other[0]] + 1;
+									}
+									else
+									{
+										secondLine[other[0]] = secondLine[other[0]] + 1;
+									}
+								}
 							}
 						}
 					}
+
 
 					//If area is miss
 					if (number[0] == -1)
@@ -317,46 +375,74 @@ namespace battleship
 				{
 					int check = random.Next(0, 4);
 					int[] number = shoot(search[check, 0], search[check, 1]);
-
+					int[] other = new int[2];
 					//If return is -2, then that area has been shot already, or if number is -3, is invalid, and code will restart.
 					while (number[0] == -2 || number[0] == -3)
 					{
-						search[check, 0] = -1;
-						search[check, 1] = -1;
-						if (search[check, 0] == -1)
-						{
-							continue;
-						}
 						check = random.Next(0, 4);
+						other[0] = search[check, 0];
+						other[1] = search[check, 1];
 						number = shoot(search[check, 0], search[check, 1]);
 					}
 
 					//Will add to make sure that it switches when need be (Second line if opposite of current check).
 					if (difficulty == 3)
 					{
-						if (even)
+						if (!(number[0] == -3))
 						{
-							if (number[1] % 2 == 0)
+							if (even)
 							{
-								line[number[0]] = line[number[0]] + 1;
+								if (isEven(other[0]))
+								{
+									if (isEven(other[1]))
+									{
+										line[other[0]] = line[other[0]] + 1;
+									}
+									else
+									{
+										secondLine[other[0]] = secondLine[other[0]] + 1;
+									}
+								}
+								else
+								{
+									if (!(isEven(other[1])))
+									{
+										line[other[0]] = line[other[0]] + 1;
+									}
+									else
+									{
+										secondLine[other[0]] = secondLine[other[0]] + 1;
+									}
+								}
 							}
 							else
 							{
-								secondLine[number[0]] = secondLine[number[0]] + 1;
-							}
-						}
-						else
-						{
-							if (!(number[1] % 2 == 0))
-							{
-								line[number[0]] = line[number[0]] + 1;
-							}
-							else
-							{
-								secondLine[number[0]] = secondLine[number[0]] + 1;
+								if (isEven(other[0]))
+								{
+									if (!(isEven(other[1])))
+									{
+										line[other[0]] = line[other[0]] + 1;
+									}
+									else
+									{
+										secondLine[other[0]] = secondLine[other[0]] + 1;
+									}
+								}
+								else
+								{
+									if (!(isEven(other[1])))
+									{
+										line[other[0]] = line[other[0]] + 1;
+									}
+									else
+									{
+										secondLine[other[0]] = secondLine[other[0]] + 1;
+									}
+								}
 							}
 						}
 					}
+
 					//If -4 is returned, it represents that the ship has sunk.
 					if (number[0] == -4)
 					{
@@ -370,19 +456,19 @@ namespace battleship
 						//Checks which direction the boat is most likley going
 						if ((tailFound[0] == search[check, 0]) && (tailFound[1] - 1 == search[check, 1]))
 						{
-							direction = "Up";
+							direction = "Left";
 						}
 						else if ((tailFound[0] == search[check, 0]) && (tailFound[1] + 1 == search[check, 1]))
 						{
-							direction = "Down";
+							direction = "Right";
 						}
 						else if ((tailFound[0] - 1 == search[check, 0]) && (tailFound[1] == search[check, 1]))
 						{
-							direction = "Left";
+							direction = "Up";
 						}
 						else
 						{
-							direction = "Right";
+							direction = "Down";
 						}
 						headFound[0] = search[check, 0];
 						headFound[1] = search[check, 1];
@@ -391,7 +477,7 @@ namespace battleship
 				}
 
 				//Medium AI will shoot randomly until it has found a hit that it has not killed.
-				if (this.difficulty == 2)
+				else if (difficulty == 2)
 				{
 					tailFound = shoot(random.Next(0, 10), random.Next(0, 10));
 
@@ -417,7 +503,7 @@ namespace battleship
 						Boolean test = true;
 
 						//Checks to see if all lines were checked twice (or once during third go)
-						for (int i = 0; i < line.Length; i++)
+						for (int i = 0; i < 5; i++)
 						{
 							if (line[i] < 5)
 							{
@@ -430,7 +516,7 @@ namespace battleship
 						{
 
 							//If all numbers of even/odd have been checked, then the reverse will have to be checked.                    
-							for (int i = 0; i < line.Length; i++)
+							for (int i = 0; i < 5; i++)
 							{
 								line[i] = secondLine[i];
 							}
@@ -439,7 +525,7 @@ namespace battleship
 
 						//Will switch the line that is currently on.
 						currentLine = random.Next(0, 10);
-						while (line[currentLine] == 5)
+						while (line[currentLine] == 4)
 						{
 							currentLine = random.Next(0, 10);
 						}
@@ -456,39 +542,81 @@ namespace battleship
 						}
 					}
 
-					tailFound = shoot(currentLine, random.Next(0, 10));
+					int numberShot = random.Next(0, 10);
 
 					//Will check to make sure random shots are checkered.
 					if (even)
 					{
-						while (!(tailFound[1] % 2 == 0))
+						if (isEven(currentLine))
 						{
-							tailFound = shoot(currentLine, random.Next(0, 10));
-						}
-					}
-					else
-					{
-						while (tailFound[1] % 2 == 0)
-						{
-							tailFound = shoot(currentLine, random.Next(0, 10));
-						}
-					}
-
-					//Represents that the area has already been shot
-					while (tailFound[1] == -2)
-					{
-						if (even)
-						{
-							while (!(tailFound[1] % 2 == 0))
+							while (!(isEven(numberShot)))
 							{
-								tailFound = shoot(currentLine, random.Next(0, 10));
+								numberShot = random.Next(0, 10);
 							}
 						}
 						else
 						{
-							while (tailFound[1] % 2 == 0)
+							while (isEven(numberShot))
 							{
-								tailFound = shoot(currentLine, random.Next(0, 10));
+								numberShot = random.Next(0, 10);
+							}
+						}
+					}
+					else
+					{
+						if (isEven(currentLine))
+						{
+							while (isEven(numberShot))
+							{
+								numberShot = random.Next(0, 10);
+							}
+						}
+						else
+						{
+							while (!(isEven(numberShot)))
+							{
+								numberShot = random.Next(0, 10);
+							}
+						}
+					}
+
+					tailFound = shoot(currentLine, numberShot);
+					//Represents that the area has already been shot
+					while (tailFound[1] == -2)
+					{
+						numberShot = random.Next(0, 10);
+						if (even)
+						{
+							if (isEven(currentLine))
+							{
+								while (!(isEven(numberShot)))
+								{
+									numberShot = random.Next(0, 10);
+								}
+							}
+							else
+							{
+								while (isEven(numberShot))
+								{
+									numberShot = random.Next(0, 10);
+								}
+							}
+						}
+						else
+						{
+							if (isEven(currentLine))
+							{
+								while (isEven(numberShot))
+								{
+									numberShot = random.Next(0, 10);
+								}
+							}
+							else
+							{
+								while (!(isEven(numberShot)))
+								{
+									numberShot = random.Next(0, 10);
+								}
 							}
 						}
 					}
@@ -506,6 +634,7 @@ namespace battleship
 					search[3, 0] = tailFound[0];
 					search[3, 1] = tailFound[1] + 1;
 					line[currentLine] = line[currentLine] + 1;
+
 				}
 
 			}
@@ -556,28 +685,18 @@ namespace battleship
 					switch (MyGrid[row][col].ShipIndex)
 					{
 						case -1:
+							MyGrid[row][col].Type = SquareType.Miss;
 							image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/X.png");
-							for (int i = 0; i < grid.Children.Count; i++)
-							{
-								UIElement e = grid.Children[i];
-								if (Grid.GetRow(e) == row && Grid.GetColumn(e) == col)
-									grid.Children.RemoveAt(i);
-							}
 							image.Stretch = Stretch.Fill;
 							Grid.SetRow(image, row);
 							Grid.SetColumn(image, col);
 							grid.Children.Add(image);
 							return SquareType.Miss;
 						default:
+							MyGrid[row][col].Type = SquareType.Sunk;
 							damagedIndex = MyGrid[row][col].ShipIndex;
                             myShips[damagedIndex].FiredAt();
                             image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/Cross.png");
-							for (int i = 0; i < grid.Children.Count; i++)
-							{
-								UIElement e = grid.Children[i];
-								if (Grid.GetRow(e) == row && Grid.GetColumn(e) == col)
-									grid.Children.RemoveAt(i);
-							}
 							Grid.SetRow(image, row);
 							Grid.SetColumn(image, col);
 							grid.Children.Add(image);
@@ -591,15 +710,10 @@ namespace battleship
 					}
 				//IF ITS AN UNDAMAGED SHIP
 				case SquareType.Undamaged:
+					MyGrid[row][col].Type = SquareType.Sunk;
 					damagedIndex = MyGrid[row][col].ShipIndex;
 					myShips[damagedIndex].FiredAt();
 					image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/Cross.png");
-					for (int i = 0; i < grid.Children.Count; i++)
-					{
-						UIElement e = grid.Children[i];
-						if (Grid.GetRow(e) == row && Grid.GetColumn(e) == col)
-							grid.Children.RemoveAt(i);
-					}
 					Grid.SetRow(image, row);
 					Grid.SetColumn(image, col);
 					grid.Children.Add(image);
@@ -611,13 +725,8 @@ namespace battleship
 					}
 					return SquareType.Sunk;
 				case SquareType.Water:
+					MyGrid[row][col].Type = SquareType.Miss;
 					image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/X.png");
-					for (int i = 0; i < grid.Children.Count; i++)
-					{
-						UIElement e = grid.Children[i];
-						if (Grid.GetRow(e) == row && Grid.GetColumn(e) == col)
-							grid.Children.RemoveAt(i);
-					}
 					image.Stretch = Stretch.Fill;
 					Grid.SetRow(image, row);
 					Grid.SetColumn(image, col);
@@ -1091,28 +1200,44 @@ namespace battleship
 			}
 		}
 
+
 		public void hide()
 		{
-			foreach (Image item in grid.Children)
-			{
-				item.Visibility = Visibility.Collapsed;
-			}
-
 			for (int i = 0; i < 10; i++)
 			{
 				for (int j = 0; j < 10; j++)
 				{
-					switch (MyGrid[i][j].Type)
+					if ((MyGrid[i][j].Type == SquareType.Water) || (MyGrid[i][j].Type == SquareType.Undamaged))
 					{
-						case SquareType.Undamaged:
-						case SquareType.Water:
-							MyGrid[i][j].Type = SquareType.Unknown;
-							break;
-						default:
-							break;
+						MyGrid[i][j].Type = SquareType.Unknown;
+						for (int k = 0; k < grid.Children.Count; k++)
+						{
+							UIElement e = grid.Children[k];
+							if (Grid.GetRow(e) == i && Grid.GetColumn(e) == j)
+								e.Visibility = Visibility.Collapsed;
+						}
 					}
 				}
 			}
 		}
+
+
+		public bool isEven(int number)
+		{
+			while (!(number - 2 < 0))
+			{
+				number = number - 2;
+			}
+			while (!(number + 2 > 0))
+			{
+				number = number + 2;
+			}
+			if (number == -1 || number == 1)
+			{
+				return false;
+			}
+			return true;
+		}
+
 	}
 }

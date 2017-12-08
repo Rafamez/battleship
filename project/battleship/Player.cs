@@ -397,11 +397,10 @@ namespace battleship
 				case SquareType.Undamaged:
 					//VALUE TO GET TYPE OF VALUE AT [ROW][SQUARE] OF THE GRID
 					var square = MyGrid[row][col];
+					MyGrid[row][col].Type = SquareType.Sunk;
 					//SHIPINDEX = THE SHIPINDEX OF THAT SQUARE
 					damagedIndex = square.ShipIndex;
 					//IF SHIPINDEX IS <-1 (GOT HIT), CHANGE SQUARE TO SUNK
-					if (myShips[damagedIndex].FiredAt())
-					{
 						//IS SUNK IS TRUE, AND MINESUNK IS THE SHIP INDEX OF THE SQUARE
 						MineSunk(square.ShipIndex);
 						//CHANGE SUNK TO TRUE
@@ -418,17 +417,6 @@ namespace battleship
 							location[1] = -4;
 							return location;
 						}
-					}
-					else
-					{
-						//SET THE TYPE OF THE SQUARE TO DAMAGED
-						square.Type = SquareType.Miss;
-						image.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../Images/X.png");
-						image.Stretch = Stretch.Fill;
-						Grid.SetRow(image, row);
-						Grid.SetColumn(image, col);
-						grid.Children.Add(image);
-					}
 					location[0] = row;
 					location[1] = col;
 					return location;
