@@ -14,6 +14,10 @@ namespace battleship
 
     public partial class App : Application
     {
-
+    
+ internal new static void Exit()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
