@@ -66,6 +66,8 @@ namespace battleship
 		}
 
 		List<Boolean> boatClicked = new List<Boolean> { false, false, false, false, false };
+		
+		Leaderboard lb = new Leaderboard();
 
 		public mainGameWindow()
 		{
@@ -232,6 +234,7 @@ namespace battleship
             clicked = !clicked;
             if (clicked)
             {
+	    lb.Visibility = Visibility.Visible;
 
             }
         }
